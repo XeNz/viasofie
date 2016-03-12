@@ -1,0 +1,17 @@
+{% include "realestate/header.html" %}
+{% if latest_property_list %}
+    <ul>
+    {% for property in latest_property_list %}
+        <li><a href="{% url 'realestate:detail' property.id %}">{{ property.title_text }} {{ propertyPicture.picture.url }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No properties are available.</p>
+{% endif %}
+
+<!-- <ul>
+  {% for propertyPicture in view.get_pictures_and_properties %}
+    <li><img src="{{ propertyPicture.picture.url }}"></li>
+  {% endfor %}
+<ul> -->
+{% include "realestate/footer.html" %}

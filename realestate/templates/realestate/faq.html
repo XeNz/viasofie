@@ -1,0 +1,17 @@
+{% include "realestate/header.html" %}
+{% load staticfiles %}
+
+{% if all_faqs %}
+   <div id="faqs">
+    {% for faq in all_faqs %}
+        <h3>{{ faq.question }}</h3>
+		<div><p>{{ faq.answer }}</p></div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>No properties are available.</p>
+{% endif %}
+
+{% include "realestate/footer.html" %}
+<link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
+<script type="text/javascript" src="{% static "realestate/js/faq.js" %}"></script>
