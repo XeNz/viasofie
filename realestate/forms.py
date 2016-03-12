@@ -1,6 +1,6 @@
 from django import forms
 
 class FeedbackForm(forms.Form):
-    email = forms.EmailField(label="Your Email")
-    name = forms.CharField(label="Name")
-    message = forms.CharField(label="Body",widget=forms.Textarea)
+    email = forms.EmailField(label="E-mail")
+    name = forms.CharField(label="Naam")
+    message = forms.CharField(label="Vraag",widget=forms.Textarea)

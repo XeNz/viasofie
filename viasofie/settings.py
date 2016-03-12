@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
+from django.contrib.messages import constants as message_constants
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -129,3 +129,11 @@ MEDIA_URL = '/media/'
 
 # Settings
 AJAXIMAGE_AUTH_TEST = lambda u: True
+
+
+
+MESSAGE_TAGS = {message_constants.DEBUG: 'debug',
+                message_constants.INFO: 'info',
+                message_constants.SUCCESS: 'success',
+                message_constants.WARNING: 'warning',
+                message_constants.ERROR: 'danger',}

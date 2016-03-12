@@ -1,8 +1,23 @@
 {% include "realestate/header.html" %}
-<form action="{{ contact }}" method="post">{% csrf_token %}
+<div class="container">
+<form class="form-vertical" action="{{ contact }}" method="post">{% csrf_token %}
+	
   {% for field in form %}
-  <div> {{field.label_tag}} {{field}}</div>
+  	<div class="form-group"> {{field.label_tag}} {{field}}  </div>
   {% endfor %}
+  
   <input type="submit" value="Submit Feedback" />
+ 
 </form>
+{% if messages %}
+</div>
+<div class="container col-md-6">
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+</div>
+
+{% endif %}
 {% include "realestate/footer.html" %}

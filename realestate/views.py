@@ -6,6 +6,7 @@ from django import forms
 from .models import Property,PropertyPicture,FAQ
 from django.template import RequestContext
 from .forms import *
+from django.contrib import messages
 
 
 class IndexView(generic.ListView):
@@ -62,12 +63,15 @@ class Faqview(generic.ListView):
 
 
 
-def Contact(request):
+def contact(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
             #still have to give success message to div in template
-            return HttpResponseRedirect('realestate/contact.html')
+            messages.success(request, 'Bericht met success verstuurd.')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        else:
+            messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
         form = FeedbackForm()
 
