@@ -4,7 +4,7 @@
 {% if all_faqs %}
    <div id="faqs">
     {% for faq in all_faqs %}
-        <h3>{{ faq.question }}</h3>
+        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {{ faq.question }}</h3>
 		<div><p>{{ faq.answer }}</p></div>
     {% endfor %}
     </div>
