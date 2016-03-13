@@ -1,17 +1,43 @@
+
 {% include "realestate/header.html" %}
 {% load staticfiles %}
+
+
+
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
 
-{% if all_faqs %}
-   <div id="faqs">
-    {% for faq in all_faqs %}
-        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {{ faq.question }}</h3>
-		<div><p>{{ faq.answer }}</p></div>
-    {% endfor %}
-    </div>
-{% else %}
-    <p>No properties are available.</p>
-{% endif %}
+<div class='col-sm-6 col-sm-offset-3'>
+<form method='GET' action=''>
+<input type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
+<input type='submit' value='Search' />
+</form>
+{% for obj in object_list %}
+<div class="row">
+  <div id="faqs" class="col-sm-12">
+	<h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}} </h3>
+	 <div><p>{{ obj.answer }}</p></div>
+  </div>
+<hr/>
+</div>
+{% endfor %}
+
+
+	<div class="pagination">
+	    <span class="step-links">
+	        {% if object_list.has_previous %}
+	            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+	        {% endif %}
+
+	        <span class="current">
+	            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+	        </span>
+
+	        {% if object_list.has_next %}
+	            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+	        {% endif %}
+	    </span>
+	</div>
+</div>
 
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{% static "realestate/js/faq.js" %}"></script>
