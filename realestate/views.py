@@ -7,6 +7,8 @@ from .models import Property,PropertyPicture,FAQ
 from django.template import RequestContext
 from .forms import *
 from django.contrib import messages
+import operator
+from django.db.models import Q
 
 
 class IndexView(generic.ListView):
@@ -34,31 +36,13 @@ class DetailView(generic.DetailView):
     template_name = 'realestate/detail.html'
 
 
-class Faqview(generic.ListView):
+class FaqView(generic.ListView):
     template_name = 'realestate/faq.html'
     context_object_name = 'all_faqs'
     def get_queryset(self):
         result =  FAQ.objects.filter(visible_to_public='True').order_by('-pub_date')
         return result
 
-
-# def Contact(request):
-#     if request.method == "POST":
-#         form = FeedbackForm(request.POST)
-
-#         if(form.is_valid()):
-#             print(request.POST['name'])
-#             print(request.POST['message'])
-#             message = "Dank u voor uw feedback. Wij contacteren u zo snel mogelijk"
-#         else:
-#             message = "Er is iets mis gegaan. Probeer het later opnieuw."
-#         return render_to_response('realestate/contact.html',
-#                 {'success': message},
-#                 context_instance=RequestContext(request))
-#     else:
-#         return render_to_response('realestate/contact.html',
-#                 {'form':FeedbackForm()},
-#                 context_instance=RequestContext(request))
 
 
 

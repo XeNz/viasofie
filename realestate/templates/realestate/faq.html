@@ -1,5 +1,6 @@
 {% include "realestate/header.html" %}
 {% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
 
 {% if all_faqs %}
    <div id="faqs">
@@ -13,5 +14,4 @@
 {% endif %}
 
 {% include "realestate/footer.html" %}
-<link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
 <script type="text/javascript" src="{% static "realestate/js/faq.js" %}"></script>
