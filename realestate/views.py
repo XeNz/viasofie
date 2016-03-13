@@ -12,6 +12,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 
 
+
+
+
 class IndexView(generic.ListView):
     template_name = 'realestate/index.html'
     context_object_name = 'latest_property_list'
