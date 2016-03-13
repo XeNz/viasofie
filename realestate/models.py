@@ -10,12 +10,6 @@ class Property(models.Model):
     title_text = models.CharField(max_length=200)
     description_text = models.CharField(max_length=200)
     adress_text = models.CharField(max_length=200)
-"""    mailbox = models.CharField(max_length=200,blank=True)
-    bedrooms = models.IntegerField(default=0)
-    bathrooms = models.IntegerField(default=0)
-    toilets = models.IntegerField(default=0)
-    gardens = models.IntegerField(default=0)
-    terraces = models.IntegerField(default=0)"""
     constructiondate = models.DateField()
     sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
     visible_to_public = models.BooleanField(default=True)
@@ -35,15 +29,13 @@ class Property(models.Model):
 
 class Characteristics_property(models.Model):
     id = models.AutoField(primary_key=True)
-    property_id = models.ForeignKey(
-                           'Property')
-    characteristic_id = models.ForeignKey(
-                                           'Characteristic')
+    property_id = models.ForeignKey('Property')
+    characteristic_id = models.ForeignKey('Characteristic')
+    value = models.CharField(max_length=255)
 
 class Characteristic(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    value = models.CharField(max_length=255)
 
 
 #query doen op instance.propertyid.id
