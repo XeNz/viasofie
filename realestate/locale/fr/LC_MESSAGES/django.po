@@ -1,0 +1,18 @@
+
+#: templates/realestate/cookiebanner.html:5
+msgid "COOKIE_INFO_HEADER"
+msgstr "Consentement d'utilisation des Cookies"
+
+#: templates/realestate/cookiebanner.html:7
+msgid "COOKIE_INFO_OK"
+msgstr "J'accepte"
+
+#: templates/realestate/cookiebanner.html:8
+msgid "COOKIE_INFO_PARA"
+msgstr ""
+"Notre site sauvegarde des traceurs textes (cookies) sur votre appareil afin "
+"de vous garantir de meilleurs contenus et à des fins de collectes statistiques."
+"Vous pouvez désactiver l'usage des cookies en changeant les paramètres de votre "
+"navigateur. En poursuivant votre navigation sur notre site sans changer vos "
+"paramètres de navigateur vous nous accordez la permission de conserver des "
+"informations sur votre appareil."

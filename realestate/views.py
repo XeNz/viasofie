@@ -1,5 +1,5 @@
 from django.shortcuts import *
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django import forms
@@ -10,7 +10,7 @@ from django.contrib import messages
 import operator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-
+from django.core.mail import send_mail, BadHeaderError
 
 
 
@@ -69,14 +69,20 @@ def faq_list(request):
 
 
 def contact(request):
+    #Have to setup STMP server for this to work
+    #fix indentation when uncommenting
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            #still have to give success message to div in template
+            subject = request.POST.get('subject', '')
+            message = request.POST.get('message', '')
+            from_email = request.POST.get('from_email', '')
+            #if subject and message and from_email:
+             #   send_mail(subject, message, from_email, ['xentricator@gmail.com'])
             messages.success(request, 'Bericht met success verstuurd.')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
-            messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
+             messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
         form = FeedbackForm()
 

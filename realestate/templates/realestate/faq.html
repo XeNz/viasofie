@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
 
 <div class='col-sm-6 col-sm-offset-3'>
-<form method='GET' action=''>
+<form method='GET' action=''>{% csrf_token %}
 <input type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
 <input type='submit' value='Search' />
 </form>

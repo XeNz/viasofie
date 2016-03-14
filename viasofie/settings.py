@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
+    #'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # change language to local browser language
-    #'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'viasofie.urls'
@@ -67,6 +67,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
             ],
         },
     },
@@ -108,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'nl-be'
 
 TIME_ZONE = 'GMT+1'
 
@@ -118,6 +122,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'realestate/locale'),)
+
+
+ugettext = lambda s: s
+LANGUAGES = (
+    ('en', ugettext('English')),
+    ('fr', ugettext('French')),
+    ('nl', ugettext('Nederlands')),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -131,9 +145,19 @@ MEDIA_URL = '/media/'
 AJAXIMAGE_AUTH_TEST = lambda u: True
 
 
-
+#bootstrap messages fix
 MESSAGE_TAGS = {message_constants.DEBUG: 'debug',
                 message_constants.INFO: 'info',
                 message_constants.SUCCESS: 'success',
                 message_constants.WARNING: 'warning',
                 message_constants.ERROR: 'danger',}
+#
+#security
+#
+#This header will tell the browser to enable the non-presistent XSS attack as described earlier. To add this header, add this to your settings file
+SECURE_BROWSER_XSS_FILTER = True
+#This header will tell your browser to refuse any connection that is not-secure. When a browser sees this header, it will refuse any connection that is not-secure for the given time.
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS =  True
+#This header will prevent Internet Explorer and Chrome guessing the MIME type of the response.
+SECURE_CONTENT_TYPE_NOSNIFF = True
