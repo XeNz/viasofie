@@ -18,3 +18,7 @@ run django-admin makemessages -l nl
 AND
 
 django-admin compilemessages
+***
+when having errors with classytags
+
+pip install django-classy-tags
