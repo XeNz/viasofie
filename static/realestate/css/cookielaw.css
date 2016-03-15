@@ -1,0 +1,35 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+#CookielawBanner {
+    background: #fff;
+    padding: 15px 0;
+}
+
+#CookielawBanner .container {
+}
+
+#CookielawBanner #CookielawCross {
+    background: url('../img/close.png') no-repeat 0 0;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+}
