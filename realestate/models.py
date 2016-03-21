@@ -32,10 +32,18 @@ class Characteristics_property(models.Model):
     characteristic_id = models.ForeignKey('Characteristic')
     value = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return str(self.value)
+
 class Characteristic(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return self.name
+    class Meta():
+        verbose_name = 'Property characteristic'
+        verbose_name_plural = 'Property characteristics'
 
 #query doen op instance.propertyid.id
 def create_property_images_path(instance, filename):
