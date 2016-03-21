@@ -1,9 +1,10 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
+{% load thumbnail %}
 <h1>{{ property.title_text }}</h1>
 
-<!-- Beschrijving : {{ property.description_text }}</br>
+Beschrijving : {{ property.description_text }}</br>
 Adres: {{ property.adress_text }}</br>
 Mailbox: {{ property.mailbox }}</br>
 Slaapkamers: {{ property.bedrooms }}</br>
@@ -12,42 +13,21 @@ Toiletten: {{ property.toilets }}</br>
 Tuinen: {{ property.gardens }}</br>
 Terassen: {{ property.terraces }}</br>
 Verkoopprijs: {{ property.sellingprice }}</br>
-Bouwdatum: {{ property.constructiondate }}</br> -->
+Bouwdatum: {{ property.constructiondate }}</br>
 
-<table class="table table-reflow">
-  <thead>
-    <tr>
-      <th>Beschrijving</th>
-      <th>Adres</th>
-      <th>Mailbox</th>
-      <th>Slaapkamers</th>
-      <th>Badkamers</th>
-      <th>Toiletten</th>
-      <th>Tuinen</th>
-      <th>Terassen</th>
-      <th>Verkoopprijs</th>
-      <th>Bouwdatum</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-		<td>{{property.description_text}}</td>
-		<td>{{property.adress_text}}</td>
-		<td>{{property.mailbox}}</td>
-		<td>{{property.bedrooms}}</td>
-		<td>{{property.bathrooms}}</td>
-		<td>{{property.toilets}}</td>
-		<td>{{property.gardens}}</td>
-		<td>{{property.terraces}}</td>
-		<td>{{property.sellingprice}}</td>
-		<td>{{property.constructiondate}}</td>
-    </tr>
-  </tbody>
-</table>
+{% for propertyCharacteristic in property.propertykey.all %}
+{% endfor %}
+<div class="popup-gallery">
+    {% for propertyimage in property.propertykey.all %}
+        <a href="{{ propertyimage.picture.url }}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}" /> </a>
+    {% endfor %}
+</div>
+<hr>
 <a href="{% url 'realestate:index'%}">Terug naar overzicht</a>
+
+
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 {% include "realestate/footer.html" %}
+<script type="text/javascript" src="{% static "realestate/js/propertypicture_detail.js" %}"></script>
