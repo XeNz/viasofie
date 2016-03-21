@@ -14,7 +14,6 @@ class Property(models.Model):
     sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
     visible_to_public = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
-    PropertyPicture = None
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
@@ -43,7 +42,7 @@ def create_property_images_path(instance, filename):
     return '/'.join(['images', str(instance.property.id), filename])
 
 class PropertyPicture(models.Model):
-    property = models.ForeignKey('Property')
+    property = models.ForeignKey(Property, related_name='propertykey')
     picture = models.ImageField(upload_to=create_property_images_path, blank=True)
 
 class FAQ(models.Model):

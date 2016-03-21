@@ -1,19 +1,15 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
-{% if latest_property_list %}
-    <ul>
-    {% for property in latest_property_list %}
-        <li><a href="{% url 'realestate:detail' property.id %}">{{ property.title_text }} {{ propertyPicture.picture.url }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No properties are available.</p>
-{% endif %}
+{% load thumbnail %}
 
-<!-- <ul>
-  {% for propertyPicture in view.get_pictures_and_properties %}
-    <li><img src="{{ propertyPicture.picture.url }}"></li>
-  {% endfor %}
-<ul> -->
+{% for property in properties %} 
+    <a href="{% url 'realestate:detail' property.id %}"> <h1 class="entryheader">{{ property.title_text }}</h1> </a>
+    <p>{{ property.description_text }} </p>
+        {% for propertyimage in property.propertykey.all %}
+             <img src="{% thumbnail propertyimage.picture  150x150 crop %}"/>
+        {% endfor %}
+        <hr>
+{% endfor %}
+
 {% include "realestate/footer.html" %}

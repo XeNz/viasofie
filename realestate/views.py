@@ -1,4 +1,4 @@
-from django.shortcuts import *
+from django.shortcuts import render,render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
@@ -13,28 +13,24 @@ from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 
 
+def index(request):
+        return render(request, "realestate/index.html", {
+        'properties': Property.objects.filter(featured=True).order_by('-pub_date')[:5]
+    })
 
+# class IndexView(generic.ListView):
+#     template_name = 'realestate/index.html'
+#     context_object_name = 'latest_property_list'
 
-class IndexView(generic.ListView):
-    template_name = 'realestate/index.html'
-    context_object_name = 'latest_property_list'
+#     def get_queryset(self):
+#         result =  Property.objects.filter(featured='True').order_by('-pub_date')[:5] 
+#         return result
+#     def get_propertyPictures(self):
+#     	#return PropertyPicture.objects.all()
+#         property_ids = list(Property.objects.all().values_list('id', flat=True))
+#         result = PropertyPicture.objects.filter(property__in=property_ids)
+#         return result
 
-    def get_queryset(self):
-        result =  Property.objects.filter(featured='True').order_by('-pub_date')[:5] 
-        return result
-    def get_propertyPictures(self):
-    	#return PropertyPicture.objects.all()
-        property_ids = list(Property.objects.all().values_list('id', flat=True))
-        result = PropertyPicture.objects.filter(property__in=property_ids)
-        return result
-
-    # def get_pictures_and_properties(self):
-    #     featuredproperties =  Property.objects.filter(featured='True').order_by('-pub_date')[:5] 
-    #     property_ids = featuredproperties.all().values_list('id', flat=True)
-    #     filtered_images = PropertyPicture.objects.filter(property__in=property_ids)
-    #     result = property_ids
-    #     result[filtered_images] = filtered_images
-    #     return result;
 class DetailView(generic.DetailView):
     model = Property
     template_name = 'realestate/detail.html'
