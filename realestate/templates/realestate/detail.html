@@ -2,25 +2,30 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
-<h1>{{ property.title_text }}</h1>
-
-Beschrijving : {{ property.description_text }}</br>
-Adres: {{ property.adress_text }}</br>
-Verkoopprijs: {{ property.sellingprice }}</br>
-Bouwdatum: {{ property.constructiondate }}</br>
-
+<link rel="stylesheet" type="text/css" href="{% static "realestate/css/googlemaps.css" %}"/>
+<div class="container">
+    <h1>{{ property.title_text }}</h1>
+    Beschrijving : {{ property.description_text }}</br>
+    Adres: {{ property.adress_text }}</br>
+    Verkoopprijs: {{ property.sellingprice }}</br>
+    Bouwdatum: {{ property.constructiondate }}</br>
     {% for characteristic_property in characteristics_property %}
     <!-- to test for property id-->
     <!-- </p>characteristic_property id = {{characteristic_property.property_id}} -->
     {{characteristic_property.characteristic_id.name}} : {{characteristic_property.value}} </br>
     {% endfor %}
-<div class="popup-gallery">
-    {% for propertyimage in property.propertykey.all %}
-        <a href="{{ propertyimage.picture.url }}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}" /> </a>
-    {% endfor %}
+    <div class="popup-gallery">
+        {% for propertyimage in property.propertykey.all %}
+            <a href="{{ propertyimage.picture.url }}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}" /> </a>
+        {% endfor %}
+    </div>
+    <div class="google-maps">
+        <iframe width="600"height="450"frameborder="0" style="border:0"src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&q={{ property.adress_text }}"> </iframe>
+    </div>
+    <a href="{% url 'realestate:index'%}">Terug</a>
 </div>
 <hr>
-<a href="{% url 'realestate:index'%}">Terug naar overzicht</a>
+
 
 
 
