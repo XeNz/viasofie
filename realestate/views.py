@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django import forms
-from .models import Property,PropertyPicture,FAQ
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property
 from django.template import RequestContext
 from .forms import *
 from django.contrib import messages
@@ -15,7 +15,7 @@ from django.core.mail import send_mail, BadHeaderError
 
 def index(request):
         return render(request, "realestate/index.html", {
-        'properties': Property.objects.filter(featured=True).order_by('-pub_date')[:5]
+        'properties': Property.objects.filter(featured=True,visible_to_public=True).order_by('-pub_date')[:5]
     })
 
 # class IndexView(generic.ListView):
@@ -34,6 +34,12 @@ def index(request):
 class DetailView(generic.DetailView):
     model = Property
     template_name = 'realestate/detail.html'
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        #context['characteristics'] = Characteristic.objects.all()
+        characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
+        context['characteristics_property'] = characteristics_property
+        return context
 
 
 def faq_list(request):

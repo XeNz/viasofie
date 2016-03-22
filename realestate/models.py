@@ -26,15 +26,6 @@ class Property(models.Model):
         verbose_name = 'Eigendom'
         verbose_name_plural = 'Eigendommen'
 
-class Characteristics_property(models.Model):
-    id = models.AutoField(primary_key=True)
-    property_id = models.ForeignKey('Property')
-    characteristic_id = models.ForeignKey('Characteristic')
-    value = models.CharField(max_length=255)
-
-    def __unicode__(self):
-        return str(self.value)
-
 class Characteristic(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
@@ -45,7 +36,15 @@ class Characteristic(models.Model):
         verbose_name = 'Property characteristic'
         verbose_name_plural = 'Property characteristics'
 
-#query doen op instance.propertyid.id
+class Characteristics_property(models.Model):
+    id = models.AutoField(primary_key=True)
+    property_id = models.ForeignKey('Property')
+    characteristic_id = models.ForeignKey(Characteristic, related_name='characteristickey')
+    value = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return str(self.value)
+
 def create_property_images_path(instance, filename):
     return '/'.join(['images', str(instance.property.id), filename])
 

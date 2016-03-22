@@ -6,17 +6,14 @@
 
 Beschrijving : {{ property.description_text }}</br>
 Adres: {{ property.adress_text }}</br>
-Mailbox: {{ property.mailbox }}</br>
-Slaapkamers: {{ property.bedrooms }}</br>
-Badkamers: {{ property.bathrooms }}</br>
-Toiletten: {{ property.toilets }}</br>
-Tuinen: {{ property.gardens }}</br>
-Terassen: {{ property.terraces }}</br>
 Verkoopprijs: {{ property.sellingprice }}</br>
 Bouwdatum: {{ property.constructiondate }}</br>
 
-{% for propertyCharacteristic in property.propertykey.all %}
-{% endfor %}
+    {% for characteristic_property in characteristics_property %}
+    <!-- to test for property id-->
+    <!-- </p>characteristic_property id = {{characteristic_property.property_id}} -->
+    {{characteristic_property.characteristic_id.name}} : {{characteristic_property.value}} </br>
+    {% endfor %}
 <div class="popup-gallery">
     {% for propertyimage in property.propertykey.all %}
         <a href="{{ propertyimage.picture.url }}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}" /> </a>

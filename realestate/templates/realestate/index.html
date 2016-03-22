@@ -2,14 +2,18 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
+    <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
+    <div class="container-fluid">
 
 {% for property in properties %} 
-    <a href="{% url 'realestate:detail' property.id %}"> <h1 class="entryheader">{{ property.title_text }}</h1> </a>
+    <a href="{% url 'realestate:detail' property.id %}"> <h3>{{ property.title_text }}</h3> </a>
     <p>{{ property.description_text }} </p>
+    <p>{{ property.sellingprice }} </p>
         {% for propertyimage in property.propertykey.all %}
-             <img src="{% thumbnail propertyimage.picture  150x150 crop %}"/>
+        <a href="{% url 'realestate:detail' property.id %}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}"/></a>
         {% endfor %}
         <hr>
 {% endfor %}
+    </div>
 
 {% include "realestate/footer.html" %}
