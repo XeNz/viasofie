@@ -30,7 +30,7 @@ class Characteristic(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
     class Meta():
         verbose_name = 'Property characteristic'
@@ -42,8 +42,8 @@ class Characteristics_property(models.Model):
     characteristic_id = models.ForeignKey(Characteristic, related_name='characteristickey')
     value = models.CharField(max_length=255)
 
-    def __unicode__(self):
-        return str(self.value)
+    def __str__(self):
+        return self.value
 
 def create_property_images_path(instance, filename):
     return '/'.join(['images', str(instance.property.id), filename])
