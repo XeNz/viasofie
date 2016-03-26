@@ -3,30 +3,77 @@
 {% include "realestate/header.html" %}
 {% load thumbnail %}
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/googlemaps.css" %}"/>
-<div class="container">
-    <h1>{{ property.title_text }}</h1>
-    Beschrijving : {{ property.description_text }}</br>
-    Adres: {{ property.adress_text }}</br>
-    Verkoopprijs: {{ property.sellingprice }}</br>
-    Bouwdatum: {{ property.constructiondate }}</br>
-    {% for characteristic_property in characteristics_property %}
-    <!-- to test for property id-->
-    <!-- </p>characteristic_property id = {{characteristic_property.property_id}} -->
-    {{characteristic_property.characteristic_id.name}} : {{characteristic_property.value}} </br>
-    {% endfor %}
-    <div class="popup-gallery">
-        {% for propertyimage in property.propertykey.all %}
-            <a href="{{ propertyimage.picture.url }}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}" /> </a>
-        {% endfor %}
-    </div>
-    <div class="google-maps">
-        <iframe width="600"height="450"frameborder="0" style="border:0"src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&q={{ property.adress_text }}"> </iframe>
-    </div>
-    <a href="{% url 'realestate:index'%}">Terug</a>
+<link rel="stylesheet" type="text/css" href="{% static "realestate/css/detail.css" %}"/>
+<div class="row">
+<div class = "col-md-3">
+linkerkolom div
 </div>
-<hr>
 
+<div class = "col-md-6">
 
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#details" aria-controls="details" role="tab" data-toggle="tab"><span class = "glyphicon glyphicon-home
+    "> </span> Details</a></li>
+    <li role="presentation"><a href="#location" aria-controls="location" role="tab" data-toggle="tab"><span class = "glyphicon glyphicon-globe
+    "> </span> Location</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="details">
+            <h1>{{ property.title_text }}</h1><br />
+            <h2>  Overzicht </h2>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">Adres</th>
+                        <td>{{ property.adress_text }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Vraagprijs</th>
+                        <td>{{ property.sellingprice }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bouwdatum</th>
+                        <td>{{ property.constructiondate }}</td>
+                    </tr>    
+
+                    {% for characteristic_property in characteristics_property %}
+                    <!-- to test for property id-->
+                    <!-- </p>characteristic_property id = {{characteristic_property.property_id}} -->
+                    <tr>
+                        <th scope="row">{{characteristic_property.characteristic_id.name}}</th>
+                        <td>{{characteristic_property.value}}</td>
+                    </tr>  
+                    {% endfor %}              
+                </tbody>
+            </table>
+
+            <h2> Omschrijving </h2>
+            {{ property.description_text }}
+            
+
+            <div class="popup-gallery">
+                {% for propertyimage in property.propertykey.all %}
+                    <a href="{{ propertyimage.picture.url }}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}"> </a>
+                {% endfor %}
+            </div>
+    </div>
+      <div role="tabpanel" class="tab-pane" id="location">
+        <div class="google-maps">
+             <iframe seamless="seamless" style="border: 0" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&amp;q={{ property.adress_text }}"> </iframe>
+        </div>
+</div>  
+</div>
+    </div>
+<div class = "col-md-3">
+rechterkolom div
+</div>
+</div>
+<!-- <div class = "container">
+<a href="{% url 'realestate:index'%}">Terug</a>
+</div> -->
 
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}

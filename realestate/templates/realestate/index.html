@@ -2,9 +2,11 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
+<div class="col-md-3">
+linkerkolom div
+</div>
+    <div class="col-md-6">
     <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
-    <div class="container-fluid">
-
 {% for property in properties %} 
     <a href="{% url 'realestate:detail' property.id %}"> <h3>{{ property.title_text }}</h3> </a>
     <p>{{ property.description_text }} </p>
@@ -15,5 +17,6 @@
         <hr>
 {% endfor %}
     </div>
+<div class = "col-md-3">rechterkolom div</div>
 
 {% include "realestate/footer.html" %}

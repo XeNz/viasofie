@@ -2,3 +2,6 @@
 #faqs h3.active	{ color:#d74646; }
 #faqs div { height:0; overflow:hidden; position:relative; }
 #faqs div p	{ padding:0; margin-bottom:15px; }
+#faqblock{
+/*     padding-top:25px; */
+}

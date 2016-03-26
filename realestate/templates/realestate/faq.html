@@ -6,11 +6,12 @@
 
 
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
-
-<div class='col-sm-6 col-sm-offset-3'>
+<div class = "col-md-3"> linkerkolom</div>
+<div class='col-md-6' id="faqblock">
+<h2 class = "page-header"> Frequently Asked Questions</h2>
 <form method='GET' action=''>{% csrf_token %}
-<input type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
-<input type='submit' value='Search' />
+<input type='text' name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
+<input type='submit' value='Zoek' />
 </form>
 {% for obj in object_list %}
 <div class="row">
@@ -26,19 +27,19 @@
 	<div class="pagination">
 	    <span class="step-links">
 	        {% if object_list.has_previous %}
-	            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+	            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a>
 	        {% endif %}
 
 	        <span class="current">
-	            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+	            Pagina {{ object_list.number }} van {{ object_list.paginator.num_pages }}.
 	        </span>
 
 	        {% if object_list.has_next %}
-	            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+	            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a>
 	        {% endif %}
 	    </span>
 	</div>
 </div>
-
+<div class = "col-md-3"> rechterkolom</div>
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{% static "realestate/js/faq.js" %}"></script>
