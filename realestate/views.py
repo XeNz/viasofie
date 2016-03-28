@@ -11,6 +11,7 @@ import operator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -89,3 +90,11 @@ def contact(request):
         form = FeedbackForm()
 
     return render(request, 'realestate/contact.html', {'form': form})
+
+# this view will run after successfull login
+@login_required
+def controlpanel(request):
+    return render_to_response('usercontrolpanel/userpanel.html',
+        context_instance=RequestContext(request)
+    )
+

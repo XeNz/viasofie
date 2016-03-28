@@ -142,6 +142,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+#redirect for control panel setting
+LOGIN_REDIRECT_URL = '/controlpanel/'
+LOGIN_URL = '/login/'
 # Settings
 AJAXIMAGE_AUTH_TEST = lambda u: True
 
