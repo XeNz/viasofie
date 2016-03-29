@@ -12,6 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 
 def index(request):
@@ -94,7 +95,11 @@ def contact(request):
 # this view will run after successfull login
 @login_required
 def controlpanel(request):
-    return render_to_response('usercontrolpanel/userpanel.html',
-        context_instance=RequestContext(request)
-    )
+    if not request.user.is_staff:
+        return render_to_response('usercontrolpanel/userpanel.html', context_instance=RequestContext(request) )
+    else:
+        messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
+        logout(request)
+        return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
+
 
