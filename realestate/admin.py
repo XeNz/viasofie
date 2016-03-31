@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal
 
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
@@ -23,3 +23,4 @@ class PropertyAdmin(admin.ModelAdmin):
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(FAQ)
+admin.site.register(Deal)

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django import forms
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal
 from django.template import RequestContext
 from .forms import *
 from django.contrib import messages
@@ -96,7 +96,8 @@ def contact(request):
 @login_required
 def controlpanel(request):
     if not request.user.is_staff:
-        return render_to_response('usercontrolpanel/userpanel.html', context_instance=RequestContext(request) )
+        deals =Deal.objects.filter(user=request.user)
+        return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)

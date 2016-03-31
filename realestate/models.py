@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from decimal import Decimal
-
+from django.contrib.auth.models import User
 
 
 class Property(models.Model):
@@ -68,3 +68,14 @@ class FAQ(models.Model):
     class Meta():
         verbose_name = 'Frequently Asked Questions'
         verbose_name_plural = 'Frequently Asked Questions'
+
+class Deal(models.Model):
+    id = models.AutoField(primary_key=True)
+    property = models.OneToOneField(Property, related_name='propertydealkey')
+    user = models.OneToOneField(User, unique=True, related_name='userdealkey')
+
+    def __str__(self):
+        return self.property.title_text
+    class Meta():
+        verbose_name = 'Deal'
+        verbose_name_plural = 'Deals'
