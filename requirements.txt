@@ -1,0 +1,91 @@
+###### Requirements with Version Specifiers ######
+beautifulsoup4 == 4.4.1
+chardet == 2.3.0
+decorator == 4.0.9
+Django == 1.9.4
+django-classy-tags == 0.7.2
+django-debug-toolbar == 1.4
+django-extensions == 1.6.1
+django-imperavi == 0.2.3
+django-newsletter == 0.6
+django-tinymce == 2.3.0
+django-webtest == 1.7.8
+easy-thumbnails == 2.3
+ipykernel == 4.3.1
+ipython == 4.1.2
+ipython-genutils == 0.1.0
+ipywidgets == 4.1.1
+Jinja2 == 2.8
+jsonschema == 2.5.1
+jupyter-client == 4.2.2
+jupyter-core == 4.1.0
+ldif3 == 3.1.1
+MarkupSafe == 0.23
+mistune == 0.7.2
+nbconvert == 4.1.0
+nbformat == 4.0.1
+notebook == 4.1.0
+path.py == 8.1.2
+pickleshare == 0.6
+Pillow == 3.1.1
+Pygments == 2.1.3
+python-card-me == 0.9.3
+python-dateutil == 2.5.1
+pyzmq == 15.2.0
+simplegeneric == 0.8.1
+six == 1.10.0
+sorl-thumbnail == 12.4a1
+sqlparse == 0.1.19
+surlex == 0.2.0
+tornado == 4.3
+traitlets == 4.2.1
+unicodecsv == 0.14.1
+waitress == 0.8.10
+WebOb == 1.6.0
+WebTest == 2.0.20
+
+###### Requirements without Version Specifiers ######
+#beautifulsoup4
+#chardet
+#decorator
+#Django
+#django-classy-tags
+#django-debug-toolbar
+#django-extensions
+#django-imperavi
+#django-newsletter
+#django-tinymce
+#django-webtest
+#easy-thumbnails
+#ipykernel
+#ipython
+#ipython-genutils
+#ipywidgets
+#Jinja2
+#jsonschema
+#jupyter-client
+#jupyter-core
+#ldif3
+#MarkupSafe
+#mistune
+#nbconvert
+#nbformat
+#notebook
+#path.py
+#pickleshare
+#Pillow
+#Pygments
+#python-card-me
+#python-dateutil
+#pyzmq
+#simplegeneric
+#six
+#sorl-thumbnail
+#sqlparse
+#surlex
+#tornado
+#traitlets
+#unicodecsv
+#waitress
+#WebOb
+#WebTest
