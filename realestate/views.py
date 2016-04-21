@@ -25,7 +25,7 @@ def index(request):
 #     context_object_name = 'latest_property_list'
 
 #     def get_queryset(self):
-#         result =  Property.objects.filter(featured='True').order_by('-pub_date')[:5] 
+#         result =  Property.objects.filter(featured='True').order_by('-pub_date')[:5]
 #         return result
 #     def get_propertyPictures(self):
 #     	#return PropertyPicture.objects.all()
@@ -66,11 +66,16 @@ def faq_list(request):
 
 
     context = {
-        "object_list": queryset, 
+        "object_list": queryset,
         "page_request_var": page_request_var,
     }
     return render(request, "realestate/faq.html", context)
 
+def handler404(request):
+    response = render_to_response('404.html', {},
+                                                    context_instance = RequestContext(request))
+    response.status_code = 404
+    return response
 
 def contact(request):
     #Have to setup STMP server for this to work
