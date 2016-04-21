@@ -103,4 +103,6 @@ def controlpanel(request):
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
 
+def algemene_info(request):
+	return render(request, 'realestate/info.html')
 
