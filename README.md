@@ -13,7 +13,7 @@ run django-admin makemessages -l fr
 
 OR
 
-run django-admin makemessages -l nl
+run django-admin makemessages -l nl blkartbkatktrkba
 
 AND
 
@@ -25,5 +25,6 @@ pip install django-classy-tags
 when having errors with easy_thumbnails:
 pip install easy_thumbnails
 ***
+
 account for user control panel = test : test12345
 

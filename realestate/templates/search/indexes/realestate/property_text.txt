@@ -1,0 +1,2 @@
+{{ object.title_text }}
+{{ object.adress_text }}

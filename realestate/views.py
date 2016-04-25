@@ -13,6 +13,8 @@ from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.shortcuts import render_to_response
+from .forms import PropertiesSearchForm
 
 
 def index(request):
@@ -70,6 +72,14 @@ def faq_list(request):
         "page_request_var": page_request_var,
     }
     return render(request, "realestate/faq.html", context)
+
+
+
+
+def search(request):
+    form = PropertiesSearchForm(request.GET)
+    properties = form.search()
+    return render_to_response('realestate/search.html', {'properties': properties})
 
 
 def contact(request):
