@@ -76,6 +76,39 @@ class Deal(models.Model):
 
     def __str__(self):
         return self.property.title_text
+
     class Meta():
         verbose_name = 'Deal'
         verbose_name_plural = 'Deals'
+
+#status of a deal
+class Status(models.Model):
+    id = models.AutoField(primary_key=True)
+    text = models.CharField(max_length=50)
+    done = models.BooleanField(default=False)
+    deal = models.ForeignKey(Deal, related_name='dealstatuskey')
+
+    def __str__(self):
+        return self.text
+
+    class Meta():
+        verbose_name = 'Status'
+        verbose_name_plural = 'Statussen'
+
+
+def create_deal_documents_path(instance, filename):
+    return '/'.join(['documents', str(instance.deal.id), filename])
+
+
+class DealDocument(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=50)
+    document = models.FileField(upload_to=create_deal_documents_path)
+    deal = models.ForeignKey(Deal, related_name='dealkey')
+
+    def __str__(self):
+        return self.title
+
+
+
+

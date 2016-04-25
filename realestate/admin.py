@@ -1,10 +1,11 @@
 from django.contrib import admin
 
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status
 
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
     fields = ['picture',]
+
 class Characteristics_propertyInline(admin.TabularInline):
     model = Characteristics_property
     fields = ['property_id','characteristic_id','value',]
@@ -20,7 +21,18 @@ class PropertyAdmin(admin.ModelAdmin):
     search_fields = ("address_text", "sellingprice")
     inlines = [PropertyPictureInline,Characteristics_propertyInline,]
 
+class DealDocumentInline(admin.TabularInline):
+    model = DealDocument
+    fields = ['document', ]
+
+class StatusInline(admin.TabularInline):
+    model = Status
+    fields = ['text', 'done', ]
+
+class DealAdmin(admin.ModelAdmin):
+    inlines = [DealDocumentInline, StatusInline, ]
+
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(FAQ)
-admin.site.register(Deal)
+admin.site.register(Deal, DealAdmin)
