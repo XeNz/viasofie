@@ -117,6 +117,6 @@ def controlpanel(request):
 
 
 
-def over(request):
+def about(request):
 	return render(request, 'realestate/over.html')
 
