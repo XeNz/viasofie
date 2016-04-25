@@ -118,5 +118,5 @@ def controlpanel(request):
 
 
 def about(request):
-	return render(request, 'realestate/over.html')
+	return render(request, 'realestate/about.html')
 
