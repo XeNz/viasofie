@@ -43,6 +43,7 @@ unicodecsv == 0.14.1
 waitress == 0.8.10
 WebOb == 1.6.0
 WebTest == 2.0.20
+django-cookie-law
 
 ###### Requirements without Version Specifiers ######
 #beautifulsoup4

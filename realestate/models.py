@@ -9,7 +9,7 @@ class Property(models.Model):
     #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title_text = models.CharField(max_length=200)
     description_text = models.TextField()
-    adress_text = models.CharField(max_length=200)
+    address_text = models.CharField(max_length=200)
     constructiondate = models.DateField()
     sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
     visible_to_public = models.BooleanField(default=True)

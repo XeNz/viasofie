@@ -15,9 +15,9 @@ class CharacteristicAdmin(admin.ModelAdmin):
     search_fields = ("id", "name")
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ("title_text", "description_text", "adress_text", "constructiondate", "sellingprice")
-    list_filter = ("adress_text", "sellingprice", "constructiondate")
-    search_fields = ("adress_text", "sellingprice")
+    list_display = ("title_text", "description_text", "address_text", "constructiondate", "sellingprice")
+    list_filter = ("address_text", "sellingprice", "constructiondate")
+    search_fields = ("address_text", "sellingprice")
     inlines = [PropertyPictureInline,Characteristics_propertyInline,]
 
 admin.site.register(Property, PropertyAdmin)
