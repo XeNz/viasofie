@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'cookielaw',
+    #'django.contrib.cookielaw',
     'easy_thumbnails',
     'debug_toolbar',
 ]
