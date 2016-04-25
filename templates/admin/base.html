@@ -72,7 +72,7 @@
         {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %} <!-- Sitebeheer-->
         {% block content %}
         {% block object-tools %}{% endblock %}
-        {{ content }}
+        {{ block.super }}
         {% endblock %}
         {% block sidebar %}{% endblock %}
         <br class="clear" />
