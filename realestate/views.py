@@ -105,7 +105,7 @@ def controlpanel(request):
         deals =Deal.objects.filter(user=request.user)
 
         if request.method == 'POST':
-            selected_deal_id = request.POST.get('selected_deal')
+            selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
             return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals, 'selected_deal': selected_deal})
         else:
