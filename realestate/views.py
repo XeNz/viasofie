@@ -103,11 +103,19 @@ def handler404(request):
 def controlpanel(request):
     if not request.user.is_staff:
         deals =Deal.objects.filter(user=request.user)
-        return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
+
+        if request.method == 'POST':
+            selected_deal_id = request.POST.get('selected_deal')
+            selected_deal = Deal.objects.filter(id=selected_deal_id)
+            return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals, 'selected_deal': selected_deal})
+        else:
+            return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
+
+
 
 def over(request):
 	return render(request, 'realestate/over.html')

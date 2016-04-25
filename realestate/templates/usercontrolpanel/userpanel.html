@@ -5,20 +5,24 @@
 <div class="col-md-3">
     <div class="deals">
         <h4>Selecteer deal</h4>
-        <select name="deals" id="id_deals">
-        <option selected="selected" value="default">-</option>
-        {% for deal in deals %}
-            <option value="{{deal.id}}">{{deal}}</option>
-        {% endfor %}
-        </select>
-        
-            
-    </div>    
+        <form method="POST">
+            {% csrf_token %}
+            <select name="selected_deal" id="id_deals">
+            <option selected="selected" value="default">-</option>
+            {% for deal in deals %}
+            <option value="{{deal.id}}" name="{{deal.id}}">{{deal}}</option>
+            {% endfor %}
+            </select>
+            <input type="submit" class="btn" value="Click" name="mybtn">
+        </form>
+
+    </div>
 </div>
     <div class="col-md-6">
         <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Gebruikerspaneel</span></h2>
         <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
-
+            <div>{{selected_deal.property.title_text}}</div>
+            <div>{{selected_deal.id}}</div>
 
     </div>
 

@@ -72,7 +72,7 @@ class FAQ(models.Model):
 class Deal(models.Model):
     id = models.AutoField(primary_key=True)
     property = models.OneToOneField(Property, related_name='propertydealkey')
-    user = models.OneToOneField(User, unique=True, related_name='userdealkey')
+    user = models.ForeignKey(User, related_name='userdealkey')
 
     def __str__(self):
         return self.property.title_text
