@@ -127,7 +127,7 @@ def accountinformation(request):
                 user.first_name = request.POST['first_name']
                 user.last_name = request.POST['last_name']
                 user.save()
-                return render_to_response('usercontrolpanel/userpanel.html', context_instance=RequestContext(request) )
+                return HttpResponseRedirect(reverse('realestate:controlpanel'))
         context = {
             "form": form
         }
