@@ -43,7 +43,29 @@
             </table>
     </div>
 
-<div class = "col-md-3">rechterkolom div</div>
+<div class = "col-md-3">
+    <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
+    <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for status in selected_deal_statuses %}
+            <tr>
+                <td >{{status.text}}</td>
+                {%if status.done == True%}
+                <td>INSTERT DONE ICON HERE</td>
+                {%else%}
+                <td>INSTERT IN PROG ICON HERE</td>
+                {%endif%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
 
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{{ STATIC_URL }}realestate/js/userpanel.js"></script>
