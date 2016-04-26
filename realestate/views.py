@@ -137,10 +137,7 @@ def accountinformation(request):
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 
 def about(request):
     return render(request, 'realestate/about.html')
