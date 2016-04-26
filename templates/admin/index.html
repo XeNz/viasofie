@@ -2,7 +2,12 @@
 {% load i18n static %}
 {% load staticfiles %}
 
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+{% endblock %}
 
 {% block coltype %}colMS{% endblock %}
 
@@ -25,9 +30,23 @@
             {% if model.admin_url %}
             {% if not "Groep" in model.name %}
                 <th scope="row"><a href="{{ model.admin_url }}">
-                {{ model.name }} <img src='{% static "realestate/img/house.png" %}'>
+                {% if  "Gebruiker" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/user.png" %}' >
+                {% endif %}
+                {% if  "Deal" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/deal.png" %}' >
+                {% endif %}
+                {% if  "Eigendom" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/house.png" %}' >
+                {% endif %}
+                {% if  "Frequently" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/faq.png" %}' >
+                {% endif %}
+                {% if  "character" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/bath.png" %}' >
+                {% endif %}
+               <!--  {{ model.name }} -->
                 </a></th>
-
                 <td><a href="{{ model.admin_url }}"><img width="50px" height="50px" src="https://1.bp.blogspot.com/-9udZmPYl_5g/Vua_KS98TUI/AAAAAAAAG58/u3r-Vb54x-c7IGUTrwRIOaxICp3t7u9Jg/s320/list.png"></a></td>
             {% endif %}
             {% else %}
