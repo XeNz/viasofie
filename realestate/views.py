@@ -134,6 +134,7 @@ def accountinformation(request):
                 user.first_name = request.POST['first_name']
                 user.last_name = request.POST['last_name']
                 user.save()
+                messages.success(request, 'Account informatie aangepast!')
                 return HttpResponseRedirect(reverse('realestate:controlpanel'))
         context = {
             "form": form
