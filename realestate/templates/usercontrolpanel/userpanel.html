@@ -4,7 +4,7 @@
 {% load thumbnail %}
 <div class="col-md-3">
     <div class="deals">
-        <h4>Selecter deal</h4>
+        <h4>Selecteer deal</h4>
         <form method="POST">
             {% csrf_token %}
             <select name="selected_deal_id" id="id_deals">
@@ -24,15 +24,23 @@
     <div class="col-md-6">
         <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Gebruikerspaneel</span></h2>
         <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
-            {% for deal in selected_deal %}
-            <div>{{deal.id}}</div>
-            <div>{{deal.property}}</div>
-            {% endfor %}
-            {% for documents in selected_deal_documents %}
-            <a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a>
-            {% endfor %}
-
-
+        {% for deal in selected_deal %}
+        <h2>{{deal.property}}</h2>
+        {% endfor %}
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Documenten</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for documents in selected_deal_documents %}
+                <tr>
+                  <td><a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a></td>
+                </tr>
+             {% endfor %}
+              </tbody>
+            </table>
     </div>
 
 <div class = "col-md-3">rechterkolom div</div>
