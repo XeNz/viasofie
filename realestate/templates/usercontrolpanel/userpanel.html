@@ -10,12 +10,15 @@
             <select name="selected_deal_id" id="id_deals">
             <option selected="selected" value="default">-</option>
             {% for deal in deals %}
-            <option value="{{deal.id}}" name="{{deal.id}}">{{deal}}</option>
+            <option value="{{deal.id}}" name="{{deal.id}}">{{deal.property.title_text}}</option>
             {% endfor %}
             </select>
             <input type="submit" class="btn" value="Click" name="mybtn">
         </form>
 
+    </div>
+    <div class="account_information">
+        <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
     </div>
 </div>
     <div class="col-md-6">
@@ -24,8 +27,11 @@
             {% for deal in selected_deal %}
             <div>{{deal.id}}</div>
             <div>{{deal.property}}</div>
-
             {% endfor %}
+            {% for documents in selected_deal_documents %}
+            <a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a>
+            {% endfor %}
+
 
     </div>
 

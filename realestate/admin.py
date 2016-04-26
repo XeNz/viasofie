@@ -23,7 +23,7 @@ class PropertyAdmin(admin.ModelAdmin):
 
 class DealDocumentInline(admin.TabularInline):
     model = DealDocument
-    fields = ['document', ]
+    fields = ['document', 'title', ]
 
 class StatusInline(admin.TabularInline):
     model = Status

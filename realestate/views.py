@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django import forms
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal
+from .models import *
 from django.template import RequestContext
 from .forms import *
 from django.contrib import messages
@@ -107,16 +107,37 @@ def controlpanel(request):
         if request.method == 'POST':
             selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
-            return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals, 'selected_deal': selected_deal})
+            selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id)
+            return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals, 'selected_deal': selected_deal, 'selected_deal_documents': selected_deal_documents})
         else:
             return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
+        #double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
 
-
+@login_required
+def accountinformation(request):
+    if not request.user.is_staff:
+        user = request.user
+        form = UpdateAccountInformation(request.POST or None, initial={'first_name':user.first_name, 'last_name':user.last_name})
+        if request.method == 'POST':
+            if form.is_valid():
+                user.first_name = request.POST['first_name']
+                user.last_name = request.POST['last_name']
+                user.save()
+                return render_to_response('usercontrolpanel/userpanel.html', context_instance=RequestContext(request) )
+        context = {
+            "form": form
+        }
+        return render(request, "usercontrolpanel/accountinformation.html", context)
+    else:
+        #double login prompt error
+        messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
+        logout(request)
+        return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
 
 def about(request):
-	return render(request, 'realestate/about.html')
+    return render(request, 'realestate/about.html')
 
