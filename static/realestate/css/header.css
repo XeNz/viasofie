@@ -1,0 +1,26 @@
+#container{
+    background-color: #eac8c6;
+    float: left;
+    width: 100%;
+}
+
+#left-part{
+    position: absolute;
+    vertical-align: text-bottom;
+    bottom: -150px;
+    margin: 150px;
+    background-color: #e8e8e8;
+}
+
+#right-part{
+    position: absolute;
+    vertical-align: text-bottom;
+    bottom: 0px;
+    right: 150px;
+    background-color: #e8e8e8;
+}
+
+#logo{
+    width: 121.5px;
+    height: 178.125px;
+}
