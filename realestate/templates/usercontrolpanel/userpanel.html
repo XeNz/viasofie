@@ -2,9 +2,13 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
+
+<link rel="stylesheet" type="text/css" href="{% static "realestate/css/userpanel.css" %}"/>
 <div class="col-md-3">
-    <div class="deals">
-        <h4>Selecteer deal</h4>
+    <div class="deals" id="deals">
+        <br>
+        <h2>Selecteer deal</h2>
+        <br>
         <form method="POST">
             {% csrf_token %}
             <select name="selected_deal_id" id="id_deals">
@@ -18,10 +22,11 @@
     </div>
 
      <div class="account_information">
+        <br>
         <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
     </div>
 </div>
-    <div class="col-md-6">
+    <div class="col-md-6" id="userpanel">
         <div class="container">
         {% if messages %}
         <div class="messages">
@@ -33,6 +38,8 @@
       </div>
         <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Gebruikerspaneel</span></h2>
         <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
+        <br>
+        <br>
         {% for deal in selected_deal %}
         <h2>{{deal.property}}</h2>
         {% endfor %}
@@ -52,7 +59,7 @@
             </table>
     </div>
 
-<div class = "col-md-3">
+<div class = "col-md-3" id="status">
     <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
     <table class="table">
           <thead>
