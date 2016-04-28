@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from decimal import Decimal
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+
 
 
 class Property(models.Model):
@@ -49,8 +51,15 @@ def create_property_images_path(instance, filename):
     return '/'.join(['images', str(instance.property.id), filename])
 
 class PropertyPicture(models.Model):
+    def validate_image(fieldfile_obj):
+        filesize = fieldfile_obj.file.size
+        #file limit in megabyte
+        megabyte_limit = 5.0
+        if filesize > megabyte_limit*1024*1024:
+            raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
+
     property = models.ForeignKey(Property, related_name='propertykey')
-    picture = models.ImageField(upload_to=create_property_images_path, blank=True)
+    picture = models.ImageField(upload_to=create_property_images_path, blank=True, validators=[validate_image])
 
 class FAQ(models.Model):
     id = models.AutoField(primary_key=True)
