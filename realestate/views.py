@@ -73,6 +73,7 @@ def faq_list(request):
 
 
 def contact(request):
+    #TODO: implement mailto
     #Have to setup STMP server for this to work
     #fix indentation when uncommenting
     if request.method == 'POST':
@@ -119,7 +120,7 @@ def controlpanel(request):
         else:
             return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
-        #double login prompt error
+        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
@@ -141,7 +142,7 @@ def accountinformation(request):
         }
         return render(request, "usercontrolpanel/accountinformation.html", context)
     else:
-        #double login prompt error
+        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
