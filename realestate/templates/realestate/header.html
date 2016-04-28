@@ -14,7 +14,7 @@
 	    <nav class="navbar navbar-default navbar-static-top">
 	           <div class="container" id="container">
 		    <div class="nav-collapse">
-          <img src="{% static "realestate/img/logo.png" %}" id="logo" >
+          <a href="{% url 'realestate:index' %}"><img src="{% static "realestate/img/logo.png" %}" id="logo"></a>
 		      <ul class="nav navbar-nav" id="left-part">
 			<li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">Home</a></li>
 			<li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">FAQ</a></li>
