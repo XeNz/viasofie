@@ -91,6 +91,7 @@ class Deal(models.Model):
         verbose_name_plural = 'Deals'
 
 #status of a deal
+#TODO: deal_status model?
 class Status(models.Model):
     id = models.AutoField(primary_key=True)
     #title
