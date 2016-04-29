@@ -3,10 +3,12 @@ from django.utils import timezone
 from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from django_enumfield import enum
 
 
 
 class Property(models.Model):
+    #TODO: attribute underscore fix
     id = models.AutoField(primary_key=True)
     #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title_text = models.CharField(max_length=200)
@@ -90,6 +92,18 @@ class Deal(models.Model):
         verbose_name = 'Deal'
         verbose_name_plural = 'Deals'
 
+class CurrentStatus(enum.Enum):
+    PLANNED = 1
+    IN_PROGRESS = 2
+    DONE = 3
+
+    """These transitions state that a CurrentStatus can only go to IN_PROGRESS from PLANNED
+         and to DONE from IN_PROGRESS """
+    _transitions = {
+        IN_PROGRESS: (PLANNED, ),
+        DONE: (IN_PROGRESS, )
+    }
+
 #status of a deal
 #TODO: deal_status model?
 class Status(models.Model):
@@ -98,7 +112,8 @@ class Status(models.Model):
     text = models.CharField(max_length=50) #description
     #datum
     #visible to user?
-    done = models.BooleanField(default=False)
+    #done? planned/in progress/done?
+    current_status = enum.EnumField(CurrentStatus)
     deal = models.ForeignKey(Deal, related_name='dealstatuskey')
 
     def __str__(self):
