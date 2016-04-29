@@ -71,11 +71,14 @@
         <tbody>
             {% for status in selected_deal_statuses %}
             <tr>
+            <!--TODO: icon toevoegen. -->
                 <td >{{status.text}}</td>
-                {%if status.done == True%}
-                <td>INSTERT DONE ICON HERE</td>
+                {%if status.current_status == "Gepland"%}
+                <td>ICON {{status.current_status}}</td>
+                {%elif status.current_status == "In behandeling"%}
+                <td>ICON {{status.current_status}}</td>
                 {%else%}
-                <td>INSTERT IN PROG ICON HERE</td>
+                <td>ICON {{status.current_status}}</td>
                 {%endif%}
             </tr>
             {%endfor%}

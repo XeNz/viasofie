@@ -3,7 +3,7 @@ from django.utils import timezone
 from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django_enumfield import enum
+from enumchoicefield import ChoiceEnum, EnumChoiceField
 
 
 
@@ -92,17 +92,10 @@ class Deal(models.Model):
         verbose_name = 'Deal'
         verbose_name_plural = 'Deals'
 
-class CurrentStatus(enum.Enum):
-    PLANNED = 1
-    IN_PROGRESS = 2
-    DONE = 3
-
-    """These transitions state that a CurrentStatus can only go to IN_PROGRESS from PLANNED
-         and to DONE from IN_PROGRESS """
-    _transitions = {
-        IN_PROGRESS: (PLANNED, ),
-        DONE: (IN_PROGRESS, )
-    }
+class CurrentStatus(ChoiceEnum):
+    planned = "Gepland"
+    in_progress = "In behandeling"
+    done = "In orde"
 
 #status of a deal
 #TODO: deal_status model?
@@ -113,7 +106,7 @@ class Status(models.Model):
     #datum
     #visible to user?
     #done? planned/in progress/done?
-    current_status = enum.EnumField(CurrentStatus)
+    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
     deal = models.ForeignKey(Deal, related_name='dealstatuskey')
 
     def __str__(self):
