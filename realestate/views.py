@@ -78,8 +78,8 @@ def faq_list(request):
 
 def search(request):
     form = PropertiesSearchForm(request.GET)
-    properties = form.search()
-    return render_to_response('realestate/search.html', {'properties': properties})
+    query = form.search()
+    return render_to_response('realestate/search.html', {'query': query})
 
 
 def contact(request):

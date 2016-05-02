@@ -22,9 +22,9 @@
         {% if query %}
             <h3>Results</h3>
 
-            {% for result in page.object_list %}
+            {% for result in query %}
                 <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+                    <a href="{{ result.get_absolute_url }}">{{ result.title }}</a>
                 </p>
             {% empty %}
                 <p>No results found.</p>
@@ -38,7 +38,7 @@
                 </div>
             {% endif %}
         {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
+            <p> Kappa </p>
         {% endif %}
     </form>
 {% endblock %}
