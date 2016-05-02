@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus
 
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
@@ -25,12 +25,17 @@ class DealDocumentInline(admin.TabularInline):
     model = DealDocument
     fields = ['document', 'title', ]
 
-class StatusInline(admin.TabularInline):
-    model = Status
-    fields = ['text', 'current_status', ]
+class DealStatusInline(admin.TabularInline):
+    model = DealStatus
+    fields = ['status', 'deal', 'comment','date','visible_to_user', ]
 
 class DealAdmin(admin.ModelAdmin):
-    inlines = [DealDocumentInline, StatusInline, ]
+    inlines = [DealDocumentInline, ]
+
+class StatusAdmin(admin.ModelAdmin):
+    list_display = ("title", "description")
+    list_filter = ("title", "description")
+    search_fields = ("title", "description")
 
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)

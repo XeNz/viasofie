@@ -101,17 +101,12 @@ class CurrentStatus(ChoiceEnum):
     in_progress = "In behandeling"
     done = "In orde"
 
-#status of a deal
-#TODO: deal_status model?
+
 class Status(models.Model):
     id = models.AutoField(primary_key=True)
-    #title
-    text = models.CharField(max_length=50) #description
-    #datum
-    #visible to user?
-    #done? planned/in progress/done?
-    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
-    deal = models.ForeignKey(Deal, related_name='dealstatuskey')
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=500)
+
 
     def __str__(self):
         return self.text
@@ -123,6 +118,15 @@ class Status(models.Model):
 
 def create_deal_documents_path(instance, filename):
     return '/'.join(['documents', str(instance.deal.id), filename])
+
+
+class DealStatus(models.Model):
+    status = models.ForeignKey(Status, related_name='Dstatuskey')
+    deal = models.ForeignKey(Deal, related_name='dealSkey')
+    comment = models.CharField(max_length=50)
+    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
+    date = models.DateField()
+    visible_to_user = models.BooleanField(default=True)
 
 
 class DealDocument(models.Model):
