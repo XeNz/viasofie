@@ -1,5 +1,7 @@
 from django import forms
 from haystack.forms import SearchForm
+from django.contrib.auth.models import User
+
 
 class FeedbackForm(forms.Form):
     from_email = forms.EmailField(label="E-mail")
@@ -10,7 +12,21 @@ class FeedbackForm(forms.Form):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
+
 class PropertiesSearchForm(SearchForm):
 
     def no_query_found(self):
         return self.searchqueryset.all()
+
+
+class UpdateAccountInformation(forms.ModelForm):
+
+    #TODO: email?
+    first_name = forms.CharField(label='First Name')
+    last_name = forms.CharField(label='Last Name')
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name']
+
+

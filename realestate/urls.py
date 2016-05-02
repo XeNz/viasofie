@@ -14,7 +14,8 @@ urlpatterns = [
     # url(r'^properties/$', views.properties, name='properties'),
     url(r'^search/$', views.search, name='search'),
     url(r'^controlpanel/$', views.controlpanel, name='controlpanel'),
+    url(r'^accountinformation/$', views.accountinformation, name='accountinformation'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'usercontrolpanel/login.html'}, name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'usercontrolpanel/logout.html'}, name ='logout'),
-	url(r'^info/$', views.algemene_info, name='info'),
+    url(r'^about/$', views.about, name='about'),
 ]

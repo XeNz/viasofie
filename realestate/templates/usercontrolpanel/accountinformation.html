@@ -1,0 +1,17 @@
+{% load staticfiles %}
+{% load cookielaw_tags %}
+{% include "realestate/header.html" %}
+{% load thumbnail %}
+
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
+    <h1>Pas profiel gegevens aan</h1>
+        <form method="POST" action="{% url 'realestate:accountinformation' %}" class="" />
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Opslaan</button>
+        </form>
+</div>
+<div class="col-md-3">
+</div>

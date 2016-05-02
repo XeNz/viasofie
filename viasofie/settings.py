@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.cookielaw',
     'haystack',
+    'cookielaw',
     'easy_thumbnails',
-    'debug_toolbar',
+    #'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # change language to local browser language
-    'django.middleware.locale.LocaleMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'viasofie.urls'
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'viasofie.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,  'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,20 +87,22 @@ WSGI_APPLICATION = 'viasofie.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    #'default': {
-    #    'ENGINE': 'django.db.backends.mysql',
-    #    'NAME': 'viasofie',
-    #    'USER': 'root',
-    #    'PASSWORD': 'root',
-    #    'OPTIONS': {
-    #      'autocommit': True,
-    #      'read_default_file': '/mysqlConfig.cnf',
-    #    },
-    #}
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'viasofie',
+       'USER': 'projectuser',
+       'PASSWORD': 'Kappa456',
+       'HOST': '192.168.84.96',
+       'PORT': '3306',
+       'OPTIONS': {
+         'autocommit': True,
+         'read_default_file': '/mysqlConfig.cnf',
+       },
+    }
 }
 
 HAYSTACK_CONNECTIONS = {
@@ -138,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'nl-be'
 
-TIME_ZONE = 'GMT+1'
+TIME_ZONE = 'Europe/Brussels'
 
 USE_I18N = True
 
@@ -161,7 +163,7 @@ LANGUAGES = (
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets'),]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 

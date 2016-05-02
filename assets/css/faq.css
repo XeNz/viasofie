@@ -1,5 +1,0 @@
-#faq_answer { position:relative; }
-#faq_answer h3	{ cursor:pointer; }
-#faq_answer h3.active	{ color:#d74646; }
-#faq_answer div   { position:relative; }
-#faq_answer div p	{ padding-left:5em; margin-bottom:15px; }

@@ -43,6 +43,8 @@ unicodecsv == 0.14.1
 waitress == 0.8.10
 WebOb == 1.6.0
 WebTest == 2.0.20
+django-cookie-law == 1.0.7
+django-enumchoicefield == 0.5.2
 
 ###### Requirements without Version Specifiers ######
 #beautifulsoup4

@@ -1,31 +1,31 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>Viasofie</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="{% static "realestate/css/cookielaw.css" %}"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static "realestate/css/cookielaw.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "realestate/css/header.css" %}"/>
     </head>
-
     <body>
+    <div class="wrapper">
 	    <nav class="navbar navbar-default navbar-static-top">
-			  <div class="container">
-					<div class="nav-collapse">
-			        <ul class="nav navbar-nav">  
-			          <li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">Home</a></li>
-			          <li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">FAQ</a></li>
-			          <li class="{% ifequal request.path '/contact/'%}active{% endifequal%}"><a href="{% url 'realestate:contact' %}">Contact</a
-			          ></li>
-			          <li class="{% ifequal request.path '/info/'%}active{% endifequal%}"><a href="{% url 'realestate:info' %}">Algemene informatie</a
-			          ></li>
-			        </ul>
-                    <ul class ="nav navbar-nav navbar-right">
-                          {% if user.is_authenticated %} <li class="{% ifequal request.path '/controlpanel/'%}active{% endifequal%}"><a href="{% url 'realestate:controlpanel' %}">Gebruikerspaneel</a></li>{% endif%}
-                          <li class=""><a href="{% if user.is_authenticated %}{% url 'realestate:logout' %} {% else %} {% url 'realestate:login' %}{% endif%}">{% if user.is_authenticated %}Logout {% else %} Login {% endif%}</a></li>                    
-                    </ul>
-			        </div>
-			  </div>
+	           <div class="container" id="container">
+		    <div class="nav-collapse">
+          <a href="{% url 'realestate:index' %}"><img src="{% static "realestate/img/logo.png" %}" id="logo"></a>
+		      <ul class="nav navbar-nav" id="left-part">
+			<li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">Home</a></li>
+			<li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">FAQ</a></li>
+			<li class="{% ifequal request.path '/contact/'%}active{% endifequal%}"><a href="{% url 'realestate:contact' %}">Contact</a></li>
+			 <li class="{% ifequal request.path '/about/'%}active{% endifequal%}"><a href="{% url 'realestate:about' %}">Over</a></li>
+		      </ul>
+                           <ul class ="nav navbar-nav navbar-right" id="right-part">
+                              {% if user.is_authenticated %}
+                              <li class="{% ifequal request.path '/controlpanel/'%}active{% endifequal%}"><a href="{% url 'realestate:controlpanel' %}">Gebruikerspaneel</a></li>{% endif%}
+                              <li class=""><a href="{% if user.is_authenticated %}{% url 'realestate:logout' %} {% else %} {% url 'realestate:login' %}{% endif%}">{% if user.is_authenticated %}Logout {% else %} Login {% endif%}</a></li>
+                            </ul>
+		    </div>
+	        </div>
 	   </nav>

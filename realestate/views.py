@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django import forms
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal
+from .models import *
 from django.template import RequestContext
 from .forms import *
 from django.contrib import messages
@@ -83,6 +83,7 @@ def search(request):
 
 
 def contact(request):
+    #TODO: implement mailto
     #Have to setup STMP server for this to work
     #fix indentation when uncommenting
     if request.method == 'POST':
@@ -113,12 +114,50 @@ def handler404(request):
 def controlpanel(request):
     if not request.user.is_staff:
         deals =Deal.objects.filter(user=request.user)
-        return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
+
+        if request.method == 'POST':
+            selected_deal_id = request.POST.get('selected_deal_id')
+            selected_deal = Deal.objects.filter(id=selected_deal_id)
+            selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id)
+            selected_deal_statuses = Status.objects.filter(deal=selected_deal_id)
+            context = {
+                'deals': deals,
+                'selected_deal': selected_deal,
+                'selected_deal_documents': selected_deal_documents,
+                'selected_deal_statuses': selected_deal_statuses
+            }
+            return render(request, 'usercontrolpanel/userpanel.html', context)
+        else:
+            return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
+        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
 
-def algemene_info(request):
-	return render(request, 'realestate/info.html')
+@login_required
+def accountinformation(request):
+    if not request.user.is_staff:
+        user = request.user
+        form = UpdateAccountInformation(request.POST or None, initial={'first_name':user.first_name, 'last_name':user.last_name})
+        if request.method == 'POST':
+            if form.is_valid():
+                user.first_name = request.POST['first_name']
+                user.last_name = request.POST['last_name']
+                user.save()
+                messages.success(request, 'Account informatie aangepast!')
+                return HttpResponseRedirect(reverse('realestate:controlpanel'))
+        context = {
+            "form": form
+        }
+        return render(request, "usercontrolpanel/accountinformation.html", context)
+    else:
+        #TODO: double login prompt error
+        messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
+        logout(request)
+        return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
+
+
+def about(request):
+    return render(request, 'realestate/about.html')
 

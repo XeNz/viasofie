@@ -1,0 +1,10 @@
+#error{
+  text-align: center;
+  font-family: 'Ropa Sans', serif;
+}
+
+#error h1{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #0d3532;
+}
