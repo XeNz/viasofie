@@ -13,7 +13,11 @@ class Property(models.Model):
     #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title_text = models.CharField(max_length=200)
     description_text = models.TextField()
-    address_text = models.CharField(max_length=200)
+    street_text = models.CharField(max_length=200)
+    house_number_text = models.CharField(max_length=200)
+    postal_code_text = models.CharField(max_length=200)
+    city_text = models.CharField(max_length=200)
+    country_text = models.CharField(max_length=200 ,default='België')
     constructiondate = models.DateField()
     sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
     visible_to_public = models.BooleanField(default=True)
@@ -22,9 +26,6 @@ class Property(models.Model):
 
     def __str__(self):
         return self.title_text
-
-    def get_absolute_url(self):
-        return "/%i/" % self.id
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)

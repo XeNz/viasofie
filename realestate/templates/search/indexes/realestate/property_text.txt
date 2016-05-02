@@ -1,3 +1,5 @@
-{{ object.title_text }}
-{{ object.address_text }}
 {{ object.id }}
+{{ object.title_text }}
+{{ object.street_text }}
+{{ object.postal_code_text }}
+{{ object.city_text }}

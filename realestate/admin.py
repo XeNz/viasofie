@@ -16,9 +16,9 @@ class CharacteristicAdmin(admin.ModelAdmin):
     search_fields = ("id", "name")
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ("title_text", "description_text", "address_text", "constructiondate", "sellingprice")
-    list_filter = ("address_text", "sellingprice", "constructiondate")
-    search_fields = ("address_text", "sellingprice")
+    list_display = ("title_text", "description_text", "constructiondate", "sellingprice")
+    list_filter = ("sellingprice", "constructiondate")
+    search_fields = ("sellingprice",)
     inlines = [PropertyPictureInline,Characteristics_propertyInline,]
 
 class DealDocumentInline(admin.TabularInline):
