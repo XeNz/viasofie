@@ -18,6 +18,11 @@ from .forms import PropertiesSearchForm
 
 
 def index(request):
+    if request.GET:
+        form = PropertiesSearchForm(request.GET)
+        query = form.search()
+        return render(request, 'realestate/search.html', {'query': query})
+    else:
         return render(request, "realestate/index.html", {
         'properties': Property.objects.filter(featured=True,visible_to_public=True).order_by('-pub_date')[:5]
     })
@@ -77,9 +82,12 @@ def faq_list(request):
 
 
 def search(request):
-    form = PropertiesSearchForm(request.GET)
-    query = form.search()
-    return render_to_response('realestate/search.html', {'query': query})
+    if request.GET:
+        form = PropertiesSearchForm(request.GET)
+        query = form.search()
+        return render_to_response('realestate/search.html', {'query': query})
+    else:
+        return render_to_response('realestate/search.html')
 
 
 def contact(request):

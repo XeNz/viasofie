@@ -23,6 +23,9 @@ class Property(models.Model):
     def __str__(self):
         return self.title_text
 
+    def get_absolute_url(self):
+        return "/%i/" % self.id
+
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 

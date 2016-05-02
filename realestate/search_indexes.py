@@ -6,7 +6,8 @@ from .models import Property
 
 class PropertyIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    title = indexes.CharField(model_attr='adress_text')
+    id = indexes.IntegerField(model_attr='id')
+    title = indexes.CharField(model_attr='address_text')
 
     def get_model(self):
         return Property

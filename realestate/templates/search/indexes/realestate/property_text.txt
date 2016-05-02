@@ -1,2 +1,3 @@
 {{ object.title_text }}
-{{ object.adress_text }}
+{{ object.address_text }}
+{{ object.id }}

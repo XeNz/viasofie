@@ -6,8 +6,8 @@
 linkerkolom div
 </div>
     <div class="col-md-6">
-    <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
-{% for property in properties %} 
+   <!--  <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
+{% for property in properties %}
     <a href="{% url 'realestate:detail' property.id %}"> <h3>{{ property.title_text }}</h3> </a>
     <p>{{ property.description_text }} </p>
     <p>{{ property.sellingprice }} </p>
@@ -15,7 +15,22 @@ linkerkolom div
         <a href="{% url 'realestate:detail' property.id %}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}"/></a>
         {% endfor %}
         <hr>
-{% endfor %}
+{% endfor %} -->
+    <h2>Zoek</h2>
+        <form method="get" action=".">
+            <table>
+                {{ form.as_table }}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type='text' name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
+                    </td>
+                    <td>
+                        <input type="submit" value="Search">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 <div class = "col-md-3">rechterkolom div</div>
 

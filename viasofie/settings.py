@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'haystack',
     'cookielaw',
     'easy_thumbnails',
-    #'debug_toolbar',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
