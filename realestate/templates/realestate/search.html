@@ -27,7 +27,7 @@
 
             {% for result in query %}
                 <p>
-                    <a href="{{ BASE_DIR }} {{result.id}}" >{{ result.title }}</a>
+                    <a href="{% url 'realestate:detail' pk=result.id %}" >{{ result.title }}</a>
                 </p>
             {% empty %}
                 <p>No results found.</p>
