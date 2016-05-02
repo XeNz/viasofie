@@ -1,10 +1,41 @@
+#logo{
+    width: 121.5px;
+    height: 178.125px;
+}
+
+#error-header{
+    text-align: left;
+    margin-left: 150px;
+}
+
 #error{
-  text-align: center;
-  font-family: 'Ropa Sans', serif;
+    text-align: center;
+    font-family: 'Ropa Sans', serif;  
 }
 
 #error h1{
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #0d3532;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #0d3532;
 }
+
+#errortext{
+	background-color: white;
+	border: 7px solid gray;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px black;
+	margin: auto;
+	width : fit-content;
+	padding-top: 10px;
+    padding-right: 100px;
+    padding-bottom: 10px;
+    padding-left: 100px;
+}
+
+body{
+    background-image: url("/static/realestate/img/diningkitchen.jpg");
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
