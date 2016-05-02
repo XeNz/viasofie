@@ -28,3 +28,7 @@ pip install easy_thumbnails
 account for user control panel = test : test12345
 account fro admin = admin : password123
 
+***
+screen
+screen -ls
+screen screen -r PID
