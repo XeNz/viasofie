@@ -27,15 +27,15 @@ class DealDocumentInline(admin.TabularInline):
 
 class DealStatusInline(admin.TabularInline):
     model = DealStatus
-    fields = ['status', 'deal', 'comment','date','visible_to_user', ]
+    fields = ['status', 'deal', 'comment','date', ]
 
 class DealAdmin(admin.ModelAdmin):
     inlines = [DealDocumentInline, ]
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ("title", "description")
-    list_filter = ("title", "description")
-    search_fields = ("title", "description")
+    list_display = ("title", "description", "visible_to_user",)
+    list_filter = ("title", "description", "visible_to_user",)
+    search_fields = ("title", "description", "visible_to_user",)
 
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)

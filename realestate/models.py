@@ -106,6 +106,7 @@ class Status(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
+    visible_to_user = models.BooleanField(default=True)
 
 
     def __str__(self):
@@ -126,7 +127,7 @@ class DealStatus(models.Model):
     comment = models.CharField(max_length=50)
     current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
     date = models.DateField()
-    visible_to_user = models.BooleanField(default=True)
+
 
 
 class DealDocument(models.Model):
