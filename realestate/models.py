@@ -110,7 +110,7 @@ class Status(models.Model):
 
 
     def __str__(self):
-        return self.text
+        return self.title
 
     class Meta():
         verbose_name = 'Status'
@@ -142,7 +142,3 @@ class DealDocument(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-
