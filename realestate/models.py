@@ -128,6 +128,8 @@ class DealStatus(models.Model):
     current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
     date = models.DateField()
 
+    def __str__(self):
+        return self.current_status
 
 
 class DealDocument(models.Model):

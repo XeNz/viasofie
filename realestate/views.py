@@ -127,7 +127,7 @@ def controlpanel(request):
             selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
             selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id)
-            selected_deal_statuses = Status.objects.filter(deal=selected_deal_id)
+            selected_deal_statuses = DealStatus.objects.filter(deal=selected_deal_id)
             context = {
                 'deals': deals,
                 'selected_deal': selected_deal,

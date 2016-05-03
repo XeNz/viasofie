@@ -2,7 +2,7 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
-
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/userpanel.css" %}"/>
 <div class="row">
     <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
@@ -65,16 +65,16 @@
             </tr>
         </thead>
         <tbody>
-            {% for status in selected_deal_statuses %}
+            {% for dealStatus in selected_deal_statuses %}
             <tr>
             <!--TODO: icon toevoegen. -->
-                <td>{{status.text}}</td>
-                {%if status.current_status == "Gepland"%}
-                <td>ICON {{status.current_status}}</td>
-                {%elif status.current_status == "In behandeling"%}
-                <td>ICON {{status.current_status}}</td>
+                <td>{{dealStatus.status.description}}</td>
+                {%if dealStatus == Gepland %}
+                <td> <i class="fa fa-calendar" aria-hidden="true"></i>{{dealStatus}}</td>
+                {%elif dealStatus.current_status == "In behandeling"%}
+                <td><i class="fa fa-clock-o" aria-hidden="true"></i> {{dealStatus}}</td>
                 {%else%}
-                <td>ICON {{status.current_status}}</td>
+                <td><i class="fa fa-check" aria-hidden="true"></i> {{dealStatus}}</td>
                 {%endif%}
             </tr>
             {%endfor%}
