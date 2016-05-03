@@ -1,15 +1,16 @@
 from django import forms
 from haystack.forms import SearchForm
 from django.contrib.auth.models import User
+from .models import Property
 
 PRIJS = (
          ("0", "0"),
-         (50000),
-         (100000),
-         (200000),
-         (300000),
-         (400000),
-         (500000),
+         ("50000", "50000"),
+         ("100000", "100000"),
+         ("200000", "200000"),
+         ("300000", "300000"),
+         ("400000", "400000"),
+         ("500000", "500000"),
          )
 
 class FeedbackForm(forms.Form):
@@ -30,29 +31,13 @@ class PropertiesSearchForm(SearchForm):
     constructiondate = forms.DateField(required=False)
     sellingprice = forms.ChoiceField(choices=PRIJS, label="Prijs", required=False)
 
-    def search(self):
-        sqs = super(PropertiesSearchForm, self).search()
+    # def __init__(self, *args, **kwargs):
+    #     super(PropertiesSearchForm, self).__init__(*args, **kwargs)
+    #     self.fields['sellingprice'] = forms.ChoiceField(choices=PRIJS, label="Prijs")
 
-        if not self.is_valid():
-            return self.no_query_found()
-
-        if self.cleaned_data['street_text']:
-            sqs = sqs.filter(street_text=self.cleaned_data['street_text'])
-
-        if self.cleaned_data['house_number_text']:
-            sqs = sqs.filter(house_number_text=self.cleaned_data['house_number_text'])
-
-        if self.cleaned_data['city_text']:
-            sqs = sqs.filter(city_text=self.cleaned_data['city_text'])
-
-        if self.cleaned_data['constructiondate']:
-            sqs = sqs.filter(constructiondate=self.cleaned_data['constructiondate'])
-
-        if self.cleaned_data['sellingprice']:
-            sqs = sqs.filter(sellingprice=self.cleaned_data['sellingprice'])
-
-        return sqs
-
+    class Meta:
+        model = Property
+        fields = ['street_text', 'house_number_text', 'city_text', 'constructiondate', 'sellingprice']
 
 
 class UpdateAccountInformation(forms.ModelForm):

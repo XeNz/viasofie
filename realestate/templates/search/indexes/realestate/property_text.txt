@@ -3,3 +3,4 @@
 {{ object.street_text }}
 {{ object.postal_code_text }}
 {{ object.city_text }}
+{{ object.sellingprice }}

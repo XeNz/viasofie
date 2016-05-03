@@ -90,12 +90,13 @@ PRIJS = (
 
 
 def search(request):
+    form = PropertiesSearchForm
     if request.GET:
         form = PropertiesSearchForm(request.GET)
         query = form.search()
-        return render_to_response('realestate/search.html', {'query': query, 'prijzen': PRIJS,})
+        return render_to_response('realestate/search.html', {'query': query}, context_instance=RequestContext(request))
     else:
-        return render_to_response('realestate/search.html', {'prijzen': PRIJS})
+        return render_to_response('realestate/search.html', {"form": form}, context_instance=RequestContext(request))
 
 
 def contact(request):
