@@ -23,7 +23,13 @@ linkerkolom div
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <input type='text' name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
+                        <input type='text' name='straat' placeholder='Straat' value='{{ request.GET.straat }}'/>
+                    </td>
+                    <td>
+                        <input type='text' name='stad' placeholder='Stad' value='{{ request.GET.stad }}'/>
+                    </td>
+                    <td>
+                        <input type='text' name='prijs' placeholder='Prijs' value='{{ request.GET.prijs }}'/>
                     </td>
                     <td>
                         <input type="submit" value="Search">

@@ -17,6 +17,13 @@
                     <input type='text' name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
                 </td>
                 <td>
+                    <select name="sellingprice">
+                        {% for prijs in prijzen %}
+                                <option value="{{ prijs }}" selected>{{ prijs }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
                     <input type="submit" value="Search">
                 </td>
             </tr>

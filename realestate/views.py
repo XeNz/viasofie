@@ -78,16 +78,24 @@ def faq_list(request):
     }
     return render(request, "realestate/faq.html", context)
 
-
+PRIJS = (
+         ("0"),
+         (50000),
+         (100000),
+         (200000),
+         (300000),
+         (400000),
+         (500000),
+         )
 
 
 def search(request):
     if request.GET:
         form = PropertiesSearchForm(request.GET)
         query = form.search()
-        return render_to_response('realestate/search.html', {'query': query})
+        return render_to_response('realestate/search.html', {'query': query, 'prijzen': PRIJS,})
     else:
-        return render_to_response('realestate/search.html')
+        return render_to_response('realestate/search.html', {'prijzen': PRIJS})
 
 
 def contact(request):
