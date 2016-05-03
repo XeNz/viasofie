@@ -1,3 +1,11 @@
+#welcome h3{
+  margin-left: 30px;
+}
+
+#account a{
+  margin-left: 15px;
+}
+
 #deals h2{
   color: #0d3532;
 }
