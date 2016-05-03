@@ -23,7 +23,7 @@
             {% endfor %}
             </select>
         </form>
-    </div>   
+    </div>
 </div>
     <div class="col-md-6" id="userpanel">
         <div class="container">
@@ -69,12 +69,12 @@
             <tr>
             <!--TODO: icon toevoegen. -->
                 <td>{{dealStatus.status.description}}</td>
-                {%if dealStatus == Gepland %}
-                <td> <i class="fa fa-calendar" aria-hidden="true"></i>{{dealStatus}}</td>
-                {%elif dealStatus.current_status == "In behandeling"%}
-                <td><i class="fa fa-clock-o" aria-hidden="true"></i> {{dealStatus}}</td>
+                {%if dealStatus.current_status == planned_status %}
+                <td> <i class="fa fa-calendar" aria-hidden="true"></i>{{dealStatus.status.title}}</td>
+                {%elif dealStatus.current_status == in_progress_status %}
+                <td><i class="fa fa-clock-o" aria-hidden="true"></i> {{dealStatus.status.title}}</td>
                 {%else%}
-                <td><i class="fa fa-check" aria-hidden="true"></i> {{dealStatus}}</td>
+                <td><i class="fa fa-check" aria-hidden="true"></i> {{dealStatus.status.title}}</td>
                 {%endif%}
             </tr>
             {%endfor%}
