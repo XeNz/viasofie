@@ -8,7 +8,7 @@ class PropertyPictureInline(admin.TabularInline):
 
 class Characteristics_propertyInline(admin.TabularInline):
     model = Characteristics_property
-    fields = ['property_id','characteristic_id','value',]
+    fields = ['property_id','characteristic_id','value','required',]
 
 class CharacteristicAdmin(admin.ModelAdmin):
     list_display = ("id", "name")

@@ -49,6 +49,7 @@ class Characteristics_property(models.Model):
     property_id = models.ForeignKey('Property')
     characteristic_id = models.ForeignKey(Characteristic, related_name='characteristickey')
     value = models.CharField(max_length=255)
+    required = models.BooleanField(default=False) #required characteristics e.g. bedrooms, bathrooms
 
     def __str__(self):
         return self.value
@@ -127,10 +128,6 @@ class DealStatus(models.Model):
     comment = models.CharField(max_length=50)
     current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
     date = models.DateField()
-
-    def __str__(self):
-        return self.current_status
-
 
 class DealDocument(models.Model):
     id = models.AutoField(primary_key=True)
