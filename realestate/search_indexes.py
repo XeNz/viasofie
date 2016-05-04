@@ -13,7 +13,7 @@ class PropertyIndex(indexes.SearchIndex, indexes.Indexable):
     city = indexes.CharField(model_attr='city_text')
 
 
- 
+
     def get_model(self):
         return Property
 

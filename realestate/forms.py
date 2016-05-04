@@ -28,7 +28,7 @@ class PropertiesSearchForm(SearchForm):
     street_text = forms.CharField(label="Straat", required=False)
     house_number_text = forms.CharField(label="Postcode", required=False)
     city_text = forms.CharField(label="Stad", required=False)
-    constructiondate = forms.DateField(required=False)
+    constructiondate = forms.DateField(label="Bouwjaar", required=False)
     sellingprice = forms.ChoiceField(choices=PRIJS, label="Prijs", required=False)
 
     # def __init__(self, *args, **kwargs):
