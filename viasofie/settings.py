@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cookielaw',
     'easy_thumbnails',
+    'selenium',
     #'debug_toolbar',
 ]
 
