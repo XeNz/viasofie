@@ -49,9 +49,46 @@ class AdminTestCase(LiveServerTestCase):
 
         # Fill the create user form with username and password
         self.selenium.find_element_by_id("id_username").send_keys("test")
-        self.selenium.find_element_by_id("id_password1").send_keys("test")
-        self.selenium.find_element_by_id("id_password2").send_keys("test")
+        self.selenium.find_element_by_id("id_password1").send_keys("test1234")
+        self.selenium.find_element_by_id("id_password2").send_keys("test1234")
 
         # Forms can be submitted directly by calling its method submit
         self.selenium.find_element_by_id("user_form").submit()
         self.assertIn("Change user", self.selenium.title)
+
+    def test_delete_user(self):
+
+    def test_edit_user(self):
+
+    def test_create_proper(self):
+
+    def test_edit_property(self):
+
+    def test_delete_proptery(self):
+
+    def test_create_deal(self):
+
+    def test_edit_deal(self):
+
+    def test_delete_deal(self):
+
+    def test_create_faq(self):
+
+    def test_edit_faq(self):
+
+    def test_delete_faq(self):
+
+    def test_create_property_characteristics(self):
+
+    def test_edit_property_characteristics(self):
+
+    def test_delete_property_characteristics(self):
+
+    def test_create_statussen(self):
+
+    def test_edit_statussen(self):
+
+    def test_delete_statussen(self):
+
+
+
