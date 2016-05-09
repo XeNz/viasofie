@@ -28,7 +28,7 @@ linkerkolom div
                 <tbody>
                     <tr>
                         <th scope="row">Adres</th>
-                        <td>{{ property.address_text }}</td>
+                        <td>{{ property.street_text}} {{property.house_number_text}} {{property.postal_code_text}} {{property.city_text}} {{property.country_text}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Vraagprijs</th>
@@ -62,7 +62,7 @@ linkerkolom div
     </div>
       <div role="tabpanel" class="tab-pane" id="location">
         <div class="google-maps">
-             <iframe seamless="seamless" style="border: 0" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&amp;q={{ property.address_text }}"> </iframe>
+             <iframe seamless="seamless" style="border: 0" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&amp;q={{ property.street_text }},{{ property.house_number_text }},{{ property.city_text }},{{ property.postal_code_text }},{{ property.country_text}}"> </iframe>
         </div>
 </div>  
 </div>

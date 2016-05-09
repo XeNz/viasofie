@@ -13,7 +13,11 @@ class Property(models.Model):
     #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title_text = models.CharField(max_length=200)
     description_text = models.TextField()
-    address_text = models.CharField(max_length=200)
+    street_text = models.CharField(max_length=200)
+    house_number_text = models.CharField(max_length=200)
+    postal_code_text = models.CharField(max_length=200)
+    city_text = models.CharField(max_length=200)
+    country_text = models.CharField(max_length=200 ,default='België')
     constructiondate = models.DateField()
     sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
     visible_to_public = models.BooleanField(default=True)
@@ -45,6 +49,7 @@ class Characteristics_property(models.Model):
     property_id = models.ForeignKey('Property')
     characteristic_id = models.ForeignKey(Characteristic, related_name='characteristickey')
     value = models.CharField(max_length=255)
+    required = models.BooleanField(default=False) #required characteristics e.g. bedrooms, bathrooms
 
     def __str__(self):
         return self.value
@@ -97,20 +102,16 @@ class CurrentStatus(ChoiceEnum):
     in_progress = "In behandeling"
     done = "In orde"
 
-#status of a deal
-#TODO: deal_status model?
+
 class Status(models.Model):
     id = models.AutoField(primary_key=True)
-    #title
-    text = models.CharField(max_length=50) #description
-    #datum
-    #visible to user?
-    #done? planned/in progress/done?
-    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
-    deal = models.ForeignKey(Deal, related_name='dealstatuskey')
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=500)
+    visible_to_user = models.BooleanField(default=True)
+
 
     def __str__(self):
-        return self.text
+        return self.title
 
     class Meta():
         verbose_name = 'Status'
@@ -120,6 +121,13 @@ class Status(models.Model):
 def create_deal_documents_path(instance, filename):
     return '/'.join(['documents', str(instance.deal.id), filename])
 
+
+class DealStatus(models.Model):
+    status = models.ForeignKey(Status, related_name='Dstatuskey')
+    deal = models.ForeignKey(Deal, related_name='dealSkey')
+    comment = models.CharField(max_length=50)
+    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
+    date = models.DateField()
 
 class DealDocument(models.Model):
     id = models.AutoField(primary_key=True)
@@ -131,7 +139,3 @@ class DealDocument(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-

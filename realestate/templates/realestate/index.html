@@ -6,8 +6,8 @@
 linkerkolom div
 </div>
     <div class="col-md-6">
-    <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
-{% for property in properties %} 
+   <!--  <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
+{% for property in properties %}
     <a href="{% url 'realestate:detail' property.id %}"> <h3>{{ property.title_text }}</h3> </a>
     <p>{{ property.description_text }} </p>
     <p>{{ property.sellingprice }} </p>
@@ -15,7 +15,37 @@ linkerkolom div
         <a href="{% url 'realestate:detail' property.id %}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}"/></a>
         {% endfor %}
         <hr>
-{% endfor %}
+{% endfor %} -->
+    <h2>Search</h2>
+
+        <form class=form-horizontal method="get" action=".">
+            <div class="input-group">
+               {{ form.q }}
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+               </span>
+            </div>
+          </form>
+
+        {% if query %}
+            <h3>Results</h3>
+
+            {% for result in query %}
+                <p>
+                    <a href="{% url 'realestate:detail' pk=result.id %}" >{{ result.title }}</a>
+                </p>
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% endif %}
     </div>
 <div class = "col-md-3">rechterkolom div</div>
 

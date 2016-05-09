@@ -13,12 +13,20 @@ from django.db.models import Q
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.shortcuts import render_to_response
+from .forms import PropertiesSearchForm
+from haystack.inputs import AutoQuery, Exact, Clean
+from haystack.query import SearchQuerySet
 
 
 def index(request):
-        return render(request, "realestate/index.html", {
-        'properties': Property.objects.filter(featured=True,visible_to_public=True).order_by('-pub_date')[:5]
-    })
+    form = PropertiesSearchForm(request.GET)
+    if request.GET:
+        query = form.search()
+        return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('realestate/index.html', {"form": form}, context_instance=RequestContext(request))
+
 
 # class IndexView(generic.ListView):
 #     template_name = 'realestate/index.html'
@@ -71,6 +79,26 @@ def faq_list(request):
     }
     return render(request, "realestate/faq.html", context)
 
+PRIJS = (
+         ("0"),
+         (50000),
+         (100000),
+         (200000),
+         (300000),
+         (400000),
+         (500000),
+         )
+
+
+def search(request):
+    form = PropertiesSearchForm
+    if request.GET:
+        form = PropertiesSearchForm(request.GET)
+        query = form.search()
+        return render_to_response('realestate/search.html', {'query': query}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('realestate/search.html', {"form": form}, context_instance=RequestContext(request))
+
 
 def contact(request):
     #TODO: implement mailto
@@ -109,12 +137,16 @@ def controlpanel(request):
             selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
             selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id)
-            selected_deal_statuses = Status.objects.filter(deal=selected_deal_id)
+            selected_deal_statuses = DealStatus.objects.filter(deal=selected_deal_id)
+            planned_status = CurrentStatus.planned
+            in_progress_status = CurrentStatus.in_progress
             context = {
                 'deals': deals,
                 'selected_deal': selected_deal,
                 'selected_deal_documents': selected_deal_documents,
-                'selected_deal_statuses': selected_deal_statuses
+                'selected_deal_statuses': selected_deal_statuses,
+                'planned_status': planned_status,
+                'in_progress_status': in_progress_status
             }
             return render(request, 'usercontrolpanel/userpanel.html', context)
         else:

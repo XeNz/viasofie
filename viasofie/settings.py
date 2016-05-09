@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=dxj=8trj-tdhldrtaj_hby%3%t6-(o(10fi2f0bfysnl9vt2#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.16.195.115',]
 
@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'cookielaw',
     'easy_thumbnails',
+    'debug_toolbar',
     'selenium',
-    #'debug_toolbar',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -87,23 +88,33 @@ WSGI_APPLICATION = 'viasofie.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-     },
-    #'default': {
-    #   'ENGINE': 'django.db.backends.mysql',
-    #   'NAME': 'viasofie',
-    #   'USER': 'projectuser',
-    #   'PASSWORD': 'Kappa456',
-    #   'HOST': '192.168.84.96',
-    #   'PORT': '3306',
-    #   'OPTIONS': {
-    #     'autocommit': True,
-    #     'read_default_file': '/mysqlConfig.cnf',
-    #   },
-    #}
+     # 'default': {
+     #     'ENGINE': 'django.db.backends.sqlite3',
+     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     # },
+    'default': {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'viasofie',
+      'USER': 'projectuser',
+      'PASSWORD': 'Kappa456',
+      'HOST': '192.168.84.96',
+      'PORT': '3306',
+      'OPTIONS': {
+        'autocommit': True,
+        'read_default_file': '/mysqlConfig.cnf',
+      },
+    }
 }
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': '127.0.0.1:9200',
+        'INDEX_NAME': 'haystack',
+    },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 
 # Password validation

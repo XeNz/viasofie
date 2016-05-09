@@ -23,6 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 
 urlpatterns = [
     url(r'^', include('realestate.urls')),
+    #url(r'^search/', include('haystack.urls')),
     url(r'^admin/', admin.site.urls , name='admin'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

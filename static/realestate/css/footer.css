@@ -32,18 +32,17 @@ html,
 body {
    margin:0;
    padding:0;
-   height:100%;
-
 }
 .wrapper {
    min-height:100%;
    position:relative;
 }
 .footer {
+   color: white;
    margin-top: 40px;
    padding-bottom:100px
    bottom:0;
    width:100%;
    height:100px;   /* Height of the footer */
-   background-color: #EAC8C6;
+   background-color: #0d3532;
 }
