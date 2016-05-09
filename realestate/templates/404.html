@@ -1,16 +1,21 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
-{% include "realestate/header.html" %}
 
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/404.css" %}"/>
-<div class = "errorpage" id="error">
-    <h1> 404 Pagina niet gevonden!</h1>
-    <div class="errortext">
-      <p>De pagina die u zocht bestaat niet.</p> 
 
-      <a href="{% url 'realestate:index' %}"> Klik hier om terug te gaan naar de hoofdpagina. </a>
-  </div>
+<div class = "errorpage" id="error">
+    <header id="error-header">
+        <img src="{% static "realestate/img/logo.png" %}" id="logo">
+    </header>
+    <div class="errortext" id="errortext">
+    <h1>Pagina niet gevonden</h1>
+      <p>Oeps! Het lijkt erop dat de pagina die u zoekt verplaatst is of niet bestaat.</p>
+      <p>Zorg ervoor dat u de juiste URL ingeeft of een geldige link volgt.
+
+	  <p><input class="myButton" name="lien1" value="Ga terug naar de hoofdpagina"onclick="self.location.href='{% url 'realestate:index' %}'"onclick></p>
+
+      <!--<p><a href="{% url 'realestate:index' %}"> Ga terug naar de hoofdpagina. </a></p>-->
+    </div>
 </div>
 
-{% include "realestate/footer.html" %}
 

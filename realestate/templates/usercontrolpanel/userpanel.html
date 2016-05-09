@@ -4,56 +4,57 @@
 {% load thumbnail %}
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/userpanel.css" %}"/>
-<div class="row">
-    <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
-</div>
-<div class="account_information">
-    <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
-</div>
-<div class="col-md-3">
-    <div class="deals" id="deals">
-        <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Selecteer deal</span></h2>
-        <br>
-        <form method="POST">
-            {% csrf_token %}
-            <select name="selected_deal_id" id="id_deals">
-            <option selected="selected" value="default">-</option>
-            {% for deal in deals %}
-            <option value="{{deal.id}}" name="{{deal.id}}">{{deal.property.title_text}}</option>
-            {% endfor %}
-            </select>
-        </form>
+    <div class="row" id="welcome">
+        <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
     </div>
-</div>
-    <div class="col-md-6" id="userpanel">
-        <div class="container">
-        {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-            <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
-            {% endfor %}
+    <div class="account_information" id="account">
+        <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
+    </div>
+    <div class="col-md-3">
+        <div class="deals" id="deals">
+            <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Selecteer deal</span></h2>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                <select name="selected_deal_id" id="id_deals">
+                <option selected="selected" value="default">-</option>
+                {% for deal in deals %}
+                <option value="{{deal.id}}" name="{{deal.id}}">{{deal.property.title_text}}</option>
+                {% endfor %}
+                </select>
+            </form>
         </div>
-        {% endif %}
-      </div>
-        <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Details van deal</span></h2>
-        {% for deal in selected_deal %}
-        <h3>{{deal.property}}</h3>
-        {% endfor %}
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Documenten</th>
-                </tr>
-              </thead>
-              <tbody>
-              {% for documents in selected_deal_documents %}
-                <tr>
-                  <td><a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a></td>
-                </tr>
-             {% endfor %}
-              </tbody>
-            </table>
     </div>
+        <div class="col-md-6" id="userpanel">
+            <div class="container">
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+                {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+            <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Details van deal</span></h2>
+            {% for deal in selected_deal %}
+            <h3>{{deal.property}}</h3>
+
+            {% endfor %}
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Documenten</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for documents in selected_deal_documents %}
+                    <tr>
+                      <td><a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a></td>
+                    </tr>
+                 {% endfor %}
+                  </tbody>
+                </table>
+        </div>
 
 <div class = "col-md-3" id="status">
     <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
@@ -81,6 +82,7 @@
         </tbody>
     </table>
 </div>
+
 
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{{ STATIC_URL }}realestate/js/userpanel.js"></script>

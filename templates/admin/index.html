@@ -17,41 +17,49 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
+<div class="row">
+<div class="col-md-6">
 <div id="content-main">
 
 {% if app_list %}
+
     {% for app in app_list %}
         <div class="app-{{ app.app_label }} module">
         <table class="table table-condensed ">
-        <caption>
+<!--         <caption>
             <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
-        </caption>
+        </caption> -->
         {% for model in app.models %}
             <tr class="model-{{ model.object_name|lower }}">
             {% if model.admin_url %}
                 {% if not "Groep" in model.name %}
                 <th scope="row"><a href="{{ model.admin_url }}">
                 {% if  "Gebruiker" in model.name %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/user.png" %}' >
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/user.png" %}' >
                 {% endif %}
                 {% if  "Deal" in model.name %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/deal.png" %}' >
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/deal.png" %}' >
                 {% endif %}
                 {% if  "Eigendom" in model.name %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/house.png" %}' >
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/house.png" %}' >
                 {% endif %}
                 {% if  "Frequently" in model.name %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/faq.png" %}' >
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/faq.png" %}' >
                 {% endif %}
                 {% if  "character" in model.name %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/bath.png" %}' >
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/bath.png" %}' >
+                {% endif %}
+                {% if  "Status" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/status.png" %}' >
                 {% endif %}
                 {% if  "Status" in model.name %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" src='{% static "realestate/img/status.png" %}' >
                 {% endif %}
                <!--  {{ model.name }} -->
                 </a></th>
-                <td><a href="{{ model.admin_url }}"><img width="50px" height="50px" src="{% static "realestate/img/list.png" %}"></a></td>
+
+                <td><a href="{{ model.admin_url }}"><img width="50px" height="50px" alt="Oplijsten" title="Oplijsten" src="{% static "realestate/img/list.png" %}"></a></td>
+
             {% endif %}
             {% else %}
                 <th scope="row">{{ model.name }}</th>
@@ -62,7 +70,9 @@
             {% if model.add_url %}
             {% if not "Groep" in model.name %}
                 <!-- <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td> -->
-                <td><a href="{{ model.add_url }}"><img width="50px" height="50px" src="{% static "realestate/img/add.png" %}"></a></td>
+
+                <td><a href="{{ model.add_url }}"><img width="50px" height="50px" alt="Toevoegen" title="Toevoegen" src="{% static "realestate/img/add.png" %}"></a></td>
+
             {% endif %}
             {% else %}
                 <td>&nbsp;</td>
@@ -71,7 +81,9 @@
             {% if model.admin_url %}
             {% if not "Groep" in model.name %}
               <!--   <td><a href="{{ model.admin_url }}" class="changelink">VeranderKappa</a></td> -->
-                <td><a href="{{ model.admin_url }}" ><img width="50px" height="50px" src="{% static "realestate/img/edit.png" %}"></a></td>
+
+                <td><a href="{{ model.admin_url }}" ><img width="50px" height="50px" alt="Aanpassen" title="Aanpassen" src="{% static "realestate/img/edit.png" %}"></a></td>
+
             {% endif %}
 
             {% else %}
@@ -86,13 +98,14 @@
     <p>{% trans "You don't have permission to edit anything." %}</p>
 {% endif %}
 </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
+<div class="col-md-6">
 <div id="content-related">
     <div class="module" id="recent-actions-module">
-        <h2>{% trans 'Recent actions' %}</h2>
-        <h3>{% trans 'My actions' %}</h3>
+        <h2>Mijn recente acties</h2>
         {% load log %}
         {% get_admin_log 10 as admin_log for_user user %}
         {% if not admin_log %}
@@ -118,4 +131,7 @@
         {% endif %}
     </div>
 </div>
+</div>
+</div><!--- row -->
+
 {% endblock %}
