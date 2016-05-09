@@ -3,6 +3,7 @@ from haystack.forms import SearchForm
 from django.contrib.auth.models import User
 from .models import Property
 
+
 PRIJS = (
          ("0", "0"),
          ("50000", "50000"),
@@ -31,9 +32,6 @@ class PropertiesSearchForm(SearchForm):
     constructiondate = forms.DateField(label="Bouwjaar", required=False)
     sellingprice = forms.ChoiceField(choices=PRIJS, label="Prijs", required=False)
 
-    # def __init__(self, *args, **kwargs):
-    #     super(PropertiesSearchForm, self).__init__(*args, **kwargs)
-    #     self.fields['sellingprice'] = forms.ChoiceField(choices=PRIJS, label="Prijs")
 
     class Meta:
         model = Property

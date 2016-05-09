@@ -15,6 +15,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response
 from .forms import PropertiesSearchForm
+from haystack.inputs import AutoQuery, Exact, Clean
+from haystack.query import SearchQuerySet
 
 
 def index(request):
@@ -93,6 +95,7 @@ def search(request):
     form = PropertiesSearchForm
     if request.GET:
         form = PropertiesSearchForm(request.GET)
+        house_number = request.GET('house_number_text')
         query = form.search()
         return render_to_response('realestate/search.html', {'query': query}, context_instance=RequestContext(request))
     else:
