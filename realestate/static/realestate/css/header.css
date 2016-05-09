@@ -1,30 +1,87 @@
 #container{
-    background-color: #eac8c6;
+    background-color: #0d3532;
     float: left;
     width: 100%;
-}
-
-#left-part{
-    position: absolute;
-    vertical-align: text-bottom;
-    bottom: -150px;
-    margin: 150px;
-    background-color: #e8e8e8;
-}
-
-#right-part{
-    position: absolute;
-    vertical-align: text-bottom;
-    bottom: 0px;
-    right: 150px;
-    background-color: #e8e8e8;
 }
 
 #logo{
     width: 121.5px;
     height: 178.125px;
 }
-.row{
-    margin-left:0px;
-    margin-right:0px;
+
+
+/* LEFT PART */
+#left-part{
+    position: absolute;
+    vertical-align: text-bottom;
+    bottom: -150px;
+    margin: 150px;
+    padding-bottom: 10px;
 }
+
+#left-part li {
+    display:inline;
+    text-align:center;
+}
+
+#left-part li a {
+    color: white;
+    font-family: "Ropa Sans";
+    font-size: 20px;
+}
+
+#left-part li.active a {
+    background: #ff8c00;
+    border-radius: 10px;
+}
+
+#left-part li:nth-child(1) a {width:10em;}
+#left-part li:nth-child(2) a {width:10em;}
+#left-part li:nth-child(3) a {width:10em;}
+#left-part li:nth-child(4) a {width:10em;}
+
+#faq:hover ~ hr {margin-left: 25%;}
+#contact:hover ~ hr {margin-left: 50%;}
+#about:hover ~ hr {margin-left: 75%;}
+#line {
+    height: .20rem;
+    width: 24.5%;
+    padding:.0em .1em;
+    margin: 0;
+    background-color: white;
+    transition: .3s ease-in-out;
+    display:table;
+}
+
+
+/*RIGHT PART*/
+#right-part {
+    position: absolute;
+    vertical-align: text-bottom;
+    bottom: 0px;
+    right: 150px;
+    padding-bottom: 10px;
+}
+
+#right-part li {
+    display:inline;
+    text-align:center;
+
+}
+
+#right-part li a {
+    font-family: "Ropa Sans";
+    font-size: 20px;
+    color: white;
+}
+
+#right-part li.active a {
+    background: #ff8c00;
+    border-radius: 10px;
+}
+
+
+
+
+
+
