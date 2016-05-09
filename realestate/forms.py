@@ -25,17 +25,16 @@ class FeedbackForm(forms.Form):
 
 
 class PropertiesSearchForm(SearchForm):
-    #fields
-    street_text = forms.CharField(label="Straat", required=False)
-    house_number_text = forms.CharField(label="Postcode", required=False)
-    city_text = forms.CharField(label="Stad", required=False)
-    constructiondate = forms.DateField(label="Bouwjaar", required=False)
-    sellingprice = forms.ChoiceField(choices=PRIJS, label="Prijs", required=False)
 
+
+    def __init__(self, *args, **kwargs):
+        super(PropertiesSearchForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
     class Meta:
         model = Property
-        fields = ['street_text', 'house_number_text', 'city_text', 'constructiondate', 'sellingprice']
+
 
 
 class UpdateAccountInformation(forms.ModelForm):

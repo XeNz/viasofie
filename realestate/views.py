@@ -20,14 +20,13 @@ from haystack.query import SearchQuerySet
 
 
 def index(request):
+    form = PropertiesSearchForm(request.GET)
     if request.GET:
-        form = PropertiesSearchForm(request.GET)
         query = form.search()
-        return render(request, 'realestate/search.html', {'query': query})
+        return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
     else:
-        return render(request, "realestate/index.html", {
-        'properties': Property.objects.filter(featured=True,visible_to_public=True).order_by('-pub_date')[:5]
-    })
+        return render_to_response('realestate/index.html', {"form": form}, context_instance=RequestContext(request))
+
 
 # class IndexView(generic.ListView):
 #     template_name = 'realestate/index.html'
@@ -95,7 +94,6 @@ def search(request):
     form = PropertiesSearchForm
     if request.GET:
         form = PropertiesSearchForm(request.GET)
-        house_number = request.GET('house_number_text')
         query = form.search()
         return render_to_response('realestate/search.html', {'query': query}, context_instance=RequestContext(request))
     else:
