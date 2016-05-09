@@ -1,0 +1,26 @@
+#welcome{
+  margin-left: 15px;
+}
+
+#account{
+  margin-left: 15px;
+}
+
+#deals h2{
+  color: #0d3532;
+}
+
+#userpanel h2{
+  color: #0d3532;
+}
+
+#status h2{
+  color: #0d3532;
+}
+
+body{
+    background-image: url("/static/realestate/img/diningkitchen.jpg");
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -27,7 +27,7 @@ class DealDocumentInline(admin.TabularInline):
 
 class StatusInline(admin.TabularInline):
     model = Status
-    fields = ['text', 'done', ]
+    fields = ['text', 'current_status', ]
 
 class DealAdmin(admin.ModelAdmin):
     inlines = [DealDocumentInline, StatusInline, ]

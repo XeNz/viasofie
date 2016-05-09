@@ -4,10 +4,15 @@
 {% load thumbnail %}
 
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/userpanel.css" %}"/>
+<div class="row" id="welcome">
+    <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
+</div>
+<div class="account_information" id="account">
+    <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
+</div>
 <div class="col-md-3">
     <div class="deals" id="deals">
-        <br>
-        <h2>Selecteer deal</h2>
+        <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Selecteer deal</span></h2>
         <br>
         <form method="POST">
             {% csrf_token %}
@@ -18,13 +23,7 @@
             {% endfor %}
             </select>
         </form>
-
-    </div>
-
-     <div class="account_information">
-        <br>
-        <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
-    </div>
+    </div>   
 </div>
     <div class="col-md-6" id="userpanel">
         <div class="container">
@@ -36,12 +35,9 @@
         </div>
         {% endif %}
       </div>
-        <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Gebruikerspaneel</span></h2>
-        <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
-        <br>
-        <br>
+        <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Details van deal</span></h2>
         {% for deal in selected_deal %}
-        <h2>{{deal.property}}</h2>
+        <h3>{{deal.property}}</h3>
         {% endfor %}
             <table class="table">
               <thead>
@@ -64,18 +60,21 @@
     <table class="table">
           <thead>
             <tr>
-              <th></th>
-              <th></th>
+              <th>Omschrijving</th>
+              <th>Status</th>
             </tr>
         </thead>
         <tbody>
             {% for status in selected_deal_statuses %}
             <tr>
-                <td >{{status.text}}</td>
-                {%if status.done == True%}
-                <td>INSTERT DONE ICON HERE</td>
+            <!--TODO: icon toevoegen. -->
+                <td>{{status.text}}</td>
+                {%if status.current_status == "Gepland"%}
+                <td>ICON {{status.current_status}}</td>
+                {%elif status.current_status == "In behandeling"%}
+                <td>ICON {{status.current_status}}</td>
                 {%else%}
-                <td>INSTERT IN PROG ICON HERE</td>
+                <td>ICON {{status.current_status}}</td>
                 {%endif%}
             </tr>
             {%endfor%}

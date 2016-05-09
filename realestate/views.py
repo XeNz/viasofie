@@ -151,3 +151,6 @@ def accountinformation(request):
 def about(request):
     return render(request, 'realestate/about.html')
 
+def disclaimer(request):
+    return render(request, 'realestate/disclaimer.html')
+

@@ -1,7 +1,7 @@
 [client]
 database = viasofie
-host = 127.0.01
+host = 192.168.84.96
 port =3306
-user = root
-password = root
+user = projectuser
+password = Kappa456
 default-character-set = utf8

@@ -1,9 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>404 page not found</title>
-</head>
-<body>
-    <h1>Woepsie</h1>
-</body>
-</html>
+{% load staticfiles %}
+{% load cookielaw_tags %}
+
+<link rel="stylesheet" type="text/css" href="{% static "realestate/css/404.css" %}"/>
+
+<div class = "errorpage" id="error">
+    <header id="error-header">
+        <img src="{% static "realestate/img/logo.png" %}" id="logo">
+    </header>
+    <div class="errortext" id="errortext">
+    <h1>Pagina niet gevonden</h1>
+      <p>Oeps! Het lijkt erop dat de pagina die u zoekt verplaatst is of niet bestaat.</p>
+      <p>Zorg ervoor dat u de juiste URL ingeeft of een geldige link volgt.
+
+	  <p><input class="myButton" name="lien1" value="Ga terug naar de hoofdpagina"onclick="self.location.href='{% url 'realestate:index' %}'"onclick></p>
+
+      <!--<p><a href="{% url 'realestate:index' %}"> Ga terug naar de hoofdpagina. </a></p>-->
+    </div>
+</div>
+
+
