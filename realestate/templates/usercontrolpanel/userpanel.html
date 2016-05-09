@@ -14,13 +14,13 @@
         <div class="deals" id="deals">
             <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Selecteer deal</span></h2>
             <br>
-            <form method="POST">
+            <form id= "dealselecter" class= "form-group" method="POST">
                 {% csrf_token %}
-                <select name="selected_deal_id" id="id_deals">
-                <option selected="selected" value="default">-</option>
-                {% for deal in deals %}
-                <option value="{{deal.id}}" name="{{deal.id}}">{{deal.property.title_text}}</option>
-                {% endfor %}
+                <select class="form-control" name="selected_deal_id" id="id_deals">
+                    <option selected="selected" value="default">-</option>
+                    {% for deal in deals %}
+                    <option value="{{deal.id}}" name="{{deal.id}}">{{deal.property.title_text}}</option>
+                    {% endfor %}
                 </select>
             </form>
         </div>

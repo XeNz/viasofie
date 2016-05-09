@@ -10,5 +10,5 @@ body{
   background-color: #e8e8e8;
 }
 #dealselecter{
-    width: 80px;
+    width: fit-content;
 }

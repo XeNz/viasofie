@@ -9,9 +9,9 @@
 <div class = "col-md-3"> linkerkolom</div>
 <div class='col-md-6' id="faqblock">
 <h2 class = "page-header"> Frequently Asked Questions</h2>
-<form method='GET' action=''>{% csrf_token %}
-<input type='text' name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
-<input type='submit' value='Zoek' />
+<form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
+	<input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
+	<input type='submit' class="btn btn-default" value='Zoek' />
 </form>
 {% for obj in object_list %}
 <div class="row">
