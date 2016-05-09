@@ -26,6 +26,7 @@ urlpatterns = [
     #url(r'^search/', include('haystack.urls')),
     url(r'^admin/', admin.site.urls , name='admin'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^reset/', include('password_reset.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG is False:   #if DEBUG is True it will be served automatically
