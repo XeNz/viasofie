@@ -9,6 +9,9 @@
 <div class = "col-md-3"> linkerkolom</div>
 <div class='col-md-6' id="faqblock">
 <h2 class = "page-header"> Frequently Asked Questions</h2>
+<div id="faqheadertext">
+<p>Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder.</p>
+</div>
 <form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
 	<input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
 	<input type='submit' class="btn btn-default" value='Zoek' />
@@ -39,6 +42,11 @@
 	        {% endif %}
 	    </span>
 	</div>
+<div>
+<blockquote>
+<p>De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene aard en kunnen geenszins als sluitende professionele juridische adviesverlening aangepast aan specifieke of concrete persoonlijke omstandigheden worden beschouwd.</p>
+</blockquote>
+</div>
 </div>
 <div class = "col-md-3"> rechterkolom</div>
 {% include "realestate/footer.html" %}

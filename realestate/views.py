@@ -60,7 +60,7 @@ def faq_list(request):
                 Q(question__icontains=query)#|
                 #Q(answer__icontains=query)
                 ).distinct()
-    paginator = Paginator(queryset_list, 10) # Show 10 faqs per page
+    paginator = Paginator(queryset_list, 5) # Show 5 faqs per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
