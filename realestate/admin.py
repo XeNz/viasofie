@@ -1,6 +1,40 @@
 from django.contrib import admin
-
 from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus
+from django.contrib.sites.models import Site
+from django.http import HttpResponse
+from reportlab.pdfgen import canvas
+from reportlab.graphics.shapes import Drawing
+from reportlab.graphics.barcode.qr import QrCodeWidget
+from reportlab.graphics import renderPDF
+
+
+def qrcode(modeladmin, request, queryset):
+    response = HttpResponse(content_type='application/pdf')
+
+    for obj in queryset.all():
+        id = obj.id
+
+    response['Content-Disposition'] = 'attachment; filename="qrcode.pdf"'
+
+    # url = Site.objects.get_current().domain
+    url = "https://127.0.0.1:8000"
+    p = canvas.Canvas(response)
+
+    qrw = QrCodeWidget("{0}/property/{1}".format(url, id))
+    b = qrw.getBounds()
+
+    w = b[2] - b[0]
+    h = b[3] - b[1]
+
+    d = Drawing(45,45,transform = [450./w,0,0,450./h,0,0])
+    d.add(qrw)
+
+    renderPDF.draw(d, p, 1, 1)
+
+    p.showPage()
+    p.save()
+    return  response
+
 
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
@@ -20,6 +54,7 @@ class PropertyAdmin(admin.ModelAdmin):
     list_filter = ("sellingprice", "constructiondate")
     search_fields = ("sellingprice",)
     inlines = [PropertyPictureInline,Characteristics_propertyInline,]
+    actions =[qrcode]
 
 class DealDocumentInline(admin.TabularInline):
     model = DealDocument

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'haystack',
     'cookielaw',
     'easy_thumbnails',
@@ -168,6 +169,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets'),]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+SITE_ID = 1
 
 #redirect for control panel setting
 LOGIN_REDIRECT_URL = '/controlpanel/'

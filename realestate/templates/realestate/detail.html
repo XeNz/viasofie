@@ -37,11 +37,15 @@ linkerkolom div
                     <tr>
                         <th scope="row">Bouwdatum</th>
                         <td>{{ property.constructiondate }}</td>
-                    </tr>    
+                    </tr>
                     <tr>
                         <th scope="row">QR Code</th>
-                        <td><img src="{{ event.qrcode.url }}" alt="{{ property.title_text }} QR Code" /></td>
-                    </tr>    
+                        <td>
+                                <form class="form " action="{{ qrcode }}" method="post">{% csrf_token %}
+                                    <input id="qrcode" type="submit" name="edit" value="Download qrcode" />
+                                </form>
+                            </td>
+                    </tr>
 
                     {% for characteristic_property in characteristics_property %}
                     <!-- to test for property id-->
@@ -49,14 +53,14 @@ linkerkolom div
                     <tr>
                         <th scope="row">{{characteristic_property.characteristic_id.name}}</th>
                         <td>{{characteristic_property.value}}</td>
-                    </tr>  
-                    {% endfor %}              
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 
             <h2> Omschrijving </h2>
             {{ property.description_text }}
-            
+
 
             <div class="popup-gallery">
                 {% for propertyimage in property.propertykey.all %}
@@ -68,7 +72,7 @@ linkerkolom div
         <div class="google-maps">
              <iframe seamless="seamless" style="border: 0" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&amp;q={{ property.street_text }},{{ property.house_number_text }},{{ property.city_text }},{{ property.postal_code_text }},{{ property.country_text}}"> </iframe>
         </div>
-</div>  
+</div>
 </div>
     </div>
 <div class = "col-md-3">

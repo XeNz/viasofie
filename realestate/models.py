@@ -1,4 +1,3 @@
-import qrcode  
 import io
 from django.db import models
 from django.utils import timezone
@@ -6,7 +5,7 @@ from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from enumchoicefield import ChoiceEnum, EnumChoiceField
-from django.core.urlresolvers import reverse  
+from django.core.urlresolvers import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
