@@ -2,7 +2,18 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 
-
+	<div class="page-title-section">
+		<div class="container">
+			<div class="pull-left page-title">
+				<a href="{% url 'realestate:faq' %}">
+				<h2>About us</h2>
+				</a>
+			</div>
+			<div class="pull-right breadcrumb">
+				<a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:faq' %}">Frequently Asked Questions</a>
+			</div>
+		</div>
+	</div>
 
 
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>

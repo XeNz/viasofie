@@ -4,6 +4,20 @@
 {% load thumbnail %}
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/googlemaps.css" %}"/>
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/detail.css" %}"/>
+<div class="page-title-section">
+    <div class="container">
+        <div class="pull-left page-title">
+            <a href="{% url 'realestate:detail' pk=property.id %}">
+            <h2>Property {{property.id}}</h2>
+            </a>
+        </div>
+        <div class="pull-right breadcrumb">
+            <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:detail' pk=property.id %}">Property {{property.id}}</a>
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
 <div class = "col-md-3">
 linkerkolom div

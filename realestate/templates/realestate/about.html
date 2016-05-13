@@ -1,7 +1,18 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
-
+	<div class="page-title-section">
+		<div class="container">
+			<div class="pull-left page-title">
+				<a href="{% url 'realestate:about' %}">
+				<h2>About us</h2>
+				</a>
+			</div>
+			<div class="pull-right breadcrumb">
+				<a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:about' %}">About us</a>
+			</div>
+		</div>
+	</div>
 <div class = "col-md-3"> linkerkolom</div>
 <div class="col-md-6" id="infoblock">
 	<h2 class = "page-header"> Over ViaSofie</h2>

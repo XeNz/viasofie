@@ -1,21 +1,69 @@
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.1.min.js"	></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- Javascript -->
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/select.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/script.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" ></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
 <script type="text/javascript" src="{{ STATIC_URL }}realestate/js/cookielaw.js"></script>
-<link rel="stylesheet" href="{{ STATIC_URL }}realestate/css/footer.css">
 {% load staticfiles %}
 {% load cookielaw_tags %}
 
 {% cookielaw_banner %}
-</div>
-<div class="row"> </div>
-</div> <!-- close wrapper-->
-	<div class="footer">
-		<div class="col-md-4 text-left footer-left">Kappa1</div>
-		<div class="col-md-4 text-center footer-middle">Kappa2</div>
-		<div class="col-md-4 text-right footer-right"><a href="{% url 'realestate:disclaimer' %}">Disclaimer en privacybeleid</a></li></div>
+<footer>
+<div class="container">
+	<div class="col-md-4 footer-contact-info">
+		<h3 class='footer-title'>contact info</h3>
+		<p class="website-number">
+			<i class="fa fa-phone"></i> 03 ??? ??? ???
+		</p>
+		<p class="website-email">
+			<i class="fa fa-envelope"></i> info@viasofie.be
+		</p>
 	</div>
+	<div class="col-md-4 footer-about">
+		<a class="logo" href="#"><img src="{% static "realestate/img/sleutel.png" %}" alt="logo"></a>
+		<p>
+			 This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin lorem quis.
+		</p>
+	</div>
+	<div class="col-md-4 footer-newsletter">
+		<h3 class='footer-title'>newsletter</h3>
+		<p>
+			 This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+		</p>
+		<form class='footer-search'>
+			<input type="text" placeholder='e-mail'>
+			<input type="submit">
+		</form>
+	</div>
+</div>
+</footer>
+<div class="bottom-strip">
+	<div class="container">
+		<div class="col-md-4">
+			<p class='pull-left'>
+				 &copy; {% now "Y" %} Via Sofie, All Rights Reserved
+			</p>
+		</div>
+		<div class="col-md-4 bottom-strip-middle">
+			<a href="#top" class='fa fa-arrow-circle-up' id='backtop-btn'></a>
+		</div>
+		<div class="col-md-4">
+			<ul class="social-icons">
+				<li><a href="#" class="fa fa-google-plus"></a></li>
+				<li><a href="#" class="fa fa-twitter"></a></li>
+				<li><a href="#" class="fa fa-pinterest"></a></li>
+				<li><a href="#" class="fa fa-dribbble"></a></li>
+				<li><a href="#" class="fa fa-linkedin"></a></li>
+				<li><a href="#" class="fa fa-facebook"></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 </body>
 
 </html>
