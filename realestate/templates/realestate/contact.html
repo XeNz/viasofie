@@ -16,19 +16,19 @@
 <div><h2>Vragen? Hulp nodig? Contacteer ons.</h2></div>
 <div class="row">
 	</br>
-	<form class="form" action="{{ contact }}" method="post">{% csrf_token %}
+	<form class="form " action="{{ contact }}" method="post">{% csrf_token %}
 	{{ form.non_field_errors }}
-	<div class="input-group">
+	<div class="form-group">
 	    {{ form.subject.errors }}
 	    <label for="{{ form.subject.id_for_label }}">Email onderwerp</label>
 	    {{ form.subject }}
 	</div>
-	<div class="input-group">
+	<div class="form-group">
 	    {{ form.from_email.errors }}
 	    <label for="{{ form.from_email.id_for_label }}">Email adres</label>
 	    {{ form.from_email }}
 	</div>
-	<div class="input-group">
+	<div class="form-group">
 	    {{ form.message.errors }}
 	    <label for="{{ form.message.id_for_label }}">Bericht</label>
 	    {{ form.message }}
