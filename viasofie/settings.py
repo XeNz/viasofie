@@ -1,4 +1,3 @@
-
 """
 Django settings for viasofie project.
 
@@ -11,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 from django.contrib.messages import constants as message_constants
+from django.utils.translation import ugettext_lazy as _
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # change language to local browser language
-    #'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'viasofie.urls'
@@ -88,22 +88,22 @@ WSGI_APPLICATION = 'viasofie.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-     # 'default': {
-     #     'ENGINE': 'django.db.backends.sqlite3',
-     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-     # },
-    'default': {
-      'ENGINE': 'django.db.backends.mysql',
-      'NAME': 'viasofie',
-      'USER': 'projectuser',
-      'PASSWORD': 'Kappa456',
-      'HOST': '192.168.84.96',
-      'PORT': '3306',
-      'OPTIONS': {
-        'autocommit': True,
-        'read_default_file': '/mysqlConfig.cnf',
-      },
-    }
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     },
+    # 'default': {
+    #   'ENGINE': 'django.db.backends.mysql',
+    #   'NAME': 'viasofie',
+    #   'USER': 'projectuser',
+    #   'PASSWORD': 'Kappa456',
+    #   'HOST': '192.168.84.96',
+    #   'PORT': '3306',
+    #   'OPTIONS': {
+    #     'autocommit': True,
+    #     'read_default_file': '/mysqlConfig.cnf',
+    #   },
+    # }
 }
 
 HAYSTACK_CONNECTIONS = {
@@ -150,14 +150,15 @@ USE_L10N = True
 USE_TZ = True
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'realestate/locale'),)
+    os.path.join(BASE_DIR, 'realestate/locale'),
+)
 
-
-ugettext = lambda s: s
+#TODO: wat is dit Alex?
+_ = lambda s: s
 LANGUAGES = (
-    ('en', ugettext('English')),
-    ('fr', ugettext('French')),
-    ('nl', ugettext('Nederlands')),
+    ('en', _('English')),
+    ('fr', _('French')),
+    ('nl', _('Nederlands')),
 )
 
 # Static files (CSS, JavaScript, Images)

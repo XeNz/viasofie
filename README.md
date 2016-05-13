@@ -13,11 +13,18 @@ run django-admin makemessages -l fr
 
 OR
 
-run django-admin makemessages -l nl blkartbkatktrkba
+run django-admin makemessages -l nl 
 
 AND
 
 django-admin compilemessages
+
+If you get an error saying you need to get gettext download the following files:
+http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-tools-0.17.zip
+http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.17-1.zip
+extract them in your programfiles folder and add it to your path. 
+If you still get errors: set gettext.exe and xgettext.exe to compatibility mode for windows xp and run as admin.
+
 ***
 when having errors with classytags:
 pip install django-classy-tags
