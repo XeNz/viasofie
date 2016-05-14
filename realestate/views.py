@@ -21,6 +21,7 @@ from reportlab.pdfgen import canvas
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
+from django.contrib.auth.views import password_reset, password_reset_confirm
 
 def index(request):
     form = PropertiesSearchForm(request.GET)
@@ -203,6 +204,18 @@ def accountinformation(request):
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
+
+
+def reset_confirm(request, uidb64=None, token=None):
+    return password_reset_confirm(request, template_name='usercontrolpanel/password_reset_confirm.html',
+        uidb64=uidb64, token=token, post_reset_redirect=reverse('realestate:login'))
+
+
+def reset(request):
+    return password_reset(request, template_name='usercontrolpanel/password_reset_form.html',
+        email_template_name='usercontrolpanel/password_reset_email.html',
+        subject_template_name='usercontrolpanel/password_reset_subject.txt',
+        post_reset_redirect=reverse('realestate:login'))
 
 
 def about(request):
