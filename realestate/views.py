@@ -107,9 +107,11 @@ def contact(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            subject = request.POST.get('subject', '')
+            subject = request.POST.get('name', '')
+            subject2 = request.POST.get('subject', '')
             message = request.POST.get('message', '')
             from_email = request.POST.get('from_email', '')
+            subject += " " + subject2
             #if subject and message and from_email:
              #   send_mail(subject, message, from_email, ['xentricator@gmail.com'])
             messages.success(request, 'Bericht met success verstuurd.')

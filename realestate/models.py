@@ -29,6 +29,9 @@ class Property(models.Model):
     visible_to_public = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
     pub_date = models.DateTimeField('date published')
+    surface_area_text = models.IntegerField()
+    bathrooms_text = models.IntegerField()
+    bedrooms_text = models.IntegerField()
     qrcode = models.ImageField(upload_to=create_qrcode_path, blank=True, null=True)
 
     def get_absolute_url(self):

@@ -280,7 +280,7 @@ header #login-box a span {
   top:0;
   z-index:10;
   /*background-color:rgba(232,232,232,0.7);*/
-  background-color:rgba(18,18,18,0.7);
+  background-color:rgba(18,18,18,0.15);
   padding:16px 0;
 }
 #premium-bar nav {
@@ -448,6 +448,9 @@ header #login-box a span {
   font-size:18px;
   padding:5px;
   padding-right:10;
+}
+.slide-item-features li#surface_area {
+  text-transform: lowercase;
 }
 .flex-direction-nav a {
   background-color:#0d3532;
@@ -932,7 +935,7 @@ footer .container .footer-newsletter input[type='submit'] {
 .page-title-section {
   float:left;
   width:100%;
-  background-image:url("../img/10_page-title-header.png");
+  background-image:url("../img/property/38_property-header.jpg");
   background-size:cover;
   background-repeat:no-repeat;
 }
@@ -1538,7 +1541,7 @@ footer .container .footer-newsletter input[type='submit'] {
 }
 /**** property-details-page ****/
 .property-details-page .page-title-section {
-  background-image:url("../img/property/38_property-header.png");
+  background-image:url("../img/property/38_property-header.jpg");
 }
 .property-details-page .page-content .inner-wrapper {
   float:left;
@@ -1566,7 +1569,7 @@ footer .container .footer-newsletter input[type='submit'] {
   padding:0 9px;
 }
 .property-details-page .page-content #details-carousel .flex-direction-nav a {
-  background-color:rgba(0,149,230,0.8);
+  background-color:rgba(5,21,20,0.8); 
   width:41px;
   height:51px;
   line-height:51px;
@@ -1617,6 +1620,12 @@ footer .container .footer-newsletter input[type='submit'] {
   font-size:20px;
   color:#000;
   font-weight:100;
+}
+.property-desc h2 {
+  font-size:16px;
+  color:#000;
+  font-weight:100;
+  padding-left: 5px;
 }
 .property-desc .additional-features {
   margin-top:25px;
