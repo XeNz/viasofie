@@ -38,14 +38,6 @@ linkerkolom div
                         <th scope="row">Bouwdatum</th>
                         <td>{{ property.constructiondate }}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">QR Code</th>
-                        <td>
-                                <form class="form " action="{{ qrcode }}" method="post">{% csrf_token %}
-                                    <input id="qrcode" type="submit" name="edit" value="Download qrcode" />
-                                </form>
-                            </td>
-                    </tr>
 
                     {% for characteristic_property in characteristics_property %}
                     <!-- to test for property id-->
