@@ -4,6 +4,21 @@
 {% load thumbnail %}
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/userpanel.css" %}"/>
+
+    <div class="page-title-section">
+        <div class="container">
+            <div class="pull-left page-title">
+                <a href="{% url 'realestate:controlpanel' %}">
+                <h2>User panel</h2>
+                </a>
+            </div>
+            <div class="pull-right breadcrumb">
+                <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:controlpanel' %}">User panel</a>
+            </div>
+        </div>
+    </div>
+</div> <!--- end slider section-->
+
     <div class="row" id="welcome">
         <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
     </div>

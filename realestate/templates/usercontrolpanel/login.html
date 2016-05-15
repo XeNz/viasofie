@@ -3,50 +3,75 @@
 {% include "realestate/header.html" %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static "realestate/css/login.css" %}"/>
-<div class="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3">
-      <div class="container">
-      {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-            <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
-            {% endfor %}
-        </div>
-      {% endif %}
+
+  <div class="page-title-section">
+    <div class="container">
+      <div class="pull-left page-title">
+        <a href="{% url 'realestate:login' %}">
+        <h2>Log in</h2>
+        </a>
       </div>
-  <form action="" class="form-signin" method="post">{% csrf_token %}
-      <h3 class="form-signin-heading text-center">Vul uw gegevens in</h3>
-      {% if form.non_field_errors %}
-          <div class="alert alert-danger">
-            {{ form.non_field_errors|striptags }}
+      <div class="pull-right breadcrumb">
+        <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:login' %}">Login</a>
+      </div>
+    </div>
+  </div>
+</div> <!--- end slider section-->
+  <div class="content-section">
+    <div class="container">
+      <div class="col-md-6 col-md-push-3 contact-info">
+        <div class="inner-wrapper">
+          <h4 class="box-title">Vul uw gegevens in</h4>
+          <p>
+                 {% if messages %}
+                   <div class="messages">
+                       {% for message in messages %}
+                       <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+                       {% endfor %}
+                   </div>
+                 {% endif %}
+             <form action="" class="contact-form" method="post">{% csrf_token %}
+                 {% if form.non_field_errors %}
+                     <div class="alert alert-danger">
+                       {{ form.non_field_errors|striptags }}
+                     </div>
+                 {% endif %}
+                 {% if not form.username.errors %}
+                   <input id="id_username" name="username" type="text" class="form-control" placeholder="Username" autofocus>
+                 {% else %}
+                   <div class="form-group has-error">
+                     {% for error in form.username.errors %}
+                       <label class="control-label" for="id_username">{{ error }}</label>
+                     {% endfor %}
+                     <input id="id_username" name="username" type="text" class="form-control" placeholder="Username" autofocus>
+                   </div>
+                 {% endif %}
+                 {% if not form.password.errors %}
+                   <input id="id_password" name="password" type="password" class="form-control" placeholder="Password" autofocus>
+                 {% else %}
+                   <div class="form-group has-error">
+                     {% for error in form.password.errors %}
+                       <label class="control-label" for="id_password">{{ error }}</label>
+                     {% endfor %}
+                     <input id="id_password" name="password" type="password" class="form-control" placeholder="Password">
+                   </div>
+                 {% endif %}
+                 <div class="" id="forgot_password">
+                   <p class="first-paragraph"> <a href={% url "password_reset_recover" %}>Wachtwoord vergeten</a> </p>
+                 </div>
+                 <input type="submit" value="Login" class='yellow-btn'>
+               </form> 
+          </p>
+          <p> </p>
+          <div class="info-wrapper">
+            <p> </p>
           </div>
-      {% endif %}
-      {% if not form.username.errors %}
-        <input id="id_username" name="username" type="text" class="form-control" placeholder="Username" autofocus>
-      {% else %}
-        <div class="form-group has-error">
-          {% for error in form.username.errors %}
-            <label class="control-label" for="id_username">{{ error }}</label>
-          {% endfor %}
-          <input id="id_username" name="username" type="text" class="form-control" placeholder="Username" autofocus>
+          <div class="clearfix">
+          </div>
         </div>
-      {% endif %}
-      {% if not form.password.errors %}
-        <input id="id_password" name="password" type="password" class="form-control" placeholder="Password" autofocus>
-      {% else %}
-        <div class="form-group has-error">
-          {% for error in form.password.errors %}
-            <label class="control-label" for="id_password">{{ error }}</label>
-          {% endfor %}
-          <input id="id_password" name="password" type="password" class="form-control" placeholder="Password">
-        </div>
-      {% endif %}
-      <div class="row" id="forgot_password">
-        <a href={% url "password_reset_recover" %}>Wachtwoord vergeten</a>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-    </form>
-  </form>
-</div>
+    </div>
+  </div>
+
 {% endblock %}
 {% include "realestate/footer.html" %}

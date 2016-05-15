@@ -13,6 +13,7 @@
 			</div>
 		</div>
 	</div>
+</div> <!--- end slider section-->
 <div class="content-section">
 	<div class="container">
 		<div class="col-md-6 contact-info">
@@ -42,26 +43,25 @@
 						    <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
 						    {% endfor %}
 						</div>
-						<div>
 					{% endif %}
-				<form class='contact-form' action="{{ contact }}" method="POST">{% csrf_token %}
-					{{ form.non_field_errors }}
-					<div class="contact-form-left">
-						{{ form.name.errors }}
-						<span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='Name' id='name'>
-						{{ form.from_email.errors }}
-						<span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='E-mail' id='from_email'>
-						{{ form.subject.errors }}
-						<span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="Subject" id='subject'>
+						<form class='contact-form' action="{{ contact }}" method="POST">{% csrf_token %}
+							{{ form.non_field_errors }}
+							<div class="contact-form-left">
+								{{ form.name.errors }}
+								<span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='Name' id='name'>
+								{{ form.from_email.errors }}
+								<span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='E-mail' id='from_email'>
+								{{ form.subject.errors }}
+								<span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="Subject" id='subject'>
+							</div>
+							<div class="contact-form-right">
+								{{ form.message.errors }}
+								<textarea id="message" name='message' placeholder='Message'></textarea>
+								<input type="submit" value='send message' id='submit-btn'>
+							</div>
+						</form>
+					<div class="clearfix">
 					</div>
-					<div class="contact-form-right">
-						{{ form.message.errors }}
-						<textarea id="message" name='message' placeholder='Message'></textarea>
-						<input type="submit" value='send message' id='submit-btn'>
-					</div>
-				</form>
-				<div class="clearfix">
-				</div>
 			</div>
 		</div>
 	</div>

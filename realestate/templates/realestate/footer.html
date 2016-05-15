@@ -13,57 +13,60 @@
 {% load cookielaw_tags %}
 
 {% cookielaw_banner %}
-<footer>
-<div class="container">
-	<div class="col-md-4 footer-contact-info">
-		<h3 class='footer-title'>contact info</h3>
-		<p class="website-number">
-			<i class="fa fa-phone"></i> 03 ??? ??? ???
-		</p>
-		<p class="website-email">
-			<i class="fa fa-envelope"></i> info@viasofie.be
-		</p>
-	</div>
-	<div class="col-md-4 footer-about">
-		<a class="logo" href="#"><img src="{% static "realestate/img/sleutel.png" %}" alt="logo"></a>
-		<p>
-			 This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin lorem quis.
-		</p>
-	</div>
-	<div class="col-md-4 footer-newsletter">
-		<h3 class='footer-title'>newsletter</h3>
-		<p>
-			 This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-		</p>
-		<form class='footer-search'>
-			<input type="text" placeholder='e-mail'>
-			<input type="submit">
-		</form>
-	</div>
-</div>
-</footer>
-<div class="bottom-strip">
+<div class="complete-footer">
+	<footer>
 	<div class="container">
-		<div class="col-md-4">
-			<p class='pull-left'>
-				 &copy; {% now "Y" %} Via Sofie, All Rights Reserved
+		<div class="col-md-4 footer-contact-info">
+			<h3 class='footer-title'>contact info</h3>
+			<p class="website-number">
+				<i class="fa fa-phone"></i> 03 ??? ??? ???
+			</p>
+			<p class="website-email">
+				<i class="fa fa-envelope"></i> info@viasofie.be
 			</p>
 		</div>
-		<div class="col-md-4 bottom-strip-middle">
-			<a href="#top" class='fa fa-arrow-circle-up' id='backtop-btn'></a>
+		<div class="col-md-4 footer-about">
+			<a class="logo" href="#"><img src="{% static "realestate/img/sleutel.png" %}" alt="logo"></a>
+			<p>
+				 This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin lorem quis.
+			</p>
 		</div>
-		<div class="col-md-4">
-			<ul class="social-icons">
-				<li><a href="#" class="fa fa-google-plus"></a></li>
-				<li><a href="#" class="fa fa-twitter"></a></li>
-				<li><a href="#" class="fa fa-pinterest"></a></li>
-				<li><a href="#" class="fa fa-dribbble"></a></li>
-				<li><a href="#" class="fa fa-linkedin"></a></li>
-				<li><a href="#" class="fa fa-facebook"></a></li>
-			</ul>
+		<div class="col-md-4 footer-newsletter">
+			<h3 class='footer-title'>newsletter</h3>
+			<p>
+				 This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+			</p>
+			<form class='footer-search'>
+				<input type="text" placeholder='e-mail'>
+				<input type="submit">
+			</form>
+		</div>
+	</div>
+	</footer>
+	<div class="bottom-strip">
+		<div class="container">
+			<div class="col-md-4">
+				<p class='pull-left'>
+					 &copy; {% now "Y" %} Via Sofie, All Rights Reserved
+				</p>
+			</div>
+			<div class="col-md-4 bottom-strip-middle">
+				<a href="#top" class='fa fa-arrow-circle-up' id='backtop-btn'></a>
+			</div>
+			<div class="col-md-4">
+				<ul class="social-icons">
+					<li><a href="#" class="fa fa-google-plus"></a></li>
+					<li><a href="#" class="fa fa-twitter"></a></li>
+					<li><a href="#" class="fa fa-pinterest"></a></li>
+					<li><a href="#" class="fa fa-dribbble"></a></li>
+					<li><a href="#" class="fa fa-linkedin"></a></li>
+					<li><a href="#" class="fa fa-facebook"></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
+</div> <!--- entire-content-wrapper-->
 </body>
 
 </html>
