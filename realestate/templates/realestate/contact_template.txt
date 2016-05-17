@@ -1,0 +1,8 @@
+Email adres:
+{{from_email}}
+
+Onderwerp:
+{{subject}}
+
+Bericht:
+{{message}}

@@ -4,13 +4,14 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django import forms
 from .models import *
-from django.template import RequestContext
+from django.template import RequestContext, Context
+from django.template.loader import get_template
 from .forms import *
 from django.contrib import messages
 import operator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response
@@ -114,8 +115,23 @@ def contact(request):
             subject = request.POST.get('subject', '')
             message = request.POST.get('message', '')
             from_email = request.POST.get('from_email', '')
-            #if subject and message and from_email:
-             #   send_mail(subject, message, from_email, ['xentricator@gmail.com'])
+            template = get_template('realestate/contact_template.txt')
+            context = Context({
+                              'from_email': from_email,
+                              'subject': subject,
+                              'message': message,
+                              })
+            content = template.render(context)
+
+            email = EmailMessage(
+                                 "Nieuw Via Sofie bericht",
+                                 content,
+                                 "Via Sofie" + ' ',
+                                 #TODO info@viasofie.com
+                                 ['de.caluwe.bart@gmail.com'],
+                                 headers={'Reply-To': from_email}
+                                 )
+            email.send()
             messages.success(request, 'Bericht met success verstuurd.')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
