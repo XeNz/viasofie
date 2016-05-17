@@ -4,6 +4,7 @@ from django.utils import timezone
 from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from enumchoicefield import ChoiceEnum, EnumChoiceField
 from django.core.urlresolvers import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
@@ -31,6 +32,24 @@ class Property(models.Model):
 
     def get_absolute_url(self):
         return reverse('realestate.views.details', args=[str(self.id)])
+
+    def generate_qrcode(self):
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=6,
+            border=0,
+        )
+        qr.add_data(self.get_absolute_url())
+        qr.make(fit=True)
+
+        img = qr.make_image()
+
+        buffer = StringIO.StringIO()
+        img.save(buffer)
+        filename = 'qrcode-%s.png' % (self.id)
+        filebuffer = InMemoryUploadedFile(buffer, None, filename, 'image/png', buffer.len, None)
+        self.qrcode.save(filename, filebuffer)
 
     def __str__(self):
         return self.title_text
@@ -105,9 +124,10 @@ class Deal(models.Model):
         verbose_name = 'Deal'
         verbose_name_plural = 'Deals'
 
-class CurrentStatus(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50)
+class CurrentStatus(ChoiceEnum):
+    planned = "Gepland"
+    in_progress = "In behandeling"
+    done = "In orde"
 
 
 class Status(models.Model):
@@ -133,7 +153,7 @@ class DealStatus(models.Model):
     status = models.ForeignKey(Status, related_name='Dstatuskey')
     deal = models.ForeignKey(Deal, related_name='dealSkey')
     comment = models.CharField(max_length=50)
-    current_status = models.ForeignKey(CurrentStatus, related_name='currentstatuskey')
+    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
     date = models.DateField()
 
 class DealDocument(models.Model):
