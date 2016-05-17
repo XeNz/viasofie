@@ -39,8 +39,13 @@ msgstr ""
 
 #: .\realestate\templates\realestate\contact.html:28
 msgid "CONTACT_TEXT2"
-msgstr "Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad"
+msgstr ""
+"Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae "
+"erat consequat auctor eu in elit. Class aptent taciti sociosqu ad"
 
+#: .\realestate\templates\realestate\contact.html:41
+msgid "CONTACT_TOUCH"
+msgstr "Get in touch"
 
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
