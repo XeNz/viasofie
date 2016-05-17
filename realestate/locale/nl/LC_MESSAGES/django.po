@@ -21,6 +21,10 @@ msgstr ""
 "vergelijkingspunten van een eigen opgebouwd databestand. Hebt u vragen of "
 "wil u weten wat Sofie voor u kan betekenen, contacteer haar vrijblijvend."
 
+#: .\realestate\templates\realestate\contact.html:10
+msgid "CONTACT_BUTTON"
+msgstr "Contact us"
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookie melding"

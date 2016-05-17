@@ -1,11 +1,13 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
+{% load i18n %}
+
 	<div class="page-title-section">
 		<div class="container">
 			<div class="pull-left page-title">
 				<a href="{% url 'realestate:contact' %}">
-				<h2>Contact us</h2>
+				<h2>{%blocktrans %}CONTACT_BUTTON{% endblocktrans%}</h2>
 				</a>
 			</div>
 			<div class="pull-right breadcrumb">
