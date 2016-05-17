@@ -25,6 +25,10 @@ msgstr ""
 msgid "CONTACT_BUTTON"
 msgstr "Contact us"
 
+#: .\realestate\templates\realestate\contact.html:23
+msgid "CONTACT_TITLE"
+msgstr "Contact info"
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookie melding"

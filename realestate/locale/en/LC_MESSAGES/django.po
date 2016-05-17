@@ -14,6 +14,10 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "CONTACT_BUTTON"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\contact.html:23
+msgid "CONTACT_TITLE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookies disclaimer"
