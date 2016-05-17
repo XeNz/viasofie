@@ -2,6 +2,10 @@
 msgid "ABOUT_BUTTON"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\about.html:23
+msgid "ABOUT_TITLE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\realestate\about.html:25
 msgid "ABOUT_TEXT"
 msgstr "INSERT ENGLISH TRANSLATION HERE"

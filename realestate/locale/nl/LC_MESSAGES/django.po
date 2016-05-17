@@ -2,6 +2,9 @@
 msgid "ABOUT_BUTTON"
 msgstr "About us"
 
+#: .\realestate\templates\realestate\about.html:23
+msgid "ABOUT_TITLE"
+msgstr "Over Via Sofie"
 
 #: .\realestate\templates\realestate\about.html:25
 msgid "ABOUT_TEXT"
