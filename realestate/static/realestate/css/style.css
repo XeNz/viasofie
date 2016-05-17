@@ -376,6 +376,7 @@ header #login-box a span {
   position:absolute;
   bottom:0;
   padding:30px;
+  margin-bottom:25px;
   background:rgba(255,255,255,0.9);
   z-index:100;
 }
@@ -1872,4 +1873,34 @@ footer .container .footer-newsletter input[type='submit'] {
 .row{
   margin-left:0px;
   margin-right: 0px;
+}
+.main-flexslider {
+    /*margin-top: -20px;*/
+    width: 100%;
+    height: 600px;
+}
+
+.main-flexslider .slides img {
+    width: 100%;
+    height: 600px;
+}
+
+.topfeatured {
+  background-color:#77d04e;
+  font-size:16px;
+  font-family:Roboto;
+  font-weight:300;
+  padding:8px 18px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -ms-border-radius:10px;
+  -o-border-radius:10px;
+  border-radius:10px;
+  margin-left:-5px;
+}
+.topfeatured i {
+  margin-right:10px;
+  margin-left: -5px;
+  margin-bottom: 20px;
+  font-size:18px;
 }

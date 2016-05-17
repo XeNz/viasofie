@@ -31,34 +31,12 @@ class Property(models.Model):
     surface_area_text = models.IntegerField()
     bathrooms_text = models.IntegerField()
     bedrooms_text = models.IntegerField()
-    qrcode = models.ImageField(upload_to=create_qrcode_path, blank=True, null=True)
-
-    def get_absolute_url(self):
-        return reverse('realestate.views.details', args=[str(self.id)])
-
-    def generate_qrcode(self):
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=6,
-            border=0,
-        )
-        qr.add_data(self.get_absolute_url())
-        qr.make(fit=True)
-
-        img = qr.make_image()
-
-        buffer = StringIO.StringIO()
-        img.save(buffer)
-        filename = 'qrcode-%s.png' % (self.id)
-        filebuffer = InMemoryUploadedFile(buffer, None, filename, 'image/png', buffer.len, None)
-        self.qrcode.save(filename, filebuffer)
 
     def __str__(self):
         return self.title_text
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        return self.pub_date >= (timezone.now() - datetime.timedelta(days=1))
 
     class Meta():
         verbose_name = 'Eigendom'

@@ -6,6 +6,7 @@ from reportlab.pdfgen import canvas
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
+from datetime import datetime
 
 
 def qrcode(modeladmin, request, queryset):
@@ -50,8 +51,8 @@ class CharacteristicAdmin(admin.ModelAdmin):
     search_fields = ("id", "name")
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ("title_text", "description_text", "constructiondate", "sellingprice")
-    list_filter = ("sellingprice", "constructiondate")
+    list_display = ("title_text", "description_text", "constructiondate", "sellingprice","featured")
+    list_filter = ("sellingprice", "constructiondate","featured")
     search_fields = ("sellingprice",)
     inlines = [PropertyPictureInline,Characteristics_propertyInline,]
     actions =[qrcode]
