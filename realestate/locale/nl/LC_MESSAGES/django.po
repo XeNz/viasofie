@@ -32,7 +32,15 @@ msgstr "Contact info"
 #: .\realestate\templates\realestate\contact.html:25
 msgid "CONTACT_TEXT1"
 msgstr ""
-"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum," "nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
+"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
+"auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit "
+"consequat ipsum,nec sagittis sem nibh id elit. Duis sed odio sit amet nibh "
+"vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
+
+#: .\realestate\templates\realestate\contact.html:28
+msgid "CONTACT_TEXT2"
+msgstr "Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad"
+
 
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
