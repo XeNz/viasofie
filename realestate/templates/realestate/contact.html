@@ -1,44 +1,70 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
-	<div class = "col-md-3"> linkerkolom</div>
-	<div class = "col-md-6">
-<div class="row">
-{% if messages %}
-	<div class="messages">
-	    {% for message in messages %}
-	    <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
-	    {% endfor %}
+	<div class="page-title-section">
+		<div class="container">
+			<div class="pull-left page-title">
+				<a href="{% url 'realestate:contact' %}">
+				<h2>Contact us</h2>
+				</a>
+			</div>
+			<div class="pull-right breadcrumb">
+				<a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:contact' %}">Contact us</a>
+			</div>
+		</div>
 	</div>
-	<div>
-{% endif %}
+</div> <!--- end slider section-->
+<div class="content-section">
+	<div class="container">
+		<div class="col-md-6 contact-info">
+			<div class="inner-wrapper">
+				<h4 class="box-title">Contact info</h4>
+				<p class='first-paragraph'>
+					This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+				</p>
+				<p>
+					Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad
+				</p>
+				<div class="info-wrapper">
+					<span><i class="fa fa-home"></i>lorem ipsum street</span>
+					<span><i class="fa fa-phone"></i>+399 (500) 321 9548</span>
+					<span><i class="fa fa-envelope"></i>info@domain.com</span>
+				</div>
+				<div class="clearfix">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 contact-form-wrapper">
+			<div class="inner-wrapper">
+				<h4 class="box-title">Get in touch</h4>
+					{% if messages %}
+						<div style="padding-top: 15px; padding-bottom: 25px;"class="messages">
+						    {% for message in messages %}
+						    <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+						    {% endfor %}
+						</div>
+					{% endif %}
+						<form class='contact-form' action="{{ contact }}" method="POST">{% csrf_token %}
+							{{ form.non_field_errors }}
+							<div class="contact-form-left">
+								{{ form.name.errors }}
+								<span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='Name' id='name'>
+								{{ form.from_email.errors }}
+								<span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='E-mail' id='from_email'>
+								{{ form.subject.errors }}
+								<span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="Subject" id='subject'>
+							</div>
+							<div class="contact-form-right">
+								{{ form.message.errors }}
+								<textarea id="message" name='message' placeholder='Message'></textarea>
+								<input type="submit" value='send message' id='submit-btn'>
+							</div>
+						</form>
+					<div class="clearfix">
+					</div>
+			</div>
+		</div>
+	</div>
 </div>
-<div><h2>Vragen? Hulp nodig? Contacteer ons.</h2></div>
-<div class="row">
-	</br>
-	<form class="form " action="{{ contact }}" method="post">{% csrf_token %}
-	{{ form.non_field_errors }}
-	<div class="form-group">
-	    {{ form.subject.errors }}
-	    <label for="{{ form.subject.id_for_label }}">Email onderwerp</label>
-	    {{ form.subject }}
-	</div>
-	<div class="form-group">
-	    {{ form.from_email.errors }}
-	    <label for="{{ form.from_email.id_for_label }}">Email adres</label>
-	    {{ form.from_email }}
-	</div>
-	<div class="form-group">
-	    {{ form.message.errors }}
-	    <label for="{{ form.message.id_for_label }}">Bericht</label>
-	    {{ form.message }}
-	</div>
-		  <input class="btn btn-primary" type="submit" value="Submit" />
-	</form>
-</div>
-
-	</div>
-
-<div class = "col-md-3"> rechterkolom</div>
 
 {% include "realestate/footer.html" %}

@@ -30,7 +30,13 @@ def index(request):
         query = form.search()
         return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
     else:
-        return render_to_response('realestate/index.html', {"form": form}, context_instance=RequestContext(request))
+         #6 most recent properties
+        last_six_properties = Property.objects.all().order_by('-pub_date')[:6]
+        last_six_properties_in_ascending_order = reversed(last_six_properties)
+        #6 featured properties
+        featured_six_properties = Property.objects.filter(featured=True).order_by('-pub_date')[:6]
+        featured_six_properties_in_ascending_order = reversed(last_six_properties)
+        return render_to_response('realestate/index.html', {"form": form, "last_six_properties_in_ascending_order": last_six_properties_in_ascending_order, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order}, context_instance=RequestContext(request))
 
 
 # class IndexView(generic.ListView):
@@ -112,7 +118,8 @@ def contact(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            subject = request.POST.get('subject', '')
+            subject = request.POST.get('name', '')
+            subject2 = request.POST.get('subject', '')
             message = request.POST.get('message', '')
             from_email = request.POST.get('from_email', '')
             template = get_template('realestate/contact_template.txt')
