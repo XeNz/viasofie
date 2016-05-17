@@ -71,6 +71,10 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "FAQ_RIGHTBUTTON"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\faq.html:26
+msgid "FAQ_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

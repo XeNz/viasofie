@@ -124,6 +124,11 @@ msgstr "About us"
 msgid "FAQ_RIGHTBUTTON"
 msgstr "Frequently Asked Questions"
 
+#: .\realestate\templates\realestate\faq.html:26
+msgid "FAQ_TEXT"
+msgstr ""
+"Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ's van" "belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag" "verder."
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
