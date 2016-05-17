@@ -63,6 +63,10 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "PRIVCAYPOLICY_TEXT"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\faq.html:15
+msgid "FAQ_RIGHTBUTTON"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

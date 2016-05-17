@@ -116,6 +116,10 @@ msgstr ""
 " Als u uw gegevens aan wilt passen of uzelf uit onze bestanden wilt laten "
 "halen, kunt u contact met ons op nemen."
 
+#: .\realestate\templates\realestate\faq.html:15
+msgid "FAQ_RIGHTBUTTON"
+msgstr "Frequently Asked Questions"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
