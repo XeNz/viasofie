@@ -1,3 +1,8 @@
+#: .\realestate\templates\realestate\about.html:25
+msgid "ABOUT_TEXT"
+msgstr ""
+"Sofie is juriste van opleiding (Master in de Rechten). Zij behaalde tevens  een postgraduaat Vastgoedkunde aan de KU Leuven. Zowel op juridisch als bouwtechnisch" "vlak loodst zij u graag doorheen het vastgoedlandschap en dit met het oog op een succesvolle verkoop of verhuur. Ook voor de opmaak van een taxatieverslag of" "adviesverlening kan u bij haar terecht.   Sofie neemt de zorg voor de  verkoop of verhuur van uw woning uit handen. Zij regelt bezoeken, zorgt ervoor dat een" "verkoop- of verhuurdossier wordt opgesteld conform de wettelijke bepalingen en helpt bij een correcte prijszetting van uw pand aan de hand van een taxatieverslag en" "op basis van  vergelijkingspunten van een eigen opgebouwd databestand. Hebt u vragen of wil u weten wat Sofie voor u kan betekenen, contacteer haar vrijblijvend."
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookie melding"
@@ -66,3 +71,11 @@ msgstr ""
 "0483713710, emailadres:info@viasofie.be\n"
 " Als u uw gegevens aan wilt passen of uzelf uit onze bestanden wilt laten "
 "halen, kunt u contact met ons op nemen."
+
+#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
+msgid " RESET_PASSWORD_TITLE "
+msgstr ""
+
+#: .\realestate\templates\usercontrolpanel\password_reset_form.html:7
+msgid " REQUEST_RESET_PASSWORD_TITLE "
+msgstr ""

@@ -8,23 +8,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 16:05+0100\n"
+"POT-Creation-Date: 2016-05-17 15:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
-#: .\viasofie\settings.py:131
+#: .\templates\admin\base.html:33
+msgid "Welcome,"
+msgstr ""
+
+#: .\templates\admin\base.html:38
+msgid "View site"
+msgstr ""
+
+#: .\templates\admin\base.html:43
+msgid "Documentation"
+msgstr ""
+
+#: .\templates\admin\base.html:47
+msgid "Change password"
+msgstr ""
+
+#: .\templates\admin\base.html:49
+msgid "Log out"
+msgstr ""
+
+#: .\templates\admin\base.html:59
+msgid "Home"
+msgstr ""
+
+#: .\templates\admin\index.html:30
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: .\templates\admin\index.html:69
+msgid "Add"
+msgstr ""
+
+#: .\templates\admin\index.html:95
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: .\templates\admin\index.html:109
+msgid "None available"
+msgstr ""
+
+#: .\templates\admin\index.html:123
+msgid "Unknown content"
+msgstr ""
+
+#: .\templates\admin\login.html:21
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\templates\admin\login.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: .\templates\admin\login.html:37
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: .\templates\admin\login.html:57
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: .\templates\admin\login.html:61
+msgid "Log in"
+msgstr ""
+
+#: .\viasofie\settings.py:170
 msgid "English"
 msgstr ""
 
-#: .\viasofie\settings.py:132
+#: .\viasofie\settings.py:171
 msgid "French"
 msgstr ""
 
-#: .\viasofie\settings.py:133
+#: .\viasofie\settings.py:172
 msgid "Nederlands"
+msgstr ""
+
+#: .\viasofie\urls.py:34
+msgid "^"
 msgstr ""

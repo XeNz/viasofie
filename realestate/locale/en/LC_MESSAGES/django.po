@@ -1,3 +1,7 @@
+#: .\realestate\templates\realestate\about.html:25
+msgid "ABOUT_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookies disclaimer"
@@ -17,20 +21,24 @@ msgstr ""
 
 #: .\realestate\templates\realestate\disclaimer.html:9
 msgid " DISCLAIMER_TITLE "
-msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\disclaimer.html:11
 msgid "DISCLAIMER_TEXT"
-msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\disclaimer.html:15
 msgid " PRIVACYPOLICY_TITLE"
-msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\disclaimer.html:17
 msgid "PRIVCAYPOLICY_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
+msgid " RESET_PASSWORD_TITLE "
 msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\usercontrolpanel\password_reset_form.html:7
+msgid " REQUEST_RESET_PASSWORD_TITLE "
+msgstr ""
