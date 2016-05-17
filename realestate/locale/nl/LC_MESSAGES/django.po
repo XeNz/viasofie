@@ -29,6 +29,11 @@ msgstr "Contact us"
 msgid "CONTACT_TITLE"
 msgstr "Contact info"
 
+#: .\realestate\templates\realestate\contact.html:25
+msgid "CONTACT_TEXT1"
+msgstr ""
+"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum," "nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookie melding"
