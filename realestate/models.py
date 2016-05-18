@@ -34,12 +34,11 @@ class Property(models.Model):
 
     def get_absolute_url(self):
         return reverse('realestate.views.details', args=[str(self.id)])
-
     def __str__(self):
         return self.title_text
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        return self.pub_date >= (timezone.now() - datetime.timedelta(days=1))
 
     class Meta():
         verbose_name = 'Eigendom'
