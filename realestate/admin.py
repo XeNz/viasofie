@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus, Visitation
 from django.contrib.sites.models import Site
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
@@ -36,6 +36,10 @@ def qrcode(modeladmin, request, queryset):
     return  response
 
 
+class VisitationInline(admin.TabularInline):
+    model = Visitation
+    fields = ['date', 'status', ]
+
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
     fields = ['picture',]
@@ -65,7 +69,7 @@ class DealStatusInline(admin.TabularInline):
     fields = ['status', 'deal', 'comment','date', 'current_status',]
 
 class DealAdmin(admin.ModelAdmin):
-    inlines = [DealDocumentInline, DealStatusInline, ]
+    inlines = [DealDocumentInline, DealStatusInline, VisitationInline,]
 
 class StatusAdmin(admin.ModelAdmin):
     list_display = ("title", "description", "visible_to_user",)
