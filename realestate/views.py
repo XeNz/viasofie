@@ -156,6 +156,7 @@ def controlpanel(request):
             selected_deal = Deal.objects.filter(id=selected_deal_id)
             selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id)
             selected_deal_statuses = DealStatus.objects.filter(deal=selected_deal_id)
+            selected_deal_visitations = Visitation.objects.filter(deal=selected_deal_id)
             planned_status = CurrentStatus.planned
             in_progress_status = CurrentStatus.in_progress
             context = {
@@ -164,7 +165,8 @@ def controlpanel(request):
                 'selected_deal_documents': selected_deal_documents,
                 'selected_deal_statuses': selected_deal_statuses,
                 'planned_status': planned_status,
-                'in_progress_status': in_progress_status
+                'in_progress_status': in_progress_status,
+                'selected_deal_visitations': selected_deal_visitations,
             }
             return render(request, 'usercontrolpanel/userpanel.html', context)
         else:

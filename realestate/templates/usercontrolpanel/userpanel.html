@@ -72,6 +72,23 @@
         </div>
 
 <div class = "col-md-3" id="status">
+    <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Bezichtigingen </span></h2>
+        <table class="table">
+              <thead>
+                <tr>
+                  <th>Datum</th>
+                  <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visitation in selected_deal_visitations %}
+                <tr>
+                    <td>{{visitation.date}}</td>
+                    <td>{{visitation.status}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
     <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
     <table class="table">
           <thead>
