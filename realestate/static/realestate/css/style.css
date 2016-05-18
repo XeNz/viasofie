@@ -1,11 +1,5 @@
 @import "http://fonts.googleapis.com/css?family=Roboto:400,900italic,700italic,500italic,400italic,300italic,100italic,900,700,500,300,100";
 @import "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600";
-/* Theme Name:SweetHome - HTML Theme URI:Author:PremiumLayers Author URI:Description:Clean and responsive Real Estate Template. Version:1.0*/
-/*--------------Table of SASS- Imports- Variables- Mixins- MDefault-Styles- Typography- Header-Section- Slider-Section- Search-Section- Recent-Listings-Section- Agents-Section- Services-Section- Footer-Section- page-title-section- Content-Section- Blog-page- Contact-page- Single-page- property-details-page- Responsive nav bar customization- Media-queries*--------------/
-/**** Imports ****/
-/**** Variables ****/
-/**** Mixins ****/
-/**** MDefault-Styles ****/
 html,
 body {
    margin:0;
