@@ -32,6 +32,8 @@ class Property(models.Model):
     bathrooms_text = models.IntegerField()
     bedrooms_text = models.IntegerField()
 
+    def get_absolute_url(self):
+        return reverse('realestate.views.details', args=[str(self.id)])
     def __str__(self):
         return self.title_text
 
@@ -147,3 +149,12 @@ class DealDocument(models.Model):
 
     def __str__(self):
         return self.title
+
+class Visitation(models.Model):
+    id = models.AutoField(primary_key=True)
+    date = models.DateField()
+    deal = models.ForeignKey(Deal, related_name='dealvisitationkey')
+    status = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.date
