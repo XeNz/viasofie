@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="pull-left page-title">
 				<a href="{% url 'realestate:faq' %}">
-				<h2>About us</h2>
+				<h2>Frequently Asked Questions</h2>
 				</a>
 			</div>
 			<div class="pull-right breadcrumb">
@@ -16,49 +16,72 @@
 	</div>
 </div> <!--- end slider section-->
 
-<link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/>
-<div class = "col-md-3"> linkerkolom</div>
-<div class='col-md-6' id="faqblock">
-<h2 class = "page-header"> Frequently Asked Questions</h2>
-<div id="faqheadertext">
-<p>Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder.</p>
-</div>
-<form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
-	<input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
-	<input type='submit' class="btn btn-default" value='Zoek' />
-</form>
-{% for obj in object_list %}
-<div class="row">
-  <div id="faqs" class="col-sm-12">
-	<h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}} </h3>
-	 <div><p>{{ obj.answer }}</p></div>
-  </div>
-<hr/>
-</div>
-{% endfor %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
+<div class="content-section">
+	<div class="">
+		<div class='container' id="faqblock">
+<!-- 			<div class="title-box">
+		    	<h3>Frequently Asked Questions</h3>
+		        <div class="bordered">
+		        </div>
+		    </div> -->
+<!-- 			<div id="faqheadertext">
+			<p>Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder.</p>
+			</div> -->
+			<div class="contact-info">
+				<div class="inner-wrapper">
+					<h4 class="box-title">Frequently Asked Questions</h4>
+					<p class="first-paragraph">
+						Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder. Klik op een vraag om meer informatie te verkrijgen.
+					</p>
+					<p>
+					<form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
+						<input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
+						<input type="submit" value="search" class="yellow-btn">
+					</form> 
+					</p>
+					<p> 
+					{% for obj in object_list %}
+					<div class="row">
+					  <div id="faqs" class="col-sm-12">
+						<h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}} </h3>
+						 <div><p>{{ obj.answer }}</p></div>
+					  </div>
+					<hr/>
+					</div>
+					{% endfor %}
+					<div class="pagination">
+					    <span class="step-links">
+					        {% if object_list.has_previous %}
+<!-- 					            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
+					            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
+					        {% endif %}
 
+					        <span class="current">
+					            Pagina {{ object_list.number }} van {{ object_list.paginator.num_pages }}.
+					        </span>
 
-	<div class="pagination">
-	    <span class="step-links">
-	        {% if object_list.has_previous %}
-	            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a>
-	        {% endif %}
-
-	        <span class="current">
-	            Pagina {{ object_list.number }} van {{ object_list.paginator.num_pages }}.
-	        </span>
-
-	        {% if object_list.has_next %}
-	            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a>
-	        {% endif %}
-	    </span>
+					        {% if object_list.has_next %}
+<!-- 					            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
+					            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
+					        {% endif %}
+					    </span>
+					</div>
+					<div>
+					<blockquote>
+					<p>De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene aard en kunnen geenszins als sluitende professionele juridische adviesverlening aangepast aan specifieke of concrete persoonlijke omstandigheden worden beschouwd.</p>
+					</blockquote>
+					</div>
+					</p>
+					<div class="info-wrapper">
+					</div>
+					<div class="clearfix">
+					</div>
+				</div>
+		</div> <!-- contact-info-->
+			
+		</div>
 	</div>
-<div>
-<blockquote>
-<p>De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene aard en kunnen geenszins als sluitende professionele juridische adviesverlening aangepast aan specifieke of concrete persoonlijke omstandigheden worden beschouwd.</p>
-</blockquote>
 </div>
-</div>
-<div class = "col-md-3"> rechterkolom</div>
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{% static "realestate/js/faq.js" %}"></script>
