@@ -4,7 +4,6 @@ from django.utils import timezone
 from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from enumchoicefield import ChoiceEnum, EnumChoiceField
 from django.core.urlresolvers import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
@@ -107,10 +106,13 @@ class Deal(models.Model):
         verbose_name = 'Deal'
         verbose_name_plural = 'Deals'
 
-class CurrentStatus(ChoiceEnum):
-    planned = "Gepland"
-    in_progress = "In behandeling"
-    done = "In orde"
+
+class CurrentStatus(models.Model):
+    id = models.AutoField(primary_key=True)
+    text = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.text
 
 
 class Status(models.Model):
@@ -136,7 +138,7 @@ class DealStatus(models.Model):
     status = models.ForeignKey(Status, related_name='Dstatuskey')
     deal = models.ForeignKey(Deal, related_name='dealSkey')
     comment = models.CharField(max_length=50)
-    current_status = EnumChoiceField(CurrentStatus, default=CurrentStatus.planned)
+    current_status = models.ForeignKey(CurrentStatus, related_name='currentstatuskey')
     date = models.DateField()
 
 class DealDocument(models.Model):

@@ -102,13 +102,9 @@
             <tr>
             <!--TODO: icon toevoegen. -->
                 <td>{{dealStatus.status.description}}</td>
-                {%if dealStatus.current_status == planned_status %}
                 <td> <i class="fa fa-calendar" aria-hidden="true" title="Gepland"></i> {{dealStatus.status.title}}</td>
-                {%elif dealStatus.current_status == in_progress_status %}
                 <td><i class="fa fa-clock-o" aria-hidden="true" title="In behandeling"></i> {{dealStatus.status.title}}</td>
-                {%else%}
                 <td><i class="fa fa-check" aria-hidden="true" title="In orde"></i> {{dealStatus.status.title}}</td>
-                {%endif%}
             </tr>
             {%endfor%}
         </tbody>
