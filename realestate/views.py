@@ -90,16 +90,6 @@ def faq_list(request):
     }
     return render(request, "realestate/faq.html", context)
 
-PRIJS = (
-         ("0"),
-         (50000),
-         (100000),
-         (200000),
-         (300000),
-         (400000),
-         (500000),
-         )
-
 
 def search(request):
     form = PropertiesSearchForm
@@ -147,27 +137,6 @@ def contact(request):
         form = FeedbackForm()
 
     return render(request, 'realestate/contact.html', {'form': form})
-
-# def qrcode(request):
-#     response = HttpResponse(content_type='application/pdf')
-#     response['Content-Disposition'] = 'attachment; filename="qrcode.pdf"'
-
-#     p = canvas.Canvas(response)
-
-#     qrw = QrCodeWidget('127.0.0.1:8000/property/1')
-#     b = qrw.getBounds()
-
-#     w = b[2] - b[0]
-#     h = b[3] - b[1]
-
-#     d = Drawing(45,45,transform = [450./w,0,0,450./h,0,0])
-#     d.add(qrw)
-
-#     renderPDF.draw(d, p, 1, 1)
-
-#     p.showPage()
-#     p.save()
-#     return  render(request, response)
 
 
 def handler404(request):
