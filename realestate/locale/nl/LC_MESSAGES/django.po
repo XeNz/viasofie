@@ -145,9 +145,14 @@ msgstr ""
 "adviesverlening aangepastaan specifieke of concrete persoonlijke "
 "omstandigheden worden beschouwd."
 
-#: .\realestate\templates\realestate\footer.html:20
+#: .\realestate\templates\realestate\footer.html:21
 msgid "FOOTER_CONTACTINFO"
 msgstr "contact info"
+
+#: .\realestate\templates\realestate\footer.html:32
+msgid "FOOTER_TEXT"
+msgstr "This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin lorem quis."
+
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
