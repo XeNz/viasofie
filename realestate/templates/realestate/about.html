@@ -1,11 +1,13 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
+{% load i18n %}
+
 	<div class="page-title-section">
 		<div class="container">
 			<div class="pull-left page-title">
 				<a href="{% url 'realestate:about' %}">
-				<h2>About us</h2>
+				<h2>{%blocktrans %}ABOUT_BUTTON{% endblocktrans%}</h2>
 				</a>
 			</div>
 			<div class="pull-right breadcrumb">
@@ -18,9 +20,9 @@
 		<div class="container">
 			<div class="col-md-8 col-md-push-2 contact-info">
 				<div class="inner-wrapper">
-					<h4 class="box-title">Over Via Sofie</h4>
+					<h4 class="box-title">{%blocktrans %}ABOUT_TITLE{% endblocktrans%}</h4>
 					<p class='first-paragraph'>
-						Sofie is juriste van opleiding (Master in de Rechten). Zij behaalde tevens  een postgraduaat Vastgoedkunde aan de KU Leuven. Zowel op juridisch als bouwtechnisch vlak loodst zij u graag doorheen het vastgoedlandschap en dit met het oog op een succesvolle verkoop of verhuur. Ook voor de opmaak van een taxatieverslag of adviesverlening kan u bij haar terecht.   Sofie neemt de zorg voor de  verkoop of verhuur van uw woning uit handen. Zij regelt bezoeken, zorgt ervoor dat een verkoop- of verhuurdossier wordt opgesteld conform de wettelijke bepalingen en helpt bij een correcte prijszetting van uw pand aan de hand van een taxatieverslag en op basis van  vergelijkingspunten van een eigen opgebouwd databestand. Hebt u vragen of wil u weten wat Sofie voor u kan betekenen, contacteer haar vrijblijvend.
+						{%blocktrans %}ABOUT_TEXT{% endblocktrans%}
 					</p>
 					<div class="info-wrapper">
 					</div>

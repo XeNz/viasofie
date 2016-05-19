@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
+{% load i18n %}
 
 <!doctype html>
 <html lang="en-us">
@@ -67,12 +68,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">Home</a></li>
-            <li><a href="#">Kopen</a></li>
-            <li><a href="#">Huren</a></li>
-            <li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">FAQ</a></li>
-            <li class="{% ifequal request.path '/contact/'%}active{% endifequal%}"><a href="{% url 'realestate:contact' %}">Contact</a></li>
-            <li class="{% ifequal request.path '/about/'%}active{% endifequal%}"><a href="{% url 'realestate:about' %}">Over</a></li>
+            <li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">{%blocktrans %}HEADER_HOME{% endblocktrans%}</a></li>
+            <li><a href="#">{%blocktrans %}HEADER_KOPEN{% endblocktrans%}</a></li>
+            <li><a href="#">{%blocktrans %}HEADER_HUREN{% endblocktrans%}</a></li>
+            <li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">{%blocktrans %}HEADER_FAQ{% endblocktrans%}</a></li>
+            <li class="{% ifequal request.path '/contact/'%}active{% endifequal%}"><a href="{% url 'realestate:contact' %}">{%blocktrans %}HEADER_CONTACT{% endblocktrans%}</a></li>
+            <li class="{% ifequal request.path '/about/'%}active{% endifequal%}"><a href="{% url 'realestate:about' %}">{%blocktrans %}HEADER_OVER{% endblocktrans%}</a></li>
 <!--             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
             <ul class="dropdown-menu">

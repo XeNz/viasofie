@@ -1,3 +1,52 @@
+#: .\realestate\templates\realestate\about.html:10
+msgid "ABOUT_BUTTON"
+msgstr "About us"
+
+#: .\realestate\templates\realestate\about.html:23
+msgid "ABOUT_TITLE"
+msgstr "Over Via Sofie"
+
+#: .\realestate\templates\realestate\about.html:25
+msgid "ABOUT_TEXT"
+msgstr ""
+"Sofie is juriste van opleiding (Master in de Rechten). Zij behaalde tevens  "
+"een postgraduaat Vastgoedkunde aan de KU Leuven. Zowel op juridisch als "
+"bouwtechnischvlak loodst zij u graag doorheen het vastgoedlandschap en dit "
+"met het oog op een succesvolle verkoop of verhuur. Ook voor de opmaak van "
+"een taxatieverslag ofadviesverlening kan u bij haar terecht.   Sofie neemt "
+"de zorg voor de  verkoop of verhuur van uw woning uit handen. Zij regelt "
+"bezoeken, zorgt ervoor dat eenverkoop- of verhuurdossier wordt opgesteld "
+"conform de wettelijke bepalingen en helpt bij een correcte prijszetting van "
+"uw pand aan de hand van een taxatieverslag enop basis van  "
+"vergelijkingspunten van een eigen opgebouwd databestand. Hebt u vragen of "
+"wil u weten wat Sofie voor u kan betekenen, contacteer haar vrijblijvend."
+
+#: .\realestate\templates\realestate\contact.html:10
+msgid "CONTACT_BUTTON"
+msgstr "Contact us"
+
+#: .\realestate\templates\realestate\contact.html:23
+msgid "CONTACT_TITLE"
+msgstr "Contact info"
+
+#: .\realestate\templates\realestate\contact.html:25
+msgid "CONTACT_TEXT1"
+msgstr ""
+"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
+"auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit "
+"consequat ipsum,nec sagittis sem nibh id elit. Duis sed odio sit amet nibh "
+"vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
+
+#: .\realestate\templates\realestate\contact.html:28
+msgid "CONTACT_TEXT2"
+msgstr ""
+"Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae "
+"erat consequat auctor eu in elit. Class aptent taciti sociosqu ad"
+
+#: .\realestate\templates\realestate\contact.html:41
+msgid "CONTACT_TOUCH"
+msgstr "Get in touch"
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookie melding"
@@ -66,3 +115,132 @@ msgstr ""
 "0483713710, emailadres:info@viasofie.be\n"
 " Als u uw gegevens aan wilt passen of uzelf uit onze bestanden wilt laten "
 "halen, kunt u contact met ons op nemen."
+
+#: .\realestate\templates\realestate\faq.html:11
+msgid "FAQ_ABOUTUS"
+msgstr "About us"
+
+#: .\realestate\templates\realestate\faq.html:15
+msgid "FAQ_RIGHTBUTTON"
+msgstr "Frequently Asked Questions"
+
+#: .\realestate\templates\realestate\faq.html:24
+msgid "FAQ_TITLE"
+msgstr "Frequently Asked Questions"
+
+#: .\realestate\templates\realestate\faq.html:26
+msgid "FAQ_TEXT"
+msgstr ""
+"Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening "
+"houden met een hele hoop zaken. Hieronder vindt u een aantal algemene "
+"begrippen en FAQ's vanbelang bij de verkoop of verhuur. Hebt u vragen over "
+"onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te "
+"contacteren, ik help u graagverder."
+
+#: .\realestate\templates\realestate\faq.html:60
+msgid "FAQ_BOTTOMTEXT"
+msgstr ""
+"De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene "
+"aard en kunnen geenszins als sluitende professionele juridische "
+"adviesverlening aangepastaan specifieke of concrete persoonlijke "
+"omstandigheden worden beschouwd."
+
+#: .\realestate\templates\realestate\footer.html:21
+msgid "FOOTER_CONTACTINFO"
+msgstr "contact info"
+
+#: .\realestate\templates\realestate\footer.html:32
+msgid "FOOTER_TEXT"
+msgstr ""
+"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
+"auctor aliquet. Aenean sollicitudin lorem quis."
+
+#: .\realestate\templates\realestate\footer.html:36
+msgid "FOOTER_TITLE2"
+msgstr "newsletter"
+
+#: .\realestate\templates\realestate\footer.html:38
+msgid "FOOTER_TEXT2"
+msgstr ""
+"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
+"auctor aliquet."
+
+#: .\realestate\templates\realestate\header.html:71
+msgid "HEADER_HOME"
+msgstr "Home"
+
+#: .\realestate\templates\realestate\header.html:72
+msgid "HEADER_KOPEN"
+msgstr "Kopen"
+
+#: .\realestate\templates\realestate\header.html:73
+msgid "HEADER_HUREN"
+msgstr "Huren"
+
+#: .\realestate\templates\realestate\header.html:74
+msgid "HEADER_FAQ"
+msgstr "FAQ"
+
+#: .\realestate\templates\realestate\header.html:75
+msgid "HEADER_CONTACT"
+msgstr "Contact"
+
+#: .\realestate\templates\realestate\header.html:76
+msgid "HEADER_OVER"
+msgstr "Over"
+
+#: .\realestate\templates\realestate\index.html:71
+msgid "INDEX_RENTORSALE"
+msgstr "Rent or Sale"
+
+#: .\realestate\templates\realestate\index.html:74
+msgid "INDEX_ANY"
+msgstr "Any"
+
+#: .\realestate\templates\realestate\index.html:75
+msgid "INDEX_RENT"
+msgstr "Rent"
+
+#: .\realestate\templates\realestate\index.html:76
+msgid "INDEX_SALE"
+msgstr "Sale"
+
+#: .\realestate\templates\realestate\index.html:81
+msgid "INDEX_PROPERTY"
+msgstr "Property type"
+
+#: .\realestate\templates\realestate\index.html:95
+msgid "INDEX_LOCATIONS"
+msgstr "locations"
+
+#: .\realestate\templates\realestate\index.html:109
+msgid "INDEX_BEDS"
+msgstr "Beds"
+
+#: .\realestate\templates\realestate\index.html:123
+msgid "INDEX_BATHS"
+msgstr "Baths"
+
+#: .\realestate\templates\realestate\index.html:137
+msgid "INDEX_SQFT"
+msgstr "Sq ft"
+
+#: .\realestate\templates\realestate\index.html:151
+msgid "INDEX_MINPRICE"
+msgstr "min price"
+
+#: .\realestate\templates\realestate\index.html:165
+msgid "INDEX_MAXPRICE"
+msgstr "max price"
+
+#: .\realestate\templates\realestate\index.html:230
+msgid "INDEX_TITLE"
+msgstr "Recent Listings"
+
+#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
+msgid " RESET_PASSWORD_TITLE "
+msgstr ""
+
+#: .\realestate\templates\usercontrolpanel\password_reset_form.html:7
+msgid " REQUEST_RESET_PASSWORD_TITLE "
+msgstr ""

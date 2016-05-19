@@ -2,6 +2,7 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
+{% load i18n %}
 <div class="main-flexslider">
         <ul class="slides">
             {% for property in featured_six_properties_in_ascending_order%}
@@ -38,17 +39,17 @@
         <form>
             <div class="select-wrapper select-smaill" id='select-rent'>
                 <p>
-                     Rent or Sale
+                     {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
                 </p>
                 <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Rent</option>
-                    <option value="chips-and-salsa">Sale</option>
+                    <option value="any">{%blocktrans %}INDEX_ANY{% endblocktrans%}</option>
+                    <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
+                    <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
                 </select>
             </div>
             <div class="select-wrapper select-big" id='select-property'>
                 <p>
-                     Property type
+                     {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -62,7 +63,7 @@
             </div>
             <div class="select-wrapper select-big">
                 <p>
-                     locations
+                     {%blocktrans %}INDEX_LOCATIONS{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -76,7 +77,7 @@
             </div>
             <div class="select-wrapper select-small">
                 <p>
-                     Beds
+                     {%blocktrans %}INDEX_BEDS{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -90,7 +91,7 @@
             </div>
             <div class="select-wrapper select-small">
                 <p>
-                     Baths
+                     {%blocktrans %}INDEX_BATHS{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -104,7 +105,7 @@
             </div>
             <div class="select-wrapper select-medium">
                 <p>
-                     Sq ft
+                     {%blocktrans %}INDEX_SQFT{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -118,7 +119,7 @@
             </div>
             <div class="select-wrapper select-medium">
                 <p>
-                     min price
+                     {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -132,7 +133,7 @@
             </div>
             <div class="select-wrapper select-medium">
                 <p>
-                     Max price
+                     {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
@@ -197,7 +198,7 @@
 <div class="recent-listings">
     <div class="container">
         <div class="title-box">
-            <h3>Recent Listings</h3>
+            <h3>{%blocktrans %}INDEX_TITLE{% endblocktrans%}</h3>
             <div class="bordered">
             </div>
         </div>

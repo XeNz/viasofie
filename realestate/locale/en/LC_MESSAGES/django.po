@@ -1,3 +1,35 @@
+#: .\realestate\templates\realestate\about.html:10
+msgid "ABOUT_BUTTON"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\about.html:23
+msgid "ABOUT_TITLE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\about.html:25
+msgid "ABOUT_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\contact.html:10
+msgid "CONTACT_BUTTON"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\contact.html:23
+msgid "CONTACT_TITLE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\contact.html:25
+msgid "CONTACT_TEXT1"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\contact.html:28
+msgid "CONTACT_TEXT2"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\contact.html:41
+msgid "CONTACT_TOUCH"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\realestate\cookiebanner.html:5
 msgid "COOKIE_INFO_HEADER"
 msgstr "Cookies disclaimer"
@@ -17,20 +49,132 @@ msgstr ""
 
 #: .\realestate\templates\realestate\disclaimer.html:9
 msgid " DISCLAIMER_TITLE "
-msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\disclaimer.html:11
 msgid "DISCLAIMER_TEXT"
-msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\disclaimer.html:15
 msgid " PRIVACYPOLICY_TITLE"
-msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\disclaimer.html:17
 msgid "PRIVCAYPOLICY_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\faq.html:11
+msgid "FAQ_ABOUTUS"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\faq.html:15
+msgid "FAQ_RIGHTBUTTON"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\faq.html:24
+msgid "FAQ_TITLE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\faq.html:26
+msgid "FAQ_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\faq.html:60
+msgid "FAQ_BOTTOMTEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\footer.html:21
+msgid "FOOTER_CONTACTINFO"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\footer.html:32
+msgid "FOOTER_TEXT"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\footer.html:36
+msgid "FOOTER_TITLE2"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\footer.html:38
+msgid "FOOTER_TEXT2"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\header.html:71
+msgid "HEADER_HOME"
+msgstr "ENGLISH"
+
+#: .\realestate\templates\realestate\header.html:72
+msgid "HEADER_KOPEN"
+msgstr "ENGLISH"
+
+#: .\realestate\templates\realestate\header.html:73
+msgid "HEADER_HUREN"
+msgstr "ENGLISH"
+
+#: .\realestate\templates\realestate\header.html:74
+msgid "HEADER_FAQ"
+msgstr "ENGLISH"
+
+#: .\realestate\templates\realestate\header.html:75
+msgid "HEADER_CONTACT"
+msgstr "ENGLISH"
+
+#: .\realestate\templates\realestate\header.html:76
+msgid "HEADER_OVER"
+msgstr "ENGLISH"
+
+#: .\realestate\templates\realestate\index.html:71
+msgid "INDEX_RENTORSALE"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:74
+msgid "INDEX_ANY"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:75
+msgid "INDEX_RENT"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:76
+msgid "INDEX_SALE"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:81
+msgid "INDEX_PROPERTY"
+msgstr "INSERT ENGLISH"
+
+#: .\realestate\templates\realestate\index.html:95
+msgid "INDEX_LOCATIONS"
+msgstr "INSERT ENGLISH"
+
+#: .\realestate\templates\realestate\index.html:109
+msgid "INDEX_BEDS"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:123
+msgid "INDEX_BATHS"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:137
+msgid "INDEX_SQFT"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:151
+msgid "INDEX_MINPRICE"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:165
+msgid "INDEX_MAXPRICE"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:230
+msgid "INDEX_TITLE"
+msgstr "INSERT ENG"
+
+#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
+msgid " RESET_PASSWORD_TITLE "
 msgstr ""
-"INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\usercontrolpanel\password_reset_form.html:7
+msgid " REQUEST_RESET_PASSWORD_TITLE "
+msgstr ""
