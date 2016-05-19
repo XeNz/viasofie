@@ -213,6 +213,10 @@ msgstr "Property type"
 msgid "INDEX_LOCATIONS"
 msgstr "locations"
 
+#: .\realestate\templates\realestate\index.html:109
+msgid "INDEX_BEDS"
+msgstr "Beds"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

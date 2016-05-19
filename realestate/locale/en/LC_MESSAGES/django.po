@@ -129,15 +129,15 @@ msgstr "INSERT ENGLISH"
 
 #: .\realestate\templates\realestate\index.html:74
 msgid "INDEX_ANY"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH"
 
 #: .\realestate\templates\realestate\index.html:75
 msgid "INDEX_RENT"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH"
 
 #: .\realestate\templates\realestate\index.html:76
 msgid "INDEX_SALE"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "INSERT ENGLISH"
 
 #: .\realestate\templates\realestate\index.html:81
 msgid "INDEX_PROPERTY"
@@ -146,6 +146,10 @@ msgstr "INSERT ENGLISH"
 #: .\realestate\templates\realestate\index.html:95
 msgid "INDEX_LOCATIONS"
 msgstr "INSERT ENGLISH"
+
+#: .\realestate\templates\realestate\index.html:109
+msgid "INDEX_BEDS"
+msgstr "ENG"
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
