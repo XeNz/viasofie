@@ -101,27 +101,27 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:71
 msgid "HEADER_HOME"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "ENGLISH"
 
 #: .\realestate\templates\realestate\header.html:72
 msgid "HEADER_KOPEN"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "ENGLISH"
 
 #: .\realestate\templates\realestate\header.html:73
 msgid "HEADER_HUREN"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "ENGLISH"
 
 #: .\realestate\templates\realestate\header.html:74
 msgid "HEADER_FAQ"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "ENGLISH"
 
 #: .\realestate\templates\realestate\header.html:75
 msgid "HEADER_CONTACT"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "ENGLISH"
 
 #: .\realestate\templates\realestate\header.html:76
 msgid "HEADER_OVER"
-msgstr "INSERT ENGLISH TRANSLATION HERE"
+msgstr "ENGLISH"
 
 #: .\realestate\templates\realestate\index.html:71
 msgid "INDEX_RENTORSALE"
@@ -166,6 +166,10 @@ msgstr "ENG"
 #: .\realestate\templates\realestate\index.html:165
 msgid "INDEX_MAXPRICE"
 msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:230
+msgid "INDEX_TITLE"
+msgstr "INSERT ENG"
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "

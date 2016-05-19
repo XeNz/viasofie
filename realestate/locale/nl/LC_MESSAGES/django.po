@@ -233,6 +233,10 @@ msgstr "min price"
 msgid "INDEX_MAXPRICE"
 msgstr "max price"
 
+#: .\realestate\templates\realestate\index.html:230
+msgid "INDEX_TITLE"
+msgstr "Recent Listings"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
