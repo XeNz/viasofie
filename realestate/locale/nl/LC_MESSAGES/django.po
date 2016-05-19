@@ -229,6 +229,10 @@ msgstr "Sq ft"
 msgid "INDEX_MINPRICE"
 msgstr "min price"
 
+#: .\realestate\templates\realestate\index.html:165
+msgid "INDEX_MAXPRICE"
+msgstr "max price"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

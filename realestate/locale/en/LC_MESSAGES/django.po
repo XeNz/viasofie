@@ -125,19 +125,19 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\index.html:71
 msgid "INDEX_RENTORSALE"
-msgstr "INSERT ENGLISH"
+msgstr "ENG"
 
 #: .\realestate\templates\realestate\index.html:74
 msgid "INDEX_ANY"
-msgstr "INSERT ENGLISH"
+msgstr "ENG"
 
 #: .\realestate\templates\realestate\index.html:75
 msgid "INDEX_RENT"
-msgstr "INSERT ENGLISH"
+msgstr "ENG"
 
 #: .\realestate\templates\realestate\index.html:76
 msgid "INDEX_SALE"
-msgstr "INSERT ENGLISH"
+msgstr "ENG"
 
 #: .\realestate\templates\realestate\index.html:81
 msgid "INDEX_PROPERTY"
@@ -161,6 +161,10 @@ msgstr "ENG"
 
 #: .\realestate\templates\realestate\index.html:151
 msgid "INDEX_MINPRICE"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:165
+msgid "INDEX_MAXPRICE"
 msgstr "ENG"
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
