@@ -189,6 +189,10 @@ msgstr "Contact"
 msgid "HEADER_OVER"
 msgstr "Over"
 
+#: .\realestate\templates\realestate\index.html:70
+msgid "INDEX_RENTORSALE"
+msgstr "Rent or Sale"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
