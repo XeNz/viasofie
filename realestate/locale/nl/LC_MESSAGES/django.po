@@ -185,6 +185,10 @@ msgstr "FAQ"
 msgid "HEADER_CONTACT"
 msgstr "Contact"
 
+#: .\realestate\templates\realestate\header.html:76
+msgid "HEADER_OVER"
+msgstr "Over"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
