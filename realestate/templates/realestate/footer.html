@@ -11,13 +11,14 @@
 <script type="text/javascript" src="{{ STATIC_URL }}realestate/js/cookielaw.js"></script>
 {% load staticfiles %}
 {% load cookielaw_tags %}
+{% load i18n %}
 
 {% cookielaw_banner %}
 <div class="complete-footer">
 	<footer>
 	<div class="container">
 		<div class="col-md-4 footer-contact-info">
-			<h3 class='footer-title'>contact info</h3>
+			<h3 class='footer-title'>{%blocktrans %}FOOTER_CONTACTINFO{% endblocktrans%}</h3>
 			<p class="website-number">
 				<i class="fa fa-phone"></i> 03 ??? ??? ???
 			</p>

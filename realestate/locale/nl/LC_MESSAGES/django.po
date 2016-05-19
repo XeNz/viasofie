@@ -140,7 +140,14 @@ msgstr ""
 #: .\realestate\templates\realestate\faq.html:60
 msgid "FAQ_BOTTOMTEXT"
 msgstr ""
-"De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene aard en kunnen geenszins als sluitende professionele juridische adviesverlening aangepast" "aan specifieke of concrete persoonlijke omstandigheden worden beschouwd."
+"De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene "
+"aard en kunnen geenszins als sluitende professionele juridische "
+"adviesverlening aangepastaan specifieke of concrete persoonlijke "
+"omstandigheden worden beschouwd."
+
+#: .\realestate\templates\realestate\footer.html:20
+msgid "FOOTER_CONTACTINFO"
+msgstr "contact info"
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
