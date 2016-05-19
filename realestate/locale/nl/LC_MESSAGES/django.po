@@ -217,6 +217,14 @@ msgstr "locations"
 msgid "INDEX_BEDS"
 msgstr "Beds"
 
+#: .\realestate\templates\realestate\index.html:123
+msgid "INDEX_BATHS"
+msgstr "Baths"
+
+#: .\realestate\templates\realestate\index.html:137
+msgid "INDEX_SQFT"
+msgstr "Sq ft"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

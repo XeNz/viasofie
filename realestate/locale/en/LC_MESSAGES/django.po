@@ -151,6 +151,14 @@ msgstr "INSERT ENGLISH"
 msgid "INDEX_BEDS"
 msgstr "ENG"
 
+#: .\realestate\templates\realestate\index.html:123
+msgid "INDEX_BATHS"
+msgstr "ENG"
+
+#: .\realestate\templates\realestate\index.html:137
+msgid "INDEX_SQFT"
+msgstr "ENG"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
