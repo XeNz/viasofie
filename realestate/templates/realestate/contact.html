@@ -1,11 +1,13 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
+{% load i18n %}
+
 	<div class="page-title-section">
 		<div class="container">
 			<div class="pull-left page-title">
 				<a href="{% url 'realestate:contact' %}">
-				<h2>Contact us</h2>
+				<h2>{%blocktrans %}CONTACT_BUTTON{% endblocktrans%}</h2>
 				</a>
 			</div>
 			<div class="pull-right breadcrumb">
@@ -18,12 +20,12 @@
 	<div class="container">
 		<div class="col-md-6 contact-info">
 			<div class="inner-wrapper">
-				<h4 class="box-title">Contact info</h4>
+				<h4 class="box-title">{%blocktrans %}CONTACT_TITLE{% endblocktrans%}</h4>
 				<p class='first-paragraph'>
-					This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+					{%blocktrans %}CONTACT_TEXT1{% endblocktrans%}
 				</p>
 				<p>
-					Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad
+					{%blocktrans %}CONTACT_TEXT2{% endblocktrans%}
 				</p>
 				<div class="info-wrapper">
 					<span><i class="fa fa-home"></i>lorem ipsum street</span>
@@ -36,7 +38,7 @@
 		</div>
 		<div class="col-md-6 contact-form-wrapper">
 			<div class="inner-wrapper">
-				<h4 class="box-title">Get in touch</h4>
+				<h4 class="box-title">{%blocktrans %}CONTACT_TOUCH{% endblocktrans%}</h4>
 					{% if messages %}
 						<div style="padding-top: 15px; padding-bottom: 25px;"class="messages">
 						    {% for message in messages %}
