@@ -107,6 +107,14 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "HEADER_KOPEN"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\header.html:73
+msgid "HEADER_HUREN"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
+#: .\realestate\templates\realestate\header.html:74
+msgid "HEADER_FAQ"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

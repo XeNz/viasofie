@@ -173,6 +173,14 @@ msgstr "Home"
 msgid "HEADER_KOPEN"
 msgstr "Kopen"
 
+#: .\realestate\templates\realestate\header.html:73
+msgid "HEADER_HUREN"
+msgstr "Huren"
+
+#: .\realestate\templates\realestate\header.html:74
+msgid "HEADER_FAQ"
+msgstr "FAQ"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
