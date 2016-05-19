@@ -137,6 +137,11 @@ msgstr ""
 "onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te "
 "contacteren, ik help u graagverder."
 
+#: .\realestate\templates\realestate\faq.html:60
+msgid "FAQ_BOTTOMTEXT"
+msgstr ""
+"De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene aard en kunnen geenszins als sluitende professionele juridische adviesverlening aangepast" "aan specifieke of concrete persoonlijke omstandigheden worden beschouwd."
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
