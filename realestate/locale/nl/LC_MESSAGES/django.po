@@ -205,6 +205,10 @@ msgstr "Rent"
 msgid "INDEX_SALE"
 msgstr "Sale"
 
+#: .\realestate\templates\realestate\index.html:81
+msgid "INDEX_PROPERTY"
+msgstr "Property type"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

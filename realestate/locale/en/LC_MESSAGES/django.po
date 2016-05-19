@@ -139,6 +139,10 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "INDEX_SALE"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\index.html:81
+msgid "INDEX_PROPERTY"
+msgstr "INSERT ENG. TRANS. HERE"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
