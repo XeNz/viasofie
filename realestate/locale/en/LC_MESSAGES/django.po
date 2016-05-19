@@ -71,6 +71,10 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "FAQ_RIGHTBUTTON"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\faq.html:24
+msgid "FAQ_TITLE"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\realestate\faq.html:26
 msgid "FAQ_TEXT"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
