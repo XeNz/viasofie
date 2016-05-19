@@ -181,6 +181,10 @@ msgstr "Huren"
 msgid "HEADER_FAQ"
 msgstr "FAQ"
 
+#: .\realestate\templates\realestate\header.html:75
+msgid "HEADER_CONTACT"
+msgstr "Contact"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
