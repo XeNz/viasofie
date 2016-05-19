@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='status',
             name='current_status',
-            field=enumchoicefield.fields.EnumChoiceField(default=realestate.models.CurrentStatus(1), enum_class=realestate.models.CurrentStatus, max_length=11),
+            field=models.CharField(max_length=100),
         ),
         migrations.AlterField(
             model_name='propertypicture',
