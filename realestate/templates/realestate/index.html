@@ -2,6 +2,7 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load thumbnail %}
+{% load i18n %}
 <div class="main-flexslider">
         <ul class="slides">
             <li class='slides' id='slide-n1'><img src="{% static "realestate/img/slide-01.jpg" %}" alt="slide 01">
@@ -71,8 +72,8 @@
                 </p>
                 <select class='elselect'>
                     <option value="any">{%blocktrans %}INDEX_ANY{% endblocktrans%}</option>
-                    <option value="potato-chips">Rent</option>
-                    <option value="chips-and-salsa">Sale</option>
+                    <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
+                    <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
                 </select>
             </div>
             <div class="select-wrapper select-big" id='select-property'>
