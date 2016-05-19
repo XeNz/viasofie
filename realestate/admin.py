@@ -1,11 +1,12 @@
 from django.contrib import admin
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus, Visitation, CurrentStatus
 from django.contrib.sites.models import Site
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
+from datetime import datetime
 
 
 def qrcode(modeladmin, request, queryset):
@@ -36,6 +37,10 @@ def qrcode(modeladmin, request, queryset):
     return  response
 
 
+class VisitationInline(admin.TabularInline):
+    model = Visitation
+    fields = ['date', 'status', ]
+
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
     fields = ['picture',]
@@ -50,8 +55,8 @@ class CharacteristicAdmin(admin.ModelAdmin):
     search_fields = ("id", "name")
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ("title_text", "description_text", "constructiondate", "sellingprice")
-    list_filter = ("sellingprice", "constructiondate")
+    list_display = ("title_text", "description_text", "constructiondate", "sellingprice","featured")
+    list_filter = ("sellingprice", "constructiondate","featured")
     search_fields = ("sellingprice",)
     inlines = [PropertyPictureInline,Characteristics_propertyInline,]
     actions =[qrcode]
@@ -65,15 +70,21 @@ class DealStatusInline(admin.TabularInline):
     fields = ['status', 'deal', 'comment','date', 'current_status',]
 
 class DealAdmin(admin.ModelAdmin):
-    inlines = [DealDocumentInline, DealStatusInline, ]
+    inlines = [DealDocumentInline, DealStatusInline, VisitationInline,]
 
 class StatusAdmin(admin.ModelAdmin):
     list_display = ("title", "description", "visible_to_user",)
     list_filter = ("title", "description", "visible_to_user",)
     search_fields = ("title", "description", "visible_to_user",)
 
+class CurrentStatusAdmin(admin.ModelAdmin):
+    list_display = ("text",)
+    list_filter = ("text",)
+    search_fields = ("text",)
+
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
+admin.site.register(CurrentStatus, CurrentStatusAdmin)
 admin.site.register(FAQ)
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Status)

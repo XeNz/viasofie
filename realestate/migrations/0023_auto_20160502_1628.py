@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('comment', models.CharField(max_length=50)),
-                ('current_status', enumchoicefield.fields.EnumChoiceField(default=realestate.models.CurrentStatus(1), enum_class=realestate.models.CurrentStatus, max_length=11)),
+                ('current_status', models.CharField(max_length=100))    ,
                 ('date', models.DateField()),
                 ('visible_to_user', models.BooleanField(default=True)),
                 ('deal', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='dealSkey', to='realestate.Deal')),

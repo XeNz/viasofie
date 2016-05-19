@@ -1,11 +1,5 @@
 @import "http://fonts.googleapis.com/css?family=Roboto:400,900italic,700italic,500italic,400italic,300italic,100italic,900,700,500,300,100";
 @import "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600";
-/* Theme Name:SweetHome - HTML Theme URI:Author:PremiumLayers Author URI:Description:Clean and responsive Real Estate Template. Version:1.0*/
-/*--------------Table of SASS- Imports- Variables- Mixins- MDefault-Styles- Typography- Header-Section- Slider-Section- Search-Section- Recent-Listings-Section- Agents-Section- Services-Section- Footer-Section- page-title-section- Content-Section- Blog-page- Contact-page- Single-page- property-details-page- Responsive nav bar customization- Media-queries*--------------/
-/**** Imports ****/
-/**** Variables ****/
-/**** Mixins ****/
-/**** MDefault-Styles ****/
 html,
 body {
    margin:0;
@@ -376,6 +370,7 @@ header #login-box a span {
   position:absolute;
   bottom:0;
   padding:30px;
+  margin-bottom:25px;
   background:rgba(255,255,255,0.9);
   z-index:100;
 }
@@ -1872,4 +1867,49 @@ footer .container .footer-newsletter input[type='submit'] {
 .row{
   margin-left:0px;
   margin-right: 0px;
+}
+.main-flexslider {
+    /*margin-top: -20px;*/
+    width: 100%;
+    height: 600px;
+}
+
+.main-flexslider .slides img {
+    width: 100%;
+    height: 600px;
+}
+
+.topfeatured {
+  background-color:#77d04e;
+  font-size:16px;
+  font-family:Roboto;
+  font-weight:300;
+  padding:8px 18px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -ms-border-radius:10px;
+  -o-border-radius:10px;
+  border-radius:10px;
+  margin-left:-5px;
+}
+.topfeatured i {
+  margin-right:10px;
+  margin-left: -5px;
+  margin-bottom: 20px;
+  font-size:18px;
+}
+
+input[type='submit'] {
+  border:none;
+  font-weight:300;
+  text-transform:capitalize;
+  padding:8px 41px;
+  margin-left:10px;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
+}
+.pagination{
+  margin-left: 15px;
 }
