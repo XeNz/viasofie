@@ -1,3 +1,6 @@
+From:
+{{name}}
+
 Email adres:
 {{from_email}}
 
