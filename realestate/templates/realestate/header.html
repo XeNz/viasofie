@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
+{% load i18n %}
 
 <!doctype html>
 <html lang="en-us">
@@ -67,7 +68,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">Home</a></li>
+            <li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">{%blocktrans %}HEADER_HOME{% endblocktrans%}</a></li>
             <li><a href="#">Kopen</a></li>
             <li><a href="#">Huren</a></li>
             <li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">FAQ</a></li>
