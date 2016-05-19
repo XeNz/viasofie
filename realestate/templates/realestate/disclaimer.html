@@ -2,10 +2,22 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load i18n %}
-<div class="col-md-3">
-linkerkolom div
-</div>
-<div class="col-md-6">
+
+	<div class="page-title-section">
+		<div class="container">
+			<div class="pull-left page-title">
+				<a href="{% url 'realestate:disclaimer' %}">
+				<h2>{% blocktrans %} DISCLAIMER_TITLE {% endblocktrans %}</h2>
+				</a>
+			</div>
+			<div class="pull-right breadcrumb">
+				<a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:disclaimer' %}">{% blocktrans %} DISCLAIMER_TITLE {% endblocktrans %}</a>
+			</div>
+		</div>
+	</div>
+</div> <!--- end slider section-->
+
+<!-- <div class="col-md-6">
     <h2>{%blocktrans %} DISCLAIMER_TITLE {% endblocktrans%}</h2>
     <div>
         {% blocktrans %}DISCLAIMER_TEXT{% endblocktrans %}
@@ -14,11 +26,29 @@ linkerkolom div
 
     <h2>{%blocktrans %} PRIVACYPOLICY_TITLE{% endblocktrans%}</h2>
     <div>
-        {% blocktrans %}PRIVCAYPOLICY_TEXT{% endblocktrans %}
+        {% blocktrans %}PRIVACYPOLICY_TEXT{% endblocktrans %}
     </div>
-</div>
-<div class="col-md-3">
-rechterkolom div
-</div>
+</div> -->
+
+	<div class="content-section">
+		<div class="container">
+			<div class="col-md-8 col-md-push-2 contact-info">
+				<div class="inner-wrapper">
+					<h4 class="box-title">{%blocktrans %} DISCLAIMER_TITLE {% endblocktrans%}</h4>
+					<p class='first-paragraph'>
+						{% blocktrans %}DISCLAIMER_TEXT{% endblocktrans %}
+					</p>
+					<h4 class="box-title">{%blocktrans %} PRIVACYPOLICY_TITLE{% endblocktrans%}</h4>
+					<p class='first-paragraph'>
+						{% blocktrans %}PRIVCAYPOLICY_TEXT{% endblocktrans %}
+					</p>
+					<div class="info-wrapper">
+					</div>
+					<div class="clearfix">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 {% include "realestate/footer.html" %}
