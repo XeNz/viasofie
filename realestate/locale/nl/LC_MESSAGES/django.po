@@ -169,6 +169,10 @@ msgstr ""
 msgid "HEADER_HOME"
 msgstr "Home"
 
+#: .\realestate\templates\realestate\header.html:72
+msgid "HEADER_KOPEN"
+msgstr "Kopen"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
