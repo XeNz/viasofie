@@ -225,6 +225,10 @@ msgstr "Baths"
 msgid "INDEX_SQFT"
 msgstr "Sq ft"
 
+#: .\realestate\templates\realestate\index.html:151
+msgid "INDEX_MINPRICE"
+msgstr "min price"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""

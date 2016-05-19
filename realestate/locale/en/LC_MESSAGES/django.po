@@ -159,6 +159,10 @@ msgstr "ENG"
 msgid "INDEX_SQFT"
 msgstr "ENG"
 
+#: .\realestate\templates\realestate\index.html:151
+msgid "INDEX_MINPRICE"
+msgstr "ENG"
+
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "
 msgstr ""
