@@ -101,30 +101,26 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:71
 msgid "HEADER_HOME"
-msgstr "ENGLISH"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:72
 msgid "HEADER_KOPEN"
-msgstr "ENGLISH"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:73
 msgid "HEADER_HUREN"
-msgstr "ENGLISH"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:74
 msgid "HEADER_FAQ"
-msgstr "ENGLISH"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:75
 msgid "HEADER_CONTACT"
-msgstr "ENGLISH"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\realestate\header.html:76
 msgid "HEADER_OVER"
-msgstr "ENGLISH"
-
-#: .\realestate\templates\realestate\index.html:13
-msgid "INDEX_DESCRIPTION"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
