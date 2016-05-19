@@ -155,9 +155,15 @@ msgstr ""
 "This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
 "auctor aliquet. Aenean sollicitudin lorem quis."
 
+#: .\realestate\templates\realestate\footer.html:36
+msgid "FOOTER_TITLE2"
+msgstr "newsletter"
+
 #: .\realestate\templates\realestate\footer.html:38
 msgid "FOOTER_TEXT2"
-msgstr "This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet."
+msgstr ""
+"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
+"auctor aliquet."
 
 #: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
 msgid " RESET_PASSWORD_TITLE "

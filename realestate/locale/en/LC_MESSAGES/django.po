@@ -91,6 +91,10 @@ msgstr "INSERT ENGLISH TRANSLATION HERE"
 msgid "FOOTER_TEXT"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
 
+#: .\realestate\templates\realestate\footer.html:36
+msgid "FOOTER_TITLE2"
+msgstr "INSERT ENGLISH TRANSLATION HERE"
+
 #: .\realestate\templates\realestate\footer.html:38
 msgid "FOOTER_TEXT2"
 msgstr "INSERT ENGLISH TRANSLATION HERE"
