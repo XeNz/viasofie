@@ -144,7 +144,7 @@
                     <div class="property-images-slider">
                         <div id="details-slider" class="flexslider">
                             <a href="#" class='fa fa-home property-type-icon'></a>
-                            <a href="#" class="yellow-btn">€ {{property.sellingprice}}</a>
+                            <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
                             <a href="#" class='status'>for sale</a>
                             <ul class="slides">
                             {% for propertyimage in property.propertykey.all %}
@@ -178,9 +178,9 @@
                             {{property.description_text}}
                         </p>
                         <div class="additional-features">
-                            <h3>Additional Features NEEDS FIX</h3>
+                            <h3>Additional Features</h3>
                             <ul class="features">
-                                <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Ceiling Fan</a></li>
+<!--                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Ceiling Fan</a></li>
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Curtains/Drapes</a></li>
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Oven/Range</a></li>
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Chandelier(s)</a></li>
@@ -191,7 +191,11 @@
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Light Fixtures</a></li>
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Screens</a></li>
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Air Conditioning</a></li>
-                                <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Hotwater</a></li>
+                                <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Hotwater</a></li> -->
+                                {% for characteristic in characteristics_property %}
+                                <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>{{characteristic.characteristic_id.name}}</a></li>
+                                
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="property-location">

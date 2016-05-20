@@ -21,10 +21,10 @@
                     <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
                     <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
                     <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
-                    <li><span class="fa fa-truck"></span>1 garage</li>
+                    <!-- <li><span class="fa fa-truck"></span>1 garage</li> -->
                 </ul>
                 <div class="slider-buttons-wrapper">
-                    <a href="#" class="yellow-btn">{{property.sellingprice}}</a>
+                    <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
                     <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
                 </div>
             </div>
@@ -223,7 +223,7 @@
                             <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
                         </ul>
                         <div class="buttons-wrapper">
-                            <a href="#" class="yellow-btn">{{property.sellingprice}}</a>
+                            <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
                             <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
                         </div>
                         <div class="clearfix">
