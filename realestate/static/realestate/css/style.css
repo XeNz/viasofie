@@ -1,5 +1,10 @@
 @import "http://fonts.googleapis.com/css?family=Roboto:400,900italic,700italic,500italic,400italic,300italic,100italic,900,700,500,300,100";
 @import "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600";
+@font-face {
+  font-family: 'RopaSansCPro-Regular';
+  src: url('../fonts/RopaSansSCPro-Regular.ttf');
+  src: local('../fonts/RopaSansSCPro-Regular.ttf')
+}
 html,
 body {
    margin:0;
@@ -12,7 +17,8 @@ html {
 }
 body {
   background-color:#EBEBEC;
-  font:1em/1.5 "Roboto",Helvetica,Arial,sans-serif;
+  font:1em/1.5 "RopaSansCPro-Regular";
+  /*font:1em/1.5 "Roboto",Helvetica,Arial,sans-serif;*/
   padding:0 !important;
 }
 .entire-content-wrapper{
@@ -1594,7 +1600,7 @@ footer .container .footer-newsletter input[type='submit'] {
   padding:0 9px;
 }
 .property-details-page .page-content #details-carousel .flex-direction-nav a {
-  background-color:rgba(5,21,20,0.8); 
+  background-color:rgba(5,21,20,0.8);
   width:41px;
   height:51px;
   line-height:51px;
