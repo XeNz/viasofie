@@ -2,6 +2,7 @@ from django import forms
 from haystack.forms import SearchForm
 from django.contrib.auth.models import User
 from .models import Property
+from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 
 PRIJS = (
@@ -18,6 +19,7 @@ class FeedbackForm(forms.Form):
     from_email = forms.EmailField(label="E-mail")
     subject = forms.CharField(label="Onderwerp")
     message = forms.CharField(label="Vraag",widget=forms.Textarea)
+    captcha = NoReCaptchaField()
     def __init__(self, *args, **kwargs):
         super(FeedbackForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
