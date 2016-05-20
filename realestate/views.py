@@ -23,6 +23,7 @@ from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
 from django.contrib.auth.views import password_reset, password_reset_confirm
+from django.contrib.sites.models import Site
 
 def index(request):
     form = PropertiesSearchForm(request.GET)
@@ -203,10 +204,14 @@ def reset_confirm(request, uidb64=None, token=None):
 
 
 def reset(request):
+    current_site = Site.objects.get_current()
+    current_site_domain= current_site.domain
     return password_reset(request, template_name='usercontrolpanel/password_reset_form.html',
         email_template_name='usercontrolpanel/password_reset_email.html',
         subject_template_name='usercontrolpanel/password_reset_subject.txt',
-        post_reset_redirect=reverse('realestate:login'))
+        post_reset_redirect=reverse('realestate:login'),
+        current_site_domain='current_site.domain'
+        )
 
 
 def about(request):

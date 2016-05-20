@@ -46,7 +46,7 @@
                     {% for obj in object_list %}
                     <div class="row">
                       <div id="faqs" class="col-sm-12">
-                        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}} </h3>
+                        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}}<span id="faqdate">- {{obj.pub_date|date}}</span></h3>
                          <div><p>{{ obj.answer }}</p></div>
                       </div>
                     <hr/>

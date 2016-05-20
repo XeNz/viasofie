@@ -17,8 +17,8 @@ def qrcode(modeladmin, request, queryset):
 
     response['Content-Disposition'] = 'attachment; filename="qrcode.pdf"'
 
-    # url = Site.objects.get_current().domain
-    url = "https://127.0.0.1:8000"
+    url = Site.objects.get_current().domain
+    #url = "https://127.0.0.1:8000"
     p = canvas.Canvas(response)
 
     qrw = QrCodeWidget("{0}/property/{1}".format(url, id))
