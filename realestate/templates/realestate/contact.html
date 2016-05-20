@@ -59,9 +59,11 @@
 							<div class="contact-form-right">
 								{{ form.message.errors }}
 								<textarea id="message" name='message' placeholder='Message'></textarea>
-								<input type="submit" value='send message' id='submit-btn'>
+								<div id="captchawrapper">
+									<div class="g-recaptcha" data-sitekey="6Le1eSATAAAAABTPOLSoBvZB1K9iYiMdzu_XI6Aw"></div>
+								</div>
 							</div>
-							<div class="g-recaptcha" data-sitekey="6Le1eSATAAAAABTPOLSoBvZB1K9iYiMdzu_XI6Aw"></div>
+							<input id="contactsubmit" type="submit" value='send message' id='submit-btn'>
 						</form>
 					<div class="clearfix">
 					</div>
