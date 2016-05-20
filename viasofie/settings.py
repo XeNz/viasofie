@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'debug_toolbar',
     'selenium',
+    'nocaptcha_recaptcha',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -89,22 +90,22 @@ WSGI_APPLICATION = 'viasofie.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-     },
-    # 'default': {
-    #   'ENGINE': 'django.db.backends.mysql',
-    #   'NAME': 'viasofie',
-    #   'USER': 'projectuser',
-    #   'PASSWORD': 'Kappa456',
-    #   'HOST': '192.168.84.96',
-    #   'PORT': '3306',
-    #   'OPTIONS': {
-    #     'autocommit': True,
-    #     'read_default_file': '/mysqlConfig.cnf',
-    #   },
-    # }
+     # 'default': {
+     #     'ENGINE': 'django.db.backends.sqlite3',
+     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     # },
+    'default': {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'viasofie',
+      'USER': 'projectuser',
+      'PASSWORD': 'Kappa456',
+      'HOST': '192.168.84.96',
+      'PORT': '3306',
+      'OPTIONS': {
+        'autocommit': True,
+        'read_default_file': '/mysqlConfig.cnf',
+      },
+    }
 }
 
 HAYSTACK_CONNECTIONS = {
@@ -135,6 +136,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+NORECAPTCHA_SITE_KEY = "6Le1eSATAAAAABTPOLSoBvZB1K9iYiMdzu_XI6Aw"
+NORECAPTCHA_SECRET_KEY = "6Le1eSATAAAAAFfYbEp32EP_gNE89mF8oKvZ8xiI"
+
 
 #gmail smtp service settings
 EMAIL_USE_TLS = True
