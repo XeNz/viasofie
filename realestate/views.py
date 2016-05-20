@@ -108,12 +108,13 @@ def contact(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            subject = request.POST.get('name', '')
-            subject2 = request.POST.get('subject', '')
+            name = request.POST.get('name', '')
+            subject = request.POST.get('subject', '')
             message = request.POST.get('message', '')
             from_email = request.POST.get('from_email', '')
             template = get_template('realestate/contact_template.txt')
             context = Context({
+                              'name': subject,
                               'from_email': from_email,
                               'subject': subject,
                               'message': message,
