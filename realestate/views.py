@@ -35,7 +35,7 @@ def index(request):
         last_six_properties_in_ascending_order = reversed(last_six_properties)
         #6 featured properties
         featured_six_properties = Property.objects.filter(featured=True).order_by('-pub_date')[:6]
-        featured_six_properties_in_ascending_order = reversed(last_six_properties)
+        featured_six_properties_in_ascending_order = reversed(featured_six_properties)
         return render_to_response('realestate/index.html', {"form": form, "last_six_properties_in_ascending_order": last_six_properties_in_ascending_order, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order}, context_instance=RequestContext(request))
 
 
@@ -155,7 +155,7 @@ def controlpanel(request):
         if request.method == 'POST':
             selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
-            selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id)
+            selected_deal_documents = DealDocument.objects.filter(deal=selected_deal_id,visible_to_user=True)
             selected_deal_statuses = DealStatus.objects.filter(deal=selected_deal_id)
             selected_deal_visitations = Visitation.objects.filter(deal=selected_deal_id)
             context = {

@@ -146,7 +146,7 @@ class DealDocument(models.Model):
     title = models.CharField(max_length=50)
     document = models.FileField(upload_to=create_deal_documents_path)
     deal = models.ForeignKey(Deal, related_name='dealkey')
-    #boolean visible_to_user?
+    visible_to_user = models.BooleanField(default=False)
     #description description_text = models.TextField()
 
     def __str__(self):

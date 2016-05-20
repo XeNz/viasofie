@@ -63,7 +63,7 @@ class PropertyAdmin(admin.ModelAdmin):
 
 class DealDocumentInline(admin.TabularInline):
     model = DealDocument
-    fields = ['document', 'title', ]
+    fields = ['document', 'title', 'visible_to_user',]
 
 class DealStatusInline(admin.TabularInline):
     model = DealStatus

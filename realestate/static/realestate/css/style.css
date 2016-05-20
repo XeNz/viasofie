@@ -1930,3 +1930,6 @@ input[type='submit'] {
   -moz-transition:all 300ms ease-in-out;
   -webkit-transition:all 300ms ease-in-out;
 }
+#faqdate{
+  font-size: 10px;
+}
