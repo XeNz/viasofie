@@ -27,8 +27,6 @@ class FeedbackForm(forms.Form):
 
 
 class PropertiesSearchForm(SearchForm):
-
-
     def __init__(self, *args, **kwargs):
         super(PropertiesSearchForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
