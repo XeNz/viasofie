@@ -2,40 +2,43 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load i18n %}
-
-  <div class="page-title-section">
-    <div class="container">
-        <div class="pull-left page-title">
-          <a href="{% url 'realestate:about' %}">
-          <h2>{%blocktrans %}ABOUT_BUTTON{% endblocktrans%}</h2>
-          </a>
-        </div>
-        <div class="pull-right breadcrumb">
-          <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:about' %}">About us</a>
-        </div>
+  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static "realestate/css/partners.css" %}"/>
+</head>
+<body>
+    <div class="page-title-section">
+      <div class="container">
+          <div class="pull-left page-title">
+            <a href="{% url 'realestate:about' %}">
+            <h2>{%blocktrans %}ABOUT_BUTTON{% endblocktrans%}</h2>
+            </a>
+          </div>
+          <div class="pull-right breadcrumb">
+            <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:about' %}">About us</a>
+          </div>
+      </div>
     </div>
+  </div> <!--- end slider section-->
+  <div class="partner">
+      <div class="container">
+          <h4 class="box-title">{%blocktrans %}PARTNER_TITLE{% endblocktrans%}</h4>
+          <div class="row listings-items-wrapper">
+          {% for partner in img %}
+              <div class="col-md-3 listing-single-item">
+                  <div class="item-inner">
+                      <div class="image-wrapper" id="partners">
+                          {% for partnerlogo in partner.partnerkey.all %}
+                              <a href="{{partner.url}}"><img src="{% static partnerlogo.logo.url %}"></a>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+              <!-- /Single-item -->
+          {% endfor %}
+          </div>
+      </div>
   </div>
-</div> <!--- end slider section-->
-<div class="partners">
-    <div class="container">
-        <div class="title-box">
-            <h3>{%blocktrans %}PARTNER_TITLE{% endblocktrans%}</h3>
-            <div class="bordered">
-            </div>
-        </div>
-        <div class="row listings-items-wrapper">
-            <div class="col-md-4 listing-single-item">
-                <div class="item-inner">
-                    <div class="image-wrapper">
-                        {% for partner in img %}
-                            <img src="{{partner.logo.url}}">
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <!-- /Single-item -->
-        </div>
-    </div>
-</div>
+</body>
 
 {% include "realestate/footer.html" %}
