@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'usercontrolpanel/login.html'}, name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'usercontrolpanel/logout.html'}, name ='logout'),
     url(r'^about/$', views.about, name='about'),
+    url(r'^partners/$', views.partners, name='partners'),
 ]
