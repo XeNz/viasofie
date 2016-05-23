@@ -15,7 +15,7 @@
                 <a href="#" class='topfeatured'><i class='fa fa-star'></i>featured</a>
                 <h2>{{property.title_text}}</h2>
                 <p>
-                     {{property.description_text}}
+                     {{property.description_text|truncatewords:50 }}
                 </p>
                 <ul class="slide-item-features">
                     <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>

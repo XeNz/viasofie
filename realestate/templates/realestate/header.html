@@ -41,6 +41,21 @@
       <li><a href="#" class="fa fa-facebook"></a></li>
     </ul>
     <div id="login-box" class='pull-right'>
+    <div>
+          <form action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.get_full_path}}" />
+          <select name="language">
+            {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+                </option>
+              {% endfor %}
+          </select>
+          <input type="submit" value="Change" />
+        </form>
+    </div>
       {% if user.is_authenticated %}
       <a href="{% url 'realestate:controlpanel' %}" class='fa fa-user'><span>Gebruikerspaneel</span></a>
       {% endif%}
@@ -69,8 +84,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li class="{% ifequal request.path '/'%}active{% endifequal%}"><a href="{% url 'realestate:index' %}">{%blocktrans %}HEADER_HOME{% endblocktrans%}</a></li>
-            <li><a href="#">{%blocktrans %}HEADER_KOPEN{% endblocktrans%}</a></li>
-            <li><a href="#">{%blocktrans %}HEADER_HUREN{% endblocktrans%}</a></li>
+            <li class="{% ifequal request.path '/sell/'%}active{% endifequal%}"><a href="{% url 'realestate:sell' %}">{%blocktrans %}HEADER_KOPEN{% endblocktrans%}</a></li>
+            <li class="{% ifequal request.path '/rent/'%}active{% endifequal%}"><a href="{% url 'realestate:rent' %}">{%blocktrans %}HEADER_HUREN{% endblocktrans%}</a></li>
             <li class="{% ifequal request.path '/faq/'%}active{% endifequal%}"><a href="{% url 'realestate:faq' %}">{%blocktrans %}HEADER_FAQ{% endblocktrans%}</a></li>
             <li class="{% ifequal request.path '/contact/'%}active{% endifequal%}"><a href="{% url 'realestate:contact' %}">{%blocktrans %}HEADER_CONTACT{% endblocktrans%}</a></li>
             <li class="{% ifequal request.path '/about/'%}active{% endifequal%}"><a href="{% url 'realestate:about' %}">{%blocktrans %}HEADER_OVER{% endblocktrans%}</a></li>
