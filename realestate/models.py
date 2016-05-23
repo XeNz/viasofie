@@ -163,15 +163,21 @@ class Visitation(models.Model):
     def __str__(self):
         return self.status
 
-def create_partner_images_path(instance, filename):
-    return '/'.join(['images', str(instance.partner.id), filename])
-
 class Partner(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+    url = models.CharField(max_length=200)
+
+def create_partner_images_path(instance, filename):
+    return '/'.join(['partners', str(instance.partner.id), filename])
+
+class PartnerLogo(models.Model):
     def validate_image(fieldfile_obj):
         filesize = fieldfile_obj.file.size
-        #file limit in megabyte
+            #file limit in megabyte
         megabyte_limit = 5.0
         if filesize > megabyte_limit*1024*1024:
             raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
+    partner = models.ForeignKey(Partner, related_name='partnerkey')
     logo = models.ImageField(upload_to=create_partner_images_path, blank=True, validators=[validate_image])

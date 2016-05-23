@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus, Visitation, CurrentStatus
+from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus, Visitation, CurrentStatus, Partner, PartnerLogo
 from django.contrib.sites.models import Site
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
@@ -82,9 +82,16 @@ class CurrentStatusAdmin(admin.ModelAdmin):
     list_filter = ("text",)
     search_fields = ("text",)
 
+class PartnerAdmin(admin.ModelAdmin):
+    list_display = ("name", "description")
+    list_filter = ("name", "description")
+    search_fields = ("name", "description")
+
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(CurrentStatus, CurrentStatusAdmin)
 admin.site.register(FAQ)
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Status)
+admin.site.register(Partner, PartnerAdmin)
+admin.site.register(PartnerLogo)
