@@ -73,15 +73,19 @@
                         <p>
                             </br>
                             <!-- TODO: blocktrans -->
-                            Hebt u geen atwoord gevonden op uw vragen? Of zou u graag persoonlijk advies krijgen? Aarzel dan niet om ons te contacteren:
+                            Hebt u nog vragen? Ik help u graag verder!
+                            Hebt u vragen over het te koop stellen van een onroerend goed? Wilt u er zeker van zijn dat uw verkoopdossier volledig is?
+                            Neem vrijblijvend contact op!
+                            <p></p>
                             <a href="{% url 'realestate:contact' %}" class="yellow-btn">Contact</a>
+                            <p></p>
                             </br>
                         </p>
                     </div>
                     <div>
                     <blockquote>
                     <!-- TODO: blocktrans -->
-                    <p>De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemene aard en kunnen geenszins als sluitende professionele juridische adviesverlening aangepast aan specifieke of concrete persoonlijke omstandigheden worden beschouwd.</p>
+                    <p>{%blocktrans %}FAQ_BOTTOMTEXT{% endblocktrans%}</p>
                     </blockquote>
                     </div>
                     </p>
@@ -94,10 +98,6 @@
 
         </div>
     </div>
-<div>
-<blockquote>
-<p>{%blocktrans %}FAQ_BOTTOMTEXT{% endblocktrans%}</p>
-</blockquote>
-</div>
+
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{% static "realestate/js/faq.js" %}"></script>
