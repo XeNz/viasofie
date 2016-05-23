@@ -223,3 +223,9 @@ def disclaimer(request):
 def partners(request):
     img = Partner.objects.all().order_by('-id')
     return render(request, 'realestate/partners.html', {"img": img})
+
+def sell(request):
+    return render(request, 'realestate/sell.html')
+
+def rent(request):
+    return render(request, 'realestate/rent.html')
