@@ -220,3 +220,6 @@ def about(request):
 def disclaimer(request):
     return render(request, 'realestate/disclaimer.html')
 
+def partners(request):
+    img = Partner.objects.all().order_by('-id')
+    return render(request, 'realestate/partners.html', {"img": img})
