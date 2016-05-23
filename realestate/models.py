@@ -45,6 +45,14 @@ class Property(models.Model):
         verbose_name = 'Eigendom'
         verbose_name_plural = 'Eigendommen'
 
+class PropertyType(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
 class Characteristic(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
@@ -54,6 +62,13 @@ class Characteristic(models.Model):
     class Meta():
         verbose_name = 'Property characteristic'
         verbose_name_plural = 'Property characteristics'
+
+
+
+class PropertyType_Property(models.Model):
+    id = models.AutoField(primary_key=True)
+    propertyType_id = models.ForeignKey(PropertyType, related_name='propertytypekey')
+    property_id = models.OneToOneField('Property')
 
 class Characteristics_property(models.Model):
     id = models.AutoField(primary_key=True)

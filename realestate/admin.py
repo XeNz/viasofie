@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Property,PropertyPicture,FAQ,Characteristic,Characteristics_property,Deal,DealDocument,Status,DealStatus, Visitation, CurrentStatus
+from .models import *
 from django.contrib.sites.models import Site
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
@@ -41,6 +41,10 @@ class VisitationInline(admin.TabularInline):
     model = Visitation
     fields = ['date', 'status', ]
 
+class PropertyTypePropertyInline(admin.TabularInline):
+    model = PropertyType_Property
+    fields = ['property_id', 'propertyType_id',]
+
 class PropertyPictureInline(admin.TabularInline):
     model = PropertyPicture
     fields = ['picture',]
@@ -54,11 +58,16 @@ class CharacteristicAdmin(admin.ModelAdmin):
     list_filter = ("id", "name")
     search_fields = ("id", "name")
 
+class PropertyTypeAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")
+    list_filter = ("id", "name")
+    search_fields = ("id", "name")
+
 class PropertyAdmin(admin.ModelAdmin):
     list_display = ("title_text", "description_text", "constructiondate", "sellingprice","featured")
     list_filter = ("sellingprice", "constructiondate","featured")
     search_fields = ("sellingprice",)
-    inlines = [PropertyPictureInline,Characteristics_propertyInline,]
+    inlines = [PropertyTypePropertyInline, PropertyPictureInline,Characteristics_propertyInline ]
     actions =[qrcode]
 
 class DealDocumentInline(admin.TabularInline):
@@ -88,3 +97,4 @@ admin.site.register(CurrentStatus, CurrentStatusAdmin)
 admin.site.register(FAQ)
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Status)
+admin.site.register(PropertyType, PropertyTypeAdmin)
