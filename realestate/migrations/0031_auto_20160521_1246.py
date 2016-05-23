@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='partner',
             name='logo',
-            field=models.ImageField(blank=True, upload_to=realestate.models.create_partner_images_path, validators=[realestate.models.Partner.validate_image]),
+            field=models.ImageField(blank=True, upload_to=realestate.models.create_partner_images_path, validators=[realestate.models.PartnerLogo.validate_image]),
         ),
     ]
