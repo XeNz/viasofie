@@ -41,37 +41,40 @@
             </form>
         </div>
     </div>
-        <div class="col-md-6" id="userpanel">
-            <div class="container">
-            {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
-                {% endfor %}
-            </div>
-            {% endif %}
-          </div>
-            <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Details van deal</span></h2>
-            {% for deal in selected_deal %}
-            <h3>{{deal.property}}</h3>
-
+    <div class="col-md-6" id="userpanel">
+        <div class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
             {% endfor %}
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Documenten</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {% for documents in selected_deal_documents %}
-                    <tr>
-                      <td><a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a></td>
-                    </tr>
-                 {% endfor %}
-                  </tbody>
-                </table>
         </div>
-
+        {% endif %}
+      </div>
+       <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Document</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dealStatus in selected_deal_statuses %}
+            <tr>
+                {%if dealStatus.current_status.id == 1 %}
+                <td> <i class="fa fa-calendar" aria-hidden="true" title="Gepland"></i> <span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
+                {%elif dealStatus.current_status == 2 %}
+                <td><i class="fa fa-clock-o" aria-hidden="true" title="In behandeling"></i> {<span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
+                {%else%}
+                <td><i class="fa fa-check" aria-hidden="true" title="In orde"></i> <span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
+                {%endif%}
+                <td>{{dealStatus.current_status}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    </div>
 <div class = "col-md-3" id="status">
     <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Bezichtigingen </span></h2>
         <table class="table">
@@ -90,32 +93,26 @@
                 {%endfor%}
             </tbody>
         </table>
-    <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
-    <table class="table">
-          <thead>
-            <tr>
-                <th>Document</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for dealStatus in selected_deal_statuses %}
-            <tr>
-            <!--TODO: icon toevoegen. -->
-                {%if dealStatus.current_status.id == 1 %}
-                <td> <i class="fa fa-calendar" aria-hidden="true" title="Gepland"></i> <span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
-                {%elif dealStatus.current_status == 2 %}
-                <td><i class="fa fa-clock-o" aria-hidden="true" title="In behandeling"></i> {<span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
-                {%else%}
-                <td><i class="fa fa-check" aria-hidden="true" title="In orde"></i> <span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
-                {%endif%}
-                <td>{{dealStatus.current_status}}</td>
-            </tr>
-            {%endfor%}
-        </tbody>
-    </table>
-</div>
+     <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Details van deal</span></h2>
+            {% for deal in selected_deal %}
+            <h3>{{deal.property}}</h3>
 
+            {% endfor %}
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Documenten</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for documents in selected_deal_documents %}
+                    <tr>
+                      <td><a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a></td>
+                    </tr>
+                 {% endfor %}
+                  </tbody>
+                </table>
+</div>
 
 {% include "realestate/footer.html" %}
 <script type="text/javascript" src="{{ STATIC_URL }}realestate/js/userpanel.js"></script>
