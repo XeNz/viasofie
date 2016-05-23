@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^search/$', views.search, name='search'),
     url(r'^controlpanel/$', views.controlpanel, name='controlpanel'),
     url(r'^disclaimer/$', views.disclaimer, name='disclaimer'),
+    url(r'^share/$', views.share, name='share'),
     url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
             views.reset_confirm, name='reset_confirm'),
     url(r'^reset/$', views.reset, name='reset'),

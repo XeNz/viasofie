@@ -194,7 +194,7 @@
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>Hotwater</a></li> -->
                                 {% for characteristic in characteristics_property %}
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>{{characteristic.characteristic_id.name}}</a></li>
-                                
+
                                 {% endfor %}
                             </ul>
                         </div>
@@ -259,13 +259,12 @@
                     </ul>
                 </div>
                 <div class="sidebar-widget text-widget">
-                    <h4 class="widget-title">Text Widget</h4>
+                <!-- TODO: Translation -->
+                    <h4 class="widget-title">Vertel een vriend</h4>
                     <p class='first-paragraph'>
-                        This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
+                        Deel dit eigendom met vrienden of familie:
                     </p>
-                    <p>
-                         auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit
-                    </p>
+                    <a href="{% url 'realestate:share' %}" class="yellow-btn">Deel</a>
                 </div>
             </div>
         </div>

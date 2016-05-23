@@ -1,0 +1,59 @@
+{% load staticfiles %}
+{% load cookielaw_tags %}
+{% include "realestate/header.html" %}
+{% load i18n %}
+
+    <div class="page-title-section">
+        <div class="container">
+            <div class="pull-left page-title">
+                <a href="{% url 'realestate:share' %}">
+                <!-- TODO: translation -->
+                <h2>Share Property</h2>
+                </a>
+            </div>
+            <div class="pull-right breadcrumb">
+                <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:contact' %}">Share</a>
+            </div>
+        </div>
+    </div>
+</div> <!--- end slider section-->
+<div class="content-section">
+    <div class="container">
+        <div class="col-md-push-3 col-md-6 contact-form-wrapper">
+            <div class="inner-wrapper">
+            <!-- TODO: translation -->
+                <h4 class="box-title">Share this property</h4>
+                    {% if messages %}
+                        <div style="padding-top: 15px; padding-bottom: 25px;"class="messages">
+                            {% for message in messages %}
+                            <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                        <form class='contact-form' action="{{ share }}" method="POST">{% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <div class="contact-form-left">
+                                {{ form.name.errors }}
+                                <span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='Name' id='name'>
+                                {{ form.from_email.errors }}
+                                <span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='E-mail' id='from_email'>
+                                {{ form.subject.errors }}
+                                <span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="Subject" id='subject'>
+                            </div>
+                            <div class="contact-form-right">
+                                {{ form.message.errors }}
+                                <textarea id="message" name='message' placeholder='Message'>{{ url }}</textarea>
+                                <div id="captchawrapper">
+                                    <div class="g-recaptcha" data-sitekey="6Le1eSATAAAAABTPOLSoBvZB1K9iYiMdzu_XI6Aw"></div>
+                                </div>
+                            </div>
+                            <input id="contactsubmit" type="submit" value='share' id='submit-btn'>
+                        </form>
+                    <div class="clearfix">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "realestate/footer.html" %}

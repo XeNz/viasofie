@@ -140,6 +140,43 @@ def contact(request):
 
     return render(request, 'realestate/contact.html', {'form': form})
 
+def share(request):
+    if request.method == 'POST':
+        form = ShareForm(request.POST)
+        if form.is_valid():
+            name = request.POST.get('name', '')
+            subject = request.POST.get('subject', '')
+            message = request.POST.get('message', '')
+            from_email = request.POST.get('from_email', '')
+            template = get_template('realestate/contact_template.txt')
+            context = Context({
+                              'name': subject,
+                              'from_email': from_email,
+                              'subject': subject,
+                              'message': message,
+                              })
+            content = template.render(context)
+
+            email = EmailMessage(
+                                 name + "heeft u een nieuw pand doorgestuurd",
+                                 content,
+                                 "Via Sofie" + ' ',
+                                 #TODO info@viasofie.com
+                                 ['de.caluwe.bart@gmail.com'],
+                                 headers={'Reply-To': from_email}
+                                 )
+            email.send()
+            messages.success(request, 'Bericht met success verstuurd.')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        else:
+             messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
+    else:
+        url = request.META.get('HTTP_REFERER')
+        form = FeedbackForm()
+        form.message = request.META.get('HTTP_REFERER')
+
+    return render(request, 'realestate/share.html', {'form': form, 'url': url})
+
 
 def handler404(request):
     response = render_to_response('404.html', {},
