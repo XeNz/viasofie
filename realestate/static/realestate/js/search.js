@@ -1,7 +1,7 @@
 $( document ).ready(
     $(function() {
     $('#select_province').change(function() {
-        this.form.submit();
+        console.log($('#select_province option:selected').val())
     	});
 	})
 );
