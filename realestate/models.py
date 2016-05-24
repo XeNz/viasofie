@@ -47,6 +47,23 @@ class Property(models.Model):
         verbose_name = 'Eigendom'
         verbose_name_plural = 'Eigendommen'
 
+class Location(models.Model):
+    id = models.AutoField(primary_key=True)
+    postcode = models.IntegerField()
+    gemeente = models.CharField(max_length=200)
+    provincie = models.CharField(max_length=200)
+
+    def __str__(self):
+        return '%s %s %s' % (self.gemeente, self.postcode, self.provincie)
+    class Meta():
+        verbose_name = 'Locatie'
+        verbose_name_plural = 'Locaties'
+
+class PropertyLocation(models.Model):
+    id = models.AutoField(primary_key=True)
+    property_id = models.ForeignKey('Property')
+    location_id = models.ForeignKey(Location, related_name='locationkey')
+
 class PropertyType(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)

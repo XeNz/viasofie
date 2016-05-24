@@ -1,7 +1,7 @@
 from django import forms
 from haystack.forms import SearchForm
 from django.contrib.auth.models import User
-from .models import Property
+from .models import *
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 
@@ -56,5 +56,17 @@ class UpdateAccountInformation(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name']
+
+
+class IndexSearchForm(forms.Form):
+    listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES)
+    province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province'}))
+    #TODO: NTH filter per provincie
+    borough_choices = forms.ModelChoiceField(queryset=Location.objects.none(),)
+    bedrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)))
+    bathrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)))
+    surfacearea = forms.ChoiceField(choices=((str(x), x) for x in xrange(50,210,10)))
+    minprice = forms.CharField()
+    maxprice = forms.CharField()
 
 

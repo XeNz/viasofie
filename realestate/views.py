@@ -15,7 +15,7 @@ from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response
-from .forms import PropertiesSearchForm
+from .forms import PropertiesSearchForm,IndexSearchForm
 from haystack.inputs import AutoQuery, Exact, Clean
 from haystack.query import SearchQuerySet
 from reportlab.pdfgen import canvas
@@ -262,7 +262,16 @@ def partners(request):
     return render(request, 'realestate/partners.html', {"img": img})
 
 def sell(request):
-    return render(request, 'realestate/sell.html')
+    form = IndexSearchForm()
+    form.fields['province_choices'].queryset = Location.objects.values_list('provincie').distinct()
+    #if request.get -> variable bestaat -> get variable -> objects.filter('provincie'=variabele)
+    if request.method == 'GET':
+        selected_province = request.GET.get('province_choices')
+        if selected_province:
+            form.fields['borough_choices'].queryset = Location.objects.filter(provincie=selected_province).values_list('gemeente').distinct()
+        else:
+            forms.ModelChoiceField(queryset=Location.objects.none(),)
+    return render(request, 'realestate/sell.html',{'form': form})
 
 def rent(request):
     return render(request, 'realestate/rent.html')

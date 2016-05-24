@@ -41,59 +41,7 @@
                         <input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
                         <input type="submit" value="search" class="yellow-btn">
                     </form>
-                    </p>
-                    <p>
-                    {% for obj in object_list %}
-                    <div class="row">
-                      <div id="faqs" class="col-sm-12">
-                        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}}<span id="faqdate">- {{obj.pub_date|date}}</span></h3>
-                         <div><p>{{ obj.answer }}</p></div>
-                      </div>
-                    <hr/>
-                    </div>
-                    {% empty %}
-                    <div class="row">
-                      <div id="faqs" class="col-sm-12">
-                      No FAQs found.
-                      </div>
-                    </div>
-                    {% endfor %}
-                    <div class="pagination">
-                        <span class="step-links">
-                            {% if object_list.has_previous %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
-                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
-                            {% endif %}
-
-                            <span class="current">
-                                Pagina {{ object_list.number }} van {{ object_list.paginator.num_pages }}.
-                            </span>
-
-                            {% if object_list.has_next %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
-                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
-                            {% endif %}
-                        </span>
-                    </div>
-                    <div>
-                        <p>
-                            </br>
-                            <!-- TODO: blocktrans -->
-                            Hebt u nog vragen? Ik help u graag verder!
-                            Hebt u vragen over het te koop stellen van een onroerend goed? Wilt u er zeker van zijn dat uw verkoopdossier volledig is?
-                            Neem vrijblijvend contact op!
-                            <p></p>
-                            <a href="{% url 'realestate:contact' %}" class="yellow-btn">Contact</a>
-                            <p></p>
-                            </br>
-                        </p>
-                    </div>
-                    <div>
-                    <blockquote>
-                    <!-- TODO: blocktrans -->
-                    <p>{%blocktrans %}FAQ_BOTTOMTEXT{% endblocktrans%}</p>
-                    </blockquote>
-                    </div>
+                    {{form.as_p}}
                     </p>
                     <div class="info-wrapper">
                     </div>

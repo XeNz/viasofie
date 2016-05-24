@@ -1,8 +1,7 @@
 $( document ).ready(
     $(function() {
-    $('#id_deals').change(function() {
+    $('#select_province').change(function() {
         this.form.submit();
     	});
 	})
 );
-
