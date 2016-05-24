@@ -21,21 +21,49 @@
 {% cookielaw_banner %}
 <div class="complete-footer">
 	<footer>
-	<div class="container">
-		<div class="col-md-4 footer-contact-info">
+	<div class="container" id="footer1">
+		<div class="col-md-4 footer-about">
 			<h3 class='footer-title'>{%blocktrans %}FOOTER_CONTACTINFO{% endblocktrans%}</h3>
-			<p class="website-number">
-				<i class="fa fa-phone"></i> 03 ??? ??? ???
-			</p>
-			<p class="website-email">
-				<i class="fa fa-envelope"></i> info@viasofie.be
-			</p>
+			<h4><b> Immo Via Sofie </b></h4>
+			<div class="address">
+				<p>
+					Mussenhoevelaan 101<br>2530 Boechout
+				</p>
+			</div>
+			<div class="business-number">
+				<p>
+					Ondernemingsnummer: 0541.508.141
+				</p>
+			</div>
+			<div class="opening-hours">
+				<p>
+					Openingsuren: contacteer mij voor een afspraak
+				</p>
+			</div>
+			<div class="footer-contact-info">
+				<p class="website-number">
+					<i class="fa fa-phone"></i> +32 (0)483 71 37 10
+				</p>
+				<p class="website-email">
+					<i class="fa fa-envelope"></i> info@viasofie.be
+				</p>
+			</div>
 		</div>
 		<div class="col-md-4 footer-about">
 			<a class="logo" href="#"><img src="{% static "realestate/img/sleutel.png" %}" alt="logo"></a>
-			<div class="footer-contact-info" id="logo">
+			<div class="row">
 				<p>
-					<img src="{% static "realestate/img/BIV-logo.png" %}"> BIV: ...
+					Onderworpen aan de controle van het Beroepsinstituut voor Vastgoedmakelaars
+				</p>
+			</div>
+			<div class="row">
+				<p>
+					Erkend vastgoedmakelaar: 
+				</p>
+			</div>
+			<div class="footer-logo" id="logo">
+				<p>
+					<img src="{% static "realestate/img/BIV-logo.png" %}"> Sofie Andriesen BIV 509141
 				</p>
 			</div>
 		</div>
