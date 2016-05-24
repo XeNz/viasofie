@@ -29,7 +29,10 @@
                   <div class="item-inner">
                       <div class="image-wrapper" id="partners">
                           {% for partnerlogo in partner.partnerkey.all %}
-                              <a href="{{partner.url}}"><img src="{% static partnerlogo.logo.url %}"></a>
+                              <a href="{{partner.url}}" class="thumbnail">
+                                <img src="{% static partnerlogo.logo.url %}">
+                                <p class="text-center"> {{partner.name}} </p>
+                              </a>
                           {% endfor %}
                       </div>
                   </div>
