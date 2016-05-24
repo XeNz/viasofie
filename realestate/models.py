@@ -32,6 +32,8 @@ class Property(models.Model):
     surface_area_text = models.IntegerField()
     bathrooms_text = models.IntegerField()
     bedrooms_text = models.IntegerField()
+    LISTING_TYPE_CHOICES = ((0, 'Kopen'), (1, 'Huren'))
+    listing_type = models.CharField(choices=LISTING_TYPE_CHOICES, max_length=20, default=1)
 
     def get_absolute_url(self):
         return reverse('realestate.views.details', args=[str(self.id)])
