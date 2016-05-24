@@ -1,5 +1,15 @@
-#partners {
-  width: 200px;
+#partners a img{
+  width: 150px;
   height: auto;
-  padding-top: 5px;
+  padding-top: 10px;
+}
+
+#partners a{
+  width: 200px;
+  height: 200px;
+}
+
+#partners a p{
+  font-size: 14px;
+  color: black;
 }
