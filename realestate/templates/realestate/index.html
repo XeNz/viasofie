@@ -162,26 +162,26 @@
         {% endfor %}
         <hr>
 {% endfor %} -->
-    <h2>Search</h2>
+    <h2>{%blocktrans %}SEARCH_TITLE{% endblocktrans%}</h2>
 
         <form class=form-horizontal method="get" action=".">
             <div class="input-group">
                {{ form.q }}
                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">Go!</button>
+                    <button class="btn btn-default" type="submit">{%blocktrans %}GO_BUTTON{% endblocktrans%}</button>
                </span>
             </div>
           </form>
 
         {% if query %}
-            <h3>Results</h3>
+            <h3>{%blocktrans %}RESULTS_TITLE{% endblocktrans%}</h3>
 
             {% for result in query %}
                 <p>
                     <a href="{% url 'realestate:detail' pk=result.id %}" >{{ result.title }}</a>
                 </p>
             {% empty %}
-                <p>No results found.</p>
+                <p>{%blocktrans %}NO_RESULT{% endblocktrans%}</p>
             {% endfor %}
 
             {% if page.has_previous or page.has_next %}
@@ -224,7 +224,7 @@
                         </ul>
                         <div class="buttons-wrapper">
                             <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
-                            <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
+                            <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
                         </div>
                         <div class="clearfix">
                         </div>

@@ -12,7 +12,7 @@
                 </a>
             </div>
             <div class="pull-right breadcrumb">
-                <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:faq' %}">{%blocktrans %}FAQ_RIGHTBUTTON{% endblocktrans%}</a>
+                <a href="{% url 'realestate:index' %}">{%blocktrans %}HOME_BUTTON{% endblocktrans%}</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:faq' %}">{%blocktrans %}FAQ_RIGHTBUTTON{% endblocktrans%}</a>
             </div>
         </div>
     </div>
@@ -32,9 +32,10 @@
             </div> -->
             <div class="contact-info">
                 <div class="inner-wrapper">
-                    <h4 class="box-title">Frequently Asked Questions</h4>
+                    <h4 class="box-title">{%blocktrans %}FAQ_TITLE{% endblocktrans%}</h4>
                     <p class="first-paragraph">
-                        Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder. Klik op een vraag om meer informatie te verkrijgen.
+                        {%blocktrans %}FAQ_TEXT{% endblocktrans%}
+                        <!--Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder. Klik op een vraag om meer informatie te verkrijgen.-->
                     </p>
                     <p>
                     <form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
@@ -54,7 +55,7 @@
                     {% empty %}
                     <div class="row">
                       <div id="faqs" class="col-sm-12">
-                      No FAQs found.
+                      {%blocktrans %}NO_RESULT{% endblocktrans%}
                       </div>
                     </div>
                     {% endfor %}
@@ -79,11 +80,12 @@
                         <p>
                             </br>
                             <!-- TODO: blocktrans -->
-                            Hebt u nog vragen? Ik help u graag verder!
+                            {%blocktrans %}FAQ_HELP_TEXT{% endblocktrans%}
+                            <!--Hebt u nog vragen? Ik help u graag verder!
                             Hebt u vragen over het te koop stellen van een onroerend goed? Wilt u er zeker van zijn dat uw verkoopdossier volledig is?
-                            Neem vrijblijvend contact op!
+                            Neem vrijblijvend contact op!-->
                             <p></p>
-                            <a href="{% url 'realestate:contact' %}" class="yellow-btn">Contact</a>
+                            <a href="{% url 'realestate:contact' %}" class="yellow-btn">{%blocktrans %}CONTACT_BUTTON{% endblocktrans%}</a>
                             <p></p>
                             </br>
                         </p>
