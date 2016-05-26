@@ -17,31 +17,123 @@
         </div>
     </div>
 </div> <!--- end slider section-->
-
+<div class="search-section">
+    <div class="container">
+        <form method='POST'>
+            <div class="select-wrapper select-smaill" id='select-rent'>
+                <p>
+                     {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">{%blocktrans %}INDEX_ANY{% endblocktrans%}</option>
+                    <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
+                    <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
+                </select> -->
+                {{form.listing_type_choices}}
+            </div>
+            <div class="select-wrapper select-big" id='select-property'>
+                <p>
+                     {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.propertytype}}
+            </div>
+            <div class="select-wrapper select-big">
+                <p>
+                     Provincie
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.province_choices}}
+            </div>
+            <div class="select-wrapper select-big">
+                <p>
+                     Gemeente
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.borough_choices}}
+            </div>            
+            <div class="select-wrapper select-small">
+                <p>
+                     {%blocktrans %}INDEX_BEDS{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.bedrooms}}
+            </div>
+            <div class="select-wrapper select-small">
+                <p>
+                     {%blocktrans %}INDEX_BATHS{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.bathrooms}}
+            </div>
+            <div class="select-wrapper select-medium">
+                <p>
+                     {%blocktrans %}INDEX_SQFT{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.surfacearea}}
+            </div>
+            <div class="textinput-wrapper select-medium">
+                <p>
+                     {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.minprice}}
+            </div>
+            <div class="textinput-wrapper select-medium">
+                <p>
+                     {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.maxprice}}
+            </div>
+            <input type="submit" value="search" class='yellow-btn'>
+        </form>
+    </div>
+</div>
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="content-section">
     <div class="">
         <div class='container' id="faqblock">
-<!--            <div class="title-box">
-                <h3>Frequently Asked Questions</h3>
-                <div class="bordered">
-                </div>
-            </div> -->
-<!--            <div id="faqheadertext">
-            <p>Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder.</p>
-            </div> -->
             <div class="contact-info">
                 <div class="inner-wrapper">
-                    <h4 class="box-title">Frequently Asked Questions</h4>
-                    <p class="first-paragraph">
-                        Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder. Klik op een vraag om meer informatie te verkrijgen.
-                    </p>
-                    <p>
-                    <form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
-                        <input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
+                    <h4 class="box-title">Kopen</h4>
+                    <form method ='POST'>
+                        {% csrf_token %}
+                        {{form.as_p}}
                         <input type="submit" value="search" class="yellow-btn">
                     </form>
-                    {{form.as_p}}
+                    {%if result_list %}
+                    <h1>Kappa </h1>
+                    {%endif%}
+                    {% for result in result_list%}
+                    {{result}}
+                    {% endfor %}
+                    <h1>{{selected_province}} </h1>
+                    <h1>{{var}} </h1>
+                    {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                        <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     </p>
                     <div class="info-wrapper">
                     </div>

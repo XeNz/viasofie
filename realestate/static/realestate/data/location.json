@@ -1,0 +1,1568 @@
+[
+	{
+		"Postcode" : 0,
+		"Gemeente" : "Buiten Vlaanderen",
+		"Provincie" : "Buiten Vlaanderen",
+		"id" : 1
+	},
+	{
+		"Postcode" : 2630,
+		"Gemeente" : "Aartselaar",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 2
+	},
+	{
+		"Postcode" : 2000,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 3
+	},
+	{
+		"Postcode" : 2018,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 4
+	},
+	{
+		"Postcode" : 2020,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 5
+	},
+	{
+		"Postcode" : 2030,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 6
+	},
+	{
+		"Postcode" : 2040,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 7
+	},
+	{
+		"Postcode" : 2050,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 8
+	},
+	{
+		"Postcode" : 2060,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 9
+	},
+	{
+		"Postcode" : 2100,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 10
+	},
+	{
+		"Postcode" : 2140,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 11
+	},
+	{
+		"Postcode" : 2170,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 12
+	},
+	{
+		"Postcode" : 2180,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 13
+	},
+	{
+		"Postcode" : 2600,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 14
+	},
+	{
+		"Postcode" : 2610,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 15
+	},
+	{
+		"Postcode" : 2660,
+		"Gemeente" : "Antwerpen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 16
+	},
+	{
+		"Postcode" : 2530,
+		"Gemeente" : "Boechout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 17
+	},
+	{
+		"Postcode" : 2531,
+		"Gemeente" : "Boechout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 18
+	},
+	{
+		"Postcode" : 2850,
+		"Gemeente" : "Boom",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 19
+	},
+	{
+		"Postcode" : 2150,
+		"Gemeente" : "Borsbeek",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 20
+	},
+	{
+		"Postcode" : 2930,
+		"Gemeente" : "Brasschaat",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 21
+	},
+	{
+		"Postcode" : 2960,
+		"Gemeente" : "Brecht",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 22
+	},
+	{
+		"Postcode" : 2650,
+		"Gemeente" : "Edegem",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 23
+	},
+	{
+		"Postcode" : 2910,
+		"Gemeente" : "Essen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 24
+	},
+	{
+		"Postcode" : 2620,
+		"Gemeente" : "Hemiksem",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 25
+	},
+	{
+		"Postcode" : 2540,
+		"Gemeente" : "Hove",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 26
+	},
+	{
+		"Postcode" : 2920,
+		"Gemeente" : "Kalmthout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 27
+	},
+	{
+		"Postcode" : 2950,
+		"Gemeente" : "Kapellen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 28
+	},
+	{
+		"Postcode" : 2550,
+		"Gemeente" : "Kontich",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 29
+	},
+	{
+		"Postcode" : 2547,
+		"Gemeente" : "Lint",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 30
+	},
+	{
+		"Postcode" : 2640,
+		"Gemeente" : "Mortsel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 31
+	},
+	{
+		"Postcode" : 2845,
+		"Gemeente" : "Niel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 32
+	},
+	{
+		"Postcode" : 2520,
+		"Gemeente" : "Ranst",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 33
+	},
+	{
+		"Postcode" : 2840,
+		"Gemeente" : "Rumst",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 34
+	},
+	{
+		"Postcode" : 2627,
+		"Gemeente" : "Schelle",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 35
+	},
+	{
+		"Postcode" : 2970,
+		"Gemeente" : "Schilde",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 36
+	},
+	{
+		"Postcode" : 2900,
+		"Gemeente" : "Schoten",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 37
+	},
+	{
+		"Postcode" : 2940,
+		"Gemeente" : "Stabroek",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 38
+	},
+	{
+		"Postcode" : 2110,
+		"Gemeente" : "Wijnegem",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 39
+	},
+	{
+		"Postcode" : 2160,
+		"Gemeente" : "Wommelgem",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 40
+	},
+	{
+		"Postcode" : 2990,
+		"Gemeente" : "Wuustwezel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 41
+	},
+	{
+		"Postcode" : 2240,
+		"Gemeente" : "Zandhoven",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 42
+	},
+	{
+		"Postcode" : 2242,
+		"Gemeente" : "Zandhoven",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 43
+	},
+	{
+		"Postcode" : 2243,
+		"Gemeente" : "Zandhoven",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 44
+	},
+	{
+		"Postcode" : 2980,
+		"Gemeente" : "Zoersel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 45
+	},
+	{
+		"Postcode" : 2070,
+		"Gemeente" : "Zwijndrecht",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 46
+	},
+	{
+		"Postcode" : 2390,
+		"Gemeente" : "Malle",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 47
+	},
+	{
+		"Postcode" : 2590,
+		"Gemeente" : "Berlaar",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 48
+	},
+	{
+		"Postcode" : 2820,
+		"Gemeente" : "Bonheiden",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 49
+	},
+	{
+		"Postcode" : 2880,
+		"Gemeente" : "Bornem",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 50
+	},
+	{
+		"Postcode" : 2570,
+		"Gemeente" : "Duffel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 51
+	},
+	{
+		"Postcode" : 2220,
+		"Gemeente" : "Heist-Op-Den-Berg",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 52
+	},
+	{
+		"Postcode" : 2221,
+		"Gemeente" : "Heist-Op-Den-Berg",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 53
+	},
+	{
+		"Postcode" : 2222,
+		"Gemeente" : "Heist-Op-Den-Berg",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 54
+	},
+	{
+		"Postcode" : 2223,
+		"Gemeente" : "Heist-Op-Den-Berg",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 55
+	},
+	{
+		"Postcode" : 2500,
+		"Gemeente" : "Lier",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 56
+	},
+	{
+		"Postcode" : 2800,
+		"Gemeente" : "Mechelen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 57
+	},
+	{
+		"Postcode" : 2801,
+		"Gemeente" : "Mechelen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 58
+	},
+	{
+		"Postcode" : 2811,
+		"Gemeente" : "Mechelen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 59
+	},
+	{
+		"Postcode" : 2812,
+		"Gemeente" : "Mechelen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 60
+	},
+	{
+		"Postcode" : 2560,
+		"Gemeente" : "Nijlen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 61
+	},
+	{
+		"Postcode" : 2580,
+		"Gemeente" : "Putte",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 62
+	},
+	{
+		"Postcode" : 2870,
+		"Gemeente" : "Puurs",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 63
+	},
+	{
+		"Postcode" : 2890,
+		"Gemeente" : "Sint-Amands",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 64
+	},
+	{
+		"Postcode" : 2860,
+		"Gemeente" : "Sint-Katelijne-Waver",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 65
+	},
+	{
+		"Postcode" : 2861,
+		"Gemeente" : "Sint-Katelijne-Waver",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 66
+	},
+	{
+		"Postcode" : 2830,
+		"Gemeente" : "Willebroek",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 67
+	},
+	{
+		"Postcode" : 2370,
+		"Gemeente" : "Arendonk",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 68
+	},
+	{
+		"Postcode" : 2387,
+		"Gemeente" : "Baarle-Hertog",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 69
+	},
+	{
+		"Postcode" : 2490,
+		"Gemeente" : "Balen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 70
+	},
+	{
+		"Postcode" : 2491,
+		"Gemeente" : "Balen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 71
+	},
+	{
+		"Postcode" : 2340,
+		"Gemeente" : "Beerse",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 72
+	},
+	{
+		"Postcode" : 2480,
+		"Gemeente" : "Dessel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 73
+	},
+	{
+		"Postcode" : 2440,
+		"Gemeente" : "Geel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 74
+	},
+	{
+		"Postcode" : 2280,
+		"Gemeente" : "Grobbendonk",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 75
+	},
+	{
+		"Postcode" : 2288,
+		"Gemeente" : "Grobbendonk",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 76
+	},
+	{
+		"Postcode" : 2200,
+		"Gemeente" : "Herentals",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 77
+	},
+	{
+		"Postcode" : 2270,
+		"Gemeente" : "Herenthout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 78
+	},
+	{
+		"Postcode" : 2230,
+		"Gemeente" : "Herselt",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 79
+	},
+	{
+		"Postcode" : 2320,
+		"Gemeente" : "Hoogstraten",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 80
+	},
+	{
+		"Postcode" : 2321,
+		"Gemeente" : "Hoogstraten",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 81
+	},
+	{
+		"Postcode" : 2322,
+		"Gemeente" : "Hoogstraten",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 82
+	},
+	{
+		"Postcode" : 2323,
+		"Gemeente" : "Hoogstraten",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 83
+	},
+	{
+		"Postcode" : 2328,
+		"Gemeente" : "Hoogstraten",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 84
+	},
+	{
+		"Postcode" : 2235,
+		"Gemeente" : "Hulshout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 85
+	},
+	{
+		"Postcode" : 2460,
+		"Gemeente" : "Kasterlee",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 86
+	},
+	{
+		"Postcode" : 2275,
+		"Gemeente" : "Lille",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 87
+	},
+	{
+		"Postcode" : 2450,
+		"Gemeente" : "Meerhout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 88
+	},
+	{
+		"Postcode" : 2330,
+		"Gemeente" : "Merksplas",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 89
+	},
+	{
+		"Postcode" : 2400,
+		"Gemeente" : "Mol",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 90
+	},
+	{
+		"Postcode" : 2250,
+		"Gemeente" : "Olen",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 91
+	},
+	{
+		"Postcode" : 2360,
+		"Gemeente" : "Oud-Turnhout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 92
+	},
+	{
+		"Postcode" : 2380,
+		"Gemeente" : "Ravels",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 93
+	},
+	{
+		"Postcode" : 2381,
+		"Gemeente" : "Ravels",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 94
+	},
+	{
+		"Postcode" : 2382,
+		"Gemeente" : "Ravels",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 95
+	},
+	{
+		"Postcode" : 2470,
+		"Gemeente" : "Retie",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 96
+	},
+	{
+		"Postcode" : 2310,
+		"Gemeente" : "Rijkevorsel",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 97
+	},
+	{
+		"Postcode" : 2300,
+		"Gemeente" : "Turnhout",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 98
+	},
+	{
+		"Postcode" : 2290,
+		"Gemeente" : "Vorselaar",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 99
+	},
+	{
+		"Postcode" : 2350,
+		"Gemeente" : "Vosselaar",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 100
+	},
+	{
+		"Postcode" : 2260,
+		"Gemeente" : "Westerlo",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 101
+	},
+	{
+		"Postcode" : 2430,
+		"Gemeente" : "Laakdal",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 102
+	},
+	{
+		"Postcode" : 2431,
+		"Gemeente" : "Laakdal",
+		"Provincie" : "Provincie Antwerpen",
+		"id" : 103
+	},
+	{
+		"Postcode" : 1070,
+		"Gemeente" : "Anderlecht",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 104
+	},
+	{
+		"Postcode" : 1160,
+		"Gemeente" : "Oudergem",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 105
+	},
+	{
+		"Postcode" : 1082,
+		"Gemeente" : "Sint-Agatha-Berchem",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 106
+	},
+	{
+		"Postcode" : 1000,
+		"Gemeente" : "Brussel",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 107
+	},
+	{
+		"Postcode" : 1020,
+		"Gemeente" : "Brussel",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 108
+	},
+	{
+		"Postcode" : 1120,
+		"Gemeente" : "Brussel",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 109
+	},
+	{
+		"Postcode" : 1130,
+		"Gemeente" : "Brussel",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 110
+	},
+	{
+		"Postcode" : 1040,
+		"Gemeente" : "Etterbeek",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 111
+	},
+	{
+		"Postcode" : 1140,
+		"Gemeente" : "Evere",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 112
+	},
+	{
+		"Postcode" : 1190,
+		"Gemeente" : "Vorst",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 113
+	},
+	{
+		"Postcode" : 1083,
+		"Gemeente" : "Ganshoren",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 114
+	},
+	{
+		"Postcode" : 1050,
+		"Gemeente" : "Elsene",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 115
+	},
+	{
+		"Postcode" : 1090,
+		"Gemeente" : "Jette",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 116
+	},
+	{
+		"Postcode" : 1081,
+		"Gemeente" : "Koekelberg",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 117
+	},
+	{
+		"Postcode" : 1080,
+		"Gemeente" : "Sint-Jans-Molenbeek",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 118
+	},
+	{
+		"Postcode" : 1060,
+		"Gemeente" : "Sint-Gillis",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 119
+	},
+	{
+		"Postcode" : 1210,
+		"Gemeente" : "Sint-Joost-Ten-Node",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 120
+	},
+	{
+		"Postcode" : 1030,
+		"Gemeente" : "Schaarbeek",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 121
+	},
+	{
+		"Postcode" : 1180,
+		"Gemeente" : "Ukkel",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 122
+	},
+	{
+		"Postcode" : 1170,
+		"Gemeente" : "Watermaal-Bosvoorde",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 123
+	},
+	{
+		"Postcode" : 1200,
+		"Gemeente" : "Sint-Lambrechts-Woluwe",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 124
+	},
+	{
+		"Postcode" : 1150,
+		"Gemeente" : "Sint-Pieters-Woluwe",
+		"Provincie" : "Brussels H. Gewest",
+		"id" : 125
+	},
+	{
+		"Postcode" : 1730,
+		"Gemeente" : "Asse",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 126
+	},
+	{
+		"Postcode" : 1731,
+		"Gemeente" : "Asse",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 127
+	},
+	{
+		"Postcode" : 1650,
+		"Gemeente" : "Beersel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 128
+	},
+	{
+		"Postcode" : 1651,
+		"Gemeente" : "Beersel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 129
+	},
+	{
+		"Postcode" : 1652,
+		"Gemeente" : "Beersel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 130
+	},
+	{
+		"Postcode" : 1653,
+		"Gemeente" : "Beersel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 131
+	},
+	{
+		"Postcode" : 1654,
+		"Gemeente" : "Beersel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 132
+	},
+	{
+		"Postcode" : 1547,
+		"Gemeente" : "Bever",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 133
+	},
+	{
+		"Postcode" : 1700,
+		"Gemeente" : "Dilbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 134
+	},
+	{
+		"Postcode" : 1701,
+		"Gemeente" : "Dilbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 135
+	},
+	{
+		"Postcode" : 1702,
+		"Gemeente" : "Dilbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 136
+	},
+	{
+		"Postcode" : 1703,
+		"Gemeente" : "Dilbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 137
+	},
+	{
+		"Postcode" : 1570,
+		"Gemeente" : "Galmaarden",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 138
+	},
+	{
+		"Postcode" : 1755,
+		"Gemeente" : "Gooik",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 139
+	},
+	{
+		"Postcode" : 1850,
+		"Gemeente" : "Grimbergen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 140
+	},
+	{
+		"Postcode" : 1851,
+		"Gemeente" : "Grimbergen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 141
+	},
+	{
+		"Postcode" : 1852,
+		"Gemeente" : "Grimbergen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 142
+	},
+	{
+		"Postcode" : 1853,
+		"Gemeente" : "Grimbergen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 143
+	},
+	{
+		"Postcode" : 1500,
+		"Gemeente" : "Halle",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 144
+	},
+	{
+		"Postcode" : 1501,
+		"Gemeente" : "Halle",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 145
+	},
+	{
+		"Postcode" : 1502,
+		"Gemeente" : "Halle",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 146
+	},
+	{
+		"Postcode" : 1540,
+		"Gemeente" : "Herne",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 147
+	},
+	{
+		"Postcode" : 1541,
+		"Gemeente" : "Herne",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 148
+	},
+	{
+		"Postcode" : 1560,
+		"Gemeente" : "Hoeilaart",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 149
+	},
+	{
+		"Postcode" : 1910,
+		"Gemeente" : "Kampenhout",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 150
+	},
+	{
+		"Postcode" : 1880,
+		"Gemeente" : "Kapelle-Op-Den-Bos",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 151
+	},
+	{
+		"Postcode" : 1770,
+		"Gemeente" : "Liedekerke",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 152
+	},
+	{
+		"Postcode" : 1840,
+		"Gemeente" : "Londerzeel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 153
+	},
+	{
+		"Postcode" : 1830,
+		"Gemeente" : "Machelen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 154
+	},
+	{
+		"Postcode" : 1831,
+		"Gemeente" : "Machelen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 155
+	},
+	{
+		"Postcode" : 1860,
+		"Gemeente" : "Meise",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 156
+	},
+	{
+		"Postcode" : 1861,
+		"Gemeente" : "Meise",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 157
+	},
+	{
+		"Postcode" : 1785,
+		"Gemeente" : "Merchtem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 158
+	},
+	{
+		"Postcode" : 1745,
+		"Gemeente" : "Opwijk",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 159
+	},
+	{
+		"Postcode" : 3090,
+		"Gemeente" : "Overijse",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 160
+	},
+	{
+		"Postcode" : 1670,
+		"Gemeente" : "Pepingen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 161
+	},
+	{
+		"Postcode" : 1671,
+		"Gemeente" : "Pepingen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 162
+	},
+	{
+		"Postcode" : 1673,
+		"Gemeente" : "Pepingen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 163
+	},
+	{
+		"Postcode" : 1674,
+		"Gemeente" : "Pepingen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 164
+	},
+	{
+		"Postcode" : 1600,
+		"Gemeente" : "Sint-Pieters-Leeuw",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 165
+	},
+	{
+		"Postcode" : 1601,
+		"Gemeente" : "Sint-Pieters-Leeuw",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 166
+	},
+	{
+		"Postcode" : 1602,
+		"Gemeente" : "Sint-Pieters-Leeuw",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 167
+	},
+	{
+		"Postcode" : 1820,
+		"Gemeente" : "Steenokkerzeel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 168
+	},
+	{
+		"Postcode" : 1740,
+		"Gemeente" : "Ternat",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 169
+	},
+	{
+		"Postcode" : 1741,
+		"Gemeente" : "Ternat",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 170
+	},
+	{
+		"Postcode" : 1742,
+		"Gemeente" : "Ternat",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 171
+	},
+	{
+		"Postcode" : 1800,
+		"Gemeente" : "Vilvoorde",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 172
+	},
+	{
+		"Postcode" : 1930,
+		"Gemeente" : "Zaventem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 173
+	},
+	{
+		"Postcode" : 1931,
+		"Gemeente" : "Zaventem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 174
+	},
+	{
+		"Postcode" : 1932,
+		"Gemeente" : "Zaventem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 175
+	},
+	{
+		"Postcode" : 1933,
+		"Gemeente" : "Zaventem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 176
+	},
+	{
+		"Postcode" : 1804,
+		"Gemeente" : "Zemst",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 177
+	},
+	{
+		"Postcode" : 1980,
+		"Gemeente" : "Zemst",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 178
+	},
+	{
+		"Postcode" : 1981,
+		"Gemeente" : "Zemst",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 179
+	},
+	{
+		"Postcode" : 1982,
+		"Gemeente" : "Zemst",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 180
+	},
+	{
+		"Postcode" : 1760,
+		"Gemeente" : "Roosdaal",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 181
+	},
+	{
+		"Postcode" : 1761,
+		"Gemeente" : "Roosdaal",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 182
+	},
+	{
+		"Postcode" : 1620,
+		"Gemeente" : "Drogenbos",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 183
+	},
+	{
+		"Postcode" : 1950,
+		"Gemeente" : "Kraainem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 184
+	},
+	{
+		"Postcode" : 1630,
+		"Gemeente" : "Linkebeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 185
+	},
+	{
+		"Postcode" : 1640,
+		"Gemeente" : "Sint-Genesius-Rode",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 186
+	},
+	{
+		"Postcode" : 1780,
+		"Gemeente" : "Wemmel",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 187
+	},
+	{
+		"Postcode" : 1970,
+		"Gemeente" : "Wezembeek-Oppem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 188
+	},
+	{
+		"Postcode" : 1750,
+		"Gemeente" : "Lennik",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 189
+	},
+	{
+		"Postcode" : 1790,
+		"Gemeente" : "Affligem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 190
+	},
+	{
+		"Postcode" : 3200,
+		"Gemeente" : "Aarschot",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 191
+	},
+	{
+		"Postcode" : 3201,
+		"Gemeente" : "Aarschot",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 192
+	},
+	{
+		"Postcode" : 3202,
+		"Gemeente" : "Aarschot",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 193
+	},
+	{
+		"Postcode" : 3130,
+		"Gemeente" : "Begijnendijk",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 194
+	},
+	{
+		"Postcode" : 3460,
+		"Gemeente" : "Bekkevoort",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 195
+	},
+	{
+		"Postcode" : 3461,
+		"Gemeente" : "Bekkevoort",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 196
+	},
+	{
+		"Postcode" : 3060,
+		"Gemeente" : "Bertem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 197
+	},
+	{
+		"Postcode" : 3061,
+		"Gemeente" : "Bertem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 198
+	},
+	{
+		"Postcode" : 3360,
+		"Gemeente" : "Bierbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 199
+	},
+	{
+		"Postcode" : 3190,
+		"Gemeente" : "Boortmeerbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 200
+	},
+	{
+		"Postcode" : 3191,
+		"Gemeente" : "Boortmeerbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 201
+	},
+	{
+		"Postcode" : 3370,
+		"Gemeente" : "Boutersem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 202
+	},
+	{
+		"Postcode" : 3290,
+		"Gemeente" : "Diest",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 203
+	},
+	{
+		"Postcode" : 3293,
+		"Gemeente" : "Diest",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 204
+	},
+	{
+		"Postcode" : 3294,
+		"Gemeente" : "Diest",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 205
+	},
+	{
+		"Postcode" : 3450,
+		"Gemeente" : "Geetbets",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 206
+	},
+	{
+		"Postcode" : 3454,
+		"Gemeente" : "Geetbets",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 207
+	},
+	{
+		"Postcode" : 3150,
+		"Gemeente" : "Haacht",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 208
+	},
+	{
+		"Postcode" : 3020,
+		"Gemeente" : "Herent",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 209
+	},
+	{
+		"Postcode" : 3320,
+		"Gemeente" : "Hoegaarden",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 210
+	},
+	{
+		"Postcode" : 3321,
+		"Gemeente" : "Hoegaarden",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 211
+	},
+	{
+		"Postcode" : 3220,
+		"Gemeente" : "Holsbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 212
+	},
+	{
+		"Postcode" : 3221,
+		"Gemeente" : "Holsbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 213
+	},
+	{
+		"Postcode" : 3040,
+		"Gemeente" : "Huldenberg",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 214
+	},
+	{
+		"Postcode" : 3140,
+		"Gemeente" : "Keerbergen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 215
+	},
+	{
+		"Postcode" : 3470,
+		"Gemeente" : "Kortenaken",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 216
+	},
+	{
+		"Postcode" : 3471,
+		"Gemeente" : "Kortenaken",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 217
+	},
+	{
+		"Postcode" : 3472,
+		"Gemeente" : "Kortenaken",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 218
+	},
+	{
+		"Postcode" : 3473,
+		"Gemeente" : "Kortenaken",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 219
+	},
+	{
+		"Postcode" : 3070,
+		"Gemeente" : "Kortenberg",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 220
+	},
+	{
+		"Postcode" : 3071,
+		"Gemeente" : "Kortenberg",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 221
+	},
+	{
+		"Postcode" : 3078,
+		"Gemeente" : "Kortenberg",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 222
+	},
+	{
+		"Postcode" : 3400,
+		"Gemeente" : "Landen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 223
+	},
+	{
+		"Postcode" : 3401,
+		"Gemeente" : "Landen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 224
+	},
+	{
+		"Postcode" : 3404,
+		"Gemeente" : "Landen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 225
+	},
+	{
+		"Postcode" : 3000,
+		"Gemeente" : "Leuven",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 226
+	},
+	{
+		"Postcode" : 3001,
+		"Gemeente" : "Leuven",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 227
+	},
+	{
+		"Postcode" : 3010,
+		"Gemeente" : "Leuven",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 228
+	},
+	{
+		"Postcode" : 3012,
+		"Gemeente" : "Leuven",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 229
+	},
+	{
+		"Postcode" : 3018,
+		"Gemeente" : "Leuven",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 230
+	},
+	{
+		"Postcode" : 3210,
+		"Gemeente" : "Lubbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 231
+	},
+	{
+		"Postcode" : 3211,
+		"Gemeente" : "Lubbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 232
+	},
+	{
+		"Postcode" : 3212,
+		"Gemeente" : "Lubbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 233
+	},
+	{
+		"Postcode" : 3050,
+		"Gemeente" : "Oud-Heverlee",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 234
+	},
+	{
+		"Postcode" : 3051,
+		"Gemeente" : "Oud-Heverlee",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 235
+	},
+	{
+		"Postcode" : 3052,
+		"Gemeente" : "Oud-Heverlee",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 236
+	},
+	{
+		"Postcode" : 3053,
+		"Gemeente" : "Oud-Heverlee",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 237
+	},
+	{
+		"Postcode" : 3054,
+		"Gemeente" : "Oud-Heverlee",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 238
+	},
+	{
+		"Postcode" : 3110,
+		"Gemeente" : "Rotselaar",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 239
+	},
+	{
+		"Postcode" : 3111,
+		"Gemeente" : "Rotselaar",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 240
+	},
+	{
+		"Postcode" : 3118,
+		"Gemeente" : "Rotselaar",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 241
+	},
+	{
+		"Postcode" : 3080,
+		"Gemeente" : "Tervuren",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 242
+	},
+	{
+		"Postcode" : 3300,
+		"Gemeente" : "Tienen",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 243
+	},
+	{
+		"Postcode" : 3120,
+		"Gemeente" : "Tremelo",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 244
+	},
+	{
+		"Postcode" : 3128,
+		"Gemeente" : "Tremelo",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 245
+	},
+	{
+		"Postcode" : 3440,
+		"Gemeente" : "Zoutleeuw",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 246
+	},
+	{
+		"Postcode" : 3350,
+		"Gemeente" : "Linter",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 247
+	},
+	{
+		"Postcode" : 3270,
+		"Gemeente" : "Scherpenheuvel-Zichem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 248
+	},
+	{
+		"Postcode" : 3271,
+		"Gemeente" : "Scherpenheuvel-Zichem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 249
+	},
+	{
+		"Postcode" : 3272,
+		"Gemeente" : "Scherpenheuvel-Zichem",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 250
+	},
+	{
+		"Postcode" : 3390,
+		"Gemeente" : "Tielt-Winge",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 251
+	},
+	{
+		"Postcode" : 3391,
+		"Gemeente" : "Tielt-Winge",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 252
+	},
+	{
+		"Postcode" : 3380,
+		"Gemeente" : "Glabbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 253
+	},
+	{
+		"Postcode" : 3381,
+		"Gemeente" : "Glabbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 254
+	},
+	{
+		"Postcode" : 3384,
+		"Gemeente" : "Glabbeek",
+		"Provincie" : "Provincie Vlaams-Brabant",
+		"id" : 255
+	},
+	{
+		"Postcode" : 1320,
+		"Gemeente" : "Bevekom",
+		"Provincie" : "Provincie Waals-Brabant",
+		"id" : 256
+	},
+	{
+		"Postcode" : 1420,
+		"Gemeente" : "Eigenbrakel",
+		"Provincie" : "Provincie Waals-Brabant",
+		"id" : 257
+	},
+	{
+		"Postcode" : 1421,
+		"Gemeente" : "Eigenbrakel",
+		"Provincie" : "Provincie Waals-Brabant",
+		"id" : 258
+	},
+	{
+		"Postcode" : 1428,
+		"Gemeente" : "Eigenbrakel",
+		"Provincie" : "Provincie Waals-Brabant",
+		"id" : 259
+	},
+	{
+		"Postcode" : 1440,
+		"Gemeente" : "Kasteelbrakel",
+		"Provincie" : "Provincie Waals-Brabant",
+		"id" : 260
+	},
+	{
+		"Postcode" : 1325,
+		"Gemeente" : "Chaumont-Gistoux",
+		"Provincie" : "Provincie Waals-Brabant",
+		"id" : 261
+	}
+]

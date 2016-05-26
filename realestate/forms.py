@@ -5,15 +5,6 @@ from .models import *
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 
-PRIJS = (
-         ("0", "0"),
-         ("50000", "50000"),
-         ("100000", "100000"),
-         ("200000", "200000"),
-         ("300000", "300000"),
-         ("400000", "400000"),
-         ("500000", "500000"),
-         )
 
 class FeedbackForm(forms.Form):
     from_email = forms.EmailField(label="E-mail")
@@ -59,14 +50,15 @@ class UpdateAccountInformation(forms.ModelForm):
 
 
 class IndexSearchForm(forms.Form):
-    listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES)
-    province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province'}))
+    listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}))
+    province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province', 'class': 'elselect'}),required = True)
     #TODO: NTH filter per provincie
-    borough_choices = forms.ModelChoiceField(queryset=Location.objects.none(),)
-    bedrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)))
-    bathrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)))
-    surfacearea = forms.ChoiceField(choices=((str(x), x) for x in xrange(50,210,10)))
-    minprice = forms.CharField()
-    maxprice = forms.CharField()
+    borough_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'class': 'elselect'}))
+    propertytype = forms.ModelChoiceField(queryset=PropertyType.objects.none(),widget=forms.Select(attrs={'class': 'elselect'}))
+    bedrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)),widget=forms.Select(attrs={'class': 'elselect'}))
+    bathrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)),widget=forms.Select(attrs={'class': 'elselect'}))
+    surfacearea = forms.ChoiceField(choices=((str(x), x) for x in xrange(50,210,10)),widget=forms.Select(attrs={'class': 'elselect'}))
+    minprice = forms.CharField(widget=forms.TextInput(attrs={'class': 'eltextinput'}),required = True,)
+    maxprice = forms.CharField(widget=forms.TextInput(attrs={'class': 'eltextinput'}),required = True,)
 
 

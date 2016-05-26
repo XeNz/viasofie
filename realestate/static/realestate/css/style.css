@@ -520,6 +520,32 @@ header #login-box a span {
 .search-section .select-target.select-theme-default b:after {
   bottom:-2px;
 }
+/*textinput field ipv select*/
+.search-section .textinput-wrapper {
+  float:left;
+  margin:20px 7px;
+}
+.search-section .textinput-wrapper p {
+  font-weight:300;
+  font-size:15px;
+  color:#444;
+  margin-bottom:5px;
+}
+.search-section .textinput-target {
+  height:38px;
+  text-align:left;
+  font-size:13px;
+  font-weight:300;
+  color:#B2B2B2;
+  border-width:1px;
+  line-height:23px;
+}
+.search-section .textinput-target.select-theme-default b:before {
+  top:-2px;
+}
+.search-section .textinput-target.select-theme-default b:after {
+  bottom:-2px;
+}
 .search-section input[type='submit'] {
   border:none;
   font-weight:300;
