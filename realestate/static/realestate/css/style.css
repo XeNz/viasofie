@@ -237,6 +237,8 @@ header #login-box {
 header #login-box a {
   font-size:16px;
   margin:0 10px;
+  padding-top: 12px;
+  padding-right: 15px;
 }
 header #login-box a span {
   font-family:Roboto;
@@ -244,8 +246,15 @@ header #login-box a span {
   margin-left:6px;
   font-size:14px;
 }
+#language_select{
+  display:inline-block;
+}
+.language-section{
+  padding-top: 5px;
+}
 .social-icons {
   padding:0;
+  padding-top:10px;
 }
 .social-icons li {
   float:left;
