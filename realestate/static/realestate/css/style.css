@@ -489,6 +489,9 @@ header #login-box a span {
   top: 363px !important;
 }
 /**** Search-Section ****/
+.search-container{
+  
+}
 .search-section {
   border-bottom:1px solid #CDCDCD;
   float:left;
@@ -539,12 +542,85 @@ header #login-box a span {
   color:#B2B2B2;
   border-width:1px;
   line-height:23px;
+  width: 7%;
+
+}
+/* fix voor min & max price */
+.search-section .textinput-target p{
+  overflow: visible;
+  white-space: nowrap;
 }
 .search-section .textinput-target.select-theme-default b:before {
   top:-2px;
 }
 .search-section .textinput-target.select-theme-default b:after {
   bottom:-2px;
+}
+.search-section .eltextinput{
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  position: relative;
+  padding: 0.5rem 3em 0.5rem 1em;
+  /* padding: 0.5rem 1em 0.5rem 1em; */
+  background: #f6f6f6;
+  border: 0.18em solid #dddddd;
+  cursor: pointer;
+  color: #444444;
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-width: 1px;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
+  width:100%;
+}
+.search-section .eltextinput:hover{
+    border-color: #aaaaaa;
+    color: black; 
+}
+.search-section .eltextinput:hover{
+    border-color: #aaaaaa;
+    color: black; 
+}
+.search-section .eltextinput.focus{
+    border-color: #aaaaaa;
+    color: black; 
+}
+.search-section .eltextinput ,input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+}
+#search-button{
+  margin-top:10px;
+  margin-bottom: 10px;
+  border:none;
+  font-weight:300;
+  text-transform:capitalize;
+  padding:8px 41px;
+  margin-left:10px;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
 }
 .search-section input[type='submit'] {
   border:none;

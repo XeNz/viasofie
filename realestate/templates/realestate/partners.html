@@ -25,14 +25,19 @@
           <h4 class="box-title">{%blocktrans %}PARTNER_TITLE{% endblocktrans%}</h4>
           <div class="row listings-items-wrapper">
           {% for partner in img %}
-              <div class="col-md-3 listing-single-item">
+              <div class="col-md-3 partner-listing listing-single-item">
                   <div class="item-inner">
                       <div class="image-wrapper" id="partners">
                           {% for partnerlogo in partner.partnerkey.all %}
-                              <a href="{{partner.url}}" class="thumbnail">
-                                <img src="{% static partnerlogo.logo.url %}">
-                                <p class="text-center"> {{partner.name}} </p>
+
+                              <div class="desc-box">
+                               <a href="{{partner.url}}">
+                                  <li class='slides img-responsive' id='slide-n1'><img src="{% static partnerlogo.logo.url %}" alt="gallery">
                               </a>
+                                  <h4 id="partners" class="text-center" > <i class="fa fa-arrow-right" aria-hidden="true"></i> {{partner.name}}</h4>
+                                  <div class="clearfix">
+                                  </div>
+                              </div>
                           {% endfor %}
                       </div>
                   </div>

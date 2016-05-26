@@ -41,7 +41,9 @@
     background: white;
     font-family: inherit;
     color: inherit;
-    overflow: auto;
+    /* overflow: auto; */
+    /* bedrooms & bathrooms fix */
+    overflow: scroll;
     max-width: 18rem;
     max-height: 18rem;
     -webkit-overflow-scrolling: touch; }

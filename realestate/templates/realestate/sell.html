@@ -18,8 +18,9 @@
     </div>
 </div> <!--- end slider section-->
 <div class="search-section">
-    <div class="container">
+    <div class="container search-container">
         <form method='POST'>
+        {% csrf_token %}
             <div class="select-wrapper select-smaill" id='select-rent'>
                 <p>
                      {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
@@ -85,7 +86,7 @@
                 </select> -->
                 {{form.surfacearea}}
             </div>
-            <div class="textinput-wrapper select-medium">
+            <div class="textinput-wrapper select-medium textinput-target">
                 <p>
                      {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
                 </p>
@@ -94,7 +95,7 @@
                 </select> -->
                 {{form.minprice}}
             </div>
-            <div class="textinput-wrapper select-medium">
+            <div class="textinput-wrapper select-medium textinput-target">
                 <p>
                      {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
                 </p>
@@ -103,9 +104,12 @@
                 </select> -->
                 {{form.maxprice}}
             </div>
-            <input type="submit" value="search" class='yellow-btn'>
+        </div>
+            <div class="text-center">
+            <input id="search-button" class="yellow-btn" type="submit" value="search">
+            </div>
         </form>
-    </div>
+    
 </div>
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="content-section">
