@@ -58,7 +58,7 @@ class IndexSearchForm(forms.Form):
     bedrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)),widget=forms.Select(attrs={'class': 'elselect'}))
     bathrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)),widget=forms.Select(attrs={'class': 'elselect'}))
     surfacearea = forms.ChoiceField(choices=((str(x), x) for x in xrange(50,210,10)),widget=forms.Select(attrs={'class': 'elselect'}))
-    minprice = forms.CharField(widget=forms.TextInput(attrs={'class': 'eltextinput'}),required = True,)
-    maxprice = forms.CharField(widget=forms.TextInput(attrs={'class': 'eltextinput'}),required = True,)
+    minprice = forms.CharField(widget=forms.TextInput(attrs={'class': 'eltextinput','type':'number'}),required = True,)
+    maxprice = forms.CharField(widget=forms.TextInput(attrs={'class': 'eltextinput','type':'number'}),required = True,)
 
 

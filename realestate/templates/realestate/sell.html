@@ -22,6 +22,7 @@
         <form method='POST'>
         {% csrf_token %}
             <div class="select-wrapper select-smaill" id='select-rent'>
+                 {{ form.non_field_errors }}
                 <p>
                      {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
                 </p>
@@ -30,15 +31,17 @@
                     <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
                     <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
                 </select> -->
+                {{ form.listing_type_choices.errors }}
                 {{form.listing_type_choices}}
             </div>
-            <div class="select-wrapper select-big" id='select-property'>
+            <div class="select-wrapper select-medium" id='select-property'>
                 <p>
                      {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
                 </p>
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.propertytype.errors}}
                 {{form.propertytype}}
             </div>
             <div class="select-wrapper select-big">
@@ -48,6 +51,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.province_choices.errors}}
                 {{form.province_choices}}
             </div>
             <div class="select-wrapper select-big">
@@ -57,6 +61,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.borough_choices.errors}}
                 {{form.borough_choices}}
             </div>            
             <div class="select-wrapper select-small">
@@ -66,6 +71,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.bedrooms.errors}}
                 {{form.bedrooms}}
             </div>
             <div class="select-wrapper select-small">
@@ -75,6 +81,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.bathrooms.errors}}
                 {{form.bathrooms}}
             </div>
             <div class="select-wrapper select-medium">
@@ -84,6 +91,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.surfacearea.errors}}
                 {{form.surfacearea}}
             </div>
             <div class="textinput-wrapper select-medium textinput-target">
@@ -93,6 +101,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.minprice.errors}}
                 {{form.minprice}}
             </div>
             <div class="textinput-wrapper select-medium textinput-target">
@@ -102,6 +111,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
+                {{form.maxprice.errors}}
                 {{form.maxprice}}
             </div>
         </div>
@@ -118,16 +128,16 @@
             <div class="contact-info">
                 <div class="inner-wrapper">
                     <h4 class="box-title">Kopen</h4>
-                    <form method ='POST'>
+<!--                     <form method ='POST'>
                         {% csrf_token %}
                         {{form.as_p}}
                         <input type="submit" value="search" class="yellow-btn">
-                    </form>
+                    </form> -->
                     {%if result_list %}
                     <h1>Kappa </h1>
                     {%endif%}
                     {% for result in result_list%}
-                    {{result}}
+                    {{result}} <br>
                     {% endfor %}
                     <h1>{{selected_province}} </h1>
                     <h1>{{var}} </h1>

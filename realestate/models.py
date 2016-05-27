@@ -25,14 +25,15 @@ class Property(models.Model):
     city_text = models.CharField(max_length=200)
     country_text = models.CharField(max_length=200 ,default='België')
     constructiondate = models.DateField()
-    sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
+    # sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
+    sellingprice = models.IntegerField()
     visible_to_public = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
     pub_date = models.DateTimeField('date published')
     surface_area_text = models.IntegerField()
     bathrooms_text = models.IntegerField()
     bedrooms_text = models.IntegerField()
-    LISTING_TYPE_CHOICES = ((0, 'Kopen'), (1, 'Huren'))
+    LISTING_TYPE_CHOICES = (('Kopen', 'Kopen'), ('Huren', 'Huren'))
     listing_type = models.CharField(choices=LISTING_TYPE_CHOICES, max_length=20, default=1)
 
     def get_absolute_url(self):

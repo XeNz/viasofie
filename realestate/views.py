@@ -24,7 +24,8 @@ from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.contrib.sites.models import Site
-from itertools import chain
+from decimal import Decimal
+from itertools import islice, chain
 
 def index(request):
     form = PropertiesSearchForm(request.GET)
@@ -264,33 +265,34 @@ def partners(request):
 
 def sell(request):
     form = IndexSearchForm()
-    form.fields['province_choices'].queryset = Location.objects.values_list('provincie').distinct()
-    form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente').distinct()
-    form.fields['propertytype'].queryset = PropertyType.objects.values_list('name').distinct()
+    form.fields['province_choices'].queryset = Location.objects.values_list('provincie',flat=True).distinct()
+    form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct()
+    form.fields['propertytype'].queryset = PropertyType.objects.values_list('name',flat=True).distinct()
     #if request.get -> variable bestaat -> get variable -> objects.filter('provincie'=variabele)
     # if request.method == 'GET':
     #     selected_province = request.GET.get('province_choices')
     #     if selected_province:
     #         forms.ModelChoiceField(queryset=Location.objects.none(),)
     if request.method == 'POST':
-        if form.is_valid():
-            listing_type_choice = request.POST.get('listing_type_choices')
-            selected_province = request.POST.get('province_choices')
-            selected_borough = request.POST.get('borough_choices')
-            bedrooms = request.POST.get('bedrooms')
-            bathrooms = request.POST.get('bathrooms')
-            surfacearea = request.POST.get('surfacearea')
-            minprice = request.POST.get('minprice')
-            maxprice = request.POST.get('maxprice')
-            propertyType = request.POST.get('propertyType')
+        # if form.is_valid():
+        listing_type_choice = request.POST.get('listing_type_choices')
+        selected_province = request.POST.get('province_choices')
+        selected_borough = request.POST.get('borough_choices')
+        bedrooms = request.POST.get('bedrooms')
+        bathrooms = request.POST.get('bathrooms')
+        surfacearea = request.POST.get('surfacearea')
+        minprice = request.POST.get('minprice') 
+        maxprice = request.POST.get('maxprice') 
+        propertyType = request.POST.get('propertytype')
 
-            property_list = Property.objects.filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice))
-            location_list = Location.objects.filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
-            property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
-            result_list = list(chain(property_list, location_list, property_type_list))
-            return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
-        else:
-            messages.error(request, 'KAPUT')
+        property_list = Property.objects.filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice))
+        location_list = Location.objects.filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
+        property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
+        #result_list = QuerySetChain(property_list, location_list, property_type_list)
+        result_list = list(chain(property_list, location_list, property_type_list))
+        return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
+        # else:
+        #     messages.error(request, 'KAPUT')
     return render(request, 'realestate/sell.html',{'form': form})
 
 def rent(request):
