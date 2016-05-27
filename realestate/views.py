@@ -289,8 +289,15 @@ def sell(request):
         location_list = Location.objects.filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
         property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
         #result_list = QuerySetChain(property_list, location_list, property_type_list)
+        for ptype in property_type_list:
+            property_type_property_list = PropertyType_Property.objects.filter(propertyType_id = ptype.id)
+        for ptp in property_type_property_list:
+            for property in property_list:
+                if property.id == ptp.property_id:
+                    filtered_property_type_list += property
+
         result_list = list(chain(property_list, location_list, property_type_list))
-        return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
+        return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list, 'filtered_property_type_list': filtered_property_type_list})
         # else:
         #     messages.error(request, 'KAPUT')
     return render(request, 'realestate/sell.html',{'form': form})
