@@ -264,7 +264,8 @@ def partners(request):
     return render(request, 'realestate/partners.html', {"img": img})
 
 def sell(request):
-    form = IndexSearchForm(data=request.POST or None)
+    data_dict = {'minprice': 1, 'maxprice' : 1}
+    form = IndexSearchForm(data=request.POST or None,initial=data_dict)
     # form.fields['province_choices'].queryset = Location.objects.values_list('provincie',flat=True).distinct()
     #form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct().order_by('gemeente')
     # form.fields['propertytype'].queryset = PropertyType.objects.values_list('name',flat=True).distinct()
@@ -281,8 +282,12 @@ def sell(request):
         bedrooms = request.POST.get('bedrooms')
         bathrooms = request.POST.get('bathrooms')
         surfacearea = request.POST.get('surfacearea')
-        minprice = request.POST.get('minprice') 
-        maxprice = request.POST.get('maxprice') 
+        if not request.POST['minprice'] or not request.POST['maxprice'] or request.POST['maxprice'] == 0 or request.POST['minprice'] == 0 :
+             form.add_error('minprice', 'check prices') 
+             return render(request, 'realestate/sell.html',{'form': form,})
+        else:
+            minprice = request.POST.get('minprice') 
+            maxprice = request.POST.get('maxprice') 
         propertyType = request.POST.get('propertytype')
         #to fill
         # locationfilter = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
