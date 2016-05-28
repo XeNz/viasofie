@@ -15,9 +15,9 @@ from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response
-from .forms import PropertiesSearchForm,IndexSearchForm
-from haystack.inputs import AutoQuery, Exact, Clean
-from haystack.query import SearchQuerySet
+# from .forms import PropertiesSearchForm,IndexSearchForm
+# from haystack.inputs import AutoQuery, Exact, Clean
+# from haystack.query import SearchQuerySet
 from reportlab.pdfgen import canvas
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
@@ -28,18 +28,18 @@ from decimal import Decimal
 from itertools import islice, chain
 
 def index(request):
-    form = PropertiesSearchForm(request.GET)
-    if request.GET:
-        query = form.search()
-        return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
-    else:
+    # form = PropertiesSearchForm(request.GET)
+    # if request.GET:
+    #     query = form.search()
+    #     return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
+    # else:
          #6 most recent properties
-        last_six_properties = Property.objects.all().order_by('-pub_date')[:6]
-        last_six_properties_in_ascending_order = reversed(last_six_properties)
-        #6 featured properties
-        featured_six_properties = Property.objects.filter(featured=True).order_by('-pub_date')[:6]
-        featured_six_properties_in_ascending_order = reversed(featured_six_properties)
-        return render_to_response('realestate/index.html', {"form": form, "last_six_properties_in_ascending_order": last_six_properties_in_ascending_order, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order}, context_instance=RequestContext(request))
+    last_six_properties = Property.objects.all().order_by('-pub_date')[:6]
+    last_six_properties_in_ascending_order = reversed(last_six_properties)
+    #6 featured properties
+    featured_six_properties = Property.objects.filter(featured=True).order_by('-pub_date')[:6]
+    featured_six_properties_in_ascending_order = reversed(featured_six_properties)
+    return render_to_response('realestate/index.html', {"last_six_properties_in_ascending_order": last_six_properties_in_ascending_order, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order}, context_instance=RequestContext(request))
 
 
 # class IndexView(generic.ListView):
@@ -285,19 +285,25 @@ def sell(request):
         maxprice = request.POST.get('maxprice') 
         propertyType = request.POST.get('propertytype')
 
-        property_list = Property.objects.filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice))
-        location_list = Location.objects.filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
-        property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
-        #result_list = QuerySetChain(property_list, location_list, property_type_list)
-        for ptype in property_type_list:
-            property_type_property_list = PropertyType_Property.objects.filter(propertyType_id = ptype.id)
-        for ptp in property_type_property_list:
-            for property in property_list:
-                if property.id == ptp.property_id:
-                    filtered_property_type_list += property
+        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice))
+        # locationfilter = property_list.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
+        result_list = property_list
+        return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
+        # location_list = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
+        # property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
 
-        result_list = list(chain(property_list, location_list, property_type_list))
-        return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list, 'filtered_property_type_list': filtered_property_type_list})
+
+        #result_list = QuerySetChain(property_list, location_list, property_type_list)
+        # for ptype in property_type_list:
+        #     property_type_property_list = PropertyType_Property.objects.filter(propertyType_id = ptype.id)
+        # for ptp in property_type_property_list:
+        #     for property in property_list:
+        #         if property.id == ptp.property_id:
+        #             filtered_property_type_list += property
+
+        # result_list = list(chain(property_list, location_list, property_type_list))
+        # return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
+        # return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list, 'filtered_property_type_list': filtered_property_type_list})
         # else:
         #     messages.error(request, 'KAPUT')
     return render(request, 'realestate/sell.html',{'form': form})

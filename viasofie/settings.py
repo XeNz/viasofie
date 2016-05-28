@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'haystack',
+    # 'haystack',
     'cookielaw',
     'easy_thumbnails',
     'debug_toolbar',
@@ -90,11 +90,15 @@ WSGI_APPLICATION = 'viasofie.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-      'default': {
-          'ENGINE': 'django.db.backends.sqlite3',
-          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-      },
-    #'default': {
+      #
+      #SQLITE
+      # 'default': {
+      #     'ENGINE': 'django.db.backends.sqlite3',
+      #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+      # },
+    #
+    # SCHOOL VPS
+    # 'default': {
     #  'ENGINE': 'django.db.backends.mysql',
     #  'NAME': 'viasofie',
     #  'USER': 'projectuser',
@@ -105,18 +109,30 @@ DATABASES = {
     #    'autocommit': True,
     #    'read_default_file': '/mysqlConfig.cnf',
     #  },
-    #}
-}
-
-HAYSTACK_CONNECTIONS = {
+    # }
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': '127.0.0.1:9200',
-        'INDEX_NAME': 'haystack',
-    },
+     'ENGINE': 'django.db.backends.mysql',
+     'NAME': 'viasofie',
+     'USER': 'projectuser',
+     'PASSWORD': 'Kappa123',
+     'HOST': '188.166.52.133',
+     'PORT': '3306',
+     'OPTIONS': {
+       'autocommit': True,
+       'read_default_file': '/mysqlConfig.cnf',
+     },
+    }
 }
 
-HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+#         'URL': '127.0.0.1:9200',
+#         'INDEX_NAME': 'haystack',
+#     },
+# }
+
+# HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 
 # Password validation
