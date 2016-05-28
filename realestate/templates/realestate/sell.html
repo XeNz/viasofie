@@ -23,6 +23,7 @@
         {% csrf_token %}
             <div class="select-wrapper select-smaill" id='select-rent'>
                  {{ form.non_field_errors }}
+                 {{ form.errors }}
                 <p>
                      {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
                 </p>
@@ -124,13 +125,12 @@
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="recent-listings">
     <div class="container">
+        {%if result_list %}
         <div class="title-box">
             <h3>Uw zoekresultaten</h3>
             <div class="bordered">
             </div>
         </div>
-        {%if result_list %}
-        <h1>Kappa result_list bestaat</h1>
         {%endif%}
         {% if messages %}
         <div class="messages">

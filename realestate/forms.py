@@ -50,11 +50,11 @@ class UpdateAccountInformation(forms.ModelForm):
 
 
 class IndexSearchForm(forms.Form):
-    listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}))
+    listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}),required=False)
     # province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province', 'class': 'elselect'}),required = True)
     #TODO: NTH filter per provincie
-    borough_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'class': 'elselect'}))
-    propertytype = forms.ModelChoiceField(queryset=PropertyType.objects.none(),widget=forms.Select(attrs={'class': 'elselect'}))
+    borough_choices = forms.ModelChoiceField(queryset=Location.objects.values_list('gemeente',flat=True).distinct().order_by('gemeente'),widget=forms.Select(attrs={'class': 'elselect'}))
+    propertytype = forms.ModelChoiceField(queryset=PropertyType.objects.values_list('name',flat=True).distinct(),widget=forms.Select(attrs={'class': 'elselect'}))
     bedrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)),widget=forms.Select(attrs={'class': 'elselect'}))
     bathrooms = forms.ChoiceField(choices=((str(x), x) for x in range(1,10)),widget=forms.Select(attrs={'class': 'elselect'}))
     surfacearea = forms.ChoiceField(choices=((str(x), x) for x in xrange(50,210,10)),widget=forms.Select(attrs={'class': 'elselect'}))

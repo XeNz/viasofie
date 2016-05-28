@@ -264,10 +264,10 @@ def partners(request):
     return render(request, 'realestate/partners.html', {"img": img})
 
 def sell(request):
-    form = IndexSearchForm()
+    form = IndexSearchForm(data=request.POST or None)
     # form.fields['province_choices'].queryset = Location.objects.values_list('provincie',flat=True).distinct()
-    form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct().order_by('gemeente')
-    form.fields['propertytype'].queryset = PropertyType.objects.values_list('name',flat=True).distinct()
+    #form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct().order_by('gemeente')
+    # form.fields['propertytype'].queryset = PropertyType.objects.values_list('name',flat=True).distinct()
     #if request.get -> variable bestaat -> get variable -> objects.filter('provincie'=variabele)
     # if request.method == 'GET':
     #     selected_province = request.GET.get('province_choices')
@@ -276,7 +276,7 @@ def sell(request):
     if request.method == 'POST':
         # if form.is_valid():
         listing_type_choice = request.POST.get('listing_type_choices')
-        selected_province = request.POST.get('province_choices')
+        #selected_province = request.POST.get('province_choices')
         selected_borough = request.POST.get('borough_choices')
         bedrooms = request.POST.get('bedrooms')
         bathrooms = request.POST.get('bathrooms')

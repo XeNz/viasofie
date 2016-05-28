@@ -423,6 +423,7 @@ header #login-box a span {
   -ms-border-radius:4px;
   -o-border-radius:4px;
   border-radius:4px;
+  margin-top:5px;
 }
 .main-flexslider .slides .slides .slide-box .slide-item-features li span {
   color:#B1B1B1;
