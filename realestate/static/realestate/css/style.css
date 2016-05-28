@@ -551,7 +551,7 @@ header #login-box a span {
   color:#B2B2B2;
   border-width:1px;
   line-height:23px;
-  width: 7%;
+  width: 12%;
 
 }
 /* fix voor min & max price */
@@ -603,9 +603,13 @@ header #login-box a span {
   -webkit-transition:all 300ms ease-in-out;
   width:100%;
 }
+.search-section .eltextinput{
+  padding-right: 10px;
+}
 .search-section .eltextinput:hover{
     border-color: #aaaaaa;
     color: black; 
+
 }
 .search-section .eltextinput:hover{
     border-color: #aaaaaa;

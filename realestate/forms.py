@@ -51,7 +51,7 @@ class UpdateAccountInformation(forms.ModelForm):
 
 class IndexSearchForm(forms.Form):
     listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}))
-    province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province', 'class': 'elselect'}),required = True)
+    # province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province', 'class': 'elselect'}),required = True)
     #TODO: NTH filter per provincie
     borough_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'class': 'elselect'}))
     propertytype = forms.ModelChoiceField(queryset=PropertyType.objects.none(),widget=forms.Select(attrs={'class': 'elselect'}))

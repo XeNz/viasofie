@@ -265,8 +265,8 @@ def partners(request):
 
 def sell(request):
     form = IndexSearchForm()
-    form.fields['province_choices'].queryset = Location.objects.values_list('provincie',flat=True).distinct()
-    form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct()
+    # form.fields['province_choices'].queryset = Location.objects.values_list('provincie',flat=True).distinct()
+    form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct().order_by('gemeente')
     form.fields['propertytype'].queryset = PropertyType.objects.values_list('name',flat=True).distinct()
     #if request.get -> variable bestaat -> get variable -> objects.filter('provincie'=variabele)
     # if request.method == 'GET':
@@ -284,9 +284,10 @@ def sell(request):
         minprice = request.POST.get('minprice') 
         maxprice = request.POST.get('maxprice') 
         propertyType = request.POST.get('propertytype')
-
-        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice))
-        # locationfilter = property_list.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
+        #to fill
+        # locationfilter = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
+        #to search
+        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType))
         result_list = property_list
         return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
         # location_list = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
