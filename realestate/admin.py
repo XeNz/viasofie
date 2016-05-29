@@ -9,6 +9,7 @@ from reportlab.graphics import renderPDF
 from datetime import datetime
 
 
+
 def qrcode(modeladmin, request, queryset):
     response = HttpResponse(content_type='application/pdf')
 

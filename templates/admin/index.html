@@ -34,11 +34,11 @@
         {% for model in app.models %}
             <tr class="model-{{ model.object_name|lower }}">
             {% if model.admin_url %}
-                {% if not "Groep" in model.name %}
+                {% if not "Groep" in model.name or "Group" in model.name %}
                 {% if not "Sites" in model.name %}
                 {% if not "Current" in model.name %}
                 <th scope="row"><a href="{{ model.admin_url }}">
-                {% if  "Gebruiker" in model.name %}
+                {% if  "Gebruiker" in model.name or "User" in model.name  %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/user.png" %}' >
                 {% endif %}
                 {% if  "Deal" in model.name %}
@@ -76,7 +76,7 @@
 
 
             {% if model.add_url %}
-            {% if not "Groep" in model.name %}
+            {% if not "Groep" in model.name or "Group" in model.name %}
             {% if not "Sites" in model.name %}
             {% if not "Current" in model.name %}
                 <!-- <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td> -->
@@ -90,7 +90,7 @@
             {% endif %}
 
             {% if model.admin_url %}
-            {% if not "Groep" in model.name %}
+            {% if not "Groep" in model.name or "Group" in model.name %}
             {% if not "Sites" in model.name %}
             {% if not "Current" in model.name %}
               <!--   <td><a href="{{ model.admin_url }}" class="changelink">VeranderKappa</a></td> -->
