@@ -135,7 +135,7 @@ msgstr ""
 "houden met een hele hoop zaken. Hieronder vindt u een aantal algemene "
 "begrippen en FAQ's vanbelang bij de verkoop of verhuur. Hebt u vragen over "
 "onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te "
-"contacteren, ik help u graagverder."
+"contacteren, ik help u graagverder. Klik op een vraag om hierover meer te weten te komen."
 
 #: .\realestate\templates\realestate\faq.html:60
 msgid "FAQ_BOTTOMTEXT"

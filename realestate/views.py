@@ -265,6 +265,7 @@ def partners(request):
 
 def sell(request):
     data_dict = {'minprice': 1, 'maxprice' : 1}
+    property_list = None
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
     # form.fields['province_choices'].queryset = Location.objects.values_list('provincie',flat=True).distinct()
     #form.fields['borough_choices'].queryset = Location.objects.values_list('gemeente',flat=True).distinct().order_by('gemeente')
@@ -288,31 +289,32 @@ def sell(request):
         else:
             minprice = request.POST.get('minprice') 
             maxprice = request.POST.get('maxprice') 
-        propertyType = request.POST.get('propertytype')
+            propertyType = request.POST.get('propertytype')
         #to fill
         # locationfilter = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
         #to search
+
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType))
-        result_list = property_list
-        return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
-        # location_list = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
-        # property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
+       
+        # result_list = property_list
 
+    # property_list1 = Property.objects.all()
+    if property_list is None:
+                return render(request, 'realestate/sell.html',{'form': form})
+    else:
+        searchPaginator = Paginator(property_list, 12)
+        page = request.GET.get('page')
+    try:
+        result_list = searchPaginator.page(page)
+    except PageNotAnInteger:
+        result_list = searchPaginator.page(1)
+    except EmptyPage:
+        result_list = searchPaginator.page(searchPaginator.num_pages)
+    return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list, 'property_list': property_list})
+    # location_list = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
+    # property_type_list = PropertyType.objects.filter(Q(name__icontains=propertyType))
 
-        #result_list = QuerySetChain(property_list, location_list, property_type_list)
-        # for ptype in property_type_list:
-        #     property_type_property_list = PropertyType_Property.objects.filter(propertyType_id = ptype.id)
-        # for ptp in property_type_property_list:
-        #     for property in property_list:
-        #         if property.id == ptp.property_id:
-        #             filtered_property_type_list += property
-
-        # result_list = list(chain(property_list, location_list, property_type_list))
-        # return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list})
-        # return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list, 'filtered_property_type_list': filtered_property_type_list})
-        # else:
-        #     messages.error(request, 'KAPUT')
-    return render(request, 'realestate/sell.html',{'form': form})
+    # return render(request, 'realestate/sell.html',{'form': form})
 
 def rent(request):
     return render(request, 'realestate/rent.html')

@@ -91,10 +91,16 @@ class CurrentStatusAdmin(admin.ModelAdmin):
     list_filter = ("text",)
     search_fields = ("text",)
 
+class PartnerLogoInline(admin.TabularInline):
+    model = PartnerLogo
+    fields = ['logo',]
+
+
 class PartnerAdmin(admin.ModelAdmin):
     list_display = ("name", "description")
     list_filter = ("name", "description")
     search_fields = ("name", "description")
+    inlines = [PartnerLogoInline,]
 
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
@@ -103,5 +109,4 @@ admin.site.register(FAQ)
 admin.site.register(Deal, DealAdmin)
 admin.site.register(Status)
 admin.site.register(PropertyType, PropertyTypeAdmin)
-admin.site.register(PartnerLogo)
 admin.site.register(Partner, PartnerAdmin)

@@ -5,7 +5,9 @@
 {% block extrastyle %}{{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />
 <link rel="stylesheet" type="text/css" href="{% static "realestate/css/admincss.css" %}" />
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static "realestate/css/bootstrap.min.css"%}" type="text/css"/>
+<link rel="stylesheet" href="{% static "realestate/css/bootstrap-theme.min.css"%}" type="text/css"/>
+<link rel="stylesheet" href="{% static "realestate/css/font-awesome.min.css"%}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 {% endblock %}
@@ -25,7 +27,7 @@
 
     {% for app in app_list %}
         <div class="app-{{ app.app_label }} module">
-        <table class="table table-condensed ">
+        <table id="dashboardtable" class="table table-condensed ">
 <!--         <caption>
             <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
         </caption> -->
@@ -54,11 +56,16 @@
                 {% if  "character" in model.name %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/bath.png" %}' >
                 {% endif %}
-
+                {% if  "Partner" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/partner.png" %}' >
+                {% endif %}
+                {% if  "type" in model.name %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/propertytype.png" %}' >
+                {% endif %}
                <!--  {{ model.name }} -->
                 </a></th>
 
-                <td><a href="{{ model.admin_url }}"><img width="50px" height="50px" alt="Oplijsten" title="Oplijsten" src="{% static "realestate/img/list.png" %}"></a></td>
+                <td><a href="{{ model.admin_url }}"><i class="fa fa-eye fa-4x" aria-hidden="true"></i></a></td>
             {% endif %}
             {% endif %}
             {% endif %}
@@ -74,7 +81,7 @@
             {% if not "Current" in model.name %}
                 <!-- <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td> -->
 
-                <td><a href="{{ model.add_url }}"><img width="50px" height="50px" alt="Toevoegen" title="Toevoegen" src="{% static "realestate/img/add.png" %}"></a></td>
+                <td><a href="{{ model.add_url }}"><i class="fa fa-plus fa-4x" aria-hidden="true"></i></a></td>
             {% endif %}
             {% endif %}
             {% endif %}
@@ -88,7 +95,7 @@
             {% if not "Current" in model.name %}
               <!--   <td><a href="{{ model.admin_url }}" class="changelink">VeranderKappa</a></td> -->
 
-                <td><a href="{{ model.admin_url }}" ><img width="50px" height="50px" alt="Aanpassen" title="Aanpassen" src="{% static "realestate/img/edit.png" %}"></a></td>
+                <td><a href="{{ model.admin_url }}" ><i class="fa fa-pencil fa-4x" aria-hidden="true"></i></a></td>
 
             {% endif %}
             {% endif %}
