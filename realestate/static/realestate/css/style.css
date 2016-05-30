@@ -2081,3 +2081,102 @@ input[type='submit'] {
 #loginbutton{
   margin-left: 0px;
 }
+#accountinformation{
+  color: #000;
+  font-size: 1.3em;
+}
+#status.col-md-3 a {
+  color: #0d3532;
+}
+#status.col-md-3 a:hover {
+  color: #000;
+}
+
+
+.help-tip{
+  
+  text-align: center;
+  background-color: #BCDBEA;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 20px;
+  cursor: default;
+  margin-top: -20px;
+  margin-left: 60px;
+}
+
+.help-tip:before{
+  content:'?';
+  font-weight: bold;
+  color:#fff;
+}
+
+.help-tip:hover p{
+  display:inline-block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip p{  /* The tooltip */
+  display: none;
+  text-align: left;
+  background-color: #0d3532;
+  padding: 20px;
+  margin-top: 25px;
+  margin-right: 4px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #FFF;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#1E2021;
+  left: 49px;
+  top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+  0% { 
+    opacity:0; 
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity:100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:100%; }
+}
+#welcomeaccount{
+  margin-left: 15px;
+}

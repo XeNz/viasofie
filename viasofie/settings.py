@@ -185,7 +185,7 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'realestate/locale'),
 )
 
-#TODO: wat is dit Alex?
+#TODO: wat is dit Alex? magic my friend
 _ = lambda s: s
 LANGUAGES = (
     ('en', _('English')),

@@ -65,7 +65,7 @@ class PropertyTypeAdmin(admin.ModelAdmin):
     search_fields = ("id", "name")
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ("title_text", "description_text", "constructiondate", "sellingprice","featured")
+    list_display = ("title_text", "description_text", "constructiondate", "sellingprice","featured","visible_to_public")
     list_filter = ("sellingprice", "constructiondate","featured")
     search_fields = ("sellingprice",)
     inlines = [PropertyTypePropertyInline, PropertyPictureInline,Characteristics_propertyInline ]
