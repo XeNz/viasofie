@@ -10,25 +10,25 @@
             <div class="pull-left page-title">
                 <a href="{% url 'realestate:controlpanel' %}">
                 <!-- TODO: Translations -->
-                <h2>User panel</h2>
+                <h2>{%blocktrans %}USERPANEL_BUTTON{% endblocktrans%}<!--User panel--></h2>
                 </a>
             </div>
             <div class="pull-right breadcrumb">
-                <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:controlpanel' %}">User panel</a>
+                <a href="{% url 'realestate:index' %}">{%blocktrans %}HOME_BUTTON{% endblocktrans%}</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:controlpanel' %}">{%blocktrans %}USERPANEL_BUTTON{% endblocktrans%}</a>
             </div>
         </div>
     </div>
 </div> <!--- end slider section-->
 
     <div class="row" id="welcome">
-        <h3> <small> Welkom {{user.first_name}} {{user.last_name}} </small></h3>
+        <h3> <small> {%blocktrans %}WELCOME_TEXT{% endblocktrans%} {{user.first_name}} {{user.last_name}} </small></h3>
     </div>
     <div class="account_information" id="account">
-        <a href="{% url 'realestate:accountinformation' %}">Account informatie</a>
+        <a href="{% url 'realestate:accountinformation' %}">{%blocktrans %}ACCOUNT_INFO_LINK{% endblocktrans%}</a>
     </div>
     <div class="col-md-3">
         <div class="deals" id="deals">
-            <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Selecteer deal</span></h2>
+            <h2 class="page-header"> <span class="glyphicons glyphicons-user"> {%blocktrans %}SELECT_DEAL_TITLE{% endblocktrans%}</span></h2>
             <br>
             <form id= "dealselecter" class= "form-group" method="POST">
                 {% csrf_token %}
@@ -51,12 +51,12 @@
         </div>
         {% endif %}
       </div>
-       <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Status </span></h2>
+       <h2 class="page-header"> <span class="glyphicons glyphicons-user">{%blocktrans %}STATUS_TITLE{% endblocktrans%} <!--Status--> </span></h2>
     <table class="table">
         <thead>
             <tr>
-                <th>Document</th>
-                <th>Status</th>
+                <th>{%blocktrans %}DOCUMENT{% endblocktrans%}</th>
+                <th>{%blocktrans %}STATUS{% endblocktrans%}</th>
             </tr>
         </thead>
         <tbody>
@@ -76,12 +76,12 @@
     </table>
     </div>
 <div class = "col-md-3" id="status">
-    <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Bezichtigingen </span></h2>
+    <h2 class="page-header"> <span class="glyphicons glyphicons-user">{%blocktrans %}VISITATIONS_TITLE{% endblocktrans%} <!--Bezichtigingen--> </span></h2>
         <table class="table">
               <thead>
                 <tr>
-                  <th>Datum</th>
-                  <th>Status</th>
+                  <th>{%blocktrans %}DATE{% endblocktrans%}<!--Datum--></th>
+                  <th>{%blocktrans %}STATUS{% endblocktrans%}<!--Status--></th>
                 </tr>
             </thead>
             <tbody>
@@ -93,7 +93,7 @@
                 {%endfor%}
             </tbody>
         </table>
-     <h2 class="page-header"> <span class="glyphicons glyphicons-user"> Details van deal</span></h2>
+     <h2 class="page-header"> <span class="glyphicons glyphicons-user">{%blocktrans %}DEAL_DETAILS{% endblocktrans%} <!--Details van deal--></span></h2>
             {% for deal in selected_deal %}
             <h3>{{deal.property}}</h3>
 
@@ -101,7 +101,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>Documenten</th>
+                      <th>{%blocktrans %}DOCUMENT{% endblocktrans%}</th>
                     </tr>
                   </thead>
                   <tbody>

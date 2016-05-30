@@ -57,7 +57,8 @@
             </div> -->
             <div class="select-wrapper select-big">
                 <p>
-                     Gemeente
+                     {%blocktrans %}INDEX_CITY{% endblocktrans%}
+                     <!--Gemeente-->
                 </p>
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
@@ -128,7 +129,7 @@
     <div class="container">
         {%if result_list %}
         <div class="title-box">
-            <h3>Uw zoekresultaten</h3>
+            <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Uw zoekresultaten--></h3>
             <div class="bordered">
             </div>
         </div>

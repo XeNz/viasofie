@@ -1,9 +1,10 @@
 {% extends "admin/base.html" %}
+{% load i18n %}
 
-{% block title %}{{ title }} | ViaSofie Admin paneel{% endblock %}
+{% block title %}{{ title }} | {%blocktrans %}ADMINPANEL{% endblocktrans%}<!--ViaSofie Admin paneel-->{% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">ViaSofie Admin paneel</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{%blocktrans %}ADMINPANEL{% endblocktrans%}<!--ViaSofie Admin paneel--></a></h1>
 {% endblock %}
 
 {% block kappa %}
