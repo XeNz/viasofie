@@ -56,9 +56,9 @@
         </form>
     </div>
       {% if user.is_authenticated %}
-      <a href="{% url 'realestate:controlpanel' %}" class='fa fa-user'><span>Gebruikerspaneel</span></a>
+      <a href="{% url 'realestate:controlpanel' %}" class='fa fa-user'><span>{%blocktrans %}HEADER_USERPANEL{% endblocktrans%}<!--Gebruikerspaneel--></span></a>
       {% endif%}
-     <a class='fa fa-user' href="{% if user.is_authenticated %}{% url 'realestate:logout' %} {% else %} {% url 'realestate:login' %}{% endif%}">{% if user.is_authenticated %} <span> Logout</span> {% else %} <span> Login </span>{% endif%}</a>
+     <a class='fa fa-user' href="{% if user.is_authenticated %}{% url 'realestate:logout' %} {% else %} {% url 'realestate:login' %}{% endif%}">{% if user.is_authenticated %} <span>{%blocktrans %}HEADER_LOGOUT{% endblocktrans%} <!--Logout--></span> {% else %} <span> Login </span>{% endif%}</a>
     </div>
   </div>
 </div>

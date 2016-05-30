@@ -25,7 +25,7 @@
                 </ul>
                 <div class="slider-buttons-wrapper">
                     <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
-                    <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
+                    <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}DETAILS_BUTTON{% endblocktrans%}<!--Details--></a>
                 </div>
             </div>
             </li>

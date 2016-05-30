@@ -14,14 +14,15 @@
           </form>
 
         {% if query %}
-            <h3>Results</h3>
+            <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Results--></h3>
 
             {% for result in query %}
                 <p>
                     <a href="{% url 'realestate:detail' pk=result.id %}" >{{ result.title }}</a>
                 </p>
             {% empty %}
-                <p>No results found.</p>
+                <p>{%blocktrans %}NO_RESULTS{% endblocktrans%}</p>
+                <!--<p>No results found.</p>-->
             {% endfor %}
 
             {% if page.has_previous or page.has_next %}

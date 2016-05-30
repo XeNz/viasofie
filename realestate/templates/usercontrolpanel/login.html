@@ -8,11 +8,11 @@
     <div class="container">
       <div class="pull-left page-title">
         <a href="{% url 'realestate:login' %}">
-        <h2>Log in</h2>
+        <h2>{%blocktrans %}LOGIN_BUTTON{% endblocktrans%}</h2>
         </a>
       </div>
       <div class="pull-right breadcrumb">
-        <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:login' %}">Login</a>
+        <a href="{% url 'realestate:index' %}">{%blocktrans %}HOME_BUTTON{% endblocktrans%}</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:login' %}">{%blocktrans %}LOGIN_BUTTON{% endblocktrans%}</a>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
     <div class="container">
       <div class="col-md-6 col-md-push-3 contact-info">
         <div class="inner-wrapper">
-          <h4 class="box-title">Vul uw gegevens in</h4>
+          <h4 class="box-title">{%blocktrans %}LOGIN_TEXT{% endblocktrans%}<!--Vul uw gegevens in--></h4>
           <p>
                  {% if messages %}
                    <div class="messages">
@@ -57,7 +57,7 @@
                    </div>
                  {% endif %}
                  <div class="" id="forgot_password">
-                   <p class="first-paragraph"> <a href={% url "realestate:reset" %}>Wachtwoord vergeten</a> </p>
+                   <p class="first-paragraph"> <a href={% url "realestate:reset" %}>{%blocktrans %}FORGOT_PASSWORD{% endblocktrans%}<!--Wachtwoord vergeten--></a> </p>
                  </div>
                  <input id="loginbutton" type="submit" value="Login" class='yellow-btn'>
                </form>
