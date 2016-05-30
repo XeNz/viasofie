@@ -8,11 +8,12 @@
         <img src="{% static "realestate/img/logo.png" %}" id="logo">
     </header>
     <div class="errortext" id="errortext">
-    <h1>Pagina niet gevonden</h1>
-      <p>Oeps! Het lijkt erop dat de pagina die u zoekt verplaatst is of niet bestaat.</p>
-      <p>Zorg ervoor dat u de juiste URL ingeeft of een geldige link volgt.
+    <h1>{%blocktrans %}404_TITLE{% endblocktrans%}<!--Pagina niet gevonden--></h1>
+      <p>{%blocktrans %}404_TEXT{% endblocktrans%}</p>
+      <!--<p>Oeps! Het lijkt erop dat de pagina die u zoekt verplaatst is of niet bestaat.</p>
+      <p>Zorg ervoor dat u de juiste URL ingeeft of een geldige link volgt.-->
 
-	  <p><input class="myButton" name="lien1" value="Ga terug naar de hoofdpagina"onclick="self.location.href='{% url 'realestate:index' %}'"onclick></p>
+	  <p><input class="myButton" name="lien1" value="{%blocktrans %}GO_BACK{% endblocktrans%}" onclick="self.location.href='{% url 'realestate:index' %}'"onclick></p>
 
       <!--<p><a href="{% url 'realestate:index' %}"> Ga terug naar de hoofdpagina. </a></p>-->
     </div>

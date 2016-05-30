@@ -260,11 +260,13 @@
                 </div>
                 <div class="sidebar-widget text-widget">
                 <!-- TODO: Translation -->
-                    <h4 class="widget-title">Vertel een vriend</h4>
+                    <h4 class="widget-title">{%blocktrans %}TELL_FRIEND_TITLE{% endblocktrans%}</h4>
+                    <!--Vertel een vriend-->
                     <p class='first-paragraph'>
-                        Deel dit eigendom met vrienden of familie:
+                        {%blocktrans %}TELL_FRIEND_TEXT{% endblocktrans%}
+                        <!--Deel dit eigendom met vrienden of familie:-->
                     </p>
-                    <a href="{% url 'realestate:share' %}" class="yellow-btn">Deel</a>
+                    <a href="{% url 'realestate:share' %}" class="yellow-btn">{%blocktrans %}SHARE_LINK{% endblocktrans%}<!--Deel--></a>
                 </div>
             </div>
         </div>
