@@ -7,47 +7,6 @@ from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
 from datetime import datetime
-from django.contrib.auth.models import User
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from django import forms
-
-class ClientChangeForm(UserChangeForm):
-    class Meta(UserChangeForm.Meta):
-        model = Client
-
-class ClientCreateForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
-        model = Client
-
-    def clean_password2(self):
-        password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
-            raise forms.ValidationError(
-                self.error_messages['password_mismatch'],
-                code='password_mismatch',
-            )
-        self.instance.username = self.cleaned_data.get('username')
-        password_validation.validate_password(self.cleaned_data.get('password2'), self.instance)
-        return password2
-
-    def clean_username(self):
-        username = self.cleaned_data['username']
-        try:
-            Client.objects.get(username=username)
-        except Client.DoesNotExist:
-            return username
-        raise forms.ValidationError(self.error_messages['duplicate_username'])
-
-
-class ClientAdmin(UserAdmin):
-    form = ClientChangeForm
-    add_form = ClientCreateForm
-    # fieldsets = UserAdmin.fieldsets + (
-    #     (None, {'fields': ('naam', 'voornaam',)}),
-    # )
-
 
 
 
@@ -144,8 +103,6 @@ class PartnerAdmin(admin.ModelAdmin):
     search_fields = ("name", "description")
     inlines = [PartnerLogoInline,]
 
-# admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(CurrentStatus, CurrentStatusAdmin)
@@ -154,4 +111,3 @@ admin.site.register(Deal, DealAdmin)
 admin.site.register(Status)
 admin.site.register(PropertyType, PropertyTypeAdmin)
 admin.site.register(Partner, PartnerAdmin)
-admin.site.register(Client, ClientAdmin)

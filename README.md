@@ -34,9 +34,7 @@ pip install easy_thumbnails
 ***
 
 account for user control panel = test : test12345
-account for admin = admin : password123
-account for mysql = 'USER': 'projectuser',
-                                   'PASSWORD': 'Kappa456'
+account fro admin = admin : password123
 
 ***
 screen
