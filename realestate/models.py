@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from os.path import join
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 
 def create_qrcode_path(instance, filename):
@@ -72,6 +74,10 @@ class PropertyType(models.Model):
     def __str__(self):
         return self.name
 
+class Client(AbstractUser):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    def __str__(self):
+          return "%s's profile" % self.user
 
 class Characteristic(models.Model):
     id = models.AutoField(primary_key=True)
@@ -134,7 +140,7 @@ class FAQ(models.Model):
 class Deal(models.Model):
     id = models.AutoField(primary_key=True)
     property = models.OneToOneField(Property, related_name='propertydealkey')
-    user = models.ForeignKey(User, related_name='userdealkey')
+    user = models.ForeignKey(Client, related_name='userdealkey')
 
     def __str__(self):
         return self.property.title_text
