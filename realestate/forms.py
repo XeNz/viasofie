@@ -26,6 +26,15 @@ class ShareForm(forms.Form):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
+class EbookRequestForm(forms.Form):
+    from_email = forms.EmailField(label="E-mail")
+    ebooks = forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple, choices=Ebook.objects.all)
+    captcha = NoReCaptchaField()
+    def __init__(self, *args, **kwargs):
+        super(EbookRequestForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
 
 # class PropertiesSearchForm(SearchForm):
 #     def __init__(self, *args, **kwargs):

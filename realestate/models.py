@@ -274,6 +274,24 @@ class PartnerLogo(models.Model):
     partner = models.ForeignKey(Partner, related_name='partnerkey')
     logo = models.ImageField(upload_to=create_partner_images_path, blank=True, validators=[validate_image])
 
+def create_book_path(instance, filename):
+    return '/'.join(['books', str(instance.title), filename])
+
+class Ebook(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=50)
+    summary = models.CharField(max_length=1024)
+    book = models.FileField(upload_to=create_book_path)
+
+    def __str__(self):
+        return self.title
+
+class EbookRequest(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=200)
+    emailaddress = models.EmailField(max_length=255)
+    requested_books = models.ManyToManyField(Ebook)
+
 class Newsletter(models.Model):
     id = models.AutoField(primary_key=True)
     emailaddress = models.EmailField(max_length=255,unique=True,)
