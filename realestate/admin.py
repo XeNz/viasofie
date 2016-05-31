@@ -15,18 +15,21 @@ from realestate.models import ClientUser
 from django.contrib.auth import (
     authenticate, get_user_model, password_validation,
 )
+from django.utils.translation import gettext as _
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
     username = forms.CharField(label='Username')
+    first_name = forms.CharField(label='First name')
+    last_name = forms.CharField(label='Last name')
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput, required=False)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput, required=False)
 
-    widgets = {'username': forms.CharField(required=True)}
+    widgets = {'username': forms.CharField(required=True),'first_name': forms.CharField(required=True),'last_name': forms.CharField(required=True)}
     class Meta:
         model = ClientUser
-        fields = ('email','username',)
+        fields = ('first_name','last_name','email','username',)
         # field_classes = {'username': UsernameField}
     def clean_password2(self):
         # Check that the two password entries match
@@ -41,6 +44,8 @@ class UserCreationForm(forms.ModelForm):
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])   
         username = self.cleaned_data.get("username")
+        first_name = self.cleaned_data.get("first_name")
+        last_name = self.cleaned_data.get("last_name")
         if commit:      
             user.save()
         return user
@@ -54,7 +59,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = ClientUser
-        fields = ('email', 'password', 'is_active', 'is_admin', 'username')
+        fields = ('email', 'password', 'is_active', 'is_admin', 'username','first_name','last_name')
         # field_classes = {'username': UsernameField}
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -74,7 +79,7 @@ class ClientUserAdmin(UserAdmin):
     list_display = ('email', 'username','is_admin')
     list_filter = ('is_admin',)
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'username')}),
+        (None, {'fields': ('email', 'password', 'username', 'first_name', 'last_name')}),
         ('Personal info', {'fields': ()}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
@@ -83,7 +88,7 @@ class ClientUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'password1', 'password2')}
+            'fields': ('email', 'username', 'first_name', 'last_name','password1', 'password2')}
         ),
     )
     search_fields = ('email',)

@@ -15,7 +15,7 @@ from django.conf import settings
 
 
 class ClientUserManager(BaseUserManager):
-    def create_user(self, username, email, password = None):
+    def create_user(self, username, email, first_name, last_name, password = None):
         """
         Creates and saves a User with the given username, password, email, created_a
         birth and password.
@@ -27,14 +27,16 @@ class ClientUserManager(BaseUserManager):
 
         user = self.model(
             username=username,
+            first_name=first_name,
+            last_name=last_name,
             email=self.normalize_email(email),
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, email, password):
-        user = self.create_user(username, email, password,)
+    def create_superuser(self, username, email, first_name, last_name, password):
+        user = self.create_user(username, email, password,first_name,last_name,)
         user.is_admin = True
         user.save(using=self._db)
         return user
@@ -43,6 +45,8 @@ class ClientUser(AbstractBaseUser):
     # user = models.ForeignKey(UserL, related_name="clientuserkey")
     username = models.CharField(max_length=100,unique=True,db_index = True,)
     email = models.EmailField(max_length=255,unique=True,)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email',]
     is_active = models.BooleanField(default = True)
