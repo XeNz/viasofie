@@ -206,6 +206,16 @@ class PartnerAdmin(admin.ModelAdmin):
     search_fields = ("name", "description")
     inlines = [PartnerLogoInline,]
 
+class EbookAdmin(admin.ModelAdmin):
+    list_display = ("id", "title")
+    list_filter = ("id", "title")
+    search_fields = ("id", "title")
+
+class EbookRequestAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")
+    list_filter = ("id", "name")
+    search_fields = ("id", "name")
+
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)
 admin.site.register(CurrentStatus, CurrentStatusAdmin)
@@ -214,3 +224,5 @@ admin.site.register(Deal, DealAdmin)
 admin.site.register(Status)
 admin.site.register(PropertyType, PropertyTypeAdmin)
 admin.site.register(Partner, PartnerAdmin)
+admin.site.register(Ebook, EbookAdmin)
+admin.site.register(EbookRequest, EbookRequestAdmin)

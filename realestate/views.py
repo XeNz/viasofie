@@ -284,18 +284,18 @@ def sell(request):
         bathrooms = request.POST.get('bathrooms')
         surfacearea = request.POST.get('surfacearea')
         if not request.POST['minprice'] or not request.POST['maxprice'] or request.POST['maxprice'] == 0 or request.POST['minprice'] == 0 :
-             form.add_error('minprice', 'check prices') 
+             form.add_error('minprice', 'check prices')
              return render(request, 'realestate/sell.html',{'form': form,})
         else:
-            minprice = request.POST.get('minprice') 
-            maxprice = request.POST.get('maxprice') 
+            minprice = request.POST.get('minprice')
+            maxprice = request.POST.get('maxprice')
             propertyType = request.POST.get('propertytype')
         #to fill
         # locationfilter = Location.objects.select_related().filter(Q(provincie__icontains=selected_province) & Q(gemeente__icontains=selected_borough))
         #to search
 
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-       
+
         # result_list = property_list
 
     # property_list1 = Property.objects.all()
@@ -318,3 +318,20 @@ def sell(request):
 
 def rent(request):
     return render(request, 'realestate/rent.html')
+
+def ebook(request):
+    ebooks = Ebook.objects.all
+    form = EbookRequestForm()
+    if request.method == "POST":
+        name = request.POST.get('name')
+        emailaddress = request.POST.get('email')
+        requested_books = request.POST.get('ebook_id')
+        ebookrequest = EbookRequest(name=name, emailaddress=emailaddress)
+        ebookrequest.save()
+        for book in requested_books:
+            # ebook = Ebook.objects.filter(id=book)
+            ebookrequest.requested_books.add(book)
+        #maak nieuw ebookrequestobject aan
+        return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks, 'ebookrequest': ebookrequest})
+    else:
+        return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks})
