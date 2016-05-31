@@ -54,6 +54,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -61,6 +62,9 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 ROOT_URLCONF = 'viasofie.urls'
 
 TEMPLATES = [
@@ -225,3 +229,4 @@ SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS =  True
 #This header will prevent Internet Explorer and Chrome guessing the MIME type of the response.
 SECURE_CONTENT_TYPE_NOSNIFF = True
+AUTH_USER_MODEL = 'realestate.ClientUser'
