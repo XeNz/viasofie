@@ -12,7 +12,7 @@
             <div class="pull-left page-title">
                 <a href="{% url 'realestate:controlpanel' %}">
                 <!-- TODO: Translations -->
-                <h2>{%blocktrans %}USERPANEL_BUTTON{% endblocktrans%}<!--User panel--></h2>
+                <h2>{%blocktrans%}USERPANEL_BUTTON{%endblocktrans%}</h2>
                 </a>
             </div>
             <div class="pull-right breadcrumb">
@@ -59,6 +59,7 @@
             <tr>
                 <th>{%blocktrans %}DOCUMENT{% endblocktrans%}</th>
                 <th>{%blocktrans %}STATUS{% endblocktrans%}</th>
+                <th>{%blocktrans %}EXTRA_COMMENTS{% endblocktrans%}</th>
             </tr>
         </thead>
         <tbody>
@@ -72,6 +73,7 @@
                 <td><i class="fa fa-check" aria-hidden="true" title="In orde"></i> <span title="{{dealStatus.status.description}}">{{dealStatus.status.title}}</span></td>
                 {%endif%}
                 <td>{{dealStatus.current_status}}</td>
+                <td>{{dealStatus.comment}}</td>
             </tr>
             {%endfor%}
         </tbody>
