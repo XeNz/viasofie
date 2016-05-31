@@ -2180,3 +2180,14 @@ input[type='submit'] {
 #welcomeaccount{
   margin-left: 15px;
 }
+#ebooklist p{
+  color: #89949b;
+}
+#ebooklist input[type=checkbox]{
+  margin-right: 5px;
+  margin-top: 3px;
+  padding-top: 5px;
+}
+.ebookcaptcha{
+  padding-top: 24px;
+}
