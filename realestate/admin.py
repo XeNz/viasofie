@@ -16,7 +16,7 @@ from django.contrib.auth import (
     authenticate, get_user_model, password_validation,
 )
 from django.utils.translation import gettext as _
-
+import random
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
@@ -37,7 +37,12 @@ class UserCreationForm(forms.ModelForm):
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords don't match")
+        #Make random password of 12 chars if empty
+        if len(password1) == 0 and len(password2) == 0:
+            password1=''.join([random.choice('1234567890azertyuiopqsdfghjklmwxcvbn') for i in range(12)])
+            password2 = password1
         return password2
+
 
     def save(self, commit=True):
         # Save the provided password in hashed format
@@ -48,6 +53,13 @@ class UserCreationForm(forms.ModelForm):
         last_name = self.cleaned_data.get("last_name")
         if commit:      
             user.save()
+
+
+        #MAKE THE FUCKING MAIL HERE
+        # send_mail('Subject here', 'Here is the password: .'+password,
+        #        'from@example.com', ['someone@gmail.com'],
+        #        fail_silently=False)
+        
         return user
 
 class UserChangeForm(forms.ModelForm):
