@@ -273,3 +273,10 @@ class PartnerLogo(models.Model):
 
     partner = models.ForeignKey(Partner, related_name='partnerkey')
     logo = models.ImageField(upload_to=create_partner_images_path, blank=True, validators=[validate_image])
+
+class Newsletter(models.Model):
+    id = models.AutoField(primary_key=True)
+    emailaddress = models.EmailField(max_length=255,unique=True,)
+
+    def __str__(self):
+        return self.emailaddress
