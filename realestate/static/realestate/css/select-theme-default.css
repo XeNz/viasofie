@@ -54,6 +54,7 @@
   .select.select-theme-default .select-options {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-touch-callout: none;
+    font-size: 1.3em;
     margin: 0;
     padding: 0; }
     .select.select-theme-default .select-options .select-option {

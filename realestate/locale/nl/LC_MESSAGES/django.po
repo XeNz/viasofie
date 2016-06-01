@@ -19,7 +19,7 @@ msgstr ""
 "conform de wettelijke bepalingen en helpt bij een correcte prijszetting van "
 "uw pand aan de hand van een taxatieverslag enop basis van  "
 "vergelijkingspunten van een eigen opgebouwd databestand. Hebt u vragen of "
-"wil u weten wat Sofie voor u kan betekenen, contacteer haar vrijblijvend."
+"wil u weten wat Sofie voor u kan betekenen, contacteer haar vrijblijvend. "
 
 #: .\realestate\templates\realestate\contact.html:10
 msgid "CONTACT_BUTTON"
@@ -135,7 +135,7 @@ msgstr ""
 "houden met een hele hoop zaken. Hieronder vindt u een aantal algemene "
 "begrippen en FAQ's vanbelang bij de verkoop of verhuur. Hebt u vragen over "
 "onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te "
-"contacteren, ik help u graagverder. Klik op een vraag om hierover meer te weten te komen."
+"contacteren, ik help u graag verder. Klik op een vraag om hierover meer te weten te komen."
 
 #: .\realestate\templates\realestate\faq.html:60
 msgid "FAQ_BOTTOMTEXT"

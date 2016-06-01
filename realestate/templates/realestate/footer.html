@@ -62,7 +62,7 @@
 			<div class="row">
 				<p>
 					{%blocktrans %}RECOGNIZED_TEXT{% endblocktrans%}
-					<!--Erkend vastgoedmakelaar:--> 
+					<!--Erkend vastgoedmakelaar:-->
 				</p>
 			</div>
 			<div class="footer-logo" id="logo">
@@ -80,6 +80,15 @@
 				<input type="text" placeholder='e-mail'>
 				<input type="submit">
 			</form>
+			<h3 class='footer-title'>{%blocktrans %} Vraag een E-book aan{% endblocktrans%}</h3>
+			<p>
+				 <a href="{% url 'realestate:ebook' %}" class="yellow-button"> {%blocktrans %}Vraag hier uw gratis ebook aan{% endblocktrans%}</a>
+			</p>
+			<!-- <form class='footer-search' action='ebook'>
+				<input type="text" placeholder='e-mail'>
+				<input type="submit">
+			</form> -->
+
 		</div>
 	</div>
 	</footer>

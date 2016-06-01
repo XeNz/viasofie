@@ -15,7 +15,7 @@ from django.conf import settings
 
 
 class ClientUserManager(BaseUserManager):
-    def create_user(self, username, email, password = None):
+    def create_user(self, username, email, first_name, last_name, password = None):
         """
         Creates and saves a User with the given username, password, email, created_a
         birth and password.
@@ -27,14 +27,16 @@ class ClientUserManager(BaseUserManager):
 
         user = self.model(
             username=username,
+            first_name=first_name,
+            last_name=last_name,
             email=self.normalize_email(email),
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, email, password):
-        user = self.create_user(username, email, password,)
+    def create_superuser(self, username, email, first_name, last_name, password):
+        user = self.create_user(username, email, password,first_name,last_name,)
         user.is_admin = True
         user.save(using=self._db)
         return user
@@ -43,6 +45,8 @@ class ClientUser(AbstractBaseUser):
     # user = models.ForeignKey(UserL, related_name="clientuserkey")
     username = models.CharField(max_length=100,unique=True,db_index = True,)
     email = models.EmailField(max_length=255,unique=True,)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email',]
     is_active = models.BooleanField(default = True)
@@ -273,6 +277,24 @@ class PartnerLogo(models.Model):
 
     partner = models.ForeignKey(Partner, related_name='partnerkey')
     logo = models.ImageField(upload_to=create_partner_images_path, blank=True, validators=[validate_image])
+
+def create_book_path(instance, filename):
+    return '/'.join(['books', str(instance.title), filename])
+
+class Ebook(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=50)
+    summary = models.CharField(max_length=1024)
+    book = models.FileField(upload_to=create_book_path)
+
+    def __str__(self):
+        return self.title
+
+class EbookRequest(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=200)
+    emailaddress = models.EmailField(max_length=255)
+    requested_books = models.ManyToManyField(Ebook)
 
 class Newsletter(models.Model):
     id = models.AutoField(primary_key=True)
