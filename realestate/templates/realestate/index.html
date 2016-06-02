@@ -151,6 +151,18 @@
 </div>
 
 
+<!--     <div class="col-md-12"> -->
+   <!--  <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
+{% for property in properties %}
+    <a href="{% url 'realestate:detail' property.id %}"> <h3>{{ property.title_text }}</h3> </a>
+    <p>{{ property.description_text }} </p>
+    <p>{{ property.sellingprice }} </p>
+        {% for propertyimage in property.propertykey.all %}
+        <a href="{% url 'realestate:detail' property.id %}"><img src="{% thumbnail propertyimage.picture  '150x150' %}"/></a>
+        {% endfor %}
+        <hr>
+{% endfor %} -->
+<!--     <h2>{%blocktrans %}SEARCH_TITLE{% endblocktrans%}</h2>
 
 <!-- Recent-Listings-Section -->
 <div class="recent-listings">
