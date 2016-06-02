@@ -158,7 +158,7 @@
     <p>{{ property.description_text }} </p>
     <p>{{ property.sellingprice }} </p>
         {% for propertyimage in property.propertykey.all %}
-        <a href="{% url 'realestate:detail' property.id %}"><img src="{% thumbnail propertyimage.picture  150x150 crop %}"/></a>
+        <a href="{% url 'realestate:detail' property.id %}"><img src="{% thumbnail propertyimage.picture  '150x150' %}"/></a>
         {% endfor %}
         <hr>
 {% endfor %} -->

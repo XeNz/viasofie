@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'nocaptcha_recaptcha',
     'newsletter',
     'sorl.thumbnail',
-    'django_extensions'
+    'django_extensions',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -166,8 +166,8 @@ NORECAPTCHA_SECRET_KEY = "6Le1eSATAAAAAFfYbEp32EP_gNE89mF8oKvZ8xiI"
 
 #gmail smtp service settings
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'de.caluwe.bart@gmail.com'
+EMAIL_HOST = 'smtp.live.com'
+EMAIL_HOST_USER = 'michelle.vannuffel@hotmail.com'
 #TODO: configure password
 EMAIL_HOST_PASSWORD = 'PASSWORD'
 EMAIL_PORT = 587
