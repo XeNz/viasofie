@@ -46,9 +46,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'selenium',
     'nocaptcha_recaptcha',
-    'newsletter',
-    'sorl.thumbnail',
-    'django_extensions'
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE_CLASSES = [

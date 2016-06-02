@@ -31,10 +31,7 @@
 				</p>
 			</div>
 			<div class="business-number">
-				<p>
-					{%blocktrans %}BUSINESS_NUMBER{% endblocktrans%}
-					<!--Ondernemingsnummer: 0541.508.141-->
-				</p>
+
 			</div>
 			<div class="opening-hours">
 				<p>
@@ -55,14 +52,16 @@
 			<a class="logo" href="#"><img src="{% static "realestate/img/sleutel.png" %}" alt="logo"></a>
 			<div class="row">
 				<p>
-					{%blocktrans %}BIV_TEXT{% endblocktrans%}
-					<!--Onderworpen aan de controle van het Beroepsinstituut voor Vastgoedmakelaars-->
+					{%blocktrans %}RECOGNIZED_TEXT{% endblocktrans%}
+				</p>
+				<p>
+					{%blocktrans %}BUSINESS_NUMBER{% endblocktrans%}
+					<!--Ondernemingsnummer: 0541.508.141-->
 				</p>
 			</div>
 			<div class="row">
 				<p>
-					{%blocktrans %}RECOGNIZED_TEXT{% endblocktrans%}
-					<!--Erkend vastgoedmakelaar:-->
+					{%blocktrans %}BIV_TEXT{% endblocktrans%}
 				</p>
 			</div>
 			<div class="footer-logo" id="logo">
@@ -80,7 +79,7 @@
 				<input type="text" placeholder='e-mail'>
 				<input type="submit">
 			</form>
-			<h3 class='footer-title'>{%blocktrans %} Vraag een E-book aan{% endblocktrans%}</h3>
+			<h3 id= "footer-ebook-request" class='footer-title'>{%blocktrans %} Vraag een E-book aan{% endblocktrans%}</h3>
 			<p>
 				 <a href="{% url 'realestate:ebook' %}" class="yellow-button"> {%blocktrans %}Vraag hier uw gratis ebook aan{% endblocktrans%}</a>
 			</p>

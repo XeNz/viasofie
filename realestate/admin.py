@@ -155,7 +155,7 @@ class PropertyPictureInline(admin.TabularInline):
 
 class Characteristics_propertyInline(admin.TabularInline):
     model = Characteristics_property
-    fields = ['property_id','characteristic_id','value','required',]
+    fields = ['property_id','characteristic_id','value',]
 
 class CharacteristicAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
@@ -212,9 +212,9 @@ class EbookAdmin(admin.ModelAdmin):
     search_fields = ("id", "title")
 
 class EbookRequestAdmin(admin.ModelAdmin):
-    list_display = ("id", "name")
-    list_filter = ("id", "name")
-    search_fields = ("id", "name")
+    list_display = ("id", "name", "emailaddress")
+    list_filter = ("id", "name", "emailaddress")
+    search_fields = ("id", "name", "emailaddress")
 
 admin.site.register(Property, PropertyAdmin)
 admin.site.register(Characteristic, CharacteristicAdmin)

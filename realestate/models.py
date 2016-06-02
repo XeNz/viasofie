@@ -10,7 +10,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from os.path import join
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.conf import settings
-
+from django.utils.translation import ugettext_lazy as _
 
 
 
@@ -78,24 +78,24 @@ class Property(models.Model):
     #TODO: attribute underscore fix
     id = models.AutoField(primary_key=True)
     #id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title_text = models.CharField(max_length=200)
-    description_text = models.TextField()
-    street_text = models.CharField(max_length=200)
-    house_number_text = models.CharField(max_length=200)
-    postal_code_text = models.CharField(max_length=200)
-    city_text = models.CharField(max_length=200)
-    country_text = models.CharField(max_length=200 ,default='België')
-    constructiondate = models.DateField()
+    title_text = models.CharField(max_length=200,verbose_name = _('Property|title_text'))
+    description_text = models.TextField(verbose_name = _('Property|description_text'))
+    street_text = models.CharField(max_length=200,verbose_name = _('Property|street_text'))
+    house_number_text = models.CharField(max_length=200,verbose_name = _('Property|house_number_text'))
+    postal_code_text = models.CharField(max_length=200,verbose_name = _('Property|postal_code_text'))
+    city_text = models.CharField(max_length=200,verbose_name = _('Property|city_text'))
+    country_text = models.CharField(max_length=200 ,default='België',verbose_name = _('Property|country_text'))
+    constructiondate = models.DateField(verbose_name = _('Property|constructiondate'))
     # sellingprice = models.DecimalField(max_digits=20,decimal_places=2,default=Decimal('0.00'))
-    sellingprice = models.IntegerField()
-    visible_to_public = models.BooleanField(default=True)
-    featured = models.BooleanField(default=False)
-    pub_date = models.DateTimeField('date published')
-    surface_area_text = models.IntegerField()
-    bathrooms_text = models.IntegerField()
-    bedrooms_text = models.IntegerField()
+    sellingprice = models.IntegerField(verbose_name = _('Property|sellingprice'))
+    visible_to_public = models.BooleanField(default=True,verbose_name = _('Property|visible_to_public'))
+    featured = models.BooleanField(default=False , verbose_name = _('Property|featured'))
+    pub_date = models.DateTimeField(verbose_name = _('Property|datepublished'))
+    surface_area_text = models.IntegerField(verbose_name = _('Property|surface_area_text'))
+    bathrooms_text = models.IntegerField(verbose_name = _('Property|bathrooms_text'))
+    bedrooms_text = models.IntegerField(verbose_name = _('Property|bedrooms_text'))
     LISTING_TYPE_CHOICES = (('Kopen', 'Kopen'), ('Huren', 'Huren'))
-    listing_type = models.CharField(choices=LISTING_TYPE_CHOICES, max_length=20, default=1)
+    listing_type = models.CharField(choices=LISTING_TYPE_CHOICES, max_length=20, default=1, verbose_name = _('Property|listing_type'))
 
     def get_absolute_url(self):
         return reverse('realestate.views.details', args=[str(self.id)])
@@ -111,15 +111,15 @@ class Property(models.Model):
 
 class Location(models.Model):
     id = models.AutoField(primary_key=True)
-    postcode = models.IntegerField()
-    gemeente = models.CharField(max_length=200)
-    provincie = models.CharField(max_length=200)
+    postcode = models.IntegerField(verbose_name = _('Location|postcode'))
+    gemeente = models.CharField(max_length=200, verbose_name = _('Location|gemeente'))
+    provincie = models.CharField(max_length=200 , verbose_name = _('Location|provincie'))
 
     def __str__(self):
         return '%s %s %s' % (self.gemeente, self.postcode, self.provincie)
     class Meta():
-        verbose_name = 'Locatie'
-        verbose_name_plural = 'Locaties'
+        verbose_name = _('Locatie')
+        verbose_name_plural = _('Locaties')
 
 class PropertyLocation(models.Model):
     id = models.AutoField(primary_key=True)
@@ -127,40 +127,46 @@ class PropertyLocation(models.Model):
     location_id = models.ForeignKey(Location, related_name='locationkey')
 
 class PropertyType(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-
-class Characteristic(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
+    id = models.AutoField(primary_key=True, verbose_name = _('PropertyType|id'))
+    name = models.CharField(max_length=255 , verbose_name = _('PropertyType|name'))
 
     def __str__(self):
         return self.name
     class Meta():
-        verbose_name = 'Property characteristic'
-        verbose_name_plural = 'Property characteristics'
+        verbose_name = _('Property Type')
+        verbose_name_plural = _('Property Types')
+
+class Characteristic(models.Model):
+    id = models.AutoField(primary_key=True, verbose_name = _('Characteristic|id'))
+    name = models.CharField(max_length=255, verbose_name = _('Characteristic|name'))
+
+    def __str__(self):
+        return self.name
+    class Meta():
+        verbose_name = _('Property characteristic')
+        verbose_name_plural = _('Property characteristics')
 
 
 
 class PropertyType_Property(models.Model):
-    id = models.AutoField(primary_key=True)
-    propertyType_id = models.ForeignKey(PropertyType, related_name='propertytypekey')
-    property_id = models.OneToOneField('Property')
+    id = models.AutoField(primary_key=True , verbose_name = _('PropertyType_Property|id'))
+    propertyType_id = models.ForeignKey(PropertyType, related_name='propertytypekey', verbose_name = _('PropertyType_Property|propertyType_id'))
+    property_id = models.OneToOneField('Property', verbose_name = _('PropertyType_Property|property_id'))
+    class Meta():
+        verbose_name = _('Property Type characteristic')
+        verbose_name_plural = _('Property Type characteristics')
 
 class Characteristics_property(models.Model):
     id = models.AutoField(primary_key=True)
-    property_id = models.ForeignKey('Property')
-    characteristic_id = models.ForeignKey(Characteristic, related_name='characteristickey')
-    value = models.CharField(max_length=255)
-    required = models.BooleanField(default=False) #required characteristics e.g. bedrooms, bathrooms
+    property_id = models.ForeignKey('Property', verbose_name = _('Characteristics_property|property_id'))
+    characteristic_id = models.ForeignKey(Characteristic, related_name='characteristickey', verbose_name = _('Characteristics_property|characteristic_id'))
+    value = models.CharField(max_length=255, verbose_name = _('Characteristics_property|value'))
 
     def __str__(self):
         return self.value
-
+    class Meta():
+        verbose_name = _('Property characteristic')
+        verbose_name_plural = _('Property characteristics')
 def create_property_images_path(instance, filename):
     return '/'.join(['images', str(instance.property.id), filename])
 
@@ -172,15 +178,18 @@ class PropertyPicture(models.Model):
         if filesize > megabyte_limit*1024*1024:
             raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
-    property = models.ForeignKey(Property, related_name='propertykey')
-    picture = models.ImageField(upload_to=create_property_images_path, blank=True, validators=[validate_image])
+    property = models.ForeignKey(Property, related_name='propertykey', verbose_name = _('PropertyPicture|property') )
+    picture = models.ImageField(upload_to=create_property_images_path, blank=True, validators=[validate_image], verbose_name = _('Characteristics_property|picture'))
 
+    class Meta():
+        verbose_name = _('Property Picture')
+        verbose_name_plural = _('Property Pictures')
 class FAQ(models.Model):
     id = models.AutoField(primary_key=True)
-    question = models.CharField(max_length=200)
-    answer = models.TextField()
-    visible_to_public = models.BooleanField(default=True)
-    pub_date = models.DateTimeField('date published')
+    question = models.CharField(max_length=200,verbose_name = _('FAQ|question'))
+    answer = models.TextField(verbose_name = _('FAQ|answer'))
+    visible_to_public = models.BooleanField(default=True,verbose_name = _('FAQ|visible_to_public'))
+    pub_date = models.DateTimeField(verbose_name = _('FAQ|pub_date'))
 
     def __str__(self):
         return self.question
@@ -189,43 +198,43 @@ class FAQ(models.Model):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
     class Meta():
-        verbose_name = 'Frequently Asked Questions'
-        verbose_name_plural = 'Frequently Asked Questions'
+        verbose_name = _('Frequently Asked Questions')
+        verbose_name_plural = _('Frequently Asked Questions')
 
 class Deal(models.Model):
-    id = models.AutoField(primary_key=True)
-    property = models.OneToOneField(Property, related_name='propertydealkey')
-    user = models.ForeignKey(ClientUser, related_name='userdealkey')
+    id = models.AutoField(primary_key=True, verbose_name = _('Deal|id'))
+    property = models.OneToOneField(Property, related_name='propertydealkey',verbose_name = _('Deal|property'))
+    user = models.ForeignKey(ClientUser, related_name='userdealkey',verbose_name = _('FAQ|user'))
 
     def __str__(self):
         return self.property.title_text
 
     class Meta():
-        verbose_name = 'Deal'
-        verbose_name_plural = 'Deals'
+        verbose_name = _('Deal')
+        verbose_name_plural = _('Deals')
 
 
 class CurrentStatus(models.Model):
-    id = models.AutoField(primary_key=True)
-    text = models.CharField(max_length=100)
+    id = models.AutoField(primary_key=True ,verbose_name = _('CurrentStatus|id'))
+    text = models.CharField(max_length=100 ,verbose_name = _('CurrentStatus|text'))
 
     def __str__(self):
         return self.text
 
 
 class Status(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50)
-    description = models.CharField(max_length=500)
-    visible_to_user = models.BooleanField(default=True)
+    id = models.AutoField(primary_key=True ,verbose_name = _('Status|id'))
+    title = models.CharField(max_length=50 ,verbose_name = _('Status|title'))
+    description = models.CharField(max_length=500 ,verbose_name = _('Status|description'))
+    visible_to_user = models.BooleanField(default=True ,verbose_name = _('Status|visible_to_user'))
 
 
     def __str__(self):
         return self.title
 
     class Meta():
-        verbose_name = 'Status'
-        verbose_name_plural = 'Statussen'
+        verbose_name = _('Status')
+        verbose_name_plural = _('Statussen')
 
 
 def create_deal_documents_path(instance, filename):
@@ -233,36 +242,45 @@ def create_deal_documents_path(instance, filename):
 
 
 class DealStatus(models.Model):
-    status = models.ForeignKey(Status, related_name='Dstatuskey')
-    deal = models.ForeignKey(Deal, related_name='dealSkey')
-    comment = models.CharField(max_length=50)
-    current_status = models.ForeignKey(CurrentStatus, related_name='currentstatuskey')
-    date = models.DateField()
+    status = models.ForeignKey(Status, related_name='Dstatuskey',verbose_name = _('DealStatus|status'))
+    deal = models.ForeignKey(Deal, related_name='dealSkey',verbose_name = _('DealStatus|deal'))
+    comment = models.CharField(max_length=50,verbose_name = _('DealStatus|comment'))
+    current_status = models.ForeignKey(CurrentStatus, related_name='currentstatuskey',verbose_name = _('DealStatus|current_status'))
+    date = models.DateField(verbose_name = _('DealStatus|date'))
+
+    class Meta():
+        verbose_name = _('Status')
+        verbose_name_plural = _('Statussen')
 
 class DealDocument(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50)
-    document = models.FileField(upload_to=create_deal_documents_path)
-    deal = models.ForeignKey(Deal, related_name='dealkey')
-    visible_to_user = models.BooleanField(default=False)
+    id = models.AutoField(primary_key=True, verbose_name = _('DealDocument|id'))
+    title = models.CharField(max_length=50, verbose_name = _('DealDocument|title'))
+    document = models.FileField(upload_to=create_deal_documents_path, verbose_name = _('DealDocument|document'))
+    deal = models.ForeignKey(Deal, related_name='dealkey', verbose_name = _('DealDocument|deal'))
+    visible_to_user = models.BooleanField(default=False, verbose_name = _('DealDocument|visible_to_user'))
     #description description_text = models.TextField()
 
     def __str__(self):
         return self.title
-
+    class Meta():
+        verbose_name = _('Deal Document')
+        verbose_name_plural = _('Deal Documents')
 class Visitation(models.Model):
-    id = models.AutoField(primary_key=True)
-    date = models.DateField()
-    deal = models.ForeignKey(Deal, related_name='dealvisitationkey')
-    status = models.CharField(max_length=100)
+    id = models.AutoField(primary_key=True, verbose_name = _('Visitation|id'))
+    date = models.DateField(verbose_name = _('Visitation|date'))
+    deal = models.ForeignKey(Deal, related_name='dealvisitationkey', verbose_name = _('Visitation|deal'))
+    status = models.CharField(max_length=100, verbose_name = _('Visitation|status'))
 
     def __str__(self):
         return self.status
+    class Meta():
+        verbose_name = _('Visitation')
+        verbose_name_plural = _('Visitations')
 
 class Partner(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
-    url = models.CharField(max_length=200)
+    name = models.CharField(max_length=50, verbose_name = _('Partner|name'))
+    description = models.CharField(max_length=200, verbose_name = _('Partner|description'))
+    url = models.CharField(max_length=200, verbose_name = _('Partner|url'))
 
 def create_partner_images_path(instance, filename):
     return '/'.join(['partners', str(instance.partner.id), filename])
@@ -275,30 +293,27 @@ class PartnerLogo(models.Model):
         if filesize > megabyte_limit*1024*1024:
             raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
-    partner = models.ForeignKey(Partner, related_name='partnerkey')
-    logo = models.ImageField(upload_to=create_partner_images_path, blank=True, validators=[validate_image])
+    partner = models.ForeignKey(Partner, related_name='partnerkey', verbose_name = _('PartnerLogo|partner'))
+    logo = models.ImageField(upload_to=create_partner_images_path, blank=True, validators=[validate_image], verbose_name = _('PartnerLogo|logo'))
 
 def create_book_path(instance, filename):
     return '/'.join(['books', str(instance.title), filename])
 
 class Ebook(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=50)
-    summary = models.CharField(max_length=1024)
-    book = models.FileField(upload_to=create_book_path)
+    id = models.AutoField(primary_key=True ,verbose_name = _('Ebook|id'))
+    title = models.CharField(max_length=50 ,verbose_name = _('Ebook|title'))
+    summary = models.CharField(max_length=1024 ,verbose_name = _('Ebook|summary'))
+    book = models.FileField(upload_to=create_book_path ,verbose_name = _('Ebook|book'))
 
     def __str__(self):
         return self.title
 
 class EbookRequest(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200)
-    emailaddress = models.EmailField(max_length=255)
-    requested_books = models.ManyToManyField(Ebook)
+    id = models.AutoField(primary_key=True, verbose_name = _('EbookRequest|id'))
+    name = models.CharField(max_length=200, verbose_name = _('EbookRequest|name'))
+    emailaddress = models.EmailField(max_length=255, verbose_name = _('EbookRequest|emailaddress'))
+    requested_books = models.ManyToManyField(Ebook, verbose_name = _('EbookRequest|requested_books'))
 
-class Newsletter(models.Model):
-    id = models.AutoField(primary_key=True)
-    emailaddress = models.EmailField(max_length=255,unique=True,)
-
-    def __str__(self):
-        return self.emailaddress
+    class Meta():
+        verbose_name = _('Ebook request')
+        verbose_name_plural = _('Ebook requests')
