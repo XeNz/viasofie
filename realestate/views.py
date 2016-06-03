@@ -33,13 +33,61 @@ def index(request):
     #     query = form.search()
     #     return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
     # else:
-         #6 most recent properties
+    #6 most recent properties
     last_six_properties = Property.objects.all().order_by('-pub_date')[:6]
     last_six_properties_in_ascending_order = reversed(last_six_properties)
     #6 featured properties
     featured_six_properties = Property.objects.filter(featured=True).order_by('-pub_date')[:6]
     featured_six_properties_in_ascending_order = reversed(featured_six_properties)
-    return render_to_response('realestate/index.html', {"last_six_properties_in_ascending_order": last_six_properties_in_ascending_order, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order}, context_instance=RequestContext(request))
+    data_dict = {'minprice': 1, 'maxprice' : 1}
+    property_list = None
+    form = IndexSearchForm(data=request.POST or None,initial=data_dict)
+    if request.method == 'POST':
+        listing_type_choice = request.POST.get('listing_type_choices')
+        selected_borough = request.POST.get('borough_choices')
+        bedrooms = request.POST.get('bedrooms')
+        bathrooms = request.POST.get('bathrooms')
+        surfacearea = request.POST.get('surfacearea')
+        if not request.POST['minprice'] or not request.POST['maxprice'] or request.POST['maxprice'] == 0 or request.POST['minprice'] == 0 :
+             form.add_error('minprice', 'check prices')
+             return render(request, 'realestate/index.html',{'form': form,})
+        else:
+            minprice = request.POST.get('minprice')
+            maxprice = request.POST.get('maxprice')
+            propertyType = request.POST.get('propertytype')
+
+        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
+    if property_list is None:
+        paginator = Paginator(last_six_properties, 9) # Show 5 faqs per page
+        page_request_var = "page"
+        page = request.GET.get(page_request_var)
+        try:
+            queryset = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            queryset = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            queryset = paginator.page(paginator.num_pages)
+        context = {
+            "page_request_var": page_request_var,
+            'form': form,
+            'last_six_properties': queryset,
+            "last_six_properties_in_ascending_order": last_six_properties_in_ascending_order,
+            "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order
+        }
+        return render_to_response('realestate/index.html',context,context_instance=RequestContext(request))
+    else:
+        searchPaginator = Paginator(property_list, 12)
+        page = request.GET.get('page')
+    try:
+        result_list = searchPaginator.page(page)
+    except PageNotAnInteger:
+        result_list = searchPaginator.page(1)
+    except EmptyPage:
+        result_list = searchPaginator.page(searchPaginator.num_pages)
+    return render(request, 'realestate/index.html',{'form': form,'result_list': result_list, 'property_list': property_list, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order})
+
 
 
 # class IndexView(generic.ListView):
