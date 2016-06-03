@@ -192,7 +192,12 @@
         {%endif%}
         {% if rent_properties %}
              <div class="row listings-items-wrapper">
-             <h1>Panden te huur:</h4>
+             <div class="container">
+                <div class="title-box">
+                    <h3>{%blocktrans%}Panden te huur:{%endblocktrans%}</h3>
+                    <div class="bordered">
+                    </div>
+                </div>
             {% for property in rent_properties %}
                 <div class="col-md-4 listing-single-item">
                     <div class="item-inner">
