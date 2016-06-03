@@ -17,93 +17,236 @@
         </div>
     </div>
 </div> <!--- end slider section-->
+<div class="search-section">
+    <div class="container search-container">
+        <form method='POST'>
+        {% csrf_token %}
+            <div class="select-wrapper select-smaill" id='select-rent'>
+<!--                  {{ form.non_field_errors }}
+                 {{ form.errors }} -->
+                <p>
+                     {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">{%blocktrans %}INDEX_ANY{% endblocktrans%}</option>
+                    <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
+                    <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
+                </select> -->
+                <!-- {{ form.listing_type_choices.errors }} -->
+                {{form.listing_type_choices}}
+            </div>
+            <div class="select-wrapper select-medium" id='select-property'>
+                <p>
+                     {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                <!-- {{form.propertytype.errors}} -->
+                {{form.propertytype}}
+            </div>
+<!--             <div class="select-wrapper select-big">
+                <p>
+                     Provincie
+                </p>
+                <select class='elselect'>
+                    <option value="any">any</option>
+                </select>
+                {{form.province_choices.errors}}
+                {{form.province_choices}}
+            </div> -->
+            <div class="select-wrapper select-big">
+                <p>
+                     {%blocktrans %}INDEX_CITY{% endblocktrans%}
+                     <!--Gemeente-->
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                <!-- {{form.borough_choices.errors}} -->
+                {{form.borough_choices}}
+            </div>
+            <div class="select-wrapper select-small">
+                <p>
+                     {%blocktrans %}INDEX_BEDS{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+
+                {{form.bedrooms}}
+                {{form.bedrooms.errors}}
+            </div>
+            <div class="select-wrapper select-small">
+                <p>
+                     {%blocktrans %}INDEX_BATHS{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.bathrooms}}
+                {{form.bathrooms.errors}}
+            </div>
+            <div class="select-wrapper select-medium">
+                <p>
+                     {%blocktrans %}INDEX_SQFT{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.surfacearea}}
+                {{form.surfacearea.errors}}
+            </div>
+            <div class="textinput-wrapper select-medium textinput-target">
+                <p>
+                     {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.minprice}}
+                {{form.minprice.errors}}
+            </div>
+            <div class="textinput-wrapper select-medium textinput-target">
+                <p>
+                     {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                {{form.maxprice}}
+                {{form.maxprice.errors}}
+            </div>
+        </div>
+            <div class="text-center">
+            <input id="search-button" class="yellow-btn" type="submit" value="search">
+            </div>
+        </form>
+
+</div>
 
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
-<div class="content-section">
-    <div class="">
-        <div class='container' id="faqblock">
-<!--            <div class="title-box">
-                <h3>Frequently Asked Questions</h3>
-                <div class="bordered">
+<div class="recent-listings">
+    <div class="container">
+        {%if result_list %}
+        <div class="title-box">
+            <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Uw zoekresultaten--></h3>
+            <div class="bordered">
+            </div>
+        </div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="row listings-items-wrapper">
+         {% for property in result_list %}
+            <div class="col-md-4 listing-single-item">
+                <div class="item-inner">
+                    <div class="image-wrapper">
+                        {% for propertyimage in property.propertykey.all %}
+                        {% if forloop.first %}
+                            <li class='slides' id='slide-n1'><img src="{% static propertyimage.picture.url %}" alt="gallery">
+                        {% endif %}
+                        {% endfor %}
+                        <a href="#" class='fa fa-home property-type-icon'></a>
+                        <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
+                    </div>
+                    <div class="desc-box">
+                        <h4><a href="#">{{property.title_text}}</a></h4>
+                        <ul class="slide-item-features item-features">
+                            <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
+                            <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
+                            <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
+                        </ul>
+                        <div class="buttons-wrapper">
+                            <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
+                            <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
                 </div>
-            </div> -->
-<!--            <div id="faqheadertext">
-            <p>Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder.</p>
-            </div> -->
-            <div class="contact-info">
-                <div class="inner-wrapper">
-                    <h4 class="box-title">{%blocktrans %}RENT_TITLE{% endblocktrans%}</h4>
-                    <p class="first-paragraph">
-                        {%blocktrans %}RENT_TEXT{% endblocktrans%}
-                        <!--Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder. Klik op een vraag om meer informatie te verkrijgen.-->
-                    </p>
-                    <p>
-                    <form id="searchform" class="form-group form-inline" method='GET' action=''>{% csrf_token %}
-                        <input type='text' class="form-control" name='q' placeholder='Zoek vragen' value='{{ request.GET.q }}'/>
-                        <input type="submit" value="search" class="yellow-btn">
-                    </form>
-                    </p>
-                    <p>
-                    {% for obj in object_list %}
-                    <div class="row">
-                      <div id="faqs" class="col-sm-12">
-                        <h3><span class="glyphicon glyphicon-search" aria-hidden="true"></span>{{obj.question}}<span id="faqdate">- {{obj.pub_date|date}}</span></h3>
-                         <div><p>{{ obj.answer }}</p></div>
-                      </div>
-                    <hr/>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if result_list.has_previous %}
+                    <a href="?page={{ result_list.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ result_list.number }} of {{ result_list.paginator.num_pages }}.
+                </span>
+
+                {% if result_list.has_next %}
+                    <a href="?page={{ result_list.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        </div>
+        </div>
+        {%endif%}
+        {% if rent_properties %}
+             <div class="row listings-items-wrapper">
+             <div class="container">
+                <div class="title-box">
+                    <h3>{%blocktrans%}Panden te huur:{%endblocktrans%}</h3>
+                    <div class="bordered">
                     </div>
-                    {% empty %}
-                    <div class="row">
-                      <div id="faqs" class="col-sm-12">
-                      No FAQs found.
-                      </div>
+                </div>
+            {% for property in rent_properties %}
+                <div class="col-md-4 listing-single-item">
+                    <div class="item-inner">
+                        <div class="image-wrapper">
+                            {% for propertyimage in property.propertykey.all %}
+                            {% if forloop.first %}
+                                <li class='slides' id='slide-n1'><img src="{% static propertyimage.picture.url %}" alt="gallery">
+                            {% endif %}
+                            {% endfor %}
+                            <a href="#" class='fa fa-home property-type-icon'></a>
+                            <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
+                        </div>
+                        <div class="desc-box">
+                            <h4><a href="#">{{property.title_text}}</a></h4>
+                            <ul class="slide-item-features item-features">
+                                <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
+                                <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
+                                <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
+                            </ul>
+                            <div class="buttons-wrapper">
+                                <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
+                                <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                        </div>
                     </div>
-                    {% endfor %}
-                    <div class="pagination">
+                </div>
+                <!-- /Single-item -->
+                {% endfor %}
+            </div>
+            <div class="pagination">
                         <span class="step-links">
-                            {% if object_list.has_previous %}
+                            {% if rent_properties.has_previous %}
 <!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
-                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
+                                <a href="?{{ page_request_var }}={{ rent_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
                             {% endif %}
 
                             <span class="current">
-                                Pagina {{ object_list.number }} van {{ object_list.paginator.num_pages }}.
+                                Pagina {{ rent_properties.number }} van {{ rent_properties.paginator.num_pages }}.
                             </span>
 
-                            {% if object_list.has_next %}
+                            {% if rent_properties.has_next %}
 <!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
-                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
+                                <a href="?{{ page_request_var }}={{ rent_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
                             {% endif %}
                         </span>
                     </div>
-                    <div>
-                        <p>
-                            </br>
-                            <!-- TODO: blocktrans -->
-                            {%blocktrans %}RENT_HELP_TEXT{% endblocktrans%}
-                            <!--Hebt u nog vragen? Ik help u graag verder!
-                            Hebt u vragen over het te koop stellen van een onroerend goed? Wilt u er zeker van zijn dat uw verkoopdossier volledig is?
-                            Neem vrijblijvend contact op!-->
-                            <p></p>
-                            <a href="{% url 'realestate:contact' %}" class="yellow-btn">{%blocktrans %}CONTACT_BUTTON{% endblocktrans%}</a>
-                            <p></p>
-                            </br>
-                        </p>
-                    </div>
-                    <div>
-                    <blockquote>
-                    <!-- TODO: blocktrans -->
-                    <p>{%blocktrans %}FAQ_BOTTOMTEXT{% endblocktrans%}</p>
-                    </blockquote>
-                    </div>
-                    </p>
-                    <div class="info-wrapper">
-                    </div>
-                    <div class="clearfix">
-                    </div>
-                </div>
-        </div> <!-- contact-info-->
-
+            {%endif%}
         </div>
     </div>
 

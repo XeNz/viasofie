@@ -65,7 +65,7 @@
                 </select> -->
                 <!-- {{form.borough_choices.errors}} -->
                 {{form.borough_choices}}
-            </div>            
+            </div>
             <div class="select-wrapper select-small">
                 <p>
                      {%blocktrans %}INDEX_BEDS{% endblocktrans%}
@@ -73,7 +73,7 @@
 <!--                 <select class='elselect'>
                     <option value="any">any</option>
                 </select> -->
-                
+
                 {{form.bedrooms}}
                 {{form.bedrooms.errors}}
             </div>
@@ -122,8 +122,9 @@
             <input id="search-button" class="yellow-btn" type="submit" value="search">
             </div>
         </form>
-    
+
 </div>
+
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="recent-listings">
     <div class="container">
@@ -133,7 +134,6 @@
             <div class="bordered">
             </div>
         </div>
-        {%endif%}
         {% if messages %}
         <div class="messages">
             {% for message in messages %}
@@ -188,8 +188,65 @@
             </span>
         </div>
         </div>
-        </div> <!-- contact-info-->
+        </div>
+        {%endif%}
+        {% if sell_properties %}
+             <div class="row listings-items-wrapper">
+             <div class="container">
+                <div class="title-box">
+                    <h3>{%blocktrans%}Panden te koop:{%endblocktrans%}</h3>
+                    <div class="bordered">
+                    </div>
+                </div>
+            {% for property in sell_properties %}
+                <div class="col-md-4 listing-single-item">
+                    <div class="item-inner">
+                        <div class="image-wrapper">
+                            {% for propertyimage in property.propertykey.all %}
+                            {% if forloop.first %}
+                                <li class='slides' id='slide-n1'><img src="{% static propertyimage.picture.url %}" alt="gallery">
+                            {% endif %}
+                            {% endfor %}
+                            <a href="#" class='fa fa-home property-type-icon'></a>
+                            <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
+                        </div>
+                        <div class="desc-box">
+                            <h4><a href="#">{{property.title_text}}</a></h4>
+                            <ul class="slide-item-features item-features">
+                                <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
+                                <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
+                                <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
+                            </ul>
+                            <div class="buttons-wrapper">
+                                <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
+                                <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Single-item -->
+                {% endfor %}
+            </div>
+            <div class="pagination">
+                        <span class="step-links">
+                            {% if sell_properties.has_previous %}
+<!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
+                                <a href="?{{ page_request_var }}={{ sell_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
+                            {% endif %}
 
+                            <span class="current">
+                                Pagina {{ sell_properties.number }} van {{ sell_properties.paginator.num_pages }}.
+                            </span>
+
+                            {% if sell_properties.has_next %}
+<!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
+                                <a href="?{{ page_request_var }}={{ sell_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
+                            {% endif %}
+                        </span>
+                    </div>
+            {%endif%}
         </div>
     </div>
 

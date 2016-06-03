@@ -34,6 +34,9 @@
     </div>
 </div>
 <!-- Search-Section -->
+<<<<<<< HEAD
+{% include "realestate/search.html" %}
+=======
 <div class="search-section">
     <div class="container">
         <form>
@@ -164,6 +167,37 @@
 {% endfor %} -->
 <!--     <h2>{%blocktrans %}SEARCH_TITLE{% endblocktrans%}</h2>
 
+        <form class=form-horizontal method="get" action=".">
+            <div class="input-group">
+               {{ form.q }}
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">{%blocktrans %}GO_BUTTON{% endblocktrans%}</button>
+               </span>
+            </div>
+          </form>
+
+        {% if query %}
+            <h3>{%blocktrans %}RESULTS_TITLE{% endblocktrans%}</h3>
+
+            {% for result in query %}
+                <p>
+                    <a href="{% url 'realestate:detail' pk=result.id %}" >{{ result.title }}</a>
+                </p>
+            {% empty %}
+                <p>{%blocktrans %}NO_RESULT{% endblocktrans%}</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div> -->
+
+>>>>>>> master
 <!-- Recent-Listings-Section -->
 <div class="recent-listings">
     <div class="container">
