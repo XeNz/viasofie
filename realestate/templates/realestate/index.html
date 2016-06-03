@@ -33,127 +33,114 @@
         </ul>
     </div>
 </div>
-<!-- Search-Section -->
-<<<<<<< HEAD
-{% include "realestate/search.html" %}
-=======
 <div class="search-section">
-    <div class="container">
-        <form>
+    <div class="container search-container">
+        <form method='POST'>
+        {% csrf_token %}
             <div class="select-wrapper select-smaill" id='select-rent'>
+<!--                  {{ form.non_field_errors }}
+                 {{ form.errors }} -->
                 <p>
                      {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">{%blocktrans %}INDEX_ANY{% endblocktrans%}</option>
                     <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
                     <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
-                </select>
+                </select> -->
+                <!-- {{ form.listing_type_choices.errors }} -->
+                {{form.listing_type_choices}}
             </div>
-            <div class="select-wrapper select-big" id='select-property'>
+            <div class="select-wrapper select-medium" id='select-property'>
                 <p>
                      {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
+                </select> -->
+                <!-- {{form.propertytype.errors}} -->
+                {{form.propertytype}}
             </div>
-            <div class="select-wrapper select-big">
+<!--             <div class="select-wrapper select-big">
                 <p>
-                     {%blocktrans %}INDEX_LOCATIONS{% endblocktrans%}
+                     Provincie
                 </p>
                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
                 </select>
+                {{form.province_choices.errors}}
+                {{form.province_choices}}
+            </div> -->
+            <div class="select-wrapper select-big">
+                <p>
+                     {%blocktrans %}INDEX_CITY{% endblocktrans%}
+                     <!--Gemeente-->
+                </p>
+<!--                 <select class='elselect'>
+                    <option value="any">any</option>
+                </select> -->
+                <!-- {{form.borough_choices.errors}} -->
+                {{form.borough_choices}}
             </div>
             <div class="select-wrapper select-small">
                 <p>
                      {%blocktrans %}INDEX_BEDS{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
+                </select> -->
+
+                {{form.bedrooms}}
+                {{form.bedrooms.errors}}
             </div>
             <div class="select-wrapper select-small">
                 <p>
                      {%blocktrans %}INDEX_BATHS{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
+                </select> -->
+                {{form.bathrooms}}
+                {{form.bathrooms.errors}}
             </div>
             <div class="select-wrapper select-medium">
                 <p>
                      {%blocktrans %}INDEX_SQFT{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
+                </select> -->
+                {{form.surfacearea}}
+                {{form.surfacearea.errors}}
             </div>
-            <div class="select-wrapper select-medium">
+            <div class="textinput-wrapper select-medium textinput-target">
                 <p>
                      {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
+                </select> -->
+                {{form.minprice}}
+                {{form.minprice.errors}}
             </div>
-            <div class="select-wrapper select-medium">
+            <div class="textinput-wrapper select-medium textinput-target">
                 <p>
                      {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
                 </p>
-                <select class='elselect'>
+<!--                 <select class='elselect'>
                     <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
+                </select> -->
+                {{form.maxprice}}
+                {{form.maxprice.errors}}
             </div>
-            <input type="submit" value="search" class='yellow-btn'>
+        </div>
+            <div class="text-center">
+            <input id="search-button" class="yellow-btn" type="submit" value="search">
+            </div>
         </form>
-    </div>
+
 </div>
-
-
+<!-- Search-Section -->
 <!--     <div class="col-md-12"> -->
    <!--  <h2 class="page-header"> <span class="label label-success">Featured</span></h2>
 {% for property in properties %}
@@ -196,9 +183,8 @@
             {% endif %}
         {% endif %}
     </div> -->
-
->>>>>>> master
 <!-- Recent-Listings-Section -->
+{%if last_six_properties_in_ascending_order%}
 <div class="recent-listings">
     <div class="container">
         <div class="title-box">
@@ -240,5 +226,70 @@
         </div>
     </div>
 </div>
+{%endif%}
+{%if result_list %}
+<div class="recent-listings">
+    <div class="container">
+        <div class="title-box">
+            <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Uw zoekresultaten--></h3>
+            <div class="bordered">
+            </div>
+        </div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <span {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}> {{ message }} </span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="row listings-items-wrapper">
+         {% for property in result_list %}
+            <div class="col-md-4 listing-single-item">
+                <div class="item-inner">
+                    <div class="image-wrapper">
+                        {% for propertyimage in property.propertykey.all %}
+                        {% if forloop.first %}
+                            <li class='slides' id='slide-n1'><img src="{% static propertyimage.picture.url %}" alt="gallery">
+                        {% endif %}
+                        {% endfor %}
+                        <a href="#" class='fa fa-home property-type-icon'></a>
+                        <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
+                    </div>
+                    <div class="desc-box">
+                        <h4><a href="#">{{property.title_text}}</a></h4>
+                        <ul class="slide-item-features item-features">
+                            <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
+                            <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
+                            <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
+                        </ul>
+                        <div class="buttons-wrapper">
+                            <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
+                            <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if result_list.has_previous %}
+                    <a href="?page={{ result_list.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ result_list.number }} of {{ result_list.paginator.num_pages }}.
+                </span>
+
+                {% if result_list.has_next %}
+                    <a href="?page={{ result_list.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+        </div>
+        </div>
+        {%endif%}
 
 {% include "realestate/footer.html" %}
