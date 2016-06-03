@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from .forms import PropertyAdminForm
 from django.contrib.sites.models import Site
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
@@ -48,11 +49,11 @@ class UserCreationForm(forms.ModelForm):
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super(UserCreationForm, self).save(commit=False)
-        user.set_password(self.cleaned_data["password1"])   
+        user.set_password(self.cleaned_data["password1"])
         username = self.cleaned_data.get("username")
         first_name = self.cleaned_data.get("first_name")
         last_name = self.cleaned_data.get("last_name")
-        if commit:      
+        if commit:
             user.save()
 
 
@@ -60,7 +61,7 @@ class UserCreationForm(forms.ModelForm):
         # send_mail('Subject here', 'Here is the password: .'+password,
         #        'from@example.com', ['someone@gmail.com'],
         #        fail_silently=False)
-        
+
         return user
 
 class UserChangeForm(forms.ModelForm):
@@ -169,6 +170,7 @@ class PropertyTypeAdmin(admin.ModelAdmin):
     search_fields = ("id", "name")
 
 class PropertyAdmin(admin.ModelAdmin):
+    form =PropertyAdminForm
     list_display = ("title_text", "description_text", "constructiondate", "sellingprice","featured","visible_to_public")
     list_filter = ("sellingprice", "constructiondate","featured")
     search_fields = ("sellingprice",)
