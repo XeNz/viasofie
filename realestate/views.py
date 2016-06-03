@@ -297,7 +297,7 @@ def reset(request):
         email_template_name='usercontrolpanel/password_reset_email.html',
         subject_template_name='usercontrolpanel/password_reset_subject.txt',
         post_reset_redirect=reverse('realestate:login'),
-        current_site_domain='current_site.domain'
+        # current_site_domain='current_site_domain'
         )
 
 
