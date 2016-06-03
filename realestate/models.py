@@ -309,11 +309,14 @@ class Ebook(models.Model):
         return self.title
 
 class EbookRequest(models.Model):
-<<<<<<< HEAD
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200)
-    emailaddress = models.EmailField(max_length=255)
-    requested_books = models.ManyToManyField(Ebook)
+    id = models.AutoField(primary_key=True, verbose_name = _('EbookRequest|id'))
+    name = models.CharField(max_length=200, verbose_name = _('EbookRequest|name'))
+    emailaddress = models.EmailField(max_length=255, verbose_name = _('EbookRequest|emailaddress'))
+    requested_books = models.ManyToManyField(Ebook, verbose_name = _('EbookRequest|requested_books'))
+
+    class Meta():
+        verbose_name = _('Ebook request')
+        verbose_name_plural = _('Ebook requests')
 
 class Subscriber(models.Model):
     id = models.AutoField(primary_key=True)
@@ -330,13 +333,3 @@ class Newsletter(models.Model):
     def __str__(self):
         return self.title
 
-=======
-    id = models.AutoField(primary_key=True, verbose_name = _('EbookRequest|id'))
-    name = models.CharField(max_length=200, verbose_name = _('EbookRequest|name'))
-    emailaddress = models.EmailField(max_length=255, verbose_name = _('EbookRequest|emailaddress'))
-    requested_books = models.ManyToManyField(Ebook, verbose_name = _('EbookRequest|requested_books'))
-
-    class Meta():
-        verbose_name = _('Ebook request')
-        verbose_name_plural = _('Ebook requests')
->>>>>>> origin/master
