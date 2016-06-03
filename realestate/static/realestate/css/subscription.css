@@ -1,0 +1,11 @@
+#confirmation{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 14px;
+  color: black;
+}
+
+#confirmation p a{
+  font-size: 14px;
+  color: black;
+}
