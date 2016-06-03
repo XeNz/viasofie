@@ -76,9 +76,9 @@
 			<p>
 				 {%blocktrans %}FOOTER_TEXT2{% endblocktrans%}
 			</p>
-			<form class='footer-search'>
-				<input type="text" placeholder='e-mail'>
-				<input type="submit">
+			<form class='footer-search' action="{% url 'realestate:newsletter_subscribe' %}" method="POST">{% csrf_token %}
+				<input type="text" name="email" placeholder="e-mail">
+    		<input type="submit" value="Meld aan">
 			</form>
 			<h3 class='footer-title'>{%blocktrans %} Vraag een E-book aan{% endblocktrans%}</h3>
 			<p>

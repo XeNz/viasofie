@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^partners/$', views.partners, name='partners'),
     url(r'^sell/$', views.sell, name='sell'),
     url(r'^rent/$', views.rent, name='rent'),
+    url(r'^newsletter/subscription/$', views.newsletter_subscribe, name='newsletter_subscribe')
 ]

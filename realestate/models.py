@@ -295,3 +295,19 @@ class EbookRequest(models.Model):
     name = models.CharField(max_length=200)
     emailaddress = models.EmailField(max_length=255)
     requested_books = models.ManyToManyField(Ebook)
+
+class Subscriber(models.Model):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
+
+class Newsletter(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.title
+
