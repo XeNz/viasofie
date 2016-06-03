@@ -25,7 +25,7 @@
 					{%blocktrans %}CONTACT_TEXT1{% endblocktrans%}
 				</p>
 				<p>
-					{%blocktrans %}CONTACT_TEXT2{% endblocktrans%}
+					<!-- {%blocktrans %}CONTACT_TEXT2{% endblocktrans%} -->
 				</p>
 				<div class="info-wrapper">
 					<span><i class="fa fa-home"></i>Mussenhoevelaan 101, 2530 Boechout</span><br>
@@ -50,15 +50,15 @@
 							{{ form.non_field_errors }}
 							<div class="contact-form-left">
 								{{ form.name.errors }}
-								<span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='Name' id='name'>
+								<span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='{%blocktrans %}CONTACT_FORM_NAME{% endblocktrans%}' id='name'>
 								{{ form.from_email.errors }}
-								<span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='E-mail' id='from_email'>
+								<span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='{%blocktrans %}CONTACT_FORM_EMAIL{% endblocktrans%}' id='from_email'>
 								{{ form.subject.errors }}
-								<span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="Subject" id='subject'>
+								<span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="{%blocktrans %}CONTACT_FORM_SUBJECT{% endblocktrans%}" id='subject'>
 							</div>
 							<div class="contact-form-right">
 								{{ form.message.errors }}
-								<textarea id="message" name='message' placeholder='Message'></textarea>
+								<textarea id="message" name='message' placeholder='{%blocktrans %}CONTACT_FORM_MESSAGE{% endblocktrans%}'></textarea>
 								<div id="captchawrapper">
 									<div class="g-recaptcha" data-sitekey="6Le1eSATAAAAABTPOLSoBvZB1K9iYiMdzu_XI6Aw"></div>
 								</div>
