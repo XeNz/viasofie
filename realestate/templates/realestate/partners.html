@@ -21,8 +21,13 @@
     </div>
   </div> <!--- end slider section-->
   <div class="partner">
+    <div class="recent-listings">
       <div class="container">
-          <h4 class="box-title">{%blocktrans %}PARTNER_TITLE{% endblocktrans%}</h4>
+          <div class="title-box">
+          <h3 class="box-title">{%blocktrans %}PARTNER_TITLE{% endblocktrans%}</h3>
+          <div class="bordered">
+          </div>
+          </div>
           <div class="row listings-items-wrapper">
           {% for partner in img %}
               <div class="col-md-3 partner-listing listing-single-item">
@@ -45,6 +50,7 @@
           {% endfor %}
           </div>
       </div>
+  </div>
   </div>
 </body>
 

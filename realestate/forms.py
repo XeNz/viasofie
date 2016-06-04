@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import *
 from nocaptcha_recaptcha.fields import NoReCaptchaField
-
+from django.utils.translation import ugettext_lazy as _
 
 
 class FeedbackForm(forms.Form):
@@ -50,12 +50,13 @@ class EbookRequestForm(forms.Form):
 class UpdateAccountInformation(forms.ModelForm):
 
     #TODO: email?
-    first_name = forms.CharField(label='First Name')
-    last_name = forms.CharField(label='Last Name')
+    first_name = forms.CharField(label=_('First Name'), widget=forms.TextInput(attrs={'class':'form-control'}))
+    last_name = forms.CharField(label=_('Last Name') , widget=forms.TextInput(attrs={'class':'form-control'}))
+    email = forms.CharField(label=_('Email adress') , widget=forms.TextInput(attrs={'class':'form-control'}))
 
     class Meta:
-        model = User
-        fields = ['first_name', 'last_name']
+        model = ClientUser
+        fields = ['first_name', 'last_name', 'email']
 
 
 class IndexSearchForm(forms.Form):

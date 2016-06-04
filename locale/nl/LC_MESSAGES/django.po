@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-03 12:33+0200\n"
+"POT-Creation-Date: 2016-06-04 03:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,15 +94,15 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: .\viasofie\settings.py:198
+#: .\viasofie\settings.py:195
 msgid "English"
 msgstr ""
 
-#: .\viasofie\settings.py:199
+#: .\viasofie\settings.py:196
 msgid "French"
 msgstr ""
 
-#: .\viasofie\settings.py:200
+#: .\viasofie\settings.py:197
 msgid "Nederlands"
 msgstr ""
 

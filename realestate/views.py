@@ -266,11 +266,12 @@ def controlpanel(request):
 def accountinformation(request):
     if not request.user.is_staff:
         user = request.user
-        form = UpdateAccountInformation(request.POST or None, initial={'first_name':user.first_name, 'last_name':user.last_name})
+        form = UpdateAccountInformation(request.POST or None, initial={'first_name':user.first_name, 'last_name':user.last_name, 'email' : user.email})
         if request.method == 'POST':
             if form.is_valid():
                 user.first_name = request.POST['first_name']
                 user.last_name = request.POST['last_name']
+                user.email = request.POST['email']
                 user.save()
                 messages.success(request, 'Account informatie aangepast!')
                 return HttpResponseRedirect(reverse('realestate:controlpanel'))

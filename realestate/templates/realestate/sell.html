@@ -175,15 +175,23 @@
         <div class="pagination">
             <span class="step-links">
                 {% if result_list.has_previous %}
-                    <a href="?page={{ result_list.previous_page_number }}">previous</a>
+                    <form action="?page={{ result_list.previous_page_number }}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ search_value }}" name="search_name">
+                        <button type="submit">&laquo;</button>
+                    </form>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ result_list.number }} of {{ result_list.paginator.num_pages }}.
+                    Page {{ result_list.number }} of {{ result_list.paginator.num_pages }}. 
                 </span>
 
                 {% if result_list.has_next %}
-                    <a href="?page={{ result_list.next_page_number }}">next</a>
+                   <form action="?page={{ result_list.next_page_number }}" method="post">
+                       {% csrf_token %}
+                       <input type="hidden" value="{{ search_value }}" name="search_name">
+                       <button type="submit">&raquo;</button>
+                   </form>
                 {% endif %}
             </span>
         </div>

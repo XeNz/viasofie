@@ -2028,7 +2028,7 @@ input[type='submit'] {
   font-weight:300;
   text-transform:capitalize;
   padding:8px 41px;
-  margin-left:10px;
+  /* margin-left:10px; */
   transition:all 300ms ease-in-out;
   -o-transition:all 300ms ease-in-out;
   -moz-transition:all 300ms ease-in-out;
@@ -2094,7 +2094,6 @@ input[type='submit'] {
 
 
 .help-tip{
-  
   text-align: center;
   background-color: #BCDBEA;
   border-radius: 50%;
@@ -2103,8 +2102,8 @@ input[type='submit'] {
   font-size: 12px;
   line-height: 20px;
   cursor: default;
-  margin-top: -20px;
-  margin-left: 60px;
+  margin-top: -18px;
+  margin-left: 75px;
 }
 
 .help-tip:before{
@@ -2127,13 +2126,10 @@ input[type='submit'] {
   text-align: left;
   background-color: #0d3532;
   padding: 20px;
-  margin-top: 25px;
-  margin-right: 4px;
-  width: 300px;
-  position: absolute;
+  margin-top: 10px;
+  position: relative;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  right: -4px;
   color: #FFF;
   font-size: 13px;
   line-height: 1.4;
@@ -2146,7 +2142,7 @@ input[type='submit'] {
   height: 0;
   border:6px solid transparent;
   border-bottom-color:#1E2021;
-  left: 49px;
+  left: 5px;
   top:-12px;
 }
 
@@ -2193,4 +2189,10 @@ input[type='submit'] {
 }
 #footer-ebook-request{
   margin-top: 70px;
+}
+#userpanelcontainer{
+  font-size: 1.3em;
+}
+#faq-contact-button{
+  font-weight: 300;
 }
