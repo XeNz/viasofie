@@ -468,10 +468,8 @@ msgid "CONTACT_BUTTON"
 msgstr "Contacteer ons"
 
 #: .\realestate\templates\realestate\contact.html:14
-#, fuzzy
-#| msgid "CONTACT_BUTTON"
 msgid "CONTACT_US_BUTTON"
-msgstr "Contact us"
+msgstr "Contacteer ons"
 
 #: .\realestate\templates\realestate\contact.html:23
 msgid "CONTACT_TITLE"
@@ -528,20 +526,47 @@ msgstr ""
 "om online advertenties aan te passen aan uw interesses.Door te surfen op "
 "deze website gaat u akkoord met het plaatsen van cookies."
 
-#: .\realestate\templates\realestate\detail.html:225
-#, fuzzy
-#| msgid "INDEX_TITLE"
+#: .\realestate\templates\realestate\detail.html:12
+#: .\realestate\templates\realestate\detail.html:16
+msgid "EIGENDOM_REFERENTIE"
+msgstr "Eigendom referentie "
+
+#: .\realestate\templates\realestate\detail.html:151
+msgid "PROPERTY_SALE"
+msgstr "Te  koop"
+
+#: .\realestate\templates\realestate\detail.html:153
+msgid "PROPERTY_RENT"
+msgstr "Te huur"
+
+#: .\realestate\templates\realestate\detail.html:182
+msgid "BATHROOMS"
+msgstr "Badkamers"
+
+#: .\realestate\templates\realestate\detail.html:183
+msgid "BEDROOMS"
+msgstr "Slaapkamers"
+
+#: .\realestate\templates\realestate\detail.html:189
+msgid "ADDITIONAL_FEATURES"
+msgstr "Extra kenmerken"
+
+#: .\realestate\templates\realestate\detail.html:198
+msgid "PROPERTY_LOCATION"
+msgstr "Locatie"
+
+#: .\realestate\templates\realestate\detail.html:232
 msgid "TELL_FRIEND_TITLE"
-msgstr "Recente eigendommen"
+msgstr "Interessant pand voor iemand dat je kent?"
 
-#: .\realestate\templates\realestate\detail.html:228
+#: .\realestate\templates\realestate\detail.html:235
 msgid "TELL_FRIEND_TEXT"
-msgstr ""
+msgstr "Heeft iemand dat u kent misschien interesse in dit pand?"
 
-#: .\realestate\templates\realestate\detail.html:231
+#: .\realestate\templates\realestate\detail.html:238
 #: .\realestate\templates\realestate\share.html:15
 msgid "SHARE_LINK"
-msgstr ""
+msgstr "Deel dit pand nu!"
 
 #: .\realestate\templates\realestate\disclaimer.html:10
 #: .\realestate\templates\realestate\disclaimer.html:14
@@ -685,34 +710,38 @@ msgstr "contact info"
 msgid "OPENING_HOURS"
 msgstr "Contacteer mij voor een afspraak:"
 
-#: .\realestate\templates\realestate\footer.html:54
+#: .\realestate\templates\realestate\footer.html:51
+msgid "PRIVACY_POLICY"
+msgstr "Ons privacy beleid"
+
+#: .\realestate\templates\realestate\footer.html:59
 msgid "RECOGNIZED_TEXT"
 msgstr "Erkend vastgoedmakelaar: "
 
-#: .\realestate\templates\realestate\footer.html:57
+#: .\realestate\templates\realestate\footer.html:62
 msgid "BUSINESS_NUMBER"
 msgstr ""
 "Onderworpen aan de controle van het Beroepsinstituut voor Vastgoedmakelaars."
 
-#: .\realestate\templates\realestate\footer.html:63
+#: .\realestate\templates\realestate\footer.html:68
 msgid "BIV_TEXT"
 msgstr "Ondernemingsnummer: 0541.508.141"
 
-#: .\realestate\templates\realestate\footer.html:73
+#: .\realestate\templates\realestate\footer.html:78
 msgid "FOOTER_TITLE2"
 msgstr "Nieuwsbrief"
 
-#: .\realestate\templates\realestate\footer.html:75
+#: .\realestate\templates\realestate\footer.html:80
 msgid "FOOTER_TEXT2"
 msgstr ""
 "This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
 "auctor aliquet."
 
-#: .\realestate\templates\realestate\footer.html:81
+#: .\realestate\templates\realestate\footer.html:86
 msgid " Vraag een E-book aan"
 msgstr "Vraag een E-book aan"
 
-#: .\realestate\templates\realestate\footer.html:83
+#: .\realestate\templates\realestate\footer.html:88
 msgid "Vraag hier uw gratis ebook aan"
 msgstr "Vraag hier uw gratis ebook aan"
 
@@ -756,24 +785,28 @@ msgstr "Partners"
 msgid "FEATURED_SLIDER"
 msgstr "Uitgelicht"
 
-#: .\realestate\templates\realestate\index.html:28
+#: .\realestate\templates\realestate\index.html:29
+msgid "RENT_MONTH"
+msgstr "per maand"
+
+#: .\realestate\templates\realestate\index.html:32
 msgid "DETAILS_BUTTON"
 msgstr "Details"
 
-#: .\realestate\templates\realestate\index.html:42
+#: .\realestate\templates\realestate\index.html:46
 msgid "INDEX_TITLE"
 msgstr "Recent toegevoegd"
 
-#: .\realestate\templates\realestate\index.html:68
-#: .\realestate\templates\realestate\index.html:118
+#: .\realestate\templates\realestate\index.html:72
+#: .\realestate\templates\realestate\index.html:122
 #: .\realestate\templates\realestate\rent.html:166
 #: .\realestate\templates\realestate\rent.html:222
 #: .\realestate\templates\realestate\sell.html:166
-#: .\realestate\templates\realestate\sell.html:222
+#: .\realestate\templates\realestate\sell.html:230
 msgid "PROPERTY_DETAILS_BUTTON"
 msgstr "Details"
 
-#: .\realestate\templates\realestate\index.html:85
+#: .\realestate\templates\realestate\index.html:89
 #: .\realestate\templates\realestate\rent.html:133
 #: .\realestate\templates\realestate\sell.html:133
 msgid "SEARCH_RESULTS"
@@ -883,7 +916,7 @@ msgstr "Panden te huur"
 msgid "SELL_BUTTON"
 msgstr "Kopen"
 
-#: .\realestate\templates\realestate\sell.html:197
+#: .\realestate\templates\realestate\sell.html:205
 msgid "Panden te koop:"
 msgstr "Panden te koop"
 

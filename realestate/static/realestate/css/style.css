@@ -1244,11 +1244,12 @@ footer .container .footer-newsletter input[type='submit'] {
   margin-bottom:30px;
 }
 .sidebar-widget .widget-title {
-  text-transform:capitalize;
+  /*text-transform:capitalize;*/
   font-size:20px;
   font-weight:300;
   font-family:Roboto;
   margin-top:0;
+  color:#444;
 }
 .search-widget .search-box {
   float:left;
@@ -2195,4 +2196,9 @@ input[type='submit'] {
 }
 #faq-contact-button{
   font-weight: 300;
+}
+
+#accountinformation-form{
+  font-weight: 300;
+  color: #444;
 }

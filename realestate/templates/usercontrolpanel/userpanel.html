@@ -113,7 +113,7 @@
                   <tbody>
                   {% for documents in selected_deal_documents %}
                     <tr>
-                      <td><a href="{{MEDIA_URL}}{{documents.document}}">{{documents.title}}</a></td>
+                      <td><a href="{{MEDIA_URL}}{{documents.document}}"><i class="fa fa-file-o" aria-hidden="true"></i> {{documents.title}}</a></td>
                     </tr>
                  {% endfor %}
                   </tbody>
