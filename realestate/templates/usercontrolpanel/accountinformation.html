@@ -30,7 +30,7 @@
             {% endfor %}
             </div>
             {% endif %}
-            <form class="contact-form"method="POST" action="{% url 'realestate:accountinformation' %}" class="" />
+            <form id="accountinformation-form" class="contact-form"method="POST" action="{% url 'realestate:accountinformation' %}" class="" />
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" value="Opslaan" class='yellow-btn'>

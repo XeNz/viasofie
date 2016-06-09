@@ -77,7 +77,7 @@ class PropertyAdminForm(forms.ModelForm):
     description_text = forms.CharField(label='description')
     street_text = forms.CharField(label='street')
     house_number_text = forms.CharField(label='house number')
-    postcodes = Location.objects.values_list('postcode', flat=True).distinct()
+    postcodes = Location.objects.values_list('postcode', flat=True).distinct().order_by('postcode')
     postcodes_choices = [('', 'None')] + [(postcode, postcode) for postcode in postcodes]
     postal_code_text = forms.ChoiceField(postcodes_choices,
                                 required=True, widget=forms.Select())

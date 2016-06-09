@@ -9,11 +9,11 @@
     <div class="container">
         <div class="pull-left page-title">
             <a href="{% url 'realestate:detail' pk=property.id %}">
-            <h2>Property {{property.id}}</h2>
+            <h2>{%blocktrans %}EIGENDOM_REFERENTIE{% endblocktrans%} {{property.id}}</h2>
             </a>
         </div>
         <div class="pull-right breadcrumb">
-            <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:detail' pk=property.id %}">Property {{property.id}}</a>
+            <a href="{% url 'realestate:index' %}">home</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:detail' pk=property.id %}">{%blocktrans %}EIGENDOM_REFERENTIE{% endblocktrans%} {{property.id}}</a>
         </div>
     </div>
 </div>
@@ -146,7 +146,13 @@
                         <div id="details-slider" class="flexslider">
                             <a href="#" class='fa fa-home property-type-icon'></a>
                             <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
-                            <a href="#" class='status'>for sale</a>
+                            <a href="#" class='status'>
+                                {% if property.listing_type == 'Kopen' %}
+                                {%blocktrans %}PROPERTY_SALE{% endblocktrans%}
+                                {% else %}
+                                {%blocktrans %}PROPERTY_RENT{% endblocktrans%}
+                                {% endif %}
+                            </a>
                             <ul class="slides">
                             {% for propertyimage in property.propertykey.all %}
                                 <li>
@@ -169,17 +175,18 @@
                     </div>
                     <div class="property-desc">
                         <h3>{{ property.title_text }}</h3>
+                        <h3>Referentie : {{ property.id }}</h3>
                         <h2>{{ property.street_text }} {{ property.house_number_text}}, {{ property.postal_code_text }} {{ property.city_text }}, {{ property.country_text }}</h2>
                         <ul class="slide-item-features item-features">
                         <li id="surface_area"><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}} m²</li>
-                            <li><span class="fa fa-male"></span>{{property.bathrooms_text}} bathrooms</li>
-                            <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}} bedrooms</li>
+                            <li><span class="fa fa-male"></span>{{property.bathrooms_text}} {%blocktrans %}BATHROOMS{% endblocktrans%}</li>
+                            <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}} {%blocktrans %}BEDROOMS{% endblocktrans%}</li>
                         </ul>
                         <p class="first-paragraph">
                             {{property.description_text}}
                         </p>
                         <div class="additional-features">
-                            <h3>Additional Features</h3>
+                            <h3>{%blocktrans %}ADDITIONAL_FEATURES{% endblocktrans%}</h3>
                             <ul class="features">
                                 {% for characteristic in characteristics_property %}
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>{{characteristic.characteristic_id.name}}</a></li>
@@ -188,7 +195,7 @@
                             </ul>
                         </div>
                         <div class="property-location">
-                            <h3>Property Location</h3>
+                            <h3>{%blocktrans %}PROPERTY_LOCATION{% endblocktrans%}</h3>
                             <div id="property-location-map">
                                  <iframe seamless="seamless" style="border: 0; width:100%; height:100%;" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKMBzwOnxTR6afh36_CuNthTypmBQwOX0&amp;q={{ property.street_text }},{{ property.house_number_text }},{{ property.city_text }},{{ property.postal_code_text }},{{ property.country_text}}"> </iframe>
                             </div>
