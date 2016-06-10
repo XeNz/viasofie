@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class FeedbackForm(forms.Form):
+    name = forms.CharField(label="Naam")
     from_email = forms.EmailField(label="E-mail")
     subject = forms.CharField(label="Onderwerp")
     message = forms.CharField(label="Vraag",widget=forms.Textarea)
