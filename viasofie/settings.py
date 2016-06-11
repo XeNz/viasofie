@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.16.195.115',]
 
+NEWSLETTER_CONFIRM_EMAIL = True
 
 # Application definition
 
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'selenium',
     'nocaptcha_recaptcha',
+    'django_extensions',
+    'sorl.thumbnail',
+    'newsletter',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -164,9 +168,9 @@ NORECAPTCHA_SECRET_KEY = "6Le1eSATAAAAAFfYbEp32EP_gNE89mF8oKvZ8xiI"
 #gmail smtp service settings
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'viasofieinfo@gmail.com'
+EMAIL_HOST_USER = 'testmich4@gmail.com'
 #TODO: configure password
-EMAIL_HOST_PASSWORD = '1ZG4a3UdcQ4R'
+EMAIL_HOST_PASSWORD = 'testaccount'
 EMAIL_PORT = 587
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
