@@ -317,19 +317,3 @@ class EbookRequest(models.Model):
     class Meta():
         verbose_name = _('Ebook request')
         verbose_name_plural = _('Ebook requests')
-
-class Subscriber(models.Model):
-    id = models.AutoField(primary_key=True)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.email
-
-class Newsletter(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-
-    def __str__(self):
-        return self.title
-
