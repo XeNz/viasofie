@@ -13,6 +13,7 @@ from django.contrib.auth.models import Group, User
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from realestate.models import ClientUser
+from realestate.models import Subscriber, Newsletter
 from django.contrib.auth import (
     authenticate, get_user_model, password_validation,
 )
@@ -228,3 +229,5 @@ admin.site.register(PropertyType, PropertyTypeAdmin)
 admin.site.register(Partner, PartnerAdmin)
 admin.site.register(Ebook, EbookAdmin)
 admin.site.register(EbookRequest, EbookRequestAdmin)
+admin.site.register(Newsletter)
+admin.site.register(Subscriber)
