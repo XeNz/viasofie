@@ -128,7 +128,6 @@
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="recent-listings">
     <div class="container">
-        {%if result_list %}
         <div class="title-box">
             <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Uw zoekresultaten--></h3>
             <div class="bordered">
@@ -141,8 +140,14 @@
             {% endfor %}
         </div>
         {% endif %}
+        <!--  -->
+        <!-- LOOPKE OM TE TESTEN, heb die loop hieronder veranderd naar result_list1 -->
+        <!--  -->
+        {% for key, value in result_list %}
+            {{ key }} <!-- wtf key print alles? -->
+        {% endfor %}
         <div class="row listings-items-wrapper">
-         {% for property in result_list %}
+         {% for property in result_list1 %}
             <div class="col-md-4 listing-single-item">
                 <div class="item-inner">
                     <div class="image-wrapper">
@@ -163,7 +168,7 @@
                         </ul>
                         <div class="buttons-wrapper">
                             <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
-                            <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
+                            <a href="" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
                         </div>
                         <div class="clearfix">
                         </div>
@@ -197,7 +202,6 @@
         </div>
         </div>
         </div>
-        {%endif%}
         {% if sell_properties %}
              <div class="row listings-items-wrapper">
              <div class="container">
