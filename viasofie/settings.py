@@ -168,9 +168,9 @@ NORECAPTCHA_SECRET_KEY = "6Le1eSATAAAAAFfYbEp32EP_gNE89mF8oKvZ8xiI"
 #gmail smtp service settings
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'testmich4@gmail.com'
+EMAIL_HOST_USER = 'viasofieinfo@gmail.com'
 #TODO: configure password
-EMAIL_HOST_PASSWORD = 'testaccount'
+EMAIL_HOST_PASSWORD = '1ZG4a3UdcQ4R'
 EMAIL_PORT = 587
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
