@@ -170,8 +170,8 @@ def contact(request):
             from_email = request.POST.get('from_email', '')
             template = get_template('realestate/contact_template.txt')
             context = Context({
-                              'name': subject,
-                              'from_email': from_email,
+                              'name': name,
+                              'email': from_email,
                               'subject': subject,
                               'message': message,
                               })
@@ -182,7 +182,7 @@ def contact(request):
                                  content,
                                  "Via Sofie" + ' ',
                                  #TODO info@viasofie.com
-                                 ['de.caluwe.bart@gmail.com'],
+                                 ['viasofieinfo@gmail.com'],
                                  headers={'Reply-To': from_email}
                                  )
             email.send()
@@ -222,14 +222,14 @@ def share(request):
                                  )
             email.send()
             messages.success(request, 'Bericht met success verstuurd.')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            url = request.META.get('HTTP_REFERER')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'), {'url': url})
         else:
              messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
-        url = request.META.get('HTTP_REFERER')
-        form = FeedbackForm()
+        form = ShareForm()
         form.message = request.META.get('HTTP_REFERER')
-
+    url = request.META.get('HTTP_REFERER')
     return render(request, 'realestate/share.html', {'form': form, 'url': url})
 
 
@@ -439,12 +439,12 @@ def ebook(request):
 def newsletter_subscribe(request):
     emailaddress = request.POST.get('email')
     subscriber = Subscriber(email=emailaddress)
-    
+
     if Subscriber.objects.filter(email=emailaddress).exists():
         return render(request, 'realestate/newsletter_subscription.html')
     else:
         subscriber.save()
         return render(request, 'realestate/newsletter_subscription.html')
-    
-    
-    
+
+
+
