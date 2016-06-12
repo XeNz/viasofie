@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.16.195.115',]
 
+NEWSLETTER_CONFIRM_EMAIL = True
 
 # Application definition
 
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'selenium',
     'nocaptcha_recaptcha',
+    'django_extensions',
+    'sorl.thumbnail',
+    'newsletter',
 ]
 
 MIDDLEWARE_CLASSES = [

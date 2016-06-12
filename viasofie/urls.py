@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls , name='admin'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^reset/', include('password_reset.urls')),
+    url(r'^newsletter/', include('newsletter.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += i18n_patterns('',
