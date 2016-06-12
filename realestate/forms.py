@@ -23,7 +23,7 @@ class ShareForm(forms.Form):
     message = forms.CharField(label="Bericht",widget=forms.Textarea)
     captcha = NoReCaptchaField()
     def __init__(self, *args, **kwargs):
-        super(FeedbackForm, self).__init__(*args, **kwargs)
+        super(ShareForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 

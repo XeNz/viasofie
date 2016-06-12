@@ -222,14 +222,14 @@ def share(request):
                                  )
             email.send()
             messages.success(request, 'Bericht met success verstuurd.')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            url = request.META.get('HTTP_REFERER')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'), {'url': url})
         else:
              messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
-        url = request.META.get('HTTP_REFERER')
-        form = FeedbackForm()
+        form = ShareForm()
         form.message = request.META.get('HTTP_REFERER')
-
+    url = request.META.get('HTTP_REFERER')
     return render(request, 'realestate/share.html', {'form': form, 'url': url})
 
 
