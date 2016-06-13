@@ -205,7 +205,7 @@ def share(request):
             from_email = request.POST.get('from_email', '')
             template = get_template('realestate/contact_template.txt')
             context = Context({
-                              'name': subject,
+                              'name': name,
                               'from_email': from_email,
                               'subject': subject,
                               'message': message,
@@ -213,7 +213,7 @@ def share(request):
             content = template.render(context)
 
             email = EmailMessage(
-                                 name + "heeft u een nieuw pand doorgestuurd",
+                                 name + " heeft u een nieuw pand doorgestuurd",
                                  content,
                                  "Via Sofie" + ' ',
                                  #TODO info@viasofie.com

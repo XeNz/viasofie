@@ -2,7 +2,7 @@ From:
 {{name}}
 
 Email adres:
-{{email}}
+{{from_email}}
 
 Onderwerp:
 {{subject}}
