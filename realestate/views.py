@@ -292,16 +292,17 @@ def accountinformation(request):
 
 
 def reset_confirm(request, uidb64=None, token=None):
-    return password_reset_confirm(request, template_name='usercontrolpanel/password_reset_confirm.html',
+    passwordreset = True
+    return password_reset_confirm(request, template_name='usercontrolpanel/passwordreset/password_reset_confirm.html',
         uidb64=uidb64, token=token, post_reset_redirect=reverse('realestate:login'))
 
 
 def reset(request):
     current_site = Site.objects.get_current()
     current_site_domain= current_site.domain
-    return password_reset(request, template_name='usercontrolpanel/password_reset_form.html',
-        email_template_name='usercontrolpanel/password_reset_email.html',
-        subject_template_name='usercontrolpanel/password_reset_subject.txt',
+    return password_reset(request, template_name='usercontrolpanel/passwordreset/password_reset_form.html',
+        email_template_name='usercontrolpanel/passwordreset/password_reset_email.html',
+        subject_template_name='usercontrolpanel/passwordreset/password_reset_subject.txt',
         post_reset_redirect=reverse('realestate:login'),
         # current_site_domain='current_site_domain'
         )
