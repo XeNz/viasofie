@@ -77,12 +77,11 @@
 		<div class="col-md-4 footer-newsletter">
 			<h3 class='footer-title'>{%blocktrans %}FOOTER_TITLE2{% endblocktrans%}</h3>
 			<p>
-				 {%blocktrans %}FOOTER_TEXT2{% endblocktrans%}
+					<a href="newsletter" class="yellow-button"> {%blocktrans %}Schrijf u hier in voor onze nieuwsbrief{% endblocktrans%}</a>
 			</p>
-			<form class='footer-search' action="{% url 'realestate:newsletter_subscribe' %}" method="POST">{% csrf_token %}
-				<input type="text" name="email" placeholder="e-mail">
-    		<input type="submit" value="Meld aan">
-			</form>
+			<p>
+					<a href="newsletter" class="yellow-button"> {%blocktrans %}Klik hier om uw inschrijving te wijzigen of te annuleren{% endblocktrans%}</a>
+			</p>
 			<h3 id= "footer-ebook-request" class='footer-title'>{%blocktrans %} Vraag een E-book aan{% endblocktrans%}</h3>
 			<p>
 				 <a href="{% url 'realestate:ebook' %}" class="yellow-button"> {%blocktrans %}Vraag hier uw gratis ebook aan{% endblocktrans%}</a>

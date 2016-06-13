@@ -436,16 +436,3 @@ def ebook(request):
         return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks, 'ebookrequest': ebookrequest})
     else:
         return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks})
-
-def newsletter_subscribe(request):
-    emailaddress = request.POST.get('email')
-    subscriber = Subscriber(email=emailaddress)
-
-    if Subscriber.objects.filter(email=emailaddress).exists():
-        return render(request, 'realestate/newsletter_subscription.html')
-    else:
-        subscriber.save()
-        return render(request, 'realestate/newsletter_subscription.html')
-
-
-
