@@ -1,0 +1,71 @@
+{% load staticfiles %}
+{% load cookielaw_tags %}
+{% load i18n %}
+<div class="search-section">
+    <div class="container search-container">
+        <form action="{% url 'realestate:search' %}" method='POST'>
+        {% csrf_token %}
+            <div class="select-wrapper select-smaill" id='select-rent'>
+                 {{ form.non_field_errors }}
+                 <!-- {{ form.errors }} -->
+                <p>
+                     {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
+                </p>
+                <!-- {{ form.listing_type_choices.errors }} -->
+                {{form.listing_type_choices}}
+            </div>
+            <div class="select-wrapper select-medium" id='select-property'>
+                <p>
+                     {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
+                </p>
+
+                <!-- {{form.propertytype.errors}} -->
+                {{form.propertytype}}
+            </div>
+            <div class="select-wrapper select-big">
+                <p>
+                     {%blocktrans %}INDEX_CITY{% endblocktrans%}
+                </p>
+                {{form.borough_choices}}
+            </div>
+            <div class="select-wrapper select-small">
+                <p>
+                     {%blocktrans %}INDEX_BEDS{% endblocktrans%}
+                </p>
+                {{form.bedrooms}}
+                {{form.bedrooms.errors}}
+            </div>
+            <div class="select-wrapper select-small">
+                <p>
+                     {%blocktrans %}INDEX_BATHS{% endblocktrans%}
+                </p>
+                {{form.bathrooms}}
+                {{form.bathrooms.errors}}
+            </div>
+            <div class="select-wrapper select-medium">
+                <p>
+                     {%blocktrans %}INDEX_SQFT{% endblocktrans%}
+                </p>
+                {{form.surfacearea}}
+                {{form.surfacearea.errors}}
+            </div>
+            <div class="textinput-wrapper select-medium textinput-target">
+                <p>
+                     {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
+                </p>
+                {{form.minprice}}
+                {{form.minprice.errors}}
+            </div>
+            <div class="textinput-wrapper select-medium textinput-target">
+                <p>
+                     {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
+                </p>
+                {{form.maxprice}}
+                {{form.maxprice.errors}}
+            </div>
+        </div>
+            <div class="text-center">
+            <input id="search-button" class="yellow-btn" type="submit" value="{%blocktrans %}SEARCH_BUTTON{% endblocktrans%}">
+            </div>
+        </form>
+</div>

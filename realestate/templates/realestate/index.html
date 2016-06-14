@@ -21,7 +21,6 @@
                     <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
                     <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
                     <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
-                    <!-- <li><span class="fa fa-truck"></span>1 garage</li> -->
                 </ul>
                 <div class="slider-buttons-wrapper">
                     <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}
@@ -37,7 +36,7 @@
         </ul>
     </div>
 </div>
-
+{% include "realestate/search_bar.html" %}
 <!-- Recent-Listings-Section -->
 {%if last_six_properties_in_ascending_order%}
 <div class="recent-listings">
