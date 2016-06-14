@@ -33,12 +33,7 @@ from django.core import serializers
 from django.http import QueryDict
 
 def index(request):
-    # form = PropertiesSearchForm(request.GET)
-    # if request.GET:
-    #     query = form.search()
-    #     return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
-    # else:
-    #6 most recent properties
+    ref_form = ReferenceSearchForm
     last_six_properties = Property.objects.all().order_by('-pub_date')[:6]
     last_six_properties_in_ascending_order = reversed(last_six_properties)
     #6 featured properties
@@ -75,6 +70,7 @@ def index(request):
             # If page is out of range (e.g. 9999), deliver last page of results.
             queryset = paginator.page(paginator.num_pages)
         context = {
+            'ref_form': ref_form,
             "page_request_var": page_request_var,
             'form': form,
             'last_six_properties': queryset,
@@ -317,6 +313,13 @@ def disclaimer(request):
 def partners(request):
     img = Partner.objects.all().order_by('-id')
     return render(request, 'realestate/partners.html', {"img": img})
+
+def reference_search(request):
+    if request.method == 'POST':
+        property_id = request.POST.get('property_id')
+        ref_property = Property.objects.filter(id=property_id)
+        if ref_property:
+            return HttpResponseRedirect(reverse('realestate:detail', args=[property_id]))
 
 def sell(request):
     sell_properties = Property.objects.filter(listing_type="kopen")

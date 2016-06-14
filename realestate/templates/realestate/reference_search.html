@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% load cookielaw_tags %}
+{% load i18n %}
+<div class="search-section">
+    <div class="container search-container">
+        <form action="{% url 'realestate:reference_search' %}" method='POST'>
+        {% csrf_token %}
+            <div class="select-wrapper select-smaill" id='select-rent'>
+                 {{ form.non_field_errors }}
+                 <!-- {{ form.errors }} -->
+                <p>
+                     {%blocktrans %}REFERENCE_SEARCH{% endblocktrans%}
+                </p>
+                <!-- {{ form.listing_type_choices.errors }} -->
+                {{ref_form.property_id}}
+            </div>
+        </div>
+            <div class="text-center">
+            <input id="search-button" class="yellow-btn" type="submit" value="{%blocktrans %}SEARCH_BUTTON{% endblocktrans%}">
+            </div>
+        </form>
+</div>
