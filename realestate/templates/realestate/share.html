@@ -36,13 +36,17 @@
                                 {{ form.name.errors }}
                                 <span><i class='fa fa-user'></i></span><input type="text" name='name' placeholder='Name' id='name'>
                                 {{ form.from_email.errors }}
-                                <span><i class='fa fa-envelope-o'></i></span><input type="text" name='email' placeholder='E-mail' id='from_email'>
+                                <span><i class='fa fa-envelope-o'></i></span><input type="text" name='from_email' placeholder='E-mail' id='from_email'>
                                 {{ form.subject.errors }}
                                 <span><i class='fa fa-comment'></i></span><input type="text" name='subject' placeholder="Subject" id='subject'>
                             </div>
                             <div class="contact-form-right">
                                 {{ form.message.errors }}
-                                <textarea id="message" name='message' placeholder='Message'>Hey, ik zou je graag dit pand laten zien. Misschien interesseert dit je wel: {{ url }}</textarea>
+                                <textarea id="message" name='message' placeholder='Message'>
+                                {% if url %}
+                                Hey, ik zou je graag dit pand laten zien. Misschien interesseert dit je wel: {{ url }}
+                                {% endif %}
+                                </textarea>
                                 <div id="captchawrapper">
                                     <div class="g-recaptcha" data-sitekey="6Le1eSATAAAAABTPOLSoBvZB1K9iYiMdzu_XI6Aw"></div>
                                 </div>

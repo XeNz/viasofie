@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^disclaimer/$', views.disclaimer, name='disclaimer'),
     url(r'^share/$', views.share, name='share'),
     url(r'^ebook/$', views.ebook, name='ebook'),
-    url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+    url(r'^reset/confirm/(?P<uidb64>[0-9A-Za-z]+)/(?P<token>.+)/$',
             views.reset_confirm, name='reset_confirm'),
     url(r'^reset/$', views.reset, name='reset'),
     url(r'^accountinformation/$', views.accountinformation, name='accountinformation'),
@@ -27,5 +27,4 @@ urlpatterns = [
     url(r'^partners/$', views.partners, name='partners'),
     url(r'^sell/$', views.sell, name='sell'),
     url(r'^rent/$', views.rent, name='rent'),
-    url(r'^newsletter/subscription/$', views.newsletter_subscribe, name='newsletter_subscribe')
 ]

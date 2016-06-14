@@ -13,12 +13,12 @@ from django.contrib.auth.models import Group, User
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from realestate.models import ClientUser
-from realestate.models import Subscriber, Newsletter
 from django.contrib.auth import (
     authenticate, get_user_model, password_validation,
 )
 from django.utils.translation import gettext as _
 import random
+
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
@@ -160,12 +160,12 @@ class Characteristics_propertyInline(admin.TabularInline):
     fields = ['property_id','characteristic_id','value',]
 
 class CharacteristicAdmin(admin.ModelAdmin):
-    list_display = ("id", "name")
+    list_display = ("name",)
     list_filter = ("id", "name")
     search_fields = ("id", "name")
 
 class PropertyTypeAdmin(admin.ModelAdmin):
-    list_display = ("id", "name")
+    list_display = ("name",)
     list_filter = ("id", "name")
     search_fields = ("id", "name")
 
@@ -210,13 +210,13 @@ class PartnerAdmin(admin.ModelAdmin):
     inlines = [PartnerLogoInline,]
 
 class EbookAdmin(admin.ModelAdmin):
-    list_display = ("id", "title")
-    list_filter = ("id", "title")
+    list_display = ("title","id", )
+    list_filter = ("title","id", )
     search_fields = ("id", "title")
 
 class EbookRequestAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "emailaddress")
-    list_filter = ("id", "name", "emailaddress")
+    list_display = ("name", "emailaddress")
+    list_filter = ("emailaddress", "name", )
     search_fields = ("id", "name", "emailaddress")
 
 admin.site.register(Property, PropertyAdmin)
@@ -229,5 +229,3 @@ admin.site.register(PropertyType, PropertyTypeAdmin)
 admin.site.register(Partner, PartnerAdmin)
 admin.site.register(Ebook, EbookAdmin)
 admin.site.register(EbookRequest, EbookRequestAdmin)
-admin.site.register(Newsletter)
-admin.site.register(Subscriber)

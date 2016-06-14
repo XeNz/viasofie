@@ -26,6 +26,11 @@ from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.contrib.sites.models import Site
 from decimal import Decimal
 from itertools import islice, chain
+import json
+from django.http import JsonResponse
+from json import dumps
+from django.core import serializers
+
 
 def index(request):
     # form = PropertiesSearchForm(request.GET)
@@ -165,8 +170,8 @@ def contact(request):
             from_email = request.POST.get('from_email', '')
             template = get_template('realestate/contact_template.txt')
             context = Context({
-                              'name': subject,
-                              'from_email': from_email,
+                              'name': name,
+                              'email': from_email,
                               'subject': subject,
                               'message': message,
                               })
@@ -177,7 +182,7 @@ def contact(request):
                                  content,
                                  "Via Sofie" + ' ',
                                  #TODO info@viasofie.com
-                                 ['de.caluwe.bart@gmail.com'],
+                                 ['viasofieinfo@gmail.com'],
                                  headers={'Reply-To': from_email}
                                  )
             email.send()
@@ -200,7 +205,7 @@ def share(request):
             from_email = request.POST.get('from_email', '')
             template = get_template('realestate/contact_template.txt')
             context = Context({
-                              'name': subject,
+                              'name': name,
                               'from_email': from_email,
                               'subject': subject,
                               'message': message,
@@ -208,7 +213,7 @@ def share(request):
             content = template.render(context)
 
             email = EmailMessage(
-                                 name + "heeft u een nieuw pand doorgestuurd",
+                                 name + " heeft u een nieuw pand doorgestuurd",
                                  content,
                                  "Via Sofie" + ' ',
                                  #TODO info@viasofie.com
@@ -217,14 +222,14 @@ def share(request):
                                  )
             email.send()
             messages.success(request, 'Bericht met success verstuurd.')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            url = request.META.get('HTTP_REFERER')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'), {'url': url})
         else:
              messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
-        url = request.META.get('HTTP_REFERER')
-        form = FeedbackForm()
+        form = ShareForm()
         form.message = request.META.get('HTTP_REFERER')
-
+    url = request.META.get('HTTP_REFERER')
     return render(request, 'realestate/share.html', {'form': form, 'url': url})
 
 
@@ -287,16 +292,17 @@ def accountinformation(request):
 
 
 def reset_confirm(request, uidb64=None, token=None):
-    return password_reset_confirm(request, template_name='usercontrolpanel/password_reset_confirm.html',
+    passwordreset = True
+    return password_reset_confirm(request, template_name='usercontrolpanel/passwordreset/password_reset_confirm.html',
         uidb64=uidb64, token=token, post_reset_redirect=reverse('realestate:login'))
 
 
 def reset(request):
     current_site = Site.objects.get_current()
     current_site_domain= current_site.domain
-    return password_reset(request, template_name='usercontrolpanel/password_reset_form.html',
-        email_template_name='usercontrolpanel/password_reset_email.html',
-        subject_template_name='usercontrolpanel/password_reset_subject.txt',
+    return password_reset(request, template_name='usercontrolpanel/passwordreset/password_reset_form.html',
+        email_template_name='usercontrolpanel/passwordreset/password_reset_email.html',
+        subject_template_name='usercontrolpanel/passwordreset/password_reset_subject.txt',
         post_reset_redirect=reverse('realestate:login'),
         # current_site_domain='current_site_domain'
         )
@@ -315,7 +321,6 @@ def partners(request):
 def sell(request):
     sell_properties = Property.objects.filter(listing_type="kopen")
     data_dict = {'minprice': 1, 'maxprice' : 1}
-    property_list = None
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
     if request.method == 'POST':
         listing_type_choice = request.POST.get('listing_type_choices')
@@ -330,9 +335,10 @@ def sell(request):
             minprice = request.POST.get('minprice')
             maxprice = request.POST.get('maxprice')
             propertyType = request.POST.get('propertytype')
-
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-    if property_list is None:
+        request.session['final_list'] = serializers.serialize('json', property_list)
+
+    if not 'final_list' in request.session:
         paginator = Paginator(sell_properties, 9) # Show 5 faqs per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
@@ -350,8 +356,11 @@ def sell(request):
             'sell_properties': queryset
         }
         return render(request, 'realestate/sell.html',context)
-    else:
-        searchPaginator = Paginator(property_list, 12)
+
+    if 'final_list' in request.session:
+        decoded_final_list = json.loads(request.session['final_list'])
+        tuple_final_list = tuple(decoded_final_list)
+        searchPaginator = Paginator(tuple_final_list, 1)
         page = request.GET.get('page')
     try:
         result_list = searchPaginator.page(page)
@@ -359,7 +368,7 @@ def sell(request):
         result_list = searchPaginator.page(1)
     except EmptyPage:
         result_list = searchPaginator.page(searchPaginator.num_pages)
-    return render(request, 'realestate/sell.html',{'form': form,'result_list': result_list, 'property_list': property_list})
+    return render(request, 'realestate/sell.html',{'form': form,'result_list': request.session['final_list'],})
 
 def rent(request):
     rent_properties = Property.objects.filter(listing_type="huren")
@@ -381,6 +390,7 @@ def rent(request):
             propertyType = request.POST.get('propertytype')
 
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
+        list(property_list)
     if property_list is None:
         paginator = Paginator(rent_properties, 9) # Show 5 faqs per page
         page_request_var = "page"
@@ -400,7 +410,7 @@ def rent(request):
         }
         return render(request, 'realestate/rent.html',context)
     else:
-        searchPaginator = Paginator(property_list, 12)
+        searchPaginator = Paginator(property_list, 1)
         page = request.GET.get('page')
     try:
         result_list = searchPaginator.page(page)
@@ -426,16 +436,3 @@ def ebook(request):
         return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks, 'ebookrequest': ebookrequest})
     else:
         return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks})
-
-def newsletter_subscribe(request):
-    emailaddress = request.POST.get('email')
-    subscriber = Subscriber(email=emailaddress)
-    
-    if Subscriber.objects.filter(email=emailaddress).exists():
-        return render(request, 'realestate/newsletter_subscription.html')
-    else:
-        subscriber.save()
-        return render(request, 'realestate/newsletter_subscription.html')
-    
-    
-    

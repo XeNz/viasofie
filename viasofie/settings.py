@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.16.195.115',]
 
+NEWSLETTER_CONFIRM_EMAIL = True
 
 # Application definition
 
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'selenium',
     'nocaptcha_recaptcha',
+    'django_extensions',
+    'sorl.thumbnail',
+    'newsletter',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -230,3 +234,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS =  True
 #This header will prevent Internet Explorer and Chrome guessing the MIME type of the response.
 SECURE_CONTENT_TYPE_NOSNIFF = True
 AUTH_USER_MODEL = 'realestate.ClientUser'
+
+#SESSION EXPIRATION
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 240 * 60 
