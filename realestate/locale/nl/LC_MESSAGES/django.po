@@ -1,14 +1,18 @@
-#: .\realestate\forms.py:53
+#: .\realestate\forms.py:54
 msgid "First Name"
 msgstr "Voornaam"
 
-#: .\realestate\forms.py:54
+#: .\realestate\forms.py:55
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: .\realestate\forms.py:55
+#: .\realestate\forms.py:56
 msgid "Email adress"
 msgstr "E-mail adres"
+
+#: .\realestate\forms.py:63
+msgid "Reference id"
+msgstr ""
 
 #: .\realestate\models.py:81
 msgid "Property|title_text"
@@ -406,27 +410,41 @@ msgstr ""
 msgid "GO_BACK"
 msgstr ""
 
-#: .\realestate\templates\realestate\about.html:10
-#: .\realestate\templates\realestate\about.html:14
-msgid "ABOUT_BUTTON"
-msgstr "Over ons"
+#: .\realestate\templates\newsletter\common.html:14
+#: .\realestate\templates\newsletter\common.html:18
+#: .\realestate\templates\realestate\partners.html:14
+#: .\realestate\templates\realestate\partners.html:18
+msgid "PARTNERS_BUTTON"
+msgstr "Partners"
 
+#: .\realestate\templates\newsletter\common.html:18
 #: .\realestate\templates\realestate\about.html:14
 #: .\realestate\templates\realestate\contact.html:14
 #: .\realestate\templates\realestate\ebook.html:14
 #: .\realestate\templates\realestate\faq.html:15
-#: .\realestate\templates\realestate\newsletter_subscription.html:14
 #: .\realestate\templates\realestate\partners.html:18
 #: .\realestate\templates\realestate\rent.html:15
+#: .\realestate\templates\realestate\search.html:14
 #: .\realestate\templates\realestate\sell.html:15
 #: .\realestate\templates\usercontrolpanel\accountinformation.html:14
 #: .\realestate\templates\usercontrolpanel\login.html:15
 #: .\realestate\templates\usercontrolpanel\logout.html:14
-#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:30
-#: .\realestate\templates\usercontrolpanel\password_reset_form.html:24
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:31
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:24
 #: .\realestate\templates\usercontrolpanel\userpanel.html:19
 msgid "HOME_BUTTON"
 msgstr "Home"
+
+#: .\realestate\templates\newsletter\common.html:27
+#, fuzzy
+#| msgid "Newsletter|id"
+msgid "Newsletter"
+msgstr "Nieuwsbrief"
+
+#: .\realestate\templates\realestate\about.html:10
+#: .\realestate\templates\realestate\about.html:14
+msgid "ABOUT_BUTTON"
+msgstr "Over ons"
 
 #: .\realestate\templates\realestate\about.html:23
 msgid "ABOUT_TITLE"
@@ -531,39 +549,41 @@ msgstr ""
 msgid "EIGENDOM_REFERENTIE"
 msgstr "Eigendom referentie "
 
-#: .\realestate\templates\realestate\detail.html:151
+#: .\realestate\templates\realestate\detail.html:33
+#: .\realestate\templates\realestate\index.html:65
 msgid "PROPERTY_SALE"
 msgstr "Te  koop"
 
-#: .\realestate\templates\realestate\detail.html:153
+#: .\realestate\templates\realestate\detail.html:35
+#: .\realestate\templates\realestate\index.html:67
 msgid "PROPERTY_RENT"
 msgstr "Te huur"
 
-#: .\realestate\templates\realestate\detail.html:182
+#: .\realestate\templates\realestate\detail.html:64
 msgid "BATHROOMS"
 msgstr "Badkamers"
 
-#: .\realestate\templates\realestate\detail.html:183
+#: .\realestate\templates\realestate\detail.html:65
 msgid "BEDROOMS"
 msgstr "Slaapkamers"
 
-#: .\realestate\templates\realestate\detail.html:189
+#: .\realestate\templates\realestate\detail.html:71
 msgid "ADDITIONAL_FEATURES"
 msgstr "Extra kenmerken"
 
-#: .\realestate\templates\realestate\detail.html:198
+#: .\realestate\templates\realestate\detail.html:80
 msgid "PROPERTY_LOCATION"
 msgstr "Locatie"
 
-#: .\realestate\templates\realestate\detail.html:232
+#: .\realestate\templates\realestate\detail.html:114
 msgid "TELL_FRIEND_TITLE"
 msgstr "Interessant pand voor iemand dat je kent?"
 
-#: .\realestate\templates\realestate\detail.html:235
+#: .\realestate\templates\realestate\detail.html:117
 msgid "TELL_FRIEND_TEXT"
 msgstr "Heeft iemand dat u kent misschien interesse in dit pand?"
 
-#: .\realestate\templates\realestate\detail.html:238
+#: .\realestate\templates\realestate\detail.html:120
 #: .\realestate\templates\realestate\share.html:15
 msgid "SHARE_LINK"
 msgstr "Deel dit pand nu!"
@@ -678,8 +698,8 @@ msgstr ""
 
 #: .\realestate\templates\realestate\faq.html:43
 #: .\realestate\templates\realestate\properties.html:8
-#: .\realestate\templates\realestate\rent.html:122
-#: .\realestate\templates\realestate\sell.html:122
+#: .\realestate\templates\realestate\reference_search.html:19
+#: .\realestate\templates\realestate\search_bar.html:68
 msgid "SEARCH_BUTTON"
 msgstr "Zoek"
 
@@ -732,60 +752,64 @@ msgid "FOOTER_TITLE2"
 msgstr "Nieuwsbrief"
 
 #: .\realestate\templates\realestate\footer.html:80
-msgid "FOOTER_TEXT2"
+msgid "Schrijf u hier in voor onze nieuwsbrief"
 msgstr ""
-"This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
-"auctor aliquet."
 
-#: .\realestate\templates\realestate\footer.html:86
+#: .\realestate\templates\realestate\footer.html:83
+msgid "Klik hier om uw inschrijving te wijzigen of te annuleren"
+msgstr ""
+
+#: .\realestate\templates\realestate\footer.html:85
 msgid " Vraag een E-book aan"
 msgstr "Vraag een E-book aan"
 
-#: .\realestate\templates\realestate\footer.html:88
+#: .\realestate\templates\realestate\footer.html:87
 msgid "Vraag hier uw gratis ebook aan"
 msgstr "Vraag hier uw gratis ebook aan"
 
-#: .\realestate\templates\realestate\header.html:60
+#: .\realestate\templates\realestate\header.html:61
 msgid "HEADER_USERPANEL"
 msgstr "Gebruikerspaneel"
 
-#: .\realestate\templates\realestate\header.html:62
+#: .\realestate\templates\realestate\header.html:63
 msgid "HEADER_LOGOUT"
 msgstr "Uitloggen"
 
-#: .\realestate\templates\realestate\header.html:86
+#: .\realestate\templates\realestate\header.html:87
 msgid "HEADER_HOME"
 msgstr "Home"
 
-#: .\realestate\templates\realestate\header.html:87
+#: .\realestate\templates\realestate\header.html:88
 msgid "HEADER_KOPEN"
 msgstr "Kopen"
 
-#: .\realestate\templates\realestate\header.html:88
+#: .\realestate\templates\realestate\header.html:89
 msgid "HEADER_HUREN"
 msgstr "Huren"
 
-#: .\realestate\templates\realestate\header.html:89
+#: .\realestate\templates\realestate\header.html:90
 msgid "HEADER_FAQ"
 msgstr "Advies"
 
-#: .\realestate\templates\realestate\header.html:90
+#: .\realestate\templates\realestate\header.html:91
 msgid "HEADER_CONTACT"
 msgstr "Contact"
 
-#: .\realestate\templates\realestate\header.html:91
+#: .\realestate\templates\realestate\header.html:92
 msgid "HEADER_OVER"
 msgstr "Over"
 
-#: .\realestate\templates\realestate\header.html:92
+#: .\realestate\templates\realestate\header.html:93
 msgid "HEADER_PARTNERS"
 msgstr "Partners"
 
-#: .\realestate\templates\realestate\index.html:15
+#: .\realestate\templates\realestate\index.html:16
 msgid "FEATURED_SLIDER"
 msgstr "Uitgelicht"
 
 #: .\realestate\templates\realestate\index.html:29
+#: .\realestate\templates\realestate\index.html:82
+#: .\realestate\templates\realestate\index.html:138
 msgid "RENT_MONTH"
 msgstr "per maand"
 
@@ -793,130 +817,87 @@ msgstr "per maand"
 msgid "DETAILS_BUTTON"
 msgstr "Details"
 
-#: .\realestate\templates\realestate\index.html:46
+#: .\realestate\templates\realestate\index.html:47
 msgid "INDEX_TITLE"
 msgstr "Recent toegevoegd"
 
-#: .\realestate\templates\realestate\index.html:72
-#: .\realestate\templates\realestate\index.html:122
-#: .\realestate\templates\realestate\rent.html:166
-#: .\realestate\templates\realestate\rent.html:222
-#: .\realestate\templates\realestate\sell.html:166
-#: .\realestate\templates\realestate\sell.html:230
+#: .\realestate\templates\realestate\index.html:85
+#: .\realestate\templates\realestate\index.html:144
+#: .\realestate\templates\realestate\rent.html:53
+#: .\realestate\templates\realestate\search.html:59
+#: .\realestate\templates\realestate\search.html:115
+#: .\realestate\templates\realestate\sell.html:54
 msgid "PROPERTY_DETAILS_BUTTON"
 msgstr "Details"
 
-#: .\realestate\templates\realestate\index.html:89
-#: .\realestate\templates\realestate\rent.html:133
-#: .\realestate\templates\realestate\sell.html:133
+#: .\realestate\templates\realestate\index.html:102
+#: .\realestate\templates\realestate\search.html:26
 msgid "SEARCH_RESULTS"
 msgstr "Zoek resultaten"
-
-#: .\realestate\templates\realestate\newsletter_subscription.html:10
-#: .\realestate\templates\realestate\newsletter_subscription.html:14
-#, fuzzy
-#| msgid "USERPANEL_BUTTON"
-msgid "SUBSCRIPTION_BUTTON"
-msgstr "Gebruikerspaneel"
-
-#: .\realestate\templates\realestate\newsletter_subscription.html:21
-msgid "U bent succesvol ingeschreven op onze nieuwsbrief"
-msgstr ""
-
-#: .\realestate\templates\realestate\newsletter_subscription.html:23
-msgid "Klik hier om terug te gaan naar de hoofdpagina"
-msgstr ""
-
-#: .\realestate\templates\realestate\partners.html:14
-#: .\realestate\templates\realestate\partners.html:18
-msgid "PARTNERS_BUTTON"
-msgstr "Partners"
 
 #: .\realestate\templates\realestate\partners.html:27
 msgid "PARTNER_TITLE"
 msgstr "Onze partners"
 
+#: .\realestate\templates\realestate\reference_search.html:12
+#: .\realestate\templates\realestate\search_bar.html:69
+msgid "REFERENCE_SEARCH"
+msgstr "Zoek op referentienummer"
+
+#: .\realestate\templates\realestate\reference_search.html:20
+msgid "ADVANCED_SEARCH"
+msgstr "Geavanceerd zoeken"
+
 #: .\realestate\templates\realestate\rent.html:11
 #: .\realestate\templates\realestate\rent.html:15
+#: .\realestate\templates\realestate\search.html:10
+#: .\realestate\templates\realestate\search.html:14
 msgid "RENT_BUTTON"
 msgstr "Huren"
 
 #: .\realestate\templates\realestate\rent.html:28
-#: .\realestate\templates\realestate\search.html:10
-#: .\realestate\templates\realestate\sell.html:28
+#: .\realestate\templates\realestate\search.html:90
+msgid "Panden te huur:"
+msgstr "Panden te huur"
+
+#: .\realestate\templates\realestate\search_bar.html:12
 msgid "INDEX_RENTORSALE"
 msgstr "Huren of Kopen"
 
-#: .\realestate\templates\realestate\rent.html:31
-#: .\realestate\templates\realestate\search.html:13
-#: .\realestate\templates\realestate\sell.html:31
-msgid "INDEX_ANY"
-msgstr "Any"
-
-#: .\realestate\templates\realestate\rent.html:32
-#: .\realestate\templates\realestate\search.html:14
-#: .\realestate\templates\realestate\sell.html:32
-msgid "INDEX_RENT"
-msgstr "Rent"
-
-#: .\realestate\templates\realestate\rent.html:33
-#: .\realestate\templates\realestate\search.html:15
-#: .\realestate\templates\realestate\sell.html:33
-msgid "INDEX_SALE"
-msgstr "Sale"
-
-#: .\realestate\templates\realestate\rent.html:40
-#: .\realestate\templates\realestate\search.html:22
-#: .\realestate\templates\realestate\sell.html:40
+#: .\realestate\templates\realestate\search_bar.html:19
 msgid "INDEX_PROPERTY"
 msgstr "Eigendomstype"
 
-#: .\realestate\templates\realestate\rent.html:60
-#: .\realestate\templates\realestate\search.html:42
-#: .\realestate\templates\realestate\sell.html:60
+#: .\realestate\templates\realestate\search_bar.html:27
 msgid "INDEX_CITY"
 msgstr "Stad"
 
-#: .\realestate\templates\realestate\rent.html:71
-#: .\realestate\templates\realestate\search.html:53
-#: .\realestate\templates\realestate\sell.html:71
+#: .\realestate\templates\realestate\search_bar.html:33
 msgid "INDEX_BEDS"
 msgstr "Slaapkamers"
 
-#: .\realestate\templates\realestate\rent.html:82
-#: .\realestate\templates\realestate\search.html:64
-#: .\realestate\templates\realestate\sell.html:82
+#: .\realestate\templates\realestate\search_bar.html:40
 msgid "INDEX_BATHS"
 msgstr "Badkamers"
 
-#: .\realestate\templates\realestate\rent.html:92
-#: .\realestate\templates\realestate\search.html:74
-#: .\realestate\templates\realestate\sell.html:92
+#: .\realestate\templates\realestate\search_bar.html:47
 msgid "INDEX_SQFT"
 msgstr "Oppervlakte"
 
-#: .\realestate\templates\realestate\rent.html:102
-#: .\realestate\templates\realestate\search.html:84
-#: .\realestate\templates\realestate\sell.html:102
+#: .\realestate\templates\realestate\search_bar.html:54
 msgid "INDEX_MINPRICE"
 msgstr "Min prijs"
 
-#: .\realestate\templates\realestate\rent.html:112
-#: .\realestate\templates\realestate\search.html:94
-#: .\realestate\templates\realestate\sell.html:112
+#: .\realestate\templates\realestate\search_bar.html:61
 msgid "INDEX_MAXPRICE"
 msgstr "Max prijs"
-
-#: .\realestate\templates\realestate\rent.html:197
-msgid "Panden te huur:"
-msgstr "Panden te huur"
 
 #: .\realestate\templates\realestate\sell.html:11
 #: .\realestate\templates\realestate\sell.html:15
 msgid "SELL_BUTTON"
 msgstr "Kopen"
 
-#: .\realestate\templates\realestate\sell.html:205
+#: .\realestate\templates\realestate\sell.html:29
 msgid "Panden te koop:"
 msgstr "Panden te koop"
 
@@ -973,21 +954,21 @@ msgstr "U bent succesvol uitgelogd. "
 msgid "LOGIN_AGAIN_LINK"
 msgstr "Klik hier om opnieuw in te loggen. "
 
-#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:7
-#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:26
-#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:30
-#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:39
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:8
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:27
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:31
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:40
 msgid " RESET_PASSWORD_TITLE "
 msgstr "Wachtwoord reset"
 
-#: .\realestate\templates\usercontrolpanel\password_reset_confirm.html:48
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:49
 msgid "UNVALID_RESET_LINK"
 msgstr "Deze reset link is niet geldig. Probeer een nieuwe aanvraging."
 
-#: .\realestate\templates\usercontrolpanel\password_reset_form.html:7
-#: .\realestate\templates\usercontrolpanel\password_reset_form.html:20
-#: .\realestate\templates\usercontrolpanel\password_reset_form.html:24
-#: .\realestate\templates\usercontrolpanel\password_reset_form.html:33
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:7
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:20
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:24
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:33
 msgid " REQUEST_RESET_PASSWORD_TITLE "
 msgstr "Wachtwoord opvragen"
 
@@ -1030,8 +1011,24 @@ msgstr "Datum"
 msgid "DEAL_DETAILS"
 msgstr "Details"
 
-#~ msgid "Newsletter|id"
-#~ msgstr "Nieuwsbrief"
+#~ msgid "FOOTER_TEXT2"
+#~ msgstr ""
+#~ "This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit "
+#~ "auctor aliquet."
+
+#, fuzzy
+#~| msgid "USERPANEL_BUTTON"
+#~ msgid "SUBSCRIPTION_BUTTON"
+#~ msgstr "Gebruikerspaneel"
+
+#~ msgid "INDEX_ANY"
+#~ msgstr "Any"
+
+#~ msgid "INDEX_RENT"
+#~ msgstr "Rent"
+
+#~ msgid "INDEX_SALE"
+#~ msgstr "Sale"
 
 #~ msgid "Newsletter|emailaddress"
 #~ msgstr "e-mail adres"

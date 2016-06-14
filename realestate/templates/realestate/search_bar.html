@@ -1,7 +1,7 @@
 {% load staticfiles %}
 {% load cookielaw_tags %}
 {% load i18n %}
-<div class="search-section">
+<div id="advanced_search" class="search-section">
     <div class="container search-container">
         <form action="{% url 'realestate:search' %}" method='POST'>
         {% csrf_token %}
@@ -66,6 +66,7 @@
         </div>
             <div class="text-center">
             <input id="search-button" class="yellow-btn" type="submit" value="{%blocktrans %}SEARCH_BUTTON{% endblocktrans%}">
+            <span id="referencesearch-button" class="yellow-btn">{%blocktrans %}REFERENCE_SEARCH{% endblocktrans%}</span>
             </div>
         </form>
 </div>

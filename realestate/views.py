@@ -113,6 +113,7 @@ class DetailView(generic.DetailView):
         characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
         context['characteristics_property'] = characteristics_property
         return context
+    
 
 
 def faq_list(request):
@@ -322,6 +323,7 @@ def reference_search(request):
             return HttpResponseRedirect(reverse('realestate:detail', args=[property_id]))
 
 def sell(request):
+    ref_form = ReferenceSearchForm
     sell_properties = Property.objects.filter(listing_type="kopen")
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
@@ -356,7 +358,8 @@ def sell(request):
         context = {
             "page_request_var": page_request_var,
             'form': form,
-            'sell_properties': queryset
+            'sell_properties': queryset,
+            'ref_form':ref_form
         }
         return render(request, 'realestate/sell.html',context)
 
@@ -374,6 +377,7 @@ def sell(request):
     return render(request, 'realestate/sell.html',{'form': form,'result_list': request.session['final_list'],})
 
 def rent(request):
+    ref_form = ReferenceSearchForm
     rent_properties = Property.objects.filter(listing_type="huren")
     data_dict = {'minprice': 1, 'maxprice' : 1}
     property_list = None
@@ -409,7 +413,8 @@ def rent(request):
         context = {
             "page_request_var": page_request_var,
             'form': form,
-            'rent_properties': queryset
+            'rent_properties': queryset,
+            'ref_form': ref_form,
         }
         return render(request, 'realestate/rent.html',context)
     else:
@@ -427,6 +432,7 @@ def search(request):
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
     result_list = Property.objects.all()
+    ref_form = ReferenceSearchForm
 
     if not request.method == 'POST':
         if 'result_list_session' in request.session:
@@ -468,7 +474,7 @@ def search(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
-    return render(request, 'realestate/search.html',{'form': form,'queryset': queryset})
+    return render(request, 'realestate/search.html',{'form': form,'queryset': queryset, 'ref_form': ref_form,})
 
 def ebook(request):
     ebooks = Ebook.objects.all

@@ -3,7 +3,7 @@
 {% include "realestate/header.html" %}
 {% load i18n %}
 <script type="text/javascript" src="{{ STATIC_URL }}realestate/js/select_rent.js"></script>
-
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/advancedsearch.js"></script>
     <div class="page-title-section">
         <div class="container">
             <div class="pull-left page-title">
@@ -17,6 +17,7 @@
         </div>
     </div>
 </div> <!--- end slider section-->
+{% include "realestate/reference_search.html" %}
 {% include "realestate/search_bar.html" %}
 <div class="recent-listings">
         </div>
