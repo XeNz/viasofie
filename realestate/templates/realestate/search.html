@@ -127,7 +127,7 @@
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="recent-listings">
     <div class="container">
-        {%if result_list %}
+        {%if queryset %}
         <div class="title-box">
             <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Uw zoekresultaten--></h3>
             <div class="bordered">
@@ -141,7 +141,7 @@
         </div>
         {% endif %}
         <div class="row listings-items-wrapper">
-         {% for property in result_list %}
+         {% for property in queryset %}
             <div class="col-md-4 listing-single-item">
                 <div class="item-inner">
                     <div class="image-wrapper">
@@ -173,16 +173,16 @@
         </div>
         <div class="pagination">
             <span class="step-links">
-                {% if result_list.has_previous %}
-                    <a href="?page={{ result_list.previous_page_number }}">previous</a>
+                {% if queryset.has_previous %}
+                    <a href="?page={{ queryset.previous_page_number }}">previous</a>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ result_list.number }} of {{ result_list.paginator.num_pages }}.
+                    Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
                 </span>
 
-                {% if result_list.has_next %}
-                    <a href="?page={{ result_list.next_page_number }}">next</a>
+                {% if queryset.has_next %}
+                    <a href="?page={{ queryset.next_page_number }}">next</a>
                 {% endif %}
             </span>
         </div>
@@ -241,7 +241,7 @@
 
                             {% if rent_properties.has_next %}
 <!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
-                                <a href="?{{ page_request_var }}={{ rent_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
+                                <a href="?{{ page_request_var }}={{ rent_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }} {% endif %}" type="pagination" value="next" class="yellow-btn">></a>
                             {% endif %}
                         </span>
                     </div>

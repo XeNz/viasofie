@@ -30,7 +30,7 @@ import json
 from django.http import JsonResponse
 from json import dumps
 from django.core import serializers
-
+from django.http import QueryDict
 
 def index(request):
     # form = PropertiesSearchForm(request.GET)
@@ -423,8 +423,18 @@ def rent(request):
 def search(request):
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
-    property_list = None
+    result_list = Property.objects.all()
+
+    if not request.method == 'POST':
+        if 'result_list_session' in request.session:
+            request.POST = QueryDict('').copy()
+            request.POST.update(request.session['result_list_session'])
+            request.method = 'POST'
+
     if request.method == 'POST':
+        form =IndexSearchForm(request.POST)
+        request.session['result_list_session'] =request.POST
+
         listing_type_choice = request.POST.get('listing_type_choices')
         selected_borough = request.POST.get('borough_choices')
         bedrooms = request.POST.get('bedrooms')
@@ -438,13 +448,13 @@ def search(request):
             maxprice = request.POST.get('maxprice')
             propertyType = request.POST.get('propertytype')
 
-        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-        list(property_list)
+        result_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
+        list(result_list)
 
     query = request.GET.get("q")
     if query:
-        queryset_list = property_list
-    paginator = Paginator(queryset_list, 5) # Show 5 faqs per page
+        queryset_list = result_list
+    paginator = Paginator(result_list, 6) # Show 5 faqs per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
@@ -455,7 +465,7 @@ def search(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
-    return render(request, 'realestate/search.html',{'form': form,'result_list': result_list})
+    return render(request, 'realestate/search.html',{'form': form,'queryset': queryset})
 
 def ebook(request):
     ebooks = Ebook.objects.all
