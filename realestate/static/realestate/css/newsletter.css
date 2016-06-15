@@ -11,8 +11,12 @@
   font-size: 20px;
 }
 
-.newsletter h1, .newsletter h4{
+.newsletter h4{
   font-size: 24px;
+}
+
+.newsletter h1{
+  font-size: 20px;
 }
 
 .newsletter a{
