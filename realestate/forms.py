@@ -60,7 +60,7 @@ class UpdateAccountInformation(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email']
 
 class ReferenceSearchForm(forms.Form):
-    property_id = forms.CharField(label=_('Reference id'),widget=forms.TextInput(attrs={'class':'eltextinput'}))
+    property_id = forms.CharField(label=_('Reference id'),widget=forms.TextInput(attrs={'class':'eltextinput', 'type':'number'}))
 
     class Meta:
         model = Property
