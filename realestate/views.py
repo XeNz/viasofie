@@ -412,7 +412,8 @@ def search(request):
 
         result_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
         list(result_list)
-
+        if not result_list:
+            messages.error(request, 'Geen resultaten gevonden! Gelieve uw zoekopdracht te verfijnen en het opnieuw te proberen.')
     query = request.GET.get("q")
     if query:
         queryset_list = result_list
