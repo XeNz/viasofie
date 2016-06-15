@@ -660,7 +660,8 @@ header #login-box a span {
   margin:90px 0;
 }
 .recent-listings .container .listings-items-wrapper {
-  float:left;
+  /* firefox does not like */
+  /* float:left;  */
   margin-top:10px;
 }
 .listing-single-item {
@@ -2246,8 +2247,12 @@ input[type='submit'] {
   padding-bottom: 20px;
   width: 250px;
 }
-#id_property_id input[type='number'] {
-    -moz-appearance:textfield;
+#id_property_id {
+  -moz-appearance:textfield;
+  height: 38px;
+}
+#id_minprice, #id_maxprice {
+  -moz-appearance:textfield;
 }
 #id_property_id input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
