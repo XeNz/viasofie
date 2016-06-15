@@ -3,10 +3,6 @@
 {% include "realestate/header.html" %}
 {% load i18n %}
 
-<head>
-  <link rel="stylesheet" type="text/css" href="{% static "realestate/css/newsletter.css" %}"/>
-</head>
-<body>
         <div class="page-title-section">
             <div class="container">
                 <div class="pull-left page-title">
@@ -23,16 +19,15 @@
         <div class="content-section">
         <div class="container">
             <div class="col-md-8 col-md-push-2 contact-info">
-                <div class="inner-wrapper">
+                <div class="inner-wrapper newsletter">
                     <h4 class="box-title">{% block title %}{% trans "Newsletter" %}{% endblock title %}</h4>
                     <p class='first-paragraph'>
                         {% block body %}
-                        {% endblock body %}
+                        {% endblock %}
                     </p>
                 </div>
             </div>
         </div>
         </div>
-</body>
 
 {% include "realestate/footer.html" %}
