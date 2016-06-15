@@ -44,7 +44,7 @@ def index(request):
 
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
     if property_list is None:
-        paginator = Paginator(last_six_properties, 9) # Show 5 faqs per page
+        paginator = Paginator(last_six_properties, 9) # Show 9 properties per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
         try:
@@ -76,30 +76,14 @@ def index(request):
     return render(request, 'realestate/index.html',{'form': form,'result_list': result_list, 'property_list': property_list, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order})
 
 
-
-# class IndexView(generic.ListView):
-#     template_name = 'realestate/index.html'
-#     context_object_name = 'latest_property_list'
-
-#     def get_queryset(self):
-#         result =  Property.objects.filter(featured='True').order_by('-pub_date')[:5]
-#         return result
-#     def get_propertyPictures(self):
-#     	#return PropertyPicture.objects.all()
-#         property_ids = list(Property.objects.all().values_list('id', flat=True))
-#         result = PropertyPicture.objects.filter(property__in=property_ids)
-#         return result
-
 class DetailView(generic.DetailView):
     model = Property
     template_name = 'realestate/detail.html'
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        #context['characteristics'] = Characteristic.objects.all()
         characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
         context['characteristics_property'] = characteristics_property
         return context
-
 
 
 def faq_list(request):
@@ -107,8 +91,7 @@ def faq_list(request):
     query = request.GET.get("q")
     if query:
         queryset_list = queryset_list.filter(
-                Q(question__icontains=query)#|
-                #Q(answer__icontains=query)
+                Q(question__icontains=query)
                 ).distinct()
     paginator = Paginator(queryset_list, 5) # Show 5 faqs per page
     page_request_var = "page"
@@ -121,7 +104,6 @@ def faq_list(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
-
 
     context = {
         "object_list": queryset,
@@ -141,9 +123,6 @@ def search(request):
 
 
 def contact(request):
-    #TODO: implement mailto
-    #Have to setup STMP server for this to work
-    #fix indentation when uncommenting
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
@@ -159,12 +138,10 @@ def contact(request):
                               'message': message,
                               })
             content = template.render(context)
-
             email = EmailMessage(
                                  "Nieuw Via Sofie bericht",
                                  content,
                                  "Via Sofie" + ' ',
-                                 #TODO info@viasofie.com
                                  ['viasofieinfo@gmail.com'],
                                  headers={'Reply-To': from_email}
                                  )
@@ -175,7 +152,6 @@ def contact(request):
              messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
         form = FeedbackForm()
-
     return render(request, 'realestate/contact.html', {'form': form})
 
 def share(request):
