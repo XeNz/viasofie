@@ -21,7 +21,6 @@
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="recent-listings">
     <div class="container">
-        {%if queryset %}
         <div class="title-box">
             <h3>{%blocktrans %}SEARCH_RESULTS{% endblocktrans%}<!--Uw zoekresultaten--></h3>
             <div class="bordered">
@@ -34,6 +33,7 @@
             {% endfor %}
         </div>
         {% endif %}
+        {%if queryset %}
         <div class="row listings-items-wrapper">
          {% for property in queryset %}
             <div class="col-md-4 listing-single-item">
