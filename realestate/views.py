@@ -1,34 +1,20 @@
-from django.shortcuts import render,render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect,HttpResponse
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
-from django import forms
 from .models import *
 from django.template import RequestContext, Context
 from django.template.loader import get_template
 from .forms import *
 from django.contrib import messages
-import operator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.core.mail import EmailMessage, send_mail, BadHeaderError
+from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.shortcuts import render_to_response
-# from .forms import PropertiesSearchForm,IndexSearchForm
-# from haystack.inputs import AutoQuery, Exact, Clean
-# from haystack.query import SearchQuerySet
-from reportlab.pdfgen import canvas
-from reportlab.graphics.shapes import Drawing
-from reportlab.graphics.barcode.qr import QrCodeWidget
-from reportlab.graphics import renderPDF
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.contrib.sites.models import Site
-from decimal import Decimal
-from itertools import islice, chain
 import json
-from django.http import JsonResponse
-from json import dumps
 from django.core import serializers
 from django.http import QueryDict
 
@@ -113,7 +99,7 @@ class DetailView(generic.DetailView):
         characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
         context['characteristics_property'] = characteristics_property
         return context
-    
+
 
 
 def faq_list(request):
