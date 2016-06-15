@@ -45,7 +45,6 @@
                         {% endif %}
                         {% endfor %}
                         <a href="#" class='fa fa-home property-type-icon'></a>
-                        <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
                     </div>
                     <div class="desc-box">
                         <h4><a href="#">{{property.title_text}}</a></h4>
@@ -101,7 +100,6 @@
                             {% endif %}
                             {% endfor %}
                             <a href="#" class='fa fa-home property-type-icon'></a>
-                            <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
                         </div>
                         <div class="desc-box">
                             <h4><a href="#">{{property.title_text}}</a></h4>
@@ -125,16 +123,12 @@
             <div class="pagination">
                         <span class="step-links">
                             {% if rent_properties.has_previous %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
                                 <a href="?{{ page_request_var }}={{ rent_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
                             {% endif %}
-
                             <span class="current">
                                 Pagina {{ rent_properties.number }} van {{ rent_properties.paginator.num_pages }}.
                             </span>
-
                             {% if rent_properties.has_next %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
                                 <a href="?{{ page_request_var }}={{ rent_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }} {% endif %}" type="pagination" value="next" class="yellow-btn">></a>
                             {% endif %}
                         </span>

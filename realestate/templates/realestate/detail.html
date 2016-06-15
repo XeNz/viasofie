@@ -86,38 +86,12 @@
                 </div>
             </div>
             <div class="col-md-4 blog-sidebar">
-<!--                 <div class="sidebar-widget similar-listings-widget">
-                    <h4 class="widget-title">similar listings</h4>
-                    <ul class="similar-listings">
-                        <li class="tab-content-item">
-                        <div class="pull-left thumb">
-                            <img src="{% thumbnail "realestate/img/property/38_property-header.jpg" '80x80' crop='center' %}" alt="thumbnail">
-                        </div>
-                        <h5><a href="#">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum - $7,000</a></h5>
-                        </li>
-                        <li class="tab-content-item">
-                        <div class="pull-left thumb">
-                            <img src="{% thumbnail "realestate/img/property/38_property-header.jpg" '80x80' crop='center' %}" alt="thumbnail">
-                        </div>
-                        <h5><a href="#">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum - $7,000</a></h5>
-                        </li>
-                        <li class="tab-content-item">
-                        <div class="pull-left thumb">
-                            <img src="{% thumbnail "realestate/img/property/38_property-header.jpg" '80x80' crop='center' %}" alt="thumbnail">
-                        </div>
-                        <h5><a href="#">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</a></h5>
-                        </li>
-                    </ul>
-                </div> -->
                 <div class="sidebar-widget text-widget">
-                <!-- TODO: Translation -->
                     <h4 class="widget-title">{%blocktrans %}TELL_FRIEND_TITLE{% endblocktrans%}</h4>
-                    <!--Vertel een vriend-->
-                    <p class='first-paragraph'>
-                        {%blocktrans %}TELL_FRIEND_TEXT{% endblocktrans%}
-                        <!--Deel dit eigendom met vrienden of familie:-->
-                    </p>
-                    <a href="{% url 'realestate:share' %}" class="yellow-btn">{%blocktrans %}SHARE_LINK{% endblocktrans%}<!--Deel--></a>
+                        <p class='first-paragraph'>
+                            {%blocktrans %}TELL_FRIEND_TEXT{% endblocktrans%}
+                        </p>
+                    <a href="{% url 'realestate:share' %}" class="yellow-btn">{%blocktrans %}SHARE_LINK{% endblocktrans%}</a>
                 </div>
             </div>
         </div>
