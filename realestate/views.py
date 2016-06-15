@@ -170,13 +170,11 @@ def share(request):
                               'message': message,
                               })
             content = template.render(context)
-
             email = EmailMessage(
                                  name + " heeft u een nieuw pand doorgestuurd",
                                  content,
                                  "Via Sofie" + ' ',
-                                 #TODO info@viasofie.com
-                                 ['de.caluwe.bart@gmail.com'],
+                                 ['viasofieinfo@gmail.com'],
                                  headers={'Reply-To': from_email}
                                  )
             email.send()
@@ -203,7 +201,6 @@ def handler404(request):
 def controlpanel(request):
     if not request.user.is_staff:
         deals =Deal.objects.filter(user=request.user)
-
         if request.method == 'POST':
             selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
@@ -221,7 +218,6 @@ def controlpanel(request):
         else:
             return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
-        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
@@ -244,7 +240,6 @@ def accountinformation(request):
         }
         return render(request, "usercontrolpanel/accountinformation.html", context)
     else:
-        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
@@ -303,9 +298,8 @@ def sell(request):
             maxprice = request.POST.get('maxprice')
             propertyType = request.POST.get('propertytype')
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-        request.session['final_list'] = serializers.serialize('json', property_list)
-
-    if not 'final_list' in request.session:
+        list(property_list)
+    if property_list is None:
         paginator = Paginator(sell_properties, 9) # Show 5 faqs per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
@@ -321,14 +315,11 @@ def sell(request):
             "page_request_var": page_request_var,
             'form': form,
             'sell_properties': queryset,
-            'ref_form':ref_form
+            'ref_form': ref_form,
         }
         return render(request, 'realestate/sell.html',context)
-
-    if 'final_list' in request.session:
-        decoded_final_list = json.loads(request.session['final_list'])
-        tuple_final_list = tuple(decoded_final_list)
-        searchPaginator = Paginator(tuple_final_list, 1)
+    else:
+        searchPaginator = Paginator(property_list, 1)
         page = request.GET.get('page')
     try:
         result_list = searchPaginator.page(page)
@@ -336,7 +327,7 @@ def sell(request):
         result_list = searchPaginator.page(1)
     except EmptyPage:
         result_list = searchPaginator.page(searchPaginator.num_pages)
-    return render(request, 'realestate/sell.html',{'form': form,'result_list': request.session['final_list'],})
+    return render(request, 'realestate/sel.html',{'form': form,'result_list': result_list, 'property_list': property_list})
 
 def rent(request):
     ref_form = ReferenceSearchForm
@@ -425,7 +416,7 @@ def search(request):
     query = request.GET.get("q")
     if query:
         queryset_list = result_list
-    paginator = Paginator(result_list, 6) # Show 5 faqs per page
+    paginator = Paginator(result_list, 9) # Show 9 properties per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
@@ -448,7 +439,6 @@ def ebook(request):
         ebookrequest = EbookRequest(name=name, emailaddress=emailaddress)
         ebookrequest.save()
         for book in requested_books:
-            # ebook = Ebook.objects.filter(id=book)
             ebookrequest.requested_books.add(book)
         #maak nieuw ebookrequestobject aan
         return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks, 'ebookrequest': ebookrequest})
