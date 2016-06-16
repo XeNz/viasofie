@@ -2,7 +2,7 @@
 {% load cookielaw_tags %}
 {% include "realestate/header.html" %}
 {% load i18n %}
-
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/advancedsearch.js"></script>
 
     <div class="page-title-section">
         <div class="container">
@@ -17,114 +17,8 @@
         </div>
     </div>
 </div> <!--- end slider section-->
-<div class="search-section">
-    <div class="container search-container">
-        <form action="{% url 'realestate:search' %}" method='POST'>
-        {% csrf_token %}
-            <div class="select-wrapper select-smaill" id='select-rent'>
-<!--                  {{ form.non_field_errors }}
-                 {{ form.errors }} -->
-                <p>
-                     {%blocktrans %}INDEX_RENTORSALE{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">{%blocktrans %}INDEX_ANY{% endblocktrans%}</option>
-                    <option value="potato-chips">{%blocktrans %}INDEX_RENT{% endblocktrans%}</option>
-                    <option value="chips-and-salsa">{%blocktrans %}INDEX_SALE{% endblocktrans%}</option>
-                </select> -->
-                <!-- {{ form.listing_type_choices.errors }} -->
-                {{form.listing_type_choices}}
-            </div>
-            <div class="select-wrapper select-medium" id='select-property'>
-                <p>
-                     {%blocktrans %}INDEX_PROPERTY{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-                <!-- {{form.propertytype.errors}} -->
-                {{form.propertytype}}
-            </div>
-<!--             <div class="select-wrapper select-big">
-                <p>
-                     Provincie
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                </select>
-                {{form.province_choices.errors}}
-                {{form.province_choices}}
-            </div> -->
-            <div class="select-wrapper select-big">
-                <p>
-                     {%blocktrans %}INDEX_CITY{% endblocktrans%}
-                     <!--Gemeente-->
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-                <!-- {{form.borough_choices.errors}} -->
-                {{form.borough_choices}}
-            </div>
-            <div class="select-wrapper select-small">
-                <p>
-                     {%blocktrans %}INDEX_BEDS{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-
-                {{form.bedrooms}}
-                {{form.bedrooms.errors}}
-            </div>
-            <div class="select-wrapper select-small">
-                <p>
-                     {%blocktrans %}INDEX_BATHS{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-                {{form.bathrooms}}
-                {{form.bathrooms.errors}}
-            </div>
-            <div class="select-wrapper select-medium">
-                <p>
-                     {%blocktrans %}INDEX_SQFT{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-                {{form.surfacearea}}
-                {{form.surfacearea.errors}}
-            </div>
-            <div class="textinput-wrapper select-medium textinput-target">
-                <p>
-                     {%blocktrans %}INDEX_MINPRICE{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-                {{form.minprice}}
-                {{form.minprice.errors}}
-            </div>
-            <div class="textinput-wrapper select-medium textinput-target">
-                <p>
-                     {%blocktrans %}INDEX_MAXPRICE{% endblocktrans%}
-                </p>
-<!--                 <select class='elselect'>
-                    <option value="any">any</option>
-                </select> -->
-                {{form.maxprice}}
-                {{form.maxprice.errors}}
-            </div>
-        </div>
-            <div class="text-center">
-            <input id="search-button" class="yellow-btn" type="submit" value="{%blocktrans %}SEARCH_BUTTON{% endblocktrans%}">
-            </div>
-        </form>
-
-</div>
-
+{% include "realestate/reference_search.html" %}
+{% include "realestate/search_bar.html" %}
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="recent-listings">
         </div>
@@ -146,7 +40,6 @@
                             {% endif %}
                             {% endfor %}
                             <a href="#" class='fa fa-home property-type-icon'></a>
-                            <!-- <a href="#" class='featured'><i class='fa fa-star'></i>featured</a> -->
                         </div>
                         <div class="desc-box">
                             <h4><a href="#">{{property.title_text}}</a></h4>
@@ -166,23 +59,25 @@
                 </div>
                 <!-- /Single-item -->
                 {% endfor %}
-            </div>
-            <div class="pagination">
-                        <span class="step-links">
-                            {% if sell_properties.has_previous %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
-                                <a href="?{{ page_request_var }}={{ sell_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
-                            {% endif %}
+                <div class="row">
+                </div>
+                            <div class="pagination">
+                                        <span class="step-links">
+                                            {% if sell_properties.has_previous %}
+                <!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
+                                                <a href="?{{ page_request_var }}={{ sell_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
+                                            {% endif %}
 
-                            <span class="current">
-                                Pagina {{ sell_properties.number }} van {{ sell_properties.paginator.num_pages }}.
-                            </span>
+                                            <span class="current">
+                                                Pagina {{ sell_properties.number }} van {{ sell_properties.paginator.num_pages }}.
+                                            </span>
 
-                            {% if sell_properties.has_next %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
-                                <a href="?{{ page_request_var }}={{ sell_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
-                            {% endif %}
-                        </span>
+                                            {% if sell_properties.has_next %}
+                <!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
+                                                <a href="?{{ page_request_var }}={{ sell_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
                     </div>
             {%endif%}
         </div>

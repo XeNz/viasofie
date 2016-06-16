@@ -1,0 +1,33 @@
+{% load staticfiles %}
+{% load cookielaw_tags %}
+{% include "realestate/header.html" %}
+{% load i18n %}
+
+        <div class="page-title-section">
+            <div class="container">
+                <div class="pull-left page-title">
+                    <a href="{% url 'realestate:about' %}">
+                    <h2>{%blocktrans %}PARTNERS_BUTTON{% endblocktrans%}</h2>
+                    </a>
+                </div>
+                <div class="pull-right breadcrumb">
+                    <a href="{% url 'realestate:index' %}">{%blocktrans %}HOME_BUTTON{% endblocktrans%}</a><span class="fa fa-arrow-circle-right sep"></span><a href="{% url 'realestate:about' %}">{%blocktrans %}PARTNERS_BUTTON{% endblocktrans%}</a>
+                </div>
+            </div>
+        </div>
+    </div> <!--- end slider section-->
+        <div class="content-section">
+        <div class="container">
+            <div class="col-md-8 col-md-push-2 contact-info">
+                <div class="inner-wrapper newsletter">
+                    <h4 class="box-title">{% block title %}{% trans "Newsletter" %}{% endblock title %}</h4>
+                    <p class='first-paragraph'>
+                        {% block body %}
+                        {% endblock %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+{% include "realestate/footer.html" %}

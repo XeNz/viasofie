@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^faq/$', views.faq_list, name='faq'),
     # url(r'^properties/$', views.properties, name='properties'),
     url(r'^search/$', views.search, name='search'),
+    url(r'^reference_search/$', views.reference_search, name='reference_search'),
     url(r'^controlpanel/$', views.controlpanel, name='controlpanel'),
     url(r'^disclaimer/$', views.disclaimer, name='disclaimer'),
     url(r'^share/$', views.share, name='share'),

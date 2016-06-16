@@ -623,6 +623,7 @@ header #login-box a span {
 }
 .search-section .eltextinput ,input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #f6f6f6 inset;
+    line-height:26px;
 }
 #search-button{
   margin-top:10px;
@@ -659,7 +660,8 @@ header #login-box a span {
   margin:90px 0;
 }
 .recent-listings .container .listings-items-wrapper {
-  float:left;
+  /* firefox does not like */
+  /* float:left;  */
   margin-top:10px;
 }
 .listing-single-item {
@@ -2055,6 +2057,42 @@ input[type='submit'] {
   -moz-transition:all 300ms ease-in-out;
   -webkit-transition:all 300ms ease-in-out;
 }
+#advancedsearch-button {
+  color:#000;
+  text-decoration:none;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
+  font-weight:300;
+  cursor: pointer;
+}
+#advancedsearch-button:hover{
+  color:#fafafa;
+  text-decoration:none;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
+}
+#referencesearch-button {
+  color:#000;
+  text-decoration:none;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
+  font-weight:300;
+  cursor: pointer;
+}
+#referencesearch-button:hover{
+  color:#fafafa;
+  text-decoration:none;
+  transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -webkit-transition:all 300ms ease-in-out;
+}
 #faqdate{
   font-size: 10px;
 }
@@ -2201,4 +2239,21 @@ input[type='submit'] {
 #accountinformation-form{
   font-weight: 300;
   color: #444;
+}
+#reference-search-box{
+  float:none;
+  margin:auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 250px;
+}
+#id_property_id {
+  -moz-appearance:textfield;
+  height: 38px;
+}
+#id_minprice, #id_maxprice {
+  -moz-appearance:textfield;
+}
+#id_property_id input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

@@ -1,44 +1,25 @@
-from django.shortcuts import render,render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect,HttpResponse
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
-from django import forms
 from .models import *
 from django.template import RequestContext, Context
 from django.template.loader import get_template
 from .forms import *
 from django.contrib import messages
-import operator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from django.core.mail import EmailMessage, send_mail, BadHeaderError
+from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.shortcuts import render_to_response
-# from .forms import PropertiesSearchForm,IndexSearchForm
-# from haystack.inputs import AutoQuery, Exact, Clean
-# from haystack.query import SearchQuerySet
-from reportlab.pdfgen import canvas
-from reportlab.graphics.shapes import Drawing
-from reportlab.graphics.barcode.qr import QrCodeWidget
-from reportlab.graphics import renderPDF
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.contrib.sites.models import Site
-from decimal import Decimal
-from itertools import islice, chain
 import json
-from django.http import JsonResponse
-from json import dumps
 from django.core import serializers
-
+from django.http import QueryDict
 
 def index(request):
-    # form = PropertiesSearchForm(request.GET)
-    # if request.GET:
-    #     query = form.search()
-    #     return render_to_response('realestate/index.html', {'query': query, "form": form}, context_instance=RequestContext(request))
-    # else:
-    #6 most recent properties
+    ref_form = ReferenceSearchForm
     last_six_properties = Property.objects.all().order_by('-pub_date')[:6]
     last_six_properties_in_ascending_order = reversed(last_six_properties)
     #6 featured properties
@@ -63,7 +44,7 @@ def index(request):
 
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
     if property_list is None:
-        paginator = Paginator(last_six_properties, 9) # Show 5 faqs per page
+        paginator = Paginator(last_six_properties, 9) # Show 9 properties per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
         try:
@@ -75,6 +56,7 @@ def index(request):
             # If page is out of range (e.g. 9999), deliver last page of results.
             queryset = paginator.page(paginator.num_pages)
         context = {
+            'ref_form': ref_form,
             "page_request_var": page_request_var,
             'form': form,
             'last_six_properties': queryset,
@@ -94,26 +76,11 @@ def index(request):
     return render(request, 'realestate/index.html',{'form': form,'result_list': result_list, 'property_list': property_list, "featured_six_properties_in_ascending_order" : featured_six_properties_in_ascending_order})
 
 
-
-# class IndexView(generic.ListView):
-#     template_name = 'realestate/index.html'
-#     context_object_name = 'latest_property_list'
-
-#     def get_queryset(self):
-#         result =  Property.objects.filter(featured='True').order_by('-pub_date')[:5]
-#         return result
-#     def get_propertyPictures(self):
-#     	#return PropertyPicture.objects.all()
-#         property_ids = list(Property.objects.all().values_list('id', flat=True))
-#         result = PropertyPicture.objects.filter(property__in=property_ids)
-#         return result
-
 class DetailView(generic.DetailView):
     model = Property
     template_name = 'realestate/detail.html'
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        #context['characteristics'] = Characteristic.objects.all()
         characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
         context['characteristics_property'] = characteristics_property
         return context
@@ -124,8 +91,7 @@ def faq_list(request):
     query = request.GET.get("q")
     if query:
         queryset_list = queryset_list.filter(
-                Q(question__icontains=query)#|
-                #Q(answer__icontains=query)
+                Q(question__icontains=query)
                 ).distinct()
     paginator = Paginator(queryset_list, 5) # Show 5 faqs per page
     page_request_var = "page"
@@ -138,7 +104,6 @@ def faq_list(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
-
 
     context = {
         "object_list": queryset,
@@ -158,9 +123,6 @@ def search(request):
 
 
 def contact(request):
-    #TODO: implement mailto
-    #Have to setup STMP server for this to work
-    #fix indentation when uncommenting
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
@@ -176,12 +138,10 @@ def contact(request):
                               'message': message,
                               })
             content = template.render(context)
-
             email = EmailMessage(
                                  "Nieuw Via Sofie bericht",
                                  content,
                                  "Via Sofie" + ' ',
-                                 #TODO info@viasofie.com
                                  ['viasofieinfo@gmail.com'],
                                  headers={'Reply-To': from_email}
                                  )
@@ -192,7 +152,6 @@ def contact(request):
              messages.error(request, 'Er is iets fout gelopen. Probeer het opnieuw.')
     else:
         form = FeedbackForm()
-
     return render(request, 'realestate/contact.html', {'form': form})
 
 def share(request):
@@ -211,13 +170,11 @@ def share(request):
                               'message': message,
                               })
             content = template.render(context)
-
             email = EmailMessage(
                                  name + " heeft u een nieuw pand doorgestuurd",
                                  content,
                                  "Via Sofie" + ' ',
-                                 #TODO info@viasofie.com
-                                 ['de.caluwe.bart@gmail.com'],
+                                 ['viasofieinfo@gmail.com'],
                                  headers={'Reply-To': from_email}
                                  )
             email.send()
@@ -244,7 +201,6 @@ def handler404(request):
 def controlpanel(request):
     if not request.user.is_staff:
         deals =Deal.objects.filter(user=request.user)
-
         if request.method == 'POST':
             selected_deal_id = request.POST.get('selected_deal_id')
             selected_deal = Deal.objects.filter(id=selected_deal_id)
@@ -262,7 +218,6 @@ def controlpanel(request):
         else:
             return render(request, 'usercontrolpanel/userpanel.html', {'deals': deals})
     else:
-        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
@@ -285,7 +240,6 @@ def accountinformation(request):
         }
         return render(request, "usercontrolpanel/accountinformation.html", context)
     else:
-        #TODO: double login prompt error
         messages.error(request, 'Wou je als admin in loggen? Probeer het admin paneel')
         logout(request)
         return render_to_response('usercontrolpanel/login.html', context_instance=RequestContext(request) )
@@ -318,7 +272,16 @@ def partners(request):
     img = Partner.objects.all().order_by('-id')
     return render(request, 'realestate/partners.html', {"img": img})
 
+def reference_search(request):
+    if request.method == 'POST':
+        property_id = request.POST.get('property_id')
+        ref_property = Property.objects.filter(id=property_id)
+        if ref_property:
+            return HttpResponseRedirect(reverse('realestate:detail', args=[property_id]))
+
 def sell(request):
+    ref_form = ReferenceSearchForm
+    property_list = None
     sell_properties = Property.objects.filter(listing_type="kopen")
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
@@ -336,9 +299,8 @@ def sell(request):
             maxprice = request.POST.get('maxprice')
             propertyType = request.POST.get('propertytype')
         property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-        request.session['final_list'] = serializers.serialize('json', property_list)
-
-    if not 'final_list' in request.session:
+        list(property_list)
+    if property_list is None:
         paginator = Paginator(sell_properties, 9) # Show 5 faqs per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
@@ -353,14 +315,12 @@ def sell(request):
         context = {
             "page_request_var": page_request_var,
             'form': form,
-            'sell_properties': queryset
+            'sell_properties': queryset,
+            'ref_form': ref_form,
         }
         return render(request, 'realestate/sell.html',context)
-
-    if 'final_list' in request.session:
-        decoded_final_list = json.loads(request.session['final_list'])
-        tuple_final_list = tuple(decoded_final_list)
-        searchPaginator = Paginator(tuple_final_list, 1)
+    else:
+        searchPaginator = Paginator(property_list, 1)
         page = request.GET.get('page')
     try:
         result_list = searchPaginator.page(page)
@@ -368,9 +328,10 @@ def sell(request):
         result_list = searchPaginator.page(1)
     except EmptyPage:
         result_list = searchPaginator.page(searchPaginator.num_pages)
-    return render(request, 'realestate/sell.html',{'form': form,'result_list': request.session['final_list'],})
+    return render(request, 'realestate/sel.html',{'form': form,'result_list': result_list, 'property_list': property_list})
 
 def rent(request):
+    ref_form = ReferenceSearchForm
     rent_properties = Property.objects.filter(listing_type="huren")
     data_dict = {'minprice': 1, 'maxprice' : 1}
     property_list = None
@@ -406,7 +367,8 @@ def rent(request):
         context = {
             "page_request_var": page_request_var,
             'form': form,
-            'rent_properties': queryset
+            'rent_properties': queryset,
+            'ref_form': ref_form,
         }
         return render(request, 'realestate/rent.html',context)
     else:
@@ -423,8 +385,19 @@ def rent(request):
 def search(request):
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
-    property_list = None
+    result_list = Property.objects.all()
+    ref_form = ReferenceSearchForm
+
+    if not request.method == 'POST':
+        if 'result_list_session' in request.session:
+            request.POST = QueryDict('').copy()
+            request.POST.update(request.session['result_list_session'])
+            request.method = 'POST'
+
     if request.method == 'POST':
+        form =IndexSearchForm(request.POST)
+        request.session['result_list_session'] =request.POST
+
         listing_type_choice = request.POST.get('listing_type_choices')
         selected_borough = request.POST.get('borough_choices')
         bedrooms = request.POST.get('bedrooms')
@@ -438,13 +411,14 @@ def search(request):
             maxprice = request.POST.get('maxprice')
             propertyType = request.POST.get('propertytype')
 
-        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-        list(property_list)
-
+        result_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
+        list(result_list)
+        if not result_list:
+            messages.error(request, 'Geen resultaten gevonden! Gelieve uw zoekopdracht te verfijnen en het opnieuw te proberen.')
     query = request.GET.get("q")
     if query:
-        queryset_list = property_list
-    paginator = Paginator(queryset_list, 5) # Show 5 faqs per page
+        queryset_list = result_list
+    paginator = Paginator(result_list, 9) # Show 9 properties per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
@@ -455,7 +429,7 @@ def search(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
-    return render(request, 'realestate/search.html',{'form': form,'result_list': result_list})
+    return render(request, 'realestate/search.html',{'form': form,'queryset': queryset, 'ref_form': ref_form,})
 
 def ebook(request):
     ebooks = Ebook.objects.all
@@ -467,7 +441,6 @@ def ebook(request):
         ebookrequest = EbookRequest(name=name, emailaddress=emailaddress)
         ebookrequest.save()
         for book in requested_books:
-            # ebook = Ebook.objects.filter(id=book)
             ebookrequest.requested_books.add(book)
         #maak nieuw ebookrequestobject aan
         return render(request, 'realestate/ebook.html', {'form': form, 'ebooks': ebooks, 'ebookrequest': ebookrequest})

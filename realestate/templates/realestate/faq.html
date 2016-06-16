@@ -17,19 +17,10 @@
         </div>
     </div>
 </div> <!--- end slider section-->
-
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/faq.css" %}"/> -->
 <div class="content-section">
     <div class="">
         <div class='container' id="faqblock">
-<!--            <div class="title-box">
-                <h3>Frequently Asked Questions</h3>
-                <div class="bordered">
-                </div>
-            </div> -->
-<!--            <div id="faqheadertext">
-            <p>Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening houden met een hele hoop zaken. Hieronder vindt u een aantal algemene begrippen en FAQ’s van belang bij de verkoop of verhuur. Hebt u vragen over onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te contacteren, ik help u graag verder.</p>
-            </div> -->
             <div class="contact-info">
                 <div class="inner-wrapper">
                     <h4 class="box-title">{%blocktrans %}FAQ_TITLE{% endblocktrans%}</h4>
@@ -62,16 +53,12 @@
                     <div class="pagination">
                         <span class="step-links">
                             {% if object_list.has_previous %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Vorige</a> -->
                                 <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
                             {% endif %}
-
                             <span class="current">
                                 Pagina {{ object_list.number }} van {{ object_list.paginator.num_pages }}.
                             </span>
-
                             {% if object_list.has_next %}
-<!--                                <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Volgende</a> -->
                                 <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
                             {% endif %}
                         </span>
@@ -79,7 +66,6 @@
                     <div>
                         <p>
                             </br>
-                            <!-- TODO: blocktrans -->
                             {%blocktrans %}FAQ_HELP_TEXT{% endblocktrans%}
                             <!--Hebt u nog vragen? Ik help u graag verder!
                             Hebt u vragen over het te koop stellen van een onroerend goed? Wilt u er zeker van zijn dat uw verkoopdossier volledig is?
@@ -92,7 +78,6 @@
                     </div>
                     <div>
                     <blockquote>
-                    <!-- TODO: blocktrans -->
                     <p>{%blocktrans %}FAQ_BOTTOMTEXT{% endblocktrans%}</p>
                     </blockquote>
                     </div>
@@ -102,8 +87,7 @@
                     <div class="clearfix">
                     </div>
                 </div>
-        </div> <!-- contact-info-->
-
+            </div>
         </div>
     </div>
 

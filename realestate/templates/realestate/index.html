@@ -3,6 +3,7 @@
 {% include "realestate/header.html" %}
 {% load thumbnail %}
 {% load i18n %}
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/advancedsearchindex.js"></script>
 <div class="main-flexslider">
         <ul class="slides">
             {% for property in featured_six_properties_in_ascending_order%}
@@ -21,7 +22,6 @@
                     <li><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}}</li>
                     <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
                     <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
-                    <!-- <li><span class="fa fa-truck"></span>1 garage</li> -->
                 </ul>
                 <div class="slider-buttons-wrapper">
                     <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}
@@ -37,7 +37,8 @@
         </ul>
     </div>
 </div>
-
+{% include "realestate/reference_search.html" %}
+{% include "realestate/search_bar.html" %}
 <!-- Recent-Listings-Section -->
 {%if last_six_properties_in_ascending_order%}
 <div class="recent-listings">
@@ -130,16 +131,12 @@
                             <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
                         </ul>
                         <div class="buttons-wrapper">
-<<<<<<< Updated upstream
                             <span id="sellingprice" class="yellow-btn">
                             {{property.sellingprice}}
                             {% if property.listing_type == 'Huren' %}
                             {%blocktrans %}RENT_MONTH{% endblocktrans%}
                             {% endif %}
                             </span>
-=======
-                            <span id="sellingprice" class="yellow-btn">{{property.sellingprice}} {% if property.listing_type == 'Kopen'%} /maand{%endif%}</span>
->>>>>>> Stashed changes
                             <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
                         </div>
                         <div class="clearfix">

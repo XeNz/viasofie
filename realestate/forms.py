@@ -59,6 +59,12 @@ class UpdateAccountInformation(forms.ModelForm):
         model = ClientUser
         fields = ['first_name', 'last_name', 'email']
 
+class ReferenceSearchForm(forms.Form):
+    property_id = forms.CharField(label=_('Reference id'),widget=forms.TextInput(attrs={'class':'eltextinput', 'type':'number'}))
+
+    class Meta:
+        model = Property
+        fields = ['id',]
 
 class IndexSearchForm(forms.Form):
     listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}),required=False)

@@ -17,125 +17,7 @@
         </div>
     </div>
 </div>
-
-<!-- Search-Section -->
-<div class="search-section">
-    <div class="container">
-        <form>
-            <div class="select-wrapper select-smaill" id='select-rent'>
-                <p>
-                    Rent or Sale
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Rent</option>
-                    <option value="chips-and-salsa">Sale</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-big" id='select-property'>
-                <p>
-                    Property type
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-big">
-                <p>
-                    locations
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-small">
-                <p>
-                    Beds
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-small">
-                <p>
-                    Baths
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-medium">
-                <p>
-                    Sq ft
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-medium">
-                <p>
-                    min price
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <div class="select-wrapper select-medium">
-                <p>
-                    Max price
-                </p>
-                <select class='elselect'>
-                    <option value="any">any</option>
-                    <option value="potato-chips">Potato chips</option>
-                    <option value="chips-and-salsa">Chips and salsa</option>
-                    <option value="cookies">Cookies</option>
-                    <option value="doritos">Doritos</option>
-                    <option value="pringles">Pringles</option>
-                    <option value="hot-pockets">Hot pockets</option>
-                </select>
-            </div>
-            <input type="submit" value="search" class='yellow-btn'>
-        </form>
-    </div>
-</div>
-
-
+{% include "realestate/search_bar.html" %}
 <!-- content-Section -->
 <div class="content-section">
     <div class="container">
@@ -204,38 +86,12 @@
                 </div>
             </div>
             <div class="col-md-4 blog-sidebar">
-<!--                 <div class="sidebar-widget similar-listings-widget">
-                    <h4 class="widget-title">similar listings</h4>
-                    <ul class="similar-listings">
-                        <li class="tab-content-item">
-                        <div class="pull-left thumb">
-                            <img src="{% thumbnail "realestate/img/property/38_property-header.jpg" '80x80' crop='center' %}" alt="thumbnail">
-                        </div>
-                        <h5><a href="#">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum - $7,000</a></h5>
-                        </li>
-                        <li class="tab-content-item">
-                        <div class="pull-left thumb">
-                            <img src="{% thumbnail "realestate/img/property/38_property-header.jpg" '80x80' crop='center' %}" alt="thumbnail">
-                        </div>
-                        <h5><a href="#">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum - $7,000</a></h5>
-                        </li>
-                        <li class="tab-content-item">
-                        <div class="pull-left thumb">
-                            <img src="{% thumbnail "realestate/img/property/38_property-header.jpg" '80x80' crop='center' %}" alt="thumbnail">
-                        </div>
-                        <h5><a href="#">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum</a></h5>
-                        </li>
-                    </ul>
-                </div> -->
                 <div class="sidebar-widget text-widget">
-                <!-- TODO: Translation -->
                     <h4 class="widget-title">{%blocktrans %}TELL_FRIEND_TITLE{% endblocktrans%}</h4>
-                    <!--Vertel een vriend-->
-                    <p class='first-paragraph'>
-                        {%blocktrans %}TELL_FRIEND_TEXT{% endblocktrans%}
-                        <!--Deel dit eigendom met vrienden of familie:-->
-                    </p>
-                    <a href="{% url 'realestate:share' %}" class="yellow-btn">{%blocktrans %}SHARE_LINK{% endblocktrans%}<!--Deel--></a>
+                        <p class='first-paragraph'>
+                            {%blocktrans %}TELL_FRIEND_TEXT{% endblocktrans%}
+                        </p>
+                    <a href="{% url 'realestate:share' %}" class="yellow-btn">{%blocktrans %}SHARE_LINK{% endblocktrans%}</a>
                 </div>
             </div>
         </div>
