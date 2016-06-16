@@ -6,7 +6,7 @@ from django.template import loader
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
-# from settings import DEFAULT_FROM_EMAIL
+from django.conf.global_settings import DEFAULT_FROM_EMAIL
 from .models import *
 from .forms import PropertyAdminForm
 from django.contrib.sites.models import Site
@@ -47,7 +47,7 @@ def new_user_mail(modeladmin, request, queryset):
             subject = loader.render_to_string(subject_template_name, c)
             subject = ''.join(subject.splitlines())
             email = loader.render_to_string(email_template_name, c)
-            send_mail(subject, email, 'viasofieinfo@gmail.com' , [obj.email], fail_silently=False)
+            send_mail(subject, email, DEFAULT_FROM_EMAIL , [obj.email], fail_silently=False)
 
 
 class UserCreationForm(forms.ModelForm):
