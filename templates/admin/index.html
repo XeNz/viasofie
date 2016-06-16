@@ -38,28 +38,40 @@
                 {% if not "Sites" in model.name %}
                 {% if not "Current" in model.name %}
                 <th scope="row"><a href="{{ model.admin_url }}">
-                {% if  "Gebruiker" in model.name or "User" in model.name  %}
+                {% if  "Client user" in model.name or "User" in model.name  %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/user.png" %}' >
                 {% endif %}
-                {% if  "Deal" in model.name %}
+                {% if model.name == "Deals" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/deal.png" %}' >
                 {% endif %}
-                {% if  "Status" in model.name %}
+                {% if model.name == "Ebooks" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/ebook.png" %}' >
+                {% endif %}
+                {% if model.name == "Ebook opvragingen" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/ebookrequest.png" %}' >
+                {% endif %}
+                {% if model.name == "Stavaza"%}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/status.png" %}' >
                 {% endif %}
-                {% if  "Eigendom" in model.name %}
+                {% if  model.name == "Eigendommen" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/house.png" %}' >
                 {% endif %}
-                {% if  "Frequently" in model.name %}
+                {% if  model.name == "Newsletters" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/newsletter.png" %}' >
+                {% endif %}
+                {% if  model.name == "Subscribers" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/newsletter.png" %}' >
+                {% endif %}
+                {% if  model.name == "Veelgestelde vragen" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/faq.png" %}' >
                 {% endif %}
-                {% if  "character" in model.name %}
+                {% if  model.name == "Property characteristics" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/bath.png" %}' >
                 {% endif %}
-                {% if  "Partner" in model.name %}
+                {% if  model.name == "Partners"  %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/partner.png" %}' >
                 {% endif %}
-                {% if  "type" in model.name %}
+                {% if  model.name == "Eigendomstypes" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/propertytype.png" %}' >
                 {% endif %}
                <!--  {{ model.name }} -->

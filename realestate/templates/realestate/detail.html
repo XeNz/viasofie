@@ -3,6 +3,7 @@
 {% include "realestate/header.html" %}
 {% load thumbnail %}
 {% load i18n %}
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/advancedsearch.js"></script>
 <body id='top' class="property-details-page">
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/googlemaps.css" %}"/> -->
 <div class="page-title-section">
@@ -17,12 +18,13 @@
         </div>
     </div>
 </div>
+{% include "realestate/reference_search.html" %}
 {% include "realestate/search_bar.html" %}
 <!-- content-Section -->
 <div class="content-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 page-content">
+            <div class="col-md-9 page-content">
                 <div class="inner-wrapper">
                     <div class="property-images-slider">
                         <div id="details-slider" class="flexslider">
@@ -85,7 +87,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 blog-sidebar">
+            <div class="col-md-3 blog-sidebar">
+                <div class="sidebar-widget text-widget">
+                    <h4 class="widget-title">{%blocktrans %}INTERESTED{% endblocktrans%}</h4>
+                        <p class='first-paragraph'>
+                            {%blocktrans %}INTERESTED_TEXT{% endblocktrans%}
+                        </p>
+                    <a href="{% url 'realestate:contact' %}" class="yellow-btn">{%blocktrans %}CONTACT_REALTOR{% endblocktrans%}</a>
+                </div>
+            </div>
+            <div class="col-md-3 blog-sidebar">
                 <div class="sidebar-widget text-widget">
                     <h4 class="widget-title">{%blocktrans %}TELL_FRIEND_TITLE{% endblocktrans%}</h4>
                         <p class='first-paragraph'>
