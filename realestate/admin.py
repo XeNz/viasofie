@@ -1,4 +1,12 @@
 from django.contrib import admin
+from django.utils.http import urlsafe_base64_encode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.template import loader
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
+from django.conf.global_settings import DEFAULT_FROM_EMAIL
 from .models import *
 from .forms import PropertyAdminForm
 from django.contrib.sites.models import Site
@@ -18,6 +26,29 @@ from django.contrib.auth import (
 )
 from django.utils.translation import gettext as _
 import random
+
+
+def new_user_mail(modeladmin, request, queryset):
+    for obj in queryset.all():
+        id = obj.id
+        user = ClientUser.objects.filter(id=id)
+        if user:
+            c = {
+            'email': obj.email,
+            'domain': request.META['HTTP_HOST'],
+            'site_name': 'your site',
+            'uid': urlsafe_base64_encode(force_bytes(obj.pk)),
+            'user': obj,
+            'token': default_token_generator.make_token(obj),
+            'protocol': 'http',
+            }
+            subject_template_name='usercontrolpanel/passwordreset/password_reset_subject.txt'
+            email_template_name='usercontrolpanel/passwordreset/password_reset_email.html'
+            subject = loader.render_to_string(subject_template_name, c)
+            subject = ''.join(subject.splitlines())
+            email = loader.render_to_string(email_template_name, c)
+            send_mail(subject, email, DEFAULT_FROM_EMAIL , [obj.email], fail_silently=False)
+
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -108,6 +139,7 @@ class ClientUserAdmin(UserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
+    actions = [new_user_mail]
 
 # Now register the new UserAdmin...
 admin.site.register(ClientUser, ClientUserAdmin)
