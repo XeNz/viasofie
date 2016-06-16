@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import *
 from nocaptcha_recaptcha.fields import NoReCaptchaField
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import validate_integer
 
 
 class FeedbackForm(forms.Form):
@@ -60,12 +61,16 @@ class UpdateAccountInformation(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email']
 
 class ReferenceSearchForm(forms.Form):
-    property_id = forms.CharField(label=_('Reference id'),widget=forms.TextInput(attrs={'class':'eltextinput', 'type':'number'}))
+    property_id = forms.CharField(label=_('Reference id'),widget=forms.TextInput(attrs={'class':'eltextinput', 'type':'number'}),required = True,)
 
     class Meta:
         model = Property
         fields = ['id',]
-
+    def clean(self):
+        if self.cleaned_data['property_id'] is not None or self.cleaned_data['property_id'] != '' :
+              return super().clean()
+        raise ValidationError_('no correct reference number')
+        
 class IndexSearchForm(forms.Form):
     listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}),required=False)
     # province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province', 'class': 'elselect'}),required = True)
