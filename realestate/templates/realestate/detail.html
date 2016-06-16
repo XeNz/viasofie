@@ -3,6 +3,7 @@
 {% include "realestate/header.html" %}
 {% load thumbnail %}
 {% load i18n %}
+<script type="text/javascript" src="{{ STATIC_URL }}realestate/js/advancedsearch.js"></script>
 <body id='top' class="property-details-page">
 <!-- <link rel="stylesheet" type="text/css" href="{% static "realestate/css/googlemaps.css" %}"/> -->
 <div class="page-title-section">
@@ -17,6 +18,7 @@
         </div>
     </div>
 </div>
+{% include "realestate/reference_search.html" %}
 {% include "realestate/search_bar.html" %}
 <!-- content-Section -->
 <div class="content-section">

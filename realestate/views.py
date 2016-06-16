@@ -79,10 +79,14 @@ def index(request):
 class DetailView(generic.DetailView):
     model = Property
     template_name = 'realestate/detail.html'
+    ref_form = ReferenceSearchForm
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
+        data_dict = {'minprice': 1, 'maxprice' : 1}
         characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
         context['characteristics_property'] = characteristics_property
+        context['ref_form'] = self.ref_form
+        context['form'] = IndexSearchForm(data=self.request.POST or None,initial=data_dict)
         return context
 
 
@@ -110,16 +114,6 @@ def faq_list(request):
         "page_request_var": page_request_var,
     }
     return render(request, "realestate/faq.html", context)
-
-
-def search(request):
-    form = PropertiesSearchForm
-    if request.GET:
-        form = PropertiesSearchForm(request.GET)
-        query = form.search()
-        return render_to_response('realestate/search.html', {'query': query}, context_instance=RequestContext(request))
-    else:
-        return render_to_response('realestate/search.html', {"form": form}, context_instance=RequestContext(request))
 
 
 def contact(request):
@@ -285,21 +279,6 @@ def sell(request):
     sell_properties = Property.objects.filter(listing_type="kopen")
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
-    if request.method == 'POST':
-        listing_type_choice = request.POST.get('listing_type_choices')
-        selected_borough = request.POST.get('borough_choices')
-        bedrooms = request.POST.get('bedrooms')
-        bathrooms = request.POST.get('bathrooms')
-        surfacearea = request.POST.get('surfacearea')
-        if not request.POST['minprice'] or not request.POST['maxprice'] or request.POST['maxprice'] == 0 or request.POST['minprice'] == 0 :
-             form.add_error('minprice', 'check prices')
-             return render(request, 'realestate/sell.html',{'form': form,})
-        else:
-            minprice = request.POST.get('minprice')
-            maxprice = request.POST.get('maxprice')
-            propertyType = request.POST.get('propertytype')
-        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-        list(property_list)
     if property_list is None:
         paginator = Paginator(sell_properties, 9) # Show 5 faqs per page
         page_request_var = "page"
@@ -319,9 +298,6 @@ def sell(request):
             'ref_form': ref_form,
         }
         return render(request, 'realestate/sell.html',context)
-    else:
-        searchPaginator = Paginator(property_list, 1)
-        page = request.GET.get('page')
     try:
         result_list = searchPaginator.page(page)
     except PageNotAnInteger:
@@ -336,22 +312,6 @@ def rent(request):
     data_dict = {'minprice': 1, 'maxprice' : 1}
     property_list = None
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
-    if request.method == 'POST':
-        listing_type_choice = request.POST.get('listing_type_choices')
-        selected_borough = request.POST.get('borough_choices')
-        bedrooms = request.POST.get('bedrooms')
-        bathrooms = request.POST.get('bathrooms')
-        surfacearea = request.POST.get('surfacearea')
-        if not request.POST['minprice'] or not request.POST['maxprice'] or request.POST['maxprice'] == 0 or request.POST['minprice'] == 0 :
-             form.add_error('minprice', 'check prices')
-             return render(request, 'realestate/rent.html',{'form': form,})
-        else:
-            minprice = request.POST.get('minprice')
-            maxprice = request.POST.get('maxprice')
-            propertyType = request.POST.get('propertytype')
-
-        property_list = Property.objects.select_related('propertytype_property__propertyType_id__name').filter(Q(listing_type__icontains=listing_type_choice) & Q(bedrooms_text__gte=bedrooms) & Q(bathrooms_text__gte=bathrooms) & Q(surface_area_text__gte=surfacearea) & Q(sellingprice__gte=minprice) & Q(sellingprice__lte=maxprice) & Q(city_text=selected_borough) & Q(propertytype_property__propertyType_id__name=propertyType) & Q(visible_to_public=True))
-        list(property_list)
     if property_list is None:
         paginator = Paginator(rent_properties, 9) # Show 5 faqs per page
         page_request_var = "page"
@@ -371,9 +331,6 @@ def rent(request):
             'ref_form': ref_form,
         }
         return render(request, 'realestate/rent.html',context)
-    else:
-        searchPaginator = Paginator(property_list, 1)
-        page = request.GET.get('page')
     try:
         result_list = searchPaginator.page(page)
     except PageNotAnInteger:

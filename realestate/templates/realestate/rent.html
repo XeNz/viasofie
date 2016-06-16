@@ -64,20 +64,21 @@
                 </div>
                 <!-- /Single-item -->
                 {% endfor %}
-            </div>
-            <div class="pagination">
-                        <span class="step-links">
-                            {% if rent_properties.has_previous %}
-                                <a href="?{{ page_request_var }}={{ rent_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
-                            {% endif %}
-                            <span class="current">
-                                Pagina {{ rent_properties.number }} van {{ rent_properties.paginator.num_pages }}.
+                <div class="pagination">
+                            <span class="step-links">
+                                {% if rent_properties.has_previous %}
+                                    <a href="?{{ page_request_var }}={{ rent_properties.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn"><</a>
+                                {% endif %}
+                                <span class="current">
+                                    Pagina {{ rent_properties.number }} van {{ rent_properties.paginator.num_pages }}.
+                                </span>
+                                {% if rent_properties.has_next %}
+                                    <a href="?{{ page_request_var }}={{ rent_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
+                                {% endif %}
                             </span>
-                            {% if rent_properties.has_next %}
-                                <a href="?{{ page_request_var }}={{ rent_properties.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" type="pagination" value="next" class="yellow-btn">></a>
-                            {% endif %}
-                        </span>
-                    </div>
+                        </div>
+            </div>
+
             {%endif%}
         </div>
     </div>
