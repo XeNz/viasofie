@@ -25,12 +25,12 @@
     <div class="row">
     </div>
     <div id="userpanelcontainer">
-    <div id="welcomeaccount"><h2> Welkom {{user.first_name}} {{user.last_name}} </h2> </div>
-    <div class="account_information" id="account">
-        <a id="accountinformation" href="{% url 'realestate:accountinformation' %}">Klik hier om uw account informatie aan te passen.</a>
-    </div>
     <div class="col-md-3">
         <div class="deals" id="deals">
+        <div id="welcomeaccount"><h2> Welkom {{user.first_name}} {{user.last_name}} </h2> </div>
+        <div class="account_information" id="account">
+            <a id="accountinformation" href="{% url 'realestate:accountinformation' %}">Klik hier om uw account informatie aan te passen.</a>
+        </div>
             <h2 class="page-header"> <span class="glyphicons glyphicons-user"> {%blocktrans %}SELECT_DEAL_TITLE{% endblocktrans%}</span></h2>
             <br>
             <form id= "dealselecter" class= "form-group" method="POST">
@@ -44,7 +44,8 @@
             </form>
         </div>
     </div>
-    <div class="col-md-6" id="userpanel">
+    <div class="col-md-6 contact-info" id="userpanel">
+    <div class="inner-wrapper">
         <div class="container">
         {% if messages %}
         <div class="messages">
@@ -54,7 +55,7 @@
         </div>
         {% endif %}
       </div>
-       <h2 class="page-header"> <span class="glyphicons glyphicons-user">{%blocktrans %}STATUS_TITLE{% endblocktrans%} <!--Status--> </span></h2>
+       <h2 class="page-header" id="stavaza-header"> <span class="glyphicons glyphicons-user">{%blocktrans %}STATUS_TITLE{% endblocktrans%} <!--Status--> </span></h2>
     <table class="table">
         <thead>
             <tr>
@@ -79,6 +80,7 @@
             {%endfor%}
         </tbody>
     </table>
+    </div>
     </div>
 <div class = "col-md-3" id="status">
     <h2 class="page-header"> <span class="glyphicons glyphicons-user">{%blocktrans %}VISITATIONS_TITLE{% endblocktrans%} <!--Bezichtigingen--> </span></h2>

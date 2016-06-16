@@ -2257,3 +2257,9 @@ input[type='submit'] {
 #id_property_id input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
+#stavaza-header{
+  margin:0px;
+}
+#userpanel{
+  margin-top: 20px;
+}
