@@ -281,6 +281,7 @@ def reference_search(request):
 
 def sell(request):
     ref_form = ReferenceSearchForm
+    property_list = None
     sell_properties = Property.objects.filter(listing_type="kopen")
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
