@@ -24,7 +24,7 @@
 <div class="content-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 page-content">
+            <div class="col-md-9 page-content">
                 <div class="inner-wrapper">
                     <div class="property-images-slider">
                         <div id="details-slider" class="flexslider">
@@ -87,7 +87,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 blog-sidebar">
+            <div class="col-md-3 blog-sidebar">
+                <div class="sidebar-widget text-widget">
+                    <h4 class="widget-title">{%blocktrans %}INTERESTED{% endblocktrans%}</h4>
+                        <p class='first-paragraph'>
+                            {%blocktrans %}INTERESTED_TEXT{% endblocktrans%}
+                        </p>
+                    <a href="{% url 'realestate:contact' %}" class="yellow-btn">{%blocktrans %}CONTACT_REALTOR{% endblocktrans%}</a>
+                </div>
+            </div>
+            <div class="col-md-3 blog-sidebar">
                 <div class="sidebar-widget text-widget">
                     <h4 class="widget-title">{%blocktrans %}TELL_FRIEND_TITLE{% endblocktrans%}</h4>
                         <p class='first-paragraph'>

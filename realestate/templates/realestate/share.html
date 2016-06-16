@@ -40,9 +40,7 @@
                             </div>
                             <div class="contact-form-right">
                                 {{ form.message.errors }}
-                                <textarea id="message" name='message' placeholder='Message'>
-                                {% if url %}
-                                Hey, ik zou je graag dit pand laten zien. Misschien interesseert dit je wel: {{ url }}
+                                <textarea id="message" name='message' placeholder='Message'>{% if url %}Hey, ik zou je graag dit pand laten zien. Misschien interesseert dit je wel: {{ url }}
                                 {% endif %}
                                 </textarea>
                                 <div id="captchawrapper">
