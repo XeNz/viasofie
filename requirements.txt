@@ -52,6 +52,7 @@ django-cookie-law == 1.0.7
 #django-haystack == 2.5.dev0
 #elasticsearch == 2.3.0
 django-nocaptcha-recaptcha == 0.0.19
+pytz ==  2016.4
 
 ###### Requirements without Version Specifiers ######
 #beautifulsoup4

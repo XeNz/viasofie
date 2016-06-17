@@ -35,6 +35,7 @@ def new_user_mail(modeladmin, request, queryset):
         if user:
             c = {
             'email': obj.email,
+            'username': obj.username,
             'domain': request.META['HTTP_HOST'],
             'site_name': 'your site',
             'uid': urlsafe_base64_encode(force_bytes(obj.pk)),
@@ -86,12 +87,6 @@ class UserCreationForm(forms.ModelForm):
         last_name = self.cleaned_data.get("last_name")
         if commit:
             user.save()
-
-
-        #MAKE THE FUCKING MAIL HERE
-        # send_mail('Subject here', 'Here is the password: .'+password,
-        #        'from@example.com', ['someone@gmail.com'],
-        #        fail_silently=False)
 
         return user
 
