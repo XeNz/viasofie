@@ -2263,6 +2263,13 @@ input[type='submit'] {
 #userpanel{
   margin-top: 20px;
 }
+#footer-opening{
+  margin-top: 55px;
+}
+
+
+
+
 
 @media only screen and (min-width: 768px) {
     /* tablets and desktop */
