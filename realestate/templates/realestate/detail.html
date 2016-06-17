@@ -29,7 +29,7 @@
                     <div class="property-images-slider">
                         <div id="details-slider" class="flexslider">
                             <a href="#" class='fa fa-home property-type-icon'></a>
-                            <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
+                            <span id="sellingprice" class="yellow-btn">€ {{property.sellingprice}}</span>
                             <a href="#" class='status'>
                                 {% if property.listing_type == 'Kopen' %}
                                 {%blocktrans %}PROPERTY_SALE{% endblocktrans%}
@@ -59,7 +59,7 @@
                     </div>
                     <div class="property-desc">
                         <h3>{{ property.title_text }}</h3>
-                        <h3>Referentie : {{ property.id }}</h3>
+                        <h2>Referentienummer : {{ property.id }}</h2>
                         <h2>{{ property.street_text }} {{ property.house_number_text}}, {{ property.postal_code_text }} {{ property.city_text }}, {{ property.country_text }}</h2>
                         <ul class="slide-item-features item-features">
                         <li id="surface_area"><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}} m²</li>

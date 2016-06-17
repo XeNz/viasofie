@@ -24,7 +24,7 @@
                     <li><span class="fa fa-male"></span>{{property.bathrooms_text}}</li>
                 </ul>
                 <div class="slider-buttons-wrapper">
-                    <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}
+                    <span id="sellingprice" class="yellow-btn">€ {{property.sellingprice}}
                         {% if property.listing_type == 'Huren' %}
                         {%blocktrans %}RENT_MONTH{% endblocktrans%}
                         {% endif %}
@@ -77,7 +77,7 @@
                         </ul>
                         <div class="buttons-wrapper">
                             <span id="sellingprice" class="yellow-btn">
-                            {{property.sellingprice}}
+                            € {{property.sellingprice}}
                             {% if property.listing_type == 'Huren' %}
                             {%blocktrans %}RENT_MONTH{% endblocktrans%}
                             {% endif %}
@@ -132,7 +132,7 @@
                         </ul>
                         <div class="buttons-wrapper">
                             <span id="sellingprice" class="yellow-btn">
-                            {{property.sellingprice}}
+                            € {{property.sellingprice}}
                             {% if property.listing_type == 'Huren' %}
                             {%blocktrans %}RENT_MONTH{% endblocktrans%}
                             {% endif %}

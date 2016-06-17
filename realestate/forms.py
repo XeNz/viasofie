@@ -85,27 +85,27 @@ class IndexSearchForm(forms.Form):
 
 
 class PropertyAdminForm(forms.ModelForm):
-    title_text = forms.CharField(label='title')
-    description_text = forms.CharField(label='description')
-    street_text = forms.CharField(label='street')
-    house_number_text = forms.CharField(label='house number')
+    title_text = forms.CharField(label=_('Property|title_text'))
+    description_text = forms.CharField(label=_('Property|description_text'))
+    street_text = forms.CharField(label=_('Property|street_text'))
+    house_number_text = forms.CharField(label=_('Property|house_number_text'))
     postcodes = Location.objects.values_list('postcode', flat=True).distinct().order_by('postcode')
     postcodes_choices = [('', 'None')] + [(postcode, postcode) for postcode in postcodes]
     postal_code_text = forms.ChoiceField(postcodes_choices,
-                                required=True, widget=forms.Select())
+                                required=True, widget=forms.Select(),label=_('Property|postal_code_text'))
     gemeentes = Location.objects.values_list('gemeente', flat=True).distinct()
     gemeentes_choices = [('', 'None')] + [(gemeente, gemeente) for gemeente in gemeentes]
     city_text = forms.ChoiceField(gemeentes_choices,
-                                required=True, widget=forms.Select())
-    country_text = forms.CharField(label='land')
-    constructiondate = forms.DateField()
-    sellingprice = forms.IntegerField()
-    visible_to_public = forms.BooleanField(required=False)
-    featured = forms.BooleanField(required=False)
-    pub_date = forms.DateTimeField(label='date published')
-    surface_area_text = forms.IntegerField()
-    bathrooms_text = forms.IntegerField()
-    bedrooms_text = forms.IntegerField()
+                                required=True, widget=forms.Select(),label=_('Property|city_text'))
+    country_text = forms.CharField(label=_('Property|country_text'))
+    constructiondate = forms.DateField(label=_('Property|constructiondate'))
+    sellingprice = forms.IntegerField(label=_('Property|sellingprice'))
+    visible_to_public = forms.BooleanField(required=False,label=_('Property|visible_to_public'))
+    featured = forms.BooleanField(required=False,label=_('Property|featured'))
+    pub_date = forms.DateTimeField(label=_('Property|datepublished'))
+    surface_area_text = forms.IntegerField(label=_('Property|surface_area_text'))
+    bathrooms_text = forms.IntegerField(label=_('Property|bathrooms_text'))
+    bedrooms_text = forms.IntegerField(label=_('Property|bedrooms_text'))
 
 
 

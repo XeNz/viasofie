@@ -76,7 +76,7 @@ msgstr "Slaapkamers"
 
 #: .\realestate\models.py:98
 msgid "Property|listing_type"
-msgstr ""
+msgstr "Verkoop of verhuur"
 
 #: .\realestate\models.py:114
 msgid "Location|postcode"
@@ -123,16 +123,12 @@ msgid "Characteristic|name"
 msgstr "Karakteristiek Naam"
 
 #: .\realestate\models.py:146 .\realestate\models.py:168
-#, fuzzy
-#| msgid "Characteristic|name"
 msgid "Property characteristic"
-msgstr "Naam"
+msgstr "Eigendom karakteristiek"
 
 #: .\realestate\models.py:147 .\realestate\models.py:169
-#, fuzzy
-#| msgid "Characteristic|name"
 msgid "Property characteristics"
-msgstr "Naam"
+msgstr "Eigendom karakteristieken"
 
 #: .\realestate\models.py:152
 msgid "PropertyType_Property|id"
@@ -148,11 +144,11 @@ msgstr "ID eigendom"
 
 #: .\realestate\models.py:156
 msgid "Property Type characteristic"
-msgstr "Eigendomstype"
+msgstr "Eigendomstype karakteristiek"
 
 #: .\realestate\models.py:157
 msgid "Property Type characteristics"
-msgstr "Eigendomstypes"
+msgstr "Eigendomstypes karakteristieken"
 
 #: .\realestate\models.py:161
 msgid "Characteristics_property|property_id"
@@ -389,26 +385,17 @@ msgid "Ebook requests"
 msgstr "Ebook opvragingen"
 
 #: .\realestate\templates\404.html:11
-#, fuzzy
-#| msgid "FAQ_TITLE"
 msgid "404_TITLE"
-msgstr "Frequently Asked Questions"
+msgstr "Error 404 - Pagina niet gevonden"
 
 #: .\realestate\templates\404.html:12
-#, fuzzy
-#| msgid "FAQ_TEXT"
 msgid "404_TEXT"
-msgstr ""
-"Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening "
-"houden met een hele hoop zaken. Hieronder vindt u een aantal algemene "
-"begrippen en FAQ's vanbelang bij de verkoop of verhuur. Hebt u vragen over "
-"onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te "
-"contacteren, ik help u graag verder. Klik op een vraag om hierover meer te "
-"weten te komen."
+msgstr "Wij kunnen die pagina die u bezoekt niet vinden. Ga terug en probeer het opnieuw."
+
 
 #: .\realestate\templates\404.html:16
 msgid "GO_BACK"
-msgstr ""
+msgstr "Ga terug"
 
 #: .\realestate\templates\newsletter\common.html:10
 #: .\realestate\templates\newsletter\common.html:14
@@ -436,8 +423,6 @@ msgid "HOME_BUTTON"
 msgstr "Home"
 
 #: .\realestate\templates\newsletter\common.html:23
-#, fuzzy
-#| msgid "Newsletter|id"
 msgid "Newsletter"
 msgstr "Nieuwsbrief"
 
@@ -649,10 +634,8 @@ msgstr ""
 
 #: .\realestate\templates\realestate\ebook.html:10
 #: .\realestate\templates\realestate\ebook.html:14
-#, fuzzy
-#| msgid "ABOUT_BUTTON"
 msgid "EBOOK_BUTTON"
-msgstr "About us"
+msgstr "Ebook aanvragen"
 
 #: .\realestate\templates\realestate\ebook.html:23
 msgid "Vraag hier uw gratis e-book aan"
