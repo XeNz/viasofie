@@ -76,7 +76,7 @@ msgstr "Slaapkamers"
 
 #: .\realestate\models.py:98
 msgid "Property|listing_type"
-msgstr ""
+msgstr "Verkoop of verhuur"
 
 #: .\realestate\models.py:114
 msgid "Location|postcode"
@@ -123,16 +123,12 @@ msgid "Characteristic|name"
 msgstr "Karakteristiek Naam"
 
 #: .\realestate\models.py:146 .\realestate\models.py:168
-#, fuzzy
-#| msgid "Characteristic|name"
 msgid "Property characteristic"
-msgstr "Naam"
+msgstr "Eigendom karakteristiek"
 
 #: .\realestate\models.py:147 .\realestate\models.py:169
-#, fuzzy
-#| msgid "Characteristic|name"
 msgid "Property characteristics"
-msgstr "Naam"
+msgstr "Eigendom karakteristieken"
 
 #: .\realestate\models.py:152
 msgid "PropertyType_Property|id"
@@ -148,11 +144,11 @@ msgstr "ID eigendom"
 
 #: .\realestate\models.py:156
 msgid "Property Type characteristic"
-msgstr "Eigendomstype"
+msgstr "Eigendomstype karakteristiek"
 
 #: .\realestate\models.py:157
 msgid "Property Type characteristics"
-msgstr "Eigendomstypes"
+msgstr "Eigendomstypes karakteristieken"
 
 #: .\realestate\models.py:161
 msgid "Characteristics_property|property_id"
@@ -389,35 +385,26 @@ msgid "Ebook requests"
 msgstr "Ebook opvragingen"
 
 #: .\realestate\templates\404.html:11
-#, fuzzy
-#| msgid "FAQ_TITLE"
 msgid "404_TITLE"
-msgstr "Frequently Asked Questions"
+msgstr "Error 404 - Pagina niet gevonden"
 
 #: .\realestate\templates\404.html:12
-#, fuzzy
-#| msgid "FAQ_TEXT"
 msgid "404_TEXT"
-msgstr ""
-"Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening "
-"houden met een hele hoop zaken. Hieronder vindt u een aantal algemene "
-"begrippen en FAQ's vanbelang bij de verkoop of verhuur. Hebt u vragen over "
-"onderstaande topics of staat uw vraag hier niet tussen, aarzel niet om me te "
-"contacteren, ik help u graag verder. Klik op een vraag om hierover meer te "
-"weten te komen."
+msgstr "Wij kunnen die pagina die u bezoekt niet vinden. Ga terug en probeer het opnieuw."
+
 
 #: .\realestate\templates\404.html:16
 msgid "GO_BACK"
-msgstr ""
+msgstr "Ga terug"
 
+#: .\realestate\templates\newsletter\common.html:10
 #: .\realestate\templates\newsletter\common.html:14
-#: .\realestate\templates\newsletter\common.html:18
 #: .\realestate\templates\realestate\partners.html:14
 #: .\realestate\templates\realestate\partners.html:18
 msgid "PARTNERS_BUTTON"
 msgstr "Partners"
 
-#: .\realestate\templates\newsletter\common.html:18
+#: .\realestate\templates\newsletter\common.html:14
 #: .\realestate\templates\realestate\about.html:14
 #: .\realestate\templates\realestate\contact.html:14
 #: .\realestate\templates\realestate\ebook.html:14
@@ -429,15 +416,13 @@ msgstr "Partners"
 #: .\realestate\templates\usercontrolpanel\accountinformation.html:14
 #: .\realestate\templates\usercontrolpanel\login.html:15
 #: .\realestate\templates\usercontrolpanel\logout.html:14
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:31
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:24
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:15
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:13
 #: .\realestate\templates\usercontrolpanel\userpanel.html:19
 msgid "HOME_BUTTON"
 msgstr "Home"
 
-#: .\realestate\templates\newsletter\common.html:27
-#, fuzzy
-#| msgid "Newsletter|id"
+#: .\realestate\templates\newsletter\common.html:23
 msgid "Newsletter"
 msgstr "Nieuwsbrief"
 
@@ -481,7 +466,7 @@ msgstr ""
 "mee een duwtje in de rug wilt geven!"
 
 #: .\realestate\templates\realestate\contact.html:10
-#: .\realestate\templates\realestate\faq.html:88
+#: .\realestate\templates\realestate\faq.html:74
 msgid "CONTACT_BUTTON"
 msgstr "Contacteer ons"
 
@@ -500,27 +485,23 @@ msgstr ""
 "stellen van een onroerend goed? Wilt u er zeker van zijn dat uw "
 "verkoopdossier volledig is? Neem vrijblijvend contact op!"
 
-#: .\realestate\templates\realestate\contact.html:28
-msgid "CONTACT_TEXT2"
-msgstr ""
-
-#: .\realestate\templates\realestate\contact.html:41
+#: .\realestate\templates\realestate\contact.html:38
 msgid "CONTACT_TOUCH"
 msgstr "Contact opnemen"
 
-#: .\realestate\templates\realestate\contact.html:53
+#: .\realestate\templates\realestate\contact.html:50
 msgid "CONTACT_FORM_NAME"
 msgstr "Naam"
 
-#: .\realestate\templates\realestate\contact.html:55
+#: .\realestate\templates\realestate\contact.html:52
 msgid "CONTACT_FORM_EMAIL"
 msgstr "E-mail"
 
-#: .\realestate\templates\realestate\contact.html:57
+#: .\realestate\templates\realestate\contact.html:54
 msgid "CONTACT_FORM_SUBJECT"
 msgstr "Onderwerp"
 
-#: .\realestate\templates\realestate\contact.html:61
+#: .\realestate\templates\realestate\contact.html:58
 msgid "CONTACT_FORM_MESSAGE"
 msgstr "Bericht"
 
@@ -544,59 +525,69 @@ msgstr ""
 "om online advertenties aan te passen aan uw interesses.Door te surfen op "
 "deze website gaat u akkoord met het plaatsen van cookies."
 
-#: .\realestate\templates\realestate\detail.html:12
-#: .\realestate\templates\realestate\detail.html:16
+#: .\realestate\templates\realestate\detail.html:13
+#: .\realestate\templates\realestate\detail.html:17
 msgid "EIGENDOM_REFERENTIE"
 msgstr "Eigendom referentie "
 
-#: .\realestate\templates\realestate\detail.html:33
+#: .\realestate\templates\realestate\detail.html:35
 #: .\realestate\templates\realestate\index.html:65
 msgid "PROPERTY_SALE"
 msgstr "Te  koop"
 
-#: .\realestate\templates\realestate\detail.html:35
+#: .\realestate\templates\realestate\detail.html:37
 #: .\realestate\templates\realestate\index.html:67
 msgid "PROPERTY_RENT"
 msgstr "Te huur"
 
-#: .\realestate\templates\realestate\detail.html:64
+#: .\realestate\templates\realestate\detail.html:66
 msgid "BATHROOMS"
 msgstr "Badkamers"
 
-#: .\realestate\templates\realestate\detail.html:65
+#: .\realestate\templates\realestate\detail.html:67
 msgid "BEDROOMS"
 msgstr "Slaapkamers"
 
-#: .\realestate\templates\realestate\detail.html:71
+#: .\realestate\templates\realestate\detail.html:73
 msgid "ADDITIONAL_FEATURES"
 msgstr "Extra kenmerken"
 
-#: .\realestate\templates\realestate\detail.html:80
+#: .\realestate\templates\realestate\detail.html:82
 msgid "PROPERTY_LOCATION"
 msgstr "Locatie"
 
-#: .\realestate\templates\realestate\detail.html:114
+#: .\realestate\templates\realestate\detail.html:92
+msgid "INTERESTED"
+msgstr "Interesse in dit pand?"
+
+#: .\realestate\templates\realestate\detail.html:94
+msgid "INTERESTED_TEXT"
+msgstr "Heeft u vragen? Wilt u extra informatie?"
+
+#: .\realestate\templates\realestate\detail.html:96
+msgid "CONTACT_REALTOR"
+msgstr "Contacteer de makelaar"
+
+#: .\realestate\templates\realestate\detail.html:101
 msgid "TELL_FRIEND_TITLE"
 msgstr "Interessant pand voor iemand dat je kent?"
 
-#: .\realestate\templates\realestate\detail.html:117
+#: .\realestate\templates\realestate\detail.html:103
 msgid "TELL_FRIEND_TEXT"
 msgstr "Heeft iemand dat u kent misschien interesse in dit pand?"
 
-#: .\realestate\templates\realestate\detail.html:120
-#: .\realestate\templates\realestate\share.html:15
+#: .\realestate\templates\realestate\detail.html:105
+#: .\realestate\templates\realestate\share.html:14
 msgid "SHARE_LINK"
 msgstr "Deel dit pand nu!"
 
 #: .\realestate\templates\realestate\disclaimer.html:10
 #: .\realestate\templates\realestate\disclaimer.html:14
-#: .\realestate\templates\realestate\disclaimer.html:21
-#: .\realestate\templates\realestate\disclaimer.html:37
+#: .\realestate\templates\realestate\disclaimer.html:23
 msgid " DISCLAIMER_TITLE "
 msgstr "Disclaimer"
 
-#: .\realestate\templates\realestate\disclaimer.html:23
-#: .\realestate\templates\realestate\disclaimer.html:39
+#: .\realestate\templates\realestate\disclaimer.html:25
 msgid "DISCLAIMER_TEXT"
 msgstr ""
 "Via Sofie besteedt veel aandacht en zorg aan haar website en streeft ernaar "
@@ -616,35 +607,10 @@ msgstr ""
 "daarvan maken inbreuk op intellectuele rechten."
 
 #: .\realestate\templates\realestate\disclaimer.html:27
-#: .\realestate\templates\realestate\disclaimer.html:41
 msgid " PRIVACYPOLICY_TITLE"
 msgstr "Privacy beleid"
 
 #: .\realestate\templates\realestate\disclaimer.html:29
-#, fuzzy
-#| msgid "PRIVCAYPOLICY_TEXT"
-msgid "PRIVACYPOLICY_TEXT"
-msgstr ""
-"Via Sofie hecht veel belang aan het beschermen van de privacy van de "
-"bezoekers van haar website.Ons privacybeleid is van toepassing op de "
-"diensten geleverd door Via Sofie. We zijn echter niet verantwoordelijk voor "
-"hetprivacybeleid van andere sites en bronnen.We zijn er van bewust dat u "
-"vertrouwen stelt in ons en zien het dan ook als onze verantwoordelijkheid om "
-"uw privacy tebeschermen.Door gebruik te maken van deze website geeft u aan "
-"het privacybeleid te accepteren.Wanneer u zich aanmeldt voor een van onze "
-"diensten, zoals een nieuwsbrief, e-book of klantenaccount vragen we u "
-"ompersoonsgegevens te verstrekken. Deze gegevens worden gebruikt om de "
-"dienst uit te kunnen voeren. Uw gegevens worden ookgebruikt om u op de "
-"hoogte te houden van onze activiteiten.De informatie wordt niet met derden "
-"gedeeld. Onze werknemers zijn verplicht om de vertrouwelijkheid van uw "
-"gegevens terespecteren.We controleren regelmatig of we aan dit privacybeleid "
-"voldoen. Als u vragen heeft over dit privacybeleid, kunt u contact met "
-"onsopnemen:Via Sofie, Mussenhoevelaan 101,2530 Boechout, telefoonnummer: "
-"0483713710, emailadres:info@viasofie.be\n"
-" Als u uw gegevens aan wilt passen of uzelf uit onze bestanden wilt laten "
-"halen, kunt u contact met ons op nemen."
-
-#: .\realestate\templates\realestate\disclaimer.html:43
 msgid "PRIVCAYPOLICY_TEXT"
 msgstr ""
 "Via Sofie hecht veel belang aan het beschermen van de privacy van de "
@@ -668,10 +634,8 @@ msgstr ""
 
 #: .\realestate\templates\realestate\ebook.html:10
 #: .\realestate\templates\realestate\ebook.html:14
-#, fuzzy
-#| msgid "ABOUT_BUTTON"
 msgid "EBOOK_BUTTON"
-msgstr "About us"
+msgstr "Ebook aanvragen"
 
 #: .\realestate\templates\realestate\ebook.html:23
 msgid "Vraag hier uw gratis e-book aan"
@@ -682,11 +646,11 @@ msgstr ""
 msgid "FAQ_RIGHTBUTTON"
 msgstr "Advies"
 
-#: .\realestate\templates\realestate\faq.html:35
+#: .\realestate\templates\realestate\faq.html:26
 msgid "FAQ_TITLE"
 msgstr "Veelgestelde vragen"
 
-#: .\realestate\templates\realestate\faq.html:37
+#: .\realestate\templates\realestate\faq.html:28
 msgid "FAQ_TEXT"
 msgstr ""
 "Wilt u een woning kopen/huren of verkopen/verhuren dan moet u rekening "
@@ -696,25 +660,25 @@ msgstr ""
 "contacteren, ik help u graag verder. Klik op een vraag om hierover meer te "
 "weten te komen."
 
-#: .\realestate\templates\realestate\faq.html:43
+#: .\realestate\templates\realestate\faq.html:34
 #: .\realestate\templates\realestate\properties.html:8
 #: .\realestate\templates\realestate\reference_search.html:19
 #: .\realestate\templates\realestate\search_bar.html:68
 msgid "SEARCH_BUTTON"
 msgstr "Zoek"
 
-#: .\realestate\templates\realestate\faq.html:58
+#: .\realestate\templates\realestate\faq.html:49
 msgid "NO_RESULT"
 msgstr "Geen resultaten gevonden."
 
-#: .\realestate\templates\realestate\faq.html:83
+#: .\realestate\templates\realestate\faq.html:69
 msgid "FAQ_HELP_TEXT"
 msgstr ""
 "Hebt u nog vragen? Ik help u graag verder! Hebt u vragen over het te koop "
 "stellen van een onroerend goed? Wilt u er zeker van zijn dat uw "
 "verkoopdossier volledig is? Neem vrijblijvend contact op! "
 
-#: .\realestate\templates\realestate\faq.html:96
+#: .\realestate\templates\realestate\faq.html:81
 msgid "FAQ_BOTTOMTEXT"
 msgstr ""
 "De inlichtingen zoals meegedeeld op deze pagina zijn louter van algemeneaard "
@@ -767,39 +731,39 @@ msgstr "Vraag een E-book aan"
 msgid "Vraag hier uw gratis ebook aan"
 msgstr "Vraag hier uw gratis ebook aan"
 
-#: .\realestate\templates\realestate\header.html:61
+#: .\realestate\templates\realestate\header.html:62
 msgid "HEADER_USERPANEL"
 msgstr "Gebruikerspaneel"
 
-#: .\realestate\templates\realestate\header.html:63
+#: .\realestate\templates\realestate\header.html:64
 msgid "HEADER_LOGOUT"
 msgstr "Uitloggen"
 
-#: .\realestate\templates\realestate\header.html:87
+#: .\realestate\templates\realestate\header.html:88
 msgid "HEADER_HOME"
 msgstr "Home"
 
-#: .\realestate\templates\realestate\header.html:88
+#: .\realestate\templates\realestate\header.html:89
 msgid "HEADER_KOPEN"
 msgstr "Kopen"
 
-#: .\realestate\templates\realestate\header.html:89
+#: .\realestate\templates\realestate\header.html:90
 msgid "HEADER_HUREN"
 msgstr "Huren"
 
-#: .\realestate\templates\realestate\header.html:90
+#: .\realestate\templates\realestate\header.html:91
 msgid "HEADER_FAQ"
 msgstr "Advies"
 
-#: .\realestate\templates\realestate\header.html:91
+#: .\realestate\templates\realestate\header.html:92
 msgid "HEADER_CONTACT"
 msgstr "Contact"
 
-#: .\realestate\templates\realestate\header.html:92
+#: .\realestate\templates\realestate\header.html:93
 msgid "HEADER_OVER"
 msgstr "Over"
 
-#: .\realestate\templates\realestate\header.html:93
+#: .\realestate\templates\realestate\header.html:94
 msgid "HEADER_PARTNERS"
 msgstr "Partners"
 
@@ -809,7 +773,9 @@ msgstr "Uitgelicht"
 
 #: .\realestate\templates\realestate\index.html:29
 #: .\realestate\templates\realestate\index.html:82
-#: .\realestate\templates\realestate\index.html:138
+#: .\realestate\templates\realestate\index.html:137
+#: .\realestate\templates\realestate\rent.html:55
+#: .\realestate\templates\realestate\search.html:60
 msgid "RENT_MONTH"
 msgstr "per maand"
 
@@ -822,16 +788,16 @@ msgid "INDEX_TITLE"
 msgstr "Recent toegevoegd"
 
 #: .\realestate\templates\realestate\index.html:85
-#: .\realestate\templates\realestate\index.html:144
-#: .\realestate\templates\realestate\rent.html:53
-#: .\realestate\templates\realestate\search.html:59
-#: .\realestate\templates\realestate\search.html:115
-#: .\realestate\templates\realestate\sell.html:54
+#: .\realestate\templates\realestate\index.html:140
+#: .\realestate\templates\realestate\rent.html:58
+#: .\realestate\templates\realestate\search.html:63
+#: .\realestate\templates\realestate\search.html:120
+#: .\realestate\templates\realestate\sell.html:53
 msgid "PROPERTY_DETAILS_BUTTON"
 msgstr "Details"
 
 #: .\realestate\templates\realestate\index.html:102
-#: .\realestate\templates\realestate\search.html:26
+#: .\realestate\templates\realestate\search.html:25
 msgid "SEARCH_RESULTS"
 msgstr "Zoek resultaten"
 
@@ -856,7 +822,7 @@ msgid "RENT_BUTTON"
 msgstr "Huren"
 
 #: .\realestate\templates\realestate\rent.html:28
-#: .\realestate\templates\realestate\search.html:90
+#: .\realestate\templates\realestate\search.html:96
 msgid "Panden te huur:"
 msgstr "Panden te huur"
 
@@ -901,17 +867,15 @@ msgstr "Kopen"
 msgid "Panden te koop:"
 msgstr "Panden te koop"
 
-#: .\realestate\templates\realestate\share.html:11
-#, fuzzy
-#| msgid "FAQ_TITLE"
+#: .\realestate\templates\realestate\share.html:10
 msgid "SHARE_TITLE"
-msgstr "Frequently Asked Questions"
+msgstr "Eigendom delen"
 
-#: .\realestate\templates\realestate\share.html:15
+#: .\realestate\templates\realestate\share.html:14
 msgid "HOME_LINK"
 msgstr "Home"
 
-#: .\realestate\templates\realestate\share.html:25
+#: .\realestate\templates\realestate\share.html:23
 msgid "SHARE_THIS_PROPERTY_TITLE"
 msgstr "Deel dit eigendom met iemand!"
 
@@ -954,21 +918,19 @@ msgstr "U bent succesvol uitgelogd. "
 msgid "LOGIN_AGAIN_LINK"
 msgstr "Klik hier om opnieuw in te loggen. "
 
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:8
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:27
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:31
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:40
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:11
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:15
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:24
 msgid " RESET_PASSWORD_TITLE "
 msgstr "Wachtwoord reset"
 
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:49
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_confirm.html:33
 msgid "UNVALID_RESET_LINK"
 msgstr "Deze reset link is niet geldig. Probeer een nieuwe aanvraging."
 
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:7
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:20
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:24
-#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:33
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:9
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:13
+#: .\realestate\templates\usercontrolpanel\passwordreset\password_reset_form.html:22
 msgid " REQUEST_RESET_PASSWORD_TITLE "
 msgstr "Wachtwoord opvragen"
 
@@ -1010,6 +972,30 @@ msgstr "Datum"
 #: .\realestate\templates\usercontrolpanel\userpanel.html:101
 msgid "DEAL_DETAILS"
 msgstr "Details"
+
+#, fuzzy
+#~| msgid "PRIVCAYPOLICY_TEXT"
+#~ msgid "PRIVACYPOLICY_TEXT"
+#~ msgstr ""
+#~ "Via Sofie hecht veel belang aan het beschermen van de privacy van de "
+#~ "bezoekers van haar website.Ons privacybeleid is van toepassing op de "
+#~ "diensten geleverd door Via Sofie. We zijn echter niet verantwoordelijk "
+#~ "voor hetprivacybeleid van andere sites en bronnen.We zijn er van bewust "
+#~ "dat u vertrouwen stelt in ons en zien het dan ook als onze "
+#~ "verantwoordelijkheid om uw privacy tebeschermen.Door gebruik te maken van "
+#~ "deze website geeft u aan het privacybeleid te accepteren.Wanneer u zich "
+#~ "aanmeldt voor een van onze diensten, zoals een nieuwsbrief, e-book of "
+#~ "klantenaccount vragen we u ompersoonsgegevens te verstrekken. Deze "
+#~ "gegevens worden gebruikt om de dienst uit te kunnen voeren. Uw gegevens "
+#~ "worden ookgebruikt om u op de hoogte te houden van onze activiteiten.De "
+#~ "informatie wordt niet met derden gedeeld. Onze werknemers zijn verplicht "
+#~ "om de vertrouwelijkheid van uw gegevens terespecteren.We controleren "
+#~ "regelmatig of we aan dit privacybeleid voldoen. Als u vragen heeft over "
+#~ "dit privacybeleid, kunt u contact met onsopnemen:Via Sofie, "
+#~ "Mussenhoevelaan 101,2530 Boechout, telefoonnummer: 0483713710, emailadres:"
+#~ "info@viasofie.be\n"
+#~ " Als u uw gegevens aan wilt passen of uzelf uit onze bestanden wilt laten "
+#~ "halen, kunt u contact met ons op nemen."
 
 #~ msgid "FOOTER_TEXT2"
 #~ msgstr ""

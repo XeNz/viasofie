@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 19:46+0200\n"
+"POT-Creation-Date: 2016-06-16 12:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,44 +40,44 @@ msgstr ""
 
 #: .\templates\admin\base.html:59
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: .\templates\admin\base_site.html:4 .\templates\admin\base_site.html.py:7
 msgid "ADMINPANEL"
-msgstr ""
+msgstr "Admin paneel"
 
 #: .\templates\admin\index.html:32
 #, python-format
 msgid "Models in the %(name)s application"
 msgstr ""
 
-#: .\templates\admin\index.html:82
+#: .\templates\admin\index.html:94
 msgid "Add"
-msgstr ""
+msgstr "Voeg toe"
 
-#: .\templates\admin\index.html:113
+#: .\templates\admin\index.html:125
 msgid "You don't have permission to edit anything."
-msgstr ""
+msgstr "U heeft geen permissies om iets aan te passen"
 
-#: .\templates\admin\index.html:123
+#: .\templates\admin\index.html:135
 msgid "RECENT_ACTIONS"
-msgstr ""
+msgstr "Recente acties"
 
-#: .\templates\admin\index.html:127
+#: .\templates\admin\index.html:139
 msgid "None available"
-msgstr ""
+msgstr "Geen beschikbaar"
 
-#: .\templates\admin\index.html:141
+#: .\templates\admin\index.html:153
 msgid "Unknown content"
-msgstr ""
+msgstr "Onbekende content"
 
 #: .\templates\admin\login.html:21
 msgid "Please correct the error below."
-msgstr ""
+msgstr "Verbeter aub de error hieronder."
 
 #: .\templates\admin\login.html:21
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "Verbeter aub de errors hieronder."
 
 #: .\templates\admin\login.html:37
 #, python-format
@@ -88,7 +88,7 @@ msgstr ""
 
 #: .\templates\admin\login.html:57
 msgid "Forgotten your password or username?"
-msgstr ""
+msgstr "Uw wachtwoord of gebruikersnaam vergeten?"
 
 #: .\templates\admin\login.html:61
 msgid "Log in"

@@ -49,7 +49,7 @@
                                 <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}}</li>
                             </ul>
                             <div class="buttons-wrapper">
-                                <span id="sellingprice" class="yellow-btn">{{property.sellingprice}}</span>
+                                <span id="sellingprice" class="yellow-btn">€ {{property.sellingprice}}</span>
                                 <a href="{% url 'realestate:detail' pk=property.id %}" class="gray-btn"><span class="fa fa-file-text-o"></span>{%blocktrans %}PROPERTY_DETAILS_BUTTON{% endblocktrans%}</a>
                             </div>
                             <div class="clearfix">
@@ -78,7 +78,8 @@
                                             {% endif %}
                                         </span>
                                     </div>
-                    </div>
+            </div>
+
             {%endif%}
         </div>
     </div>
