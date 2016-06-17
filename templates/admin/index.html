@@ -59,8 +59,14 @@
                 {% if  model.name == "Newsletters" or model.name == "Nieuwsbrieven" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/newsletter.png" %}' >
                 {% endif %}
-                {% if  model.name == "Subscribers" %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/newsletter.png" %}' >
+                {% if  model.name == "Zendingen" or model.name == "Submissions" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/submission.png" %}' >
+                {% endif %}
+                {% if  model.name == "Messages" or model.name == "Berichten" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/message.png" %}' >
+                {% endif %}
+                {% if  model.name == "Abonnementen" or model.name == "Subscriptions" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/subscription.png" %}' >
                 {% endif %}
                 {% if  model.name == "Veelgestelde vragen" or model.name == "Frequently Asked Questions" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/faq.png" %}' >
