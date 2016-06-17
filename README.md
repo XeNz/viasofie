@@ -1,44 +1,90 @@
-# viasofie
-I'm using a virtualenv in python, your probably don't have to use it. (workon viasofie)
+#  Viasofie project Groep 4 - Developer manual:
 
-if you change anything in the model, don't forget to "python manage.py makemigrations" -> "python manage.py migrate"
-***
-To update the localization files, edit the .po files with a text editor.
+## Requirements: 
 
-django-admin makemessages -l en
 
-OR
+We used Python 3.5.1 for this project. We recommend using a virtualenv to use Python 3.5.1 if you have another Python version installed.
+-	PIP
+-	virtualenv, virtualenvwrapper
+-	Python 3.5.1
+-	mysqlclient-python (https://github.com/PyMySQL/mysqlclient-python)
+-	Downloaded Master from github project
 
-run django-admin makemessages -l fr
 
-OR
+##Using virtualenv:
 
-run django-admin makemessages -l nl 
 
-AND
+virtualenv –p PYTHONPATH VIRTUALENVNAME
 
-django-admin compilemessages
+or
 
-If you get an error saying you need to get gettext download the following files:
-http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-tools-0.17.zip
-http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.17-1.zip
-extract them in your programfiles folder and add it to your path. 
-If you still get errors: set gettext.exe and xgettext.exe to compatibility mode for windows xp and run as admin.
+mkvirtualenv –p PYTHONPATH VIRTUALENVNAME
 
-***
-when having errors with classytags:
-pip install django-classy-tags
+PYTHONPATH = path to Python 3.5.1 executable
 
-when having errors with easy_thumbnails:
-pip install easy_thumbnails
-***
+VIRTUALENVNAME = name you choose for the virtual env
 
-account for user control panel = test : test12345
-account fro admin = admin : password123
+workon VIRTUALENVNAME
 
-***
-screen
 
-screen -ls
+##Installing the project dependent requirements:
 
-screen screen -r PID
+
+cd to the project folder
+
+pip install  -r requirements.txt
+
+	Normally all the correct requirements should be installed with this command.
+	
+	When having problems with the installation of Pillow look at https://stackoverflow.com/questions/34631806/fail-during-installation-of-pillow-python-module-in-linux . 
+	
+python manage.py runserver
+
+or
+
+python manage.py runserver 0.0.0.0:80 (when running on a server)
+
+	The server should now be running.
+	
+	Try 127.0.0.1:8000 / public_IP_of_the_server:80 to access the website.
+	
+	
+## Changing the settings
+
+- Change the SMTP server settings:
+
+	Find the following variables and change accordingly: EMAIL_USE_TLS,EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT
+
+
+- Change the database settings:
+
+	Find the DATABASES variable.
+
+
+- Change the allowed hosts:
+
+	Find the ALLOWED_HOSTS variable.
+
+
+- Change the SITE URL:
+
+	Change the ‘domain’ and ‘name’ column in the django_site table in the database.
+
+
+- Create a superuser:
+
+	django-admin createsuperuser
+
+
+Current testdata:
+
+
+Admin:
+	Username: admin
+	Password: password123
+Test users:
+	Username: test
+	Password: password12345
+	Username: test3
+	Password: password12345
+
