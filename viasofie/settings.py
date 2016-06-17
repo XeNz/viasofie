@@ -105,31 +105,31 @@ DATABASES = {
        #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
        # },
     #   
-    # SCHOOL VPS
-    # 'default': {
-    #  'ENGINE': 'django.db.backends.mysql',
-    #  'NAME': 'viasofie',
-    #  'USER': 'projectuser',
-    #  'PASSWORD': 'Kappa456',
-    #  'HOST': '192.168.84.96',
-    #  'PORT': '3306',
-    #  'OPTIONS': {
-    #    'autocommit': True,
-    #    'read_default_file': '/mysqlConfig.cnf',
-    #  },
-    # }
+    #SCHOOL VPS
     'default': {
      'ENGINE': 'django.db.backends.mysql',
      'NAME': 'viasofie',
      'USER': 'projectuser',
-     'PASSWORD': 'Kappa123',
-     'HOST': '188.166.52.133',
+     'PASSWORD': 'Kappa456',
+     'HOST': '192.168.84.96',
      'PORT': '3306',
      'OPTIONS': {
        'autocommit': True,
        'read_default_file': '/mysqlConfig.cnf',
      },
     }
+    # 'default': {
+    #  'ENGINE': 'django.db.backends.mysql',
+    #  'NAME': 'viasofie',
+    #  'USER': 'projectuser',
+    #  'PASSWORD': 'Kappa123',
+    #  'HOST': '188.166.52.133',
+    #  'PORT': '3306',
+    #  'OPTIONS': {
+    #    'autocommit': True,
+    #    'read_default_file': '/mysqlConfig.cnf',
+    #  },
+    # }
 }
 
 # HAYSTACK_CONNECTIONS = {
