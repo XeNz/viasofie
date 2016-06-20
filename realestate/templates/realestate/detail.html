@@ -62,7 +62,12 @@
                         <h2>Referentienummer : {{ property.id }}</h2>
                         <h2>{{ property.street_text }} {{ property.house_number_text}}, {{ property.postal_code_text }} {{ property.city_text }}, {{ property.country_text }}</h2>
                         <ul class="slide-item-features item-features">
-                        <li id="surface_area"><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}} m²</li>
+                            <li id="property_type"><span class="fa fa-home "></span>
+                            {% for propertyType in propertytype%}
+                                {{propertyType.propertyType_id.name}}
+                            {% endfor %}
+                            </li>
+                            <li id="surface_area"><span class="fa fa-arrows-alt"></span>{{property.surface_area_text}} m²</li>
                             <li><span class="fa fa-male"></span>{{property.bathrooms_text}} {%blocktrans %}BATHROOMS{% endblocktrans%}</li>
                             <li><span class="fa fa-inbox"></span>{{property.bedrooms_text}} {%blocktrans %}BEDROOMS{% endblocktrans%}</li>
                         </ul>
