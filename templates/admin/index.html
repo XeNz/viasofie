@@ -47,31 +47,37 @@
                 {% if model.name == "Ebooks" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/ebook.png" %}' >
                 {% endif %}
-                {% if model.name == "Ebook opvragingen" %}
+                {% if model.name == "Ebook opvragingen" or model.name == "Ebook requests" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/ebookrequest.png" %}' >
                 {% endif %}
-                {% if model.name == "Stavaza"%}
+                {% if model.name == "Stavaza" or model.name == "Statuses" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/status.png" %}' >
                 {% endif %}
                 {% if  model.name == "Eigendommen" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/house.png" %}' >
                 {% endif %}
-                {% if  model.name == "Newsletters" %}
+                {% if  model.name == "Newsletters" or model.name == "Nieuwsbrieven" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/newsletter.png" %}' >
                 {% endif %}
-                {% if  model.name == "Subscribers" %}
-                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/newsletter.png" %}' >
+                {% if  model.name == "Zendingen" or model.name == "Submissions" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/submission.png" %}' >
                 {% endif %}
-                {% if  model.name == "Veelgestelde vragen" %}
+                {% if  model.name == "Messages" or model.name == "Berichten" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/message.png" %}' >
+                {% endif %}
+                {% if  model.name == "Abonnementen" or model.name == "Subscriptions" %}
+                <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/subscription.png" %}' >
+                {% endif %}
+                {% if  model.name == "Veelgestelde vragen" or model.name == "Frequently Asked Questions" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/faq.png" %}' >
                 {% endif %}
-                {% if  model.name == "Property characteristics" %}
+                {% if  model.name == "Property characteristics" or model.name == "Eigendom karakteristieken" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/bath.png" %}' >
                 {% endif %}
                 {% if  model.name == "Partners"  %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/partner.png" %}' >
                 {% endif %}
-                {% if  model.name == "Eigendomstypes" %}
+                {% if  model.name == "Eigendomstypes" or model.name == "Property types" %}
                 <img class = "img-responsive" width="100px" height="100px" alt="{{ model.name }}" title="{{ model.name }}" src='{% static "realestate/img/propertytype.png" %}' >
                 {% endif %}
                <!--  {{ model.name }} -->

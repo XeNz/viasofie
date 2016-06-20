@@ -692,7 +692,7 @@ msgstr "contact info"
 
 #: .\realestate\templates\realestate\footer.html:37
 msgid "OPENING_HOURS"
-msgstr "Contacteer mij voor een afspraak:"
+msgstr "Contacteer mij voor een afspraak"
 
 #: .\realestate\templates\realestate\footer.html:51
 msgid "PRIVACY_POLICY"
@@ -777,7 +777,7 @@ msgstr "Uitgelicht"
 #: .\realestate\templates\realestate\rent.html:55
 #: .\realestate\templates\realestate\search.html:60
 msgid "RENT_MONTH"
-msgstr "per maand"
+msgstr "/ maand"
 
 #: .\realestate\templates\realestate\index.html:32
 msgid "DETAILS_BUTTON"

@@ -2263,3 +2263,52 @@ input[type='submit'] {
 #userpanel{
   margin-top: 20px;
 }
+#footer-opening{
+  margin-top: 55px;
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+
+    .main-flexslider{
+      height: 300px;
+    }
+    .main-flexslider .slides img{
+      height: 300px;
+    }
+    .main-flexslider .slides .slides .slide-box{
+      margin-bottom: 300px;
+    }
+    #logoimage{
+      margin-left: 55px;
+    }
+    .language-section{
+      display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+
+    .main-flexslider{
+      height: 300px;
+    }
+    .main-flexslider .slides img{
+      height: 300px;
+    }
+    .main-flexslider .slides .slides .slide-box{
+      margin-bottom: 300px;
+    }
+    .language-section{
+      display: none;
+    }
+}
