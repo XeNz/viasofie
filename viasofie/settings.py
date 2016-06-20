@@ -104,32 +104,32 @@ DATABASES = {
       #     'ENGINE': 'django.db.backends.sqlite3',
        #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
        # },
-    #   
+    #
     # SCHOOL VPS
-    # 'default': {
-    #  'ENGINE': 'django.db.backends.mysql',
-    #  'NAME': 'viasofie',
-    #  'USER': 'projectuser',
-    #  'PASSWORD': 'Kappa456',
-    #  'HOST': '192.168.84.96',
-    #  'PORT': '3306',
-    #  'OPTIONS': {
-    #    'autocommit': True,
-    #    'read_default_file': '/mysqlConfig.cnf',
-    #  },
-    # }
     'default': {
      'ENGINE': 'django.db.backends.mysql',
      'NAME': 'viasofie',
      'USER': 'projectuser',
-     'PASSWORD': 'Kappa123',
-     'HOST': '188.166.52.133',
+     'PASSWORD': 'Kappa456',
+     'HOST': '192.168.84.96',
      'PORT': '3306',
      'OPTIONS': {
        'autocommit': True,
        'read_default_file': '/mysqlConfig.cnf',
      },
     }
+    # 'default': {
+    #  'ENGINE': 'django.db.backends.mysql',
+    #  'NAME': 'viasofie',
+    #  'USER': 'projectuser',
+    #  'PASSWORD': 'Kappa123',
+    #  'HOST': '188.166.52.133',
+    #  'PORT': '3306',
+    #  'OPTIONS': {
+    #    'autocommit': True,
+    #    'read_default_file': '/mysqlConfig.cnf',
+    #  },
+    # }
 }
 
 # HAYSTACK_CONNECTIONS = {
@@ -197,7 +197,6 @@ LOCALE_PATHS = (
 _ = lambda s: s
 LANGUAGES = (
     ('en', _('English')),
-    ('fr', _('French')),
     ('nl', _('Nederlands')),
 )
 
@@ -237,4 +236,4 @@ AUTH_USER_MODEL = 'realestate.ClientUser'
 
 #SESSION EXPIRATION
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = 240 * 60 
+SESSION_COOKIE_AGE = 240 * 60

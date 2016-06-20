@@ -84,6 +84,8 @@ class DetailView(generic.DetailView):
         context = super(DetailView, self).get_context_data(**kwargs)
         data_dict = {'minprice': 1, 'maxprice' : 1}
         characteristics_property =Characteristics_property.objects.filter(property_id=self.kwargs['pk'])
+        propertytype = PropertyType_Property.objects.filter(property_id=self.kwargs['pk'])
+        context['propertytype'] = propertytype
         context['characteristics_property'] = characteristics_property
         context['ref_form'] = self.ref_form
         context['form'] = IndexSearchForm(data=self.request.POST or None,initial=data_dict)

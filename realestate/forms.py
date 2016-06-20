@@ -70,7 +70,7 @@ class ReferenceSearchForm(forms.Form):
         if self.cleaned_data['property_id'] is not None or self.cleaned_data['property_id'] != '' :
               return super().clean()
         raise ValidationError_('no correct reference number')
-        
+
 class IndexSearchForm(forms.Form):
     listing_type_choices = forms.ChoiceField(choices=Property.LISTING_TYPE_CHOICES,widget=forms.Select(attrs={'class': 'elselect'}),required=False)
     # province_choices = forms.ModelChoiceField(queryset=Location.objects.none(),widget=forms.Select(attrs={'id': 'select_province', 'class': 'elselect'}),required = True)
@@ -86,7 +86,7 @@ class IndexSearchForm(forms.Form):
 
 class PropertyAdminForm(forms.ModelForm):
     title_text = forms.CharField(label=_('Property|title_text'))
-    description_text = forms.CharField(label=_('Property|description_text'))
+    description_text = forms.CharField(label=_('Property|description_text'), widget=forms.Textarea)
     street_text = forms.CharField(label=_('Property|street_text'))
     house_number_text = forms.CharField(label=_('Property|house_number_text'))
     postcodes = Location.objects.values_list('postcode', flat=True).distinct().order_by('postcode')
@@ -98,7 +98,10 @@ class PropertyAdminForm(forms.ModelForm):
     city_text = forms.ChoiceField(gemeentes_choices,
                                 required=True, widget=forms.Select(),label=_('Property|city_text'))
     country_text = forms.CharField(label=_('Property|country_text'))
-    constructiondate = forms.DateField(label=_('Property|constructiondate'))
+    constructiondate = forms.DateField(label=_('Property|constructiondate'), widget=forms.TextInput(attrs=
+                                {
+                                    'class':'datepicker'
+                                }))
     sellingprice = forms.IntegerField(label=_('Property|sellingprice'))
     visible_to_public = forms.BooleanField(required=False,label=_('Property|visible_to_public'))
     featured = forms.BooleanField(required=False,label=_('Property|featured'))
@@ -107,6 +110,8 @@ class PropertyAdminForm(forms.ModelForm):
     bathrooms_text = forms.IntegerField(label=_('Property|bathrooms_text'))
     bedrooms_text = forms.IntegerField(label=_('Property|bedrooms_text'))
 
-
+    class Meta:
+        model = Property
+        fields = '__all__'
 
 
