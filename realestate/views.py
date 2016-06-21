@@ -282,7 +282,7 @@ def sell(request):
     data_dict = {'minprice': 1, 'maxprice' : 1}
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
     if property_list is None:
-        paginator = Paginator(sell_properties, 9) # Show 5 faqs per page
+        paginator = Paginator(sell_properties, 6) # Show 6 properties per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
         try:
@@ -315,7 +315,7 @@ def rent(request):
     property_list = None
     form = IndexSearchForm(data=request.POST or None,initial=data_dict)
     if property_list is None:
-        paginator = Paginator(rent_properties, 9) # Show 5 faqs per page
+        paginator = Paginator(rent_properties, 6) # Show 6 properties per page
         page_request_var = "page"
         page = request.GET.get(page_request_var)
         try:
