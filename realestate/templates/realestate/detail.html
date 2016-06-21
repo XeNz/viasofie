@@ -78,7 +78,7 @@
                             <h3>{%blocktrans %}ADDITIONAL_FEATURES{% endblocktrans%}</h3>
                             <ul class="features">
                                 {% for characteristic in characteristics_property %}
-                                {% if "nee" in characteristic.value  or  "Nee" in characteristic.value  or "no" in characteristic.value  or "No" in characteristic.value or "0" in characteristic.value or "False" in characteristic.value %}
+                                {% if "nee" in characteristic.value  or  "Nee" in characteristic.value  or "no" in characteristic.value  or "No" in characteristic.value or characteristic.value  == "0" or "False" in characteristic.value %}
                                 <li class="single-feature"><a href="#"><i id="fa-red" class="fa fa-times-circle"></i>
                                 {% else %}
                                 <li class="single-feature"><a href="#"><i class="fa fa-check-circle"></i>
