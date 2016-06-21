@@ -26,7 +26,7 @@ SECRET_KEY = '=dxj=8trj-tdhldrtaj_hby%3%t6-(o(10fi2f0bfysnl9vt2#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.16.195.115',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.16.195.115','188.166.52.133',]
 
 NEWSLETTER_CONFIRM_EMAIL = True
 

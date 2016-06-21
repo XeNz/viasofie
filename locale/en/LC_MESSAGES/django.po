@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 00:40+0200\n"
+"POT-Creation-Date: 2016-06-22 00:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,23 +50,23 @@ msgstr ""
 msgid "Models in the %(name)s application"
 msgstr ""
 
-#: .\templates\admin\index.html:94
+#: .\templates\admin\index.html:100
 msgid "Add"
 msgstr ""
 
-#: .\templates\admin\index.html:125
+#: .\templates\admin\index.html:131
 msgid "You don't have permission to edit anything."
 msgstr ""
 
-#: .\templates\admin\index.html:135
+#: .\templates\admin\index.html:141
 msgid "RECENT_ACTIONS"
 msgstr ""
 
-#: .\templates\admin\index.html:139
+#: .\templates\admin\index.html:145
 msgid "None available"
 msgstr ""
 
-#: .\templates\admin\index.html:153
+#: .\templates\admin\index.html:159
 msgid "Unknown content"
 msgstr ""
 
@@ -98,10 +98,6 @@ msgid "English"
 msgstr ""
 
 #: .\viasofie\settings.py:200
-msgid "French"
-msgstr ""
-
-#: .\viasofie\settings.py:201
 msgid "Nederlands"
 msgstr ""
 

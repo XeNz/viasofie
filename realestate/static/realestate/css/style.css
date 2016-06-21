@@ -678,10 +678,15 @@ header #login-box a span {
 .listing-single-item .item-inner .image-wrapper {
   position:relative;
 }
+
 .listing-single-item .item-inner .image-wrapper img {
   width:100%;
   height:270px;
 }
+.listing-single-item .item-inner .image-wrapper .partner-image{
+    height: 222.5px;
+}
+
 .listing-single-item .item-inner .desc-box {
   float:left;
   width:100%;
@@ -1435,6 +1440,16 @@ footer .container .footer-newsletter input[type='submit'] {
 /**** Contact-Page ****/
 .contact-page .page-title-section {
   background-image:url("../img/29_contact_page-title-header.png");
+}
+#contact-left-column{
+  height: 380px;
+}
+.contact-inner-wrapper{
+  height: 100%;
+}
+#contact-info-para{
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 .map-wrapper {
   margin-bottom:30px;

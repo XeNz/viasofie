@@ -46,31 +46,31 @@ msgstr "Country"
 msgid "Property|constructiondate"
 msgstr "Construction date"
 
-#: .\realestate\forms.py:102 .\realestate\models.py:90
+#: .\realestate\forms.py:105 .\realestate\models.py:90
 msgid "Property|sellingprice"
 msgstr "Price"
 
-#: .\realestate\forms.py:103 .\realestate\models.py:91
+#: .\realestate\forms.py:106 .\realestate\models.py:91
 msgid "Property|visible_to_public"
 msgstr "Visible to public"
 
-#: .\realestate\forms.py:104 .\realestate\models.py:92
+#: .\realestate\forms.py:107 .\realestate\models.py:92
 msgid "Property|featured"
 msgstr "Featured"
 
-#: .\realestate\forms.py:105 .\realestate\models.py:93
+#: .\realestate\forms.py:108 .\realestate\models.py:93
 msgid "Property|datepublished"
 msgstr "Date published"
 
-#: .\realestate\forms.py:106 .\realestate\models.py:94
+#: .\realestate\forms.py:109 .\realestate\models.py:94
 msgid "Property|surface_area_text"
 msgstr "Surface area"
 
-#: .\realestate\forms.py:107 .\realestate\models.py:95
+#: .\realestate\forms.py:110 .\realestate\models.py:95
 msgid "Property|bathrooms_text"
 msgstr "Bathrooms"
 
-#: .\realestate\forms.py:108 .\realestate\models.py:96
+#: .\realestate\forms.py:111 .\realestate\models.py:96
 msgid "Property|bedrooms_text"
 msgstr "Bedrooms"
 
@@ -382,15 +382,17 @@ msgstr "Ebook request"
 msgid "Ebook requests"
 msgstr "Ebook requests"
 
-#: .\realestate\templates\404.html:11
+#: .\realestate\templates\404.html:12
 msgid "404_TITLE"
 msgstr "Error 404 - Page not found"
 
-#: .\realestate\templates\404.html:12
+#: .\realestate\templates\404.html:13
 msgid "404_TEXT"
-msgstr "We are unable to find the page you are trying access. Please go back and try again."
+msgstr ""
+"We are unable to find the page you are trying access. Please go back and try "
+"again."
 
-#: .\realestate\templates\404.html:16
+#: .\realestate\templates\404.html:17
 msgid "GO_BACK"
 msgstr "Go back"
 
@@ -420,8 +422,173 @@ msgid "HOME_BUTTON"
 msgstr "Home"
 
 #: .\realestate\templates\newsletter\common.html:23
+#: .\realestate\templates\newsletter\newsletter_detail.html:10
+#: .\realestate\templates\newsletter\newsletter_list.html:14
+#: .\realestate\templates\newsletter\subscription_activate.html:5
+#: .\realestate\templates\newsletter\subscription_activate.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_update_activated.html:5
+#: .\realestate\templates\newsletter\subscription_update_activated.html:8
 msgid "Newsletter"
 msgstr "Newsletter"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:5
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter detail"
+msgstr "Newsletter"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:13
+msgid "newsletter_subscribe"
+msgstr "Subscribe"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:17
+msgid "newsletter_update"
+msgstr "Update"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:21
+msgid "newsletter_unsubscribe"
+msgstr "Unsubscribe"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:27
+msgid "newsletter_backtolist"
+msgstr "Back to newsletter list"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:5
+msgid "Newsletter list"
+msgstr "Newsletter list"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:16
+#: .\realestate\templates\newsletter\subscription_subscribe.html:23
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:22
+msgid "Subscribe"
+msgstr ""
+
+#: .\realestate\templates\newsletter\newsletter_list.html:27
+#, fuzzy
+#| msgid "Status|description"
+msgid "Update subscriptions"
+msgstr "Status description"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:33
+msgid "Choose Newsletter"
+msgstr "Choose a newsletter"
+
+#: .\realestate\templates\newsletter\submission_archive.html:5
+#: .\realestate\templates\newsletter\submission_archive.html:10
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter archive"
+msgstr "Newsletter"
+
+#: .\realestate\templates\newsletter\subscription_activate.html:5
+#: .\realestate\templates\newsletter\subscription_activate.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_update_activated.html:5
+#: .\realestate\templates\newsletter\subscription_update_activated.html:8
+msgid "activate"
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_activate.html:13
+msgid "Activate"
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_email_sent.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_email_sent.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:8
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter subscribe"
+msgstr "Newsletter"
+
+#: .\realestate\templates\newsletter\subscription_subscribe.html:11
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:11
+#: .\realestate\templates\newsletter\subscription_update.html:11
+msgid ""
+"Due to a technical error we were not able to submit your confirmation email. "
+"This could be because your email address is invalid."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:10
+msgid "Your subscription has successfully been activated."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe_email_sent.html:10
+msgid ""
+"Your subscription request was successfully received and an activation email "
+"has been sent to you. In that email you will find a link which you need to "
+"follow in order to activate your subscription."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:19
+msgid "Do you want to subscribe to this newsletter?"
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_email_sent.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_email_sent.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:8
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter unsubscribe"
+msgstr "Newsletter"
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:23
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:23
+msgid "Unsubscribe"
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:10
+msgid "You have successfully been unsubscribed."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe_email_sent.html:10
+msgid ""
+"Your unsubscription request has successfully been received. An email has "
+"been sent to you with a link you need to follow in order to confirm your "
+"unsubscription."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:20
+msgid "Do you want to unsubscribe from this newsletter?"
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_update.html:5
+#: .\realestate\templates\newsletter\subscription_update.html:8
+#: .\realestate\templates\newsletter\subscription_update_email_sent.html:5
+#: .\realestate\templates\newsletter\subscription_update_email_sent.html:8
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter update"
+msgstr "Newsletter"
+
+#: .\realestate\templates\newsletter\subscription_update.html:23
+#, fuzzy
+#| msgid "Status|description"
+msgid "Update subscription"
+msgstr "Status description"
+
+#: .\realestate\templates\newsletter\subscription_update_activated.html:10
+msgid "Your subscription has successfully been updated."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_update_email_sent.html:10
+msgid ""
+"Your update request was successfully received and an activation email has "
+"been sent to you. In that email you will find a link which you need to "
+"follow in order to update your subscription."
+msgstr ""
 
 #: .\realestate\templates\realestate\about.html:10
 #: .\realestate\templates\realestate\about.html:14
@@ -534,43 +701,43 @@ msgstr "For sale"
 msgid "PROPERTY_RENT"
 msgstr "For rent"
 
-#: .\realestate\templates\realestate\detail.html:66
+#: .\realestate\templates\realestate\detail.html:71
 msgid "BATHROOMS"
 msgstr "Bathrooms"
 
-#: .\realestate\templates\realestate\detail.html:67
+#: .\realestate\templates\realestate\detail.html:72
 msgid "BEDROOMS"
 msgstr "Bedrooms"
 
-#: .\realestate\templates\realestate\detail.html:73
+#: .\realestate\templates\realestate\detail.html:78
 msgid "ADDITIONAL_FEATURES"
 msgstr "Additional features"
 
-#: .\realestate\templates\realestate\detail.html:82
+#: .\realestate\templates\realestate\detail.html:93
 msgid "PROPERTY_LOCATION"
 msgstr "Location"
 
-#: .\realestate\templates\realestate\detail.html:92
+#: .\realestate\templates\realestate\detail.html:103
 msgid "INTERESTED"
 msgstr "Interested in this property?"
 
-#: .\realestate\templates\realestate\detail.html:94
+#: .\realestate\templates\realestate\detail.html:105
 msgid "INTERESTED_TEXT"
 msgstr "Do you have questions? Do you want extra information?"
 
-#: .\realestate\templates\realestate\detail.html:96
+#: .\realestate\templates\realestate\detail.html:107
 msgid "CONTACT_REALTOR"
 msgstr "Contact the realtor"
 
-#: .\realestate\templates\realestate\detail.html:101
+#: .\realestate\templates\realestate\detail.html:112
 msgid "TELL_FRIEND_TITLE"
 msgstr "Interesting property for someone you know?"
 
-#: .\realestate\templates\realestate\detail.html:103
+#: .\realestate\templates\realestate\detail.html:114
 msgid "TELL_FRIEND_TEXT"
 msgstr "Is there someone you know that might be interested in this property?"
 
-#: .\realestate\templates\realestate\detail.html:105
+#: .\realestate\templates\realestate\detail.html:116
 #: .\realestate\templates\realestate\share.html:14
 msgid "SHARE_LINK"
 msgstr "Share this property!"
@@ -700,7 +867,8 @@ msgstr "Recognized realtor: "
 
 #: .\realestate\templates\realestate\footer.html:62
 msgid "BUSINESS_NUMBER"
-msgstr "Subjected to the inspection of the Beroepsinstituut voor Vastgoedmakelaars."
+msgstr ""
+"Subjected to the inspection of the Beroepsinstituut voor Vastgoedmakelaars."
 
 #: .\realestate\templates\realestate\footer.html:68
 msgid "BIV_TEXT"
@@ -943,7 +1111,6 @@ msgid "STATUS_TITLE"
 msgstr "Status"
 
 #: .\realestate\templates\usercontrolpanel\userpanel.html:62
-#: .\realestate\templates\usercontrolpanel\userpanel.html:112
 msgid "DOCUMENT"
 msgstr "Document"
 

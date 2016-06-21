@@ -1,76 +1,76 @@
-#: .\realestate\forms.py:54
+#: .\realestate\forms.py:55
 msgid "First Name"
 msgstr "Voornaam"
 
-#: .\realestate\forms.py:55
+#: .\realestate\forms.py:56
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: .\realestate\forms.py:56
+#: .\realestate\forms.py:57
 msgid "Email adress"
 msgstr "E-mail adres"
 
-#: .\realestate\forms.py:63
+#: .\realestate\forms.py:64
 msgid "Reference id"
 msgstr ""
 
-#: .\realestate\models.py:81
+#: .\realestate\forms.py:88 .\realestate\models.py:81
 msgid "Property|title_text"
 msgstr "Titel"
 
-#: .\realestate\models.py:82
+#: .\realestate\forms.py:89 .\realestate\models.py:82
 msgid "Property|description_text"
 msgstr "Beschrijving"
 
-#: .\realestate\models.py:83
+#: .\realestate\forms.py:90 .\realestate\models.py:83
 msgid "Property|street_text"
 msgstr "Straat"
 
-#: .\realestate\models.py:84
+#: .\realestate\forms.py:91 .\realestate\models.py:84
 msgid "Property|house_number_text"
 msgstr "Huisnummer"
 
-#: .\realestate\models.py:85
+#: .\realestate\forms.py:95 .\realestate\models.py:85
 msgid "Property|postal_code_text"
 msgstr "Postcode"
 
-#: .\realestate\models.py:86
+#: .\realestate\forms.py:99 .\realestate\models.py:86
 msgid "Property|city_text"
 msgstr "Stad"
 
-#: .\realestate\models.py:87
+#: .\realestate\forms.py:100 .\realestate\models.py:87
 msgid "Property|country_text"
 msgstr "Land"
 
-#: .\realestate\models.py:88
+#: .\realestate\forms.py:101 .\realestate\models.py:88
 msgid "Property|constructiondate"
 msgstr "Bouwdatum"
 
-#: .\realestate\models.py:90
+#: .\realestate\forms.py:105 .\realestate\models.py:90
 msgid "Property|sellingprice"
 msgstr "Prijs"
 
-#: .\realestate\models.py:91
+#: .\realestate\forms.py:106 .\realestate\models.py:91
 msgid "Property|visible_to_public"
 msgstr "Publiekelijk zichtbaar"
 
-#: .\realestate\models.py:92
+#: .\realestate\forms.py:107 .\realestate\models.py:92
 msgid "Property|featured"
 msgstr "Uitgelicht"
 
-#: .\realestate\models.py:93
+#: .\realestate\forms.py:108 .\realestate\models.py:93
 msgid "Property|datepublished"
 msgstr "Publicatie datum"
 
-#: .\realestate\models.py:94
+#: .\realestate\forms.py:109 .\realestate\models.py:94
 msgid "Property|surface_area_text"
 msgstr "Oppervlakte"
 
-#: .\realestate\models.py:95
+#: .\realestate\forms.py:110 .\realestate\models.py:95
 msgid "Property|bathrooms_text"
 msgstr "Badkamers"
 
-#: .\realestate\models.py:96
+#: .\realestate\forms.py:111 .\realestate\models.py:96
 msgid "Property|bedrooms_text"
 msgstr "Slaapkamers"
 
@@ -384,16 +384,17 @@ msgstr "Ebook opvraging"
 msgid "Ebook requests"
 msgstr "Ebook opvragingen"
 
-#: .\realestate\templates\404.html:11
+#: .\realestate\templates\404.html:12
 msgid "404_TITLE"
 msgstr "Error 404 - Pagina niet gevonden"
 
-#: .\realestate\templates\404.html:12
+#: .\realestate\templates\404.html:13
 msgid "404_TEXT"
-msgstr "Wij kunnen die pagina die u bezoekt niet vinden. Ga terug en probeer het opnieuw."
+msgstr ""
+"Wij kunnen die pagina die u bezoekt niet vinden. Ga terug en probeer het "
+"opnieuw."
 
-
-#: .\realestate\templates\404.html:16
+#: .\realestate\templates\404.html:17
 msgid "GO_BACK"
 msgstr "Ga terug"
 
@@ -423,8 +424,163 @@ msgid "HOME_BUTTON"
 msgstr "Home"
 
 #: .\realestate\templates\newsletter\common.html:23
+#: .\realestate\templates\newsletter\newsletter_detail.html:10
+#: .\realestate\templates\newsletter\newsletter_list.html:14
+#: .\realestate\templates\newsletter\subscription_activate.html:5
+#: .\realestate\templates\newsletter\subscription_activate.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_update_activated.html:5
+#: .\realestate\templates\newsletter\subscription_update_activated.html:8
 msgid "Newsletter"
 msgstr "Nieuwsbrief"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:5
+msgid "Newsletter detail"
+msgstr "Nieuwsbrief acties"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:13
+msgid "newsletter_subscribe"
+msgstr "Schrijf in"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:17
+msgid "newsletter_update"
+msgstr "Pas gegevens aan"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:21
+msgid "newsletter_unsubscribe"
+msgstr "Schrijf uit"
+
+#: .\realestate\templates\newsletter\newsletter_detail.html:27
+msgid "newsletter_backtolist"
+msgstr "Terug naar nieuwsbrief lijst"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:5
+msgid "Newsletter list"
+msgstr "Nieuwsbrief lijst"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:16
+#: .\realestate\templates\newsletter\subscription_subscribe.html:23
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:22
+msgid "Subscribe"
+msgstr "Inschrijven"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:27
+msgid "Update subscriptions"
+msgstr "Pas inschrijvingen aan"
+
+#: .\realestate\templates\newsletter\newsletter_list.html:33
+msgid "Choose Newsletter"
+msgstr "Kies een nieuwsbrief"
+
+#: .\realestate\templates\newsletter\submission_archive.html:5
+#: .\realestate\templates\newsletter\submission_archive.html:10
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter archive"
+msgstr "Nieuwsbrief"
+
+#: .\realestate\templates\newsletter\subscription_activate.html:5
+#: .\realestate\templates\newsletter\subscription_activate.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:8
+#: .\realestate\templates\newsletter\subscription_update_activated.html:5
+#: .\realestate\templates\newsletter\subscription_update_activated.html:8
+msgid "activate"
+msgstr "Activeer"
+
+#: .\realestate\templates\newsletter\subscription_activate.html:13
+msgid "Activate"
+msgstr "Activeer"
+
+#: .\realestate\templates\newsletter\subscription_subscribe.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_email_sent.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_email_sent.html:8
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:5
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:8
+#, fuzzy
+#| msgid "Newsletter"
+msgid "Newsletter subscribe"
+msgstr "Nieuwsbrief"
+
+#: .\realestate\templates\newsletter\subscription_subscribe.html:11
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:11
+#: .\realestate\templates\newsletter\subscription_update.html:11
+msgid ""
+"Due to a technical error we were not able to submit your confirmation email. "
+"This could be because your email address is invalid."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe_activated.html:10
+msgid "Your subscription has successfully been activated."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe_email_sent.html:10
+msgid ""
+"Your subscription request was successfully received and an activation email "
+"has been sent to you. In that email you will find a link which you need to "
+"follow in order to activate your subscription."
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_subscribe_user.html:19
+msgid "Do you want to subscribe to this newsletter?"
+msgstr ""
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_email_sent.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_email_sent.html:8
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:5
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:8
+msgid "Newsletter unsubscribe"
+msgstr "Nieuwsbrief uitschrijven"
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe.html:23
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:23
+msgid "Unsubscribe"
+msgstr "Uitschrijven"
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe_activated.html:10
+msgid "You have successfully been unsubscribed."
+msgstr "U bent successvol uitgeschreven"
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe_email_sent.html:10
+msgid ""
+"Your unsubscription request has successfully been received. An email has "
+"been sent to you with a link you need to follow in order to confirm your "
+"unsubscription."
+msgstr "Uw uitschrijving aanvraag is ontvangen. U hebt nu een e-mail ontvangen waarin u uw uitschrijving moet confirmeren."
+
+#: .\realestate\templates\newsletter\subscription_unsubscribe_user.html:20
+msgid "Do you want to unsubscribe from this newsletter?"
+msgstr "Wilt u zich voor deze nieuwsbrief uitschrijven?"
+
+#: .\realestate\templates\newsletter\subscription_update.html:5
+#: .\realestate\templates\newsletter\subscription_update.html:8
+#: .\realestate\templates\newsletter\subscription_update_email_sent.html:5
+#: .\realestate\templates\newsletter\subscription_update_email_sent.html:8
+msgid "Newsletter update"
+msgstr "Nieuwsbrief gegevens aanpassen"
+
+#: .\realestate\templates\newsletter\subscription_update.html:23
+msgid "Update subscription"
+msgstr "Abonnement aanpassen"
+
+#: .\realestate\templates\newsletter\subscription_update_activated.html:10
+msgid "Your subscription has successfully been updated."
+msgstr "Uw abonnement is succesvol geupdated."
+
+#: .\realestate\templates\newsletter\subscription_update_email_sent.html:10
+msgid ""
+"Your update request was successfully received and an activation email has "
+"been sent to you. In that email you will find a link which you need to "
+"follow in order to update your subscription."
+msgstr "Uw aanpassings aanvraag is successvol ontvangen. U zult nu een e-mail toegestuurd krijgen waarin u een link zal vinden die u toel aat uw abonnement aan te passen."
 
 #: .\realestate\templates\realestate\about.html:10
 #: .\realestate\templates\realestate\about.html:14
@@ -540,43 +696,43 @@ msgstr "Te  koop"
 msgid "PROPERTY_RENT"
 msgstr "Te huur"
 
-#: .\realestate\templates\realestate\detail.html:66
+#: .\realestate\templates\realestate\detail.html:71
 msgid "BATHROOMS"
 msgstr "Badkamers"
 
-#: .\realestate\templates\realestate\detail.html:67
+#: .\realestate\templates\realestate\detail.html:72
 msgid "BEDROOMS"
 msgstr "Slaapkamers"
 
-#: .\realestate\templates\realestate\detail.html:73
+#: .\realestate\templates\realestate\detail.html:78
 msgid "ADDITIONAL_FEATURES"
 msgstr "Extra kenmerken"
 
-#: .\realestate\templates\realestate\detail.html:82
+#: .\realestate\templates\realestate\detail.html:93
 msgid "PROPERTY_LOCATION"
 msgstr "Locatie"
 
-#: .\realestate\templates\realestate\detail.html:92
+#: .\realestate\templates\realestate\detail.html:103
 msgid "INTERESTED"
 msgstr "Interesse in dit pand?"
 
-#: .\realestate\templates\realestate\detail.html:94
+#: .\realestate\templates\realestate\detail.html:105
 msgid "INTERESTED_TEXT"
 msgstr "Heeft u vragen? Wilt u extra informatie?"
 
-#: .\realestate\templates\realestate\detail.html:96
+#: .\realestate\templates\realestate\detail.html:107
 msgid "CONTACT_REALTOR"
 msgstr "Contacteer de makelaar"
 
-#: .\realestate\templates\realestate\detail.html:101
+#: .\realestate\templates\realestate\detail.html:112
 msgid "TELL_FRIEND_TITLE"
 msgstr "Interessant pand voor iemand dat je kent?"
 
-#: .\realestate\templates\realestate\detail.html:103
+#: .\realestate\templates\realestate\detail.html:114
 msgid "TELL_FRIEND_TEXT"
 msgstr "Heeft iemand dat u kent misschien interesse in dit pand?"
 
-#: .\realestate\templates\realestate\detail.html:105
+#: .\realestate\templates\realestate\detail.html:116
 #: .\realestate\templates\realestate\share.html:14
 msgid "SHARE_LINK"
 msgstr "Deel dit pand nu!"
@@ -943,33 +1099,32 @@ msgstr "Gebruikerspaneel"
 msgid "SELECT_DEAL_TITLE"
 msgstr "Selecteer Deal"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:57
+#: .\realestate\templates\usercontrolpanel\userpanel.html:58
 msgid "STATUS_TITLE"
 msgstr "Stavaza"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:61
-#: .\realestate\templates\usercontrolpanel\userpanel.html:110
+#: .\realestate\templates\usercontrolpanel\userpanel.html:62
 msgid "DOCUMENT"
 msgstr "Document"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:62
-#: .\realestate\templates\usercontrolpanel\userpanel.html:89
+#: .\realestate\templates\usercontrolpanel\userpanel.html:63
+#: .\realestate\templates\usercontrolpanel\userpanel.html:91
 msgid "STATUS"
 msgstr "Status"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:63
+#: .\realestate\templates\usercontrolpanel\userpanel.html:64
 msgid "EXTRA_COMMENTS"
 msgstr "Extra commentaar"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:84
+#: .\realestate\templates\usercontrolpanel\userpanel.html:86
 msgid "VISITATIONS_TITLE"
 msgstr "Bezichtigingen"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:88
+#: .\realestate\templates\usercontrolpanel\userpanel.html:90
 msgid "DATE"
 msgstr "Datum"
 
-#: .\realestate\templates\usercontrolpanel\userpanel.html:101
+#: .\realestate\templates\usercontrolpanel\userpanel.html:103
 msgid "DEAL_DETAILS"
 msgstr "Details"
 

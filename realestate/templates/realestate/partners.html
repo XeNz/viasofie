@@ -36,7 +36,7 @@
                           {% for partnerlogo in partner.partnerkey.all %}
                               <div class="desc-box">
                                <a target="_blank" href="{{partner.url}}">
-                                  <li class='slides img-responsive' id='slide-n1'><img src="{% static partnerlogo.logo.url %}" alt="gallery">
+                                  <li class='slides img-responsive' id='slide-n1'><img class='partner-image' src="{% static partnerlogo.logo.url %}" alt="{{partner.description}}">
                               </a>
                                   <h4 id="partners" class="text-center" > <i class="fa fa-arrow-right" aria-hidden="true"></i> {{partner.name}}</h4>
                                   <div class="clearfix">
