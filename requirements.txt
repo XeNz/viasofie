@@ -11,7 +11,7 @@ django-extensions == 1.6.1
 django-imperavi == 0.2.3
 django-newsletter == 0.6
 django-password-reset == 0.8.2
-django-tinymce == 2.3.0
+django-tinymce == 3.4.0
 django-webtest == 1.7.8
 easy-thumbnails == 2.3
 ipykernel == 4.3.1
