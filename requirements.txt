@@ -45,7 +45,7 @@ surlex == 0.2.0
 tornado == 4.3
 traitlets == 4.2.1
 unicodecsv == 0.14.1
-waitress == 0.8.10
+waitress == 2.1.2
 WebOb == 1.6.0
 WebTest == 2.0.20
 django-cookie-law == 1.0.7
